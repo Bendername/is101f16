@@ -1,0 +1,38 @@
+\input{setup/preamble.tex}
+\input{setup/hyphenations.tex}
+\input{setup/macros.tex}
+
+\makeatletter\@addtoreset{chapter}{part}\makeatother%
+\begin{document}
+%\listoftodos
+%frontmatter
+\counterwithout{chapter}{part} % Chapter counter no longer resets when part counter increments
+\pagestyle{empty} %disable headers and footers
+\pagenumbering{roman} %use roman page numbering in the frontmatter
+\input{aau/frontpage.tex}
+\cleardoublepage
+\input{aau/titlepages.tex}
+\cleardoublepage
+\input{aau/signatures.tex}
+\cleardoublepage
+\input{aau/preface.tex}
+\cleardoublepage
+\pdfbookmark[0]{Contents}{label:contents}
+\pagestyle{fancy} %enable headers and footers again
+\setcounter{tocdepth}{2}
+\tableofcontents
+\cleardoublepage
+% end frontmatter
+
+%mainmatter
+\pagenumbering{arabic} %use arabic page numbering in the mainmatter
+% end mainmatter
+\input{sections/introduction.tex}
+\input{sections/researchpapers.tex}
+\input{sections/answertoresearchquestion.tex}
+\bookmarksetup{startatroot} % This moves bib out of out of previous part in ToC and bookmarks
+\bibliography{references}
+\newpage
+\appendix
+\input{appendix}
+\end{document}

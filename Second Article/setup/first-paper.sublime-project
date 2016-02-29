@@ -1,0 +1,30 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.bat",
+				"*.aux",
+				"*.bbl",
+				"*.blg",
+				"*.log",
+				"*.gz",
+				"*.thm",
+				"*.toc",
+				"*.eps",
+				"*.pdf",
+				"*.out",
+				"*.md",
+				"watch.sh",
+			],
+
+			"folder_exclude_patterns":
+			[
+				"Output"
+			],
+			
+			"path": ".."
+		}
+	]
+}

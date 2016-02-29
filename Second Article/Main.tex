@@ -1,0 +1,49 @@
+\input{setup/preamble.tex}
+\input{setup/variables}
+
+\begin{document}
+
+\title{\plaintitle}
+
+\numberofauthors{6}
+\author{%
+  \alignauthor{Anders Bender\\
+    \affaddr{Aalborg University, Denmark}\\
+    \email{abende11@student.aau.dk}}\\
+  \alignauthor{Dennis Baekgaard Nielsen\\
+    \affaddr{Aalborg University, Denmark}\\
+    \email{dbni11@student.aau.dk}}\\
+  \alignauthor{Brian Frost Pedersen\\
+    \affaddr{Aalborg University, Denmark}\\
+    \email{bpeder10@student.aau.dk}}\\
+}
+
+\maketitle
+
+\input{structure/abstract}
+
+\category{H.1.2}{User/Machine Systems}{Human information processing}
+\category{I.4.8}{Scene Analysis}{Sensor fusion}
+\category{I.5.2}{Design Methodology}{Feature evaluation and selection}
+\category{I.5.4}{Applications}{Signal processing}
+
+\keywords{\plainkeywords}
+\todo{keywords}
+
+\input{structure/introduction}
+\input{structure/method.tex}
+\input{structure/results}
+\input{structure/conclusion}
+\input{structure/acknowledgments}
+% REFERENCES FORMAT
+% References must be the same font size as other body text.
+\bibliographystyle{SIGCHI-Reference-Format}
+{\small{\bibliography{references}}
+
+\input{structure/appendix}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,133 @@
+%!TEX root = ..\Main.tex
+
+%\documentclass{setup/sigchi}
+\documentclass[chi_draft]{sigchi}
+
+% Use this command to override the default ACM copyright statement
+% (e.g. for preprints).  Consult the conference website for the
+% camera-ready copyright statement.
+
+%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
+% \toappear{Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org. \\
+% {\emph{CHI'14}}, April 26--May 1, 2014, Toronto, Canada. \\
+% Copyright \copyright~2014 ACM ISBN/14/04...\$15.00. \\
+% DOI string from ACM form confirmation}
+%% EXAMPLE END -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
+\toappear{The content of this article is freely available, but publication (with reference) may only be pursued due to agreement with the authors.}
+
+% Arabic page numbers for submission.  Remove this line to eliminate
+% page numbers for the camera ready copy
+\pagenumbering{arabic}
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage[T1]{fontenc}
+\usepackage{txfonts}
+\usepackage{mathptmx}
+\usepackage[pdftex]{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{textcomp}
+% Some optional stuff you might like/need.
+\usepackage{microtype} % Improved Tracking and Kerning
+\usepackage[all]{hypcap}  % Fixes bug in hyperref caption linking
+\usepackage{ccicons}  % Cite your images correctly!
+\usepackage[utf8]{inputenc} % for a UTF8 editor only
+
+% If you want to use todo notes, marginpars etc. during creation of your draft document, you
+% have to enable the "chi_draft" option for the document class. To do this, change the very first
+% line to: "\documentclass[chi_draft]{sigchi}". You can then place todo notes by using the "\todo{...}"
+% command. Make sure to disable the draft option again before submitting your final document.
+\usepackage{todonotes}
+
+% Paper metadata (use plain text, for PDF inclusion and later
+% re-using, if desired).  Use \emtpyauthor when submitting for review
+% so you remain anonymous.
+\def\plaintitle{Real-time Measurement of User Experience}
+\def\plainauthor{
+Anders Bender,
+Michael Lausdahl Fuglsang,
+Henrik Haxholm,
+Benjamin Hubert,
+Dennis Bækgaard Nielsen,
+Brian Frost Pedersen}
+
+\def\emptyauthor{}
+\def\plainkeywords{
+HCI; %Human computer interaction;
+%Brain computer interface;
+UX; %User experience;
+%Institute of Electrical and Electronics Engineers;
+Interprocess communication;
+%Electrooculogram;
+%Electromyography;
+ECG; %Electrocardiography;
+EEG;
+HRV; %Heart rate variability;
+EDA; %ElecroDermic Activity
+%Blood volume pulse;
+%GSR; %Galvanic skin response;
+FFT; %Fast Fourier transformation;
+%Backwards digit span;
+SVM; %Support vector machine;
+%Cubic support vector machine;
+%K-nearest neighbor;
+Arousal / Valence model;
+Self-Assesment Manikin;
+%Pleasure, arousal and dominance;
+%Cued recall debrief;
+%The geneva affective picture database;
+IAPS; %International Affective Picture System;
+%Positive and negative affect schedule;
+%Universal asynchronous receiver / transmitter;
+%A self developed data visualization application;
+%A self developed application used to collect data from sensors;
+}
+\def\plaingeneralterms{Documentation, Standardization}
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{
+    \def\UrlFont{\sf}
+  }{
+    \def\UrlFont{\small\bf\ttfamily}
+  }}
+\makeatother
+\urlstyle{leo}
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, to give it a
+% fighting chance of not being over-written, since its job is to
+% redefine many LaTeX commands.
+\definecolor{linkColor}{RGB}{6,125,233}
+\hypersetup{%
+  pdftitle={\plaintitle},
+% Use \plainauthor for final version.
+%  pdfauthor={\plainauthor},
+  pdfauthor={\emptyauthor},
+  pdfkeywords={\plainkeywords},
+  bookmarksnumbered,
+  pdfstartview={FitH},
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=linkColor,
+  breaklinks=true,
+}
+
+% create a shortcut to typeset table headings
+% \newcommand\tabhead[1]{\small\textbf{#1}}
+
+% End of preamble. Here it comes the document.
+\usepackage{enumitem}

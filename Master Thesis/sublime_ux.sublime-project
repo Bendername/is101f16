@@ -1,0 +1,22 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns":
+			[
+				"*.bat",
+				"*.aux",
+				"*.bbl",
+				"*.blg",
+				"*.log",
+				"*.gz",
+				"*.thm",
+				"*.toc",
+				"*.eps",
+				"*.pdf"
+			],
+		}
+	]
+}
+
