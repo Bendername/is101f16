@@ -27,22 +27,27 @@
 }
 % Make the standard latex tables look so much better
 \usepackage{array,booktabs}
+\usepackage[flushleft]{threeparttable} % for table notes
 % Enable the use of frames around, e.g., theorems
 % The framed package is used in the example environment
 \usepackage{framed}
 %% source code listing.
 \usepackage{listings}
 % Defines new environments such as equation,
-% align and split 
+% align and split
 \usepackage{amsmath}
 % Adds new math symbols
 \usepackage{amssymb}
 % Use theorems in your document
 % The ntheorem package is also used for the example environment
 % When using thmmarks, amsmath must be an option as well. Otherwise \eqref doesn't work anymore.
+\usepackage{amsmath,amssymb,framed}
 \usepackage[framed,amsmath,thmmarks]{ntheorem}
 % Change the headers and footers
 \usepackage{fancyhdr}
+\fancyhead{}
+\fancyhead[LO]{\leftmark}   % Chapter will only appear on the (L)eft side of (O)dd pages.
+\fancyhead[RE]{\rightmark}  % Section will only appear on the (R)ight side of (E)ven pages.
 % Enable arithmetics with length. Useful when
 % typesetting the layout.
 \usepackage{calc}
@@ -79,24 +84,73 @@
 % enable english st, nd, rd, th to numbers
   \usepackage{nth}
 % Enable hyperlinks and insert info into the pdf
-% file. Hypperref should be loaded as one of the 
+% file. Hypperref should be loaded as one of the
 % last packages
 \usepackage{hyperref}
 \hypersetup{%
-	pdfpagelabels=true,%
-	plainpages=false,%
-	pdfauthor={Author (s)},%
-	pdftitle={Title},%
-	pdfsubject={Subject},%
-	bookmarksnumbered=true,%
-	colorlinks,%
-	citecolor=aaublue,%
-	filecolor=aaublue,%
-	linkcolor=aaublue,% you should probably change this to black before printing
-	urlcolor=aaublue,%
-	pdfstartview=FitH%
+  %pdfpagelabels=true,% Results in: "Warning: Option `pdfpagelabels' has already been used,(hyperref) - setting the option has no effect"
+  plainpages=false,%
+  pdfauthor={Author (s)},%
+  pdftitle={Title},%
+  pdfsubject={Subject},%
+  bookmarksnumbered=true,%
+  colorlinks,%
+  citecolor=aaublue,%
+  filecolor=aaublue,%
+  linkcolor=aaublue,% you should probably change this to black before printing
+  urlcolor=aaublue,%
+  pdfstartview=FitH%
+}
+\newcommand\JSONnumbervaluestyle{\color{blue}}
+\newcommand\JSONstringvaluestyle{\color{red}}
+
+% switch used as state variable
+\newif\ifcolonfoundonthisline
+
+\makeatletter
+
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
 }
 
+\lstdefinestyle{json}
+{
+  showstringspaces    = false,
+  keywords            = {false,true},
+  alsoletter          = 0123456789.,
+  morestring          = [s]{"}{"},
+  stringstyle         = \ifcolonfoundonthisline\JSONstringvaluestyle\fi,
+  MoreSelectCharTable =%
+    \lst@DefSaveDef{`:}\colon@json{\processColon@json},
+  basicstyle          = \ttfamily,
+  keywordstyle        = \ttfamily\bfseries,
+}
+
+% flip the switch if a colon is found in Pmode
+\newcommand\processColon@json{%
+  \colon@json%
+  \ifnum\lst@mode=\lst@Pmode%
+    \global\colonfoundonthislinetrue%
+  \fi
+}
+
+\lst@AddToHook{Output}{%
+  \ifcolonfoundonthisline%
+    \ifnum\lst@mode=\lst@Pmode%
+      \def\lst@thestyle{\JSONnumbervaluestyle}%
+    \fi
+  \fi
+  %override by keyword style if a keyword is detected!
+  \lsthk@DetectKeywords%
+}
+
+% reset the switch at the end of line
+\lst@AddToHook{EOL}%
+  {\global\colonfoundonthislinefalse}
+
+\makeatother
 % Enable printing of section/chapter name instead of number.
 % Requires use of \nameref{<label>} instead of \ref{<label>}.
 \usepackage{nameref}
@@ -132,6 +186,16 @@
 
 % Allows nested figures
 \usepackage{subcaption}
+
+% because we want nice things... no, really just to be able to put ohm symbol.
+\usepackage{gensymb}
+
+\usepackage{pdfpages}
+
+% Make it possible to temporarily adjust the text width
+\usepackage{changepage}
+
+\newtheorem{theorem}{Theorem}
 
 %Anders COMMAND
 \newcommand{\todoanders}[2][ ]
@@ -184,4 +248,13 @@
     {{\includegraphics[height=2ex]{setup/Comments/brian}} \todo[size=\small, color=red!40]{\textbf{Brian:} #2}}
 }
 
+% Definition
+\theorembodyfont{\normalfont\normalsize}        %Angivelse af tekstens udseende i "`sætningens"' >body<
+\theoremheaderfont{\bfseries\large}             %Angivelse af tekstens udseende i "`sætningens"' >head<
+\theoremstyle{break}                            %Angivelse af linieombrud mellem "`sætningens"' >head< og >body<
 
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\renewcommand*\FrameCommand{{\color{gray}\vrule width 5pt \hspace{10pt}}}
+
+\newframedtheorem{definition}{Definition}[chapter]
+\newframedtheorem{theoremm}{Theorem}[chapter]
