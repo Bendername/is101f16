@@ -1,3 +1,55 @@
 %!TEX root = ..\Main.tex
 
 \section{Introduction}
+
+\begin{itemize}
+    \item traditional view on UP and severity scales might be fallible/lacking,
+        as they do not consider the aspect of affect/emotional state
+    \item traditional views on UP is mainly focused time and effort and completion
+        time
+    \item affective state is rarely mentioned in severity scales. Can we maybe
+do this? (idea: develop a new severity scale based on affective state)
+    \item even though HCI has shifted focus from usability to UX, few attempts have
+        been made to do the same with severity ratings (base them on an
+        \textit{experience}, i.e. affective state)
+    \item Three systems for measuring emotional response/state:
+        \begin{itemize}
+            \item affective self-report (SAM)
+            \item Physiological reactivity (sensors)
+            \item Observable behaviour (expert ratings)
+        \end{itemize}
+    \item explain/mention what could be fallible/error-prone with SAM and expert
+        ratings (its subjective)
+    \item using sensors is not common-place (could we maybe use sensors to
+        measure the affective state?)
+    \item \textit{frustration} is a measure/label for a \textit{negative
+        affective} state.
+    \item Frustration is well studied: occurs when a \textit{need} or
+        \textit{reward} is not satisfied
+    \item Frustration does not appear in severity scales (except a single instance mentioned in Anders' paper, but is not tied to physiological measurements)
+    \item Anders' paper proposed the hypothesis that users are more negatively
+        aroused when experiencing UP of higher severity, but could not confirm
+        it (we could \textit{hook}
+        onto this and try and see if we could confirm the hypothesis)
+    \item maybe explain why understanding/ordering UP severity levels are important
+        (higher levels should be prioritized to be fixed)
+    \item from Anders' paper.discussion: "The inclusion of other measures such as heart
+        beat may shed some light on understanding frustration induced by
+        usability problems" - (we could \textit{hook} onto this and introduce such
+        sensors!)
+    \item From Anders' paper "... The ability of GSR to measure arousal and thus emotion... ". (I'm not sure we agree with him, but we can add that if we include the other dimension, valence, then we get close to be able to measure emotions, at least emotional state)
+    \item Several studies confirm that GSR change when users experience stress and negative affect
+    \item Anders' paper mentions three big issues with GSR measurements (we should discuss/try to mitigate them as well)
+    \item Anders' paper especially mentions the many-to-one problem: different emotional states can result in the same physical response, e.g. GSR peak can be both \textit{negative} and \textit{positive} valence. (we can mitigate this issue by including sensor(s) that also measure valence
+    \item Anders' paper tries to mitigate the evaluator effect. (we can sidestep this by using a seeded setup)
+    \item Anders introduces a \textit{Frustration score/metric}. It relies on Dominance as well, so if we use it, we would have to adapt it. Maybe discuss this with Anders? Its: \[F = A * [(10-V) + (10-D)]\]
+
+    \item Anders did \textit{not} find a correlation between GSR peaks and
+        severity level. If this becomes our aim, then we should try and tackle
+        some of the suggestions he presents to why he was unable to do so
+        (first occurrence, retain occurrences of the same issue, users might
+        ignore a problem to remain calm, etc.). He mentions the evaluator
+        effect being a possible cause, but we can remove this concern. Users
+        might misinterpret SAM ratings, we can maybe sidestep this concern by
+        relying on CRD.
+\end{itemize}
