@@ -14,6 +14,36 @@
 %Fortæller om hvad der kan skabe frustrationer hos users - well citet
 %Kan bruges til hvad vi gerne vil seede af problemer
 
+% Structure for Introduction:
+    %- How is UT done now
+    %- Why do UT
+    %- What is fallible with the current approach
+    %- How have researchers tried to mitigate those fallacies
+    %    - Briefly mention various approaches
+    %    - Mention Anders' work as an approach we deem to have the right "direction"
+    %    - We consider our work as being future work to Anders' or an extension
+    %- How to measure a user's affective state
+    %    - Sensors, self-report, expert evaluation
+    %- Tie the affective state "frustration" to UPs
+    %    - Mention similar attempts such as Anders'
+    %- State our goal - to try and tie the affective state "frustration" to UPs
+    %    - Sub-goal, to tie higher levels of frustration to higher severity of UPs
+    %- Anders have tried this, how is our attempt different?
+    %    - from Anders' paper.discussion: "The inclusion of other measures such as heart
+    %        beat may shed some light on understanding frustration induced by
+    %        usability problems" - (we could \textit{hook} onto this and introduce such
+    %        sensors!)
+    %    -  Anders' paper especially mentions the many-to-one problem: different
+    %        emotional states can result in the same physical response, e.g. GSR
+    %        peak can be both \textit{negative} and \textit{positive} valence. (we
+    %        can mitigate this issue by including sensor(s) that also measure
+    %        valence)
+    %    - Anders had to consider the evaluator effect
+    %    - We include more sensors, side-step the evaluator effect by using seeded problems
+    %- State briefly how we setup a test-environment (seeded problems, sensors, cued-recall debrief) to try and confirm/reach our goal
+    %- Argue that a subjective measurement of affective state could considerably reduce UT complexity and errors
+    %    - Argue how this is the case
+
 
 Usability testing has long been an important aspect of software development and
 increasingly so since the paradigm shift from usability to user experience (UX).
@@ -54,37 +84,14 @@ hypothesis that frustration and UP severity are associated to be sound and aim
 to confirm it using a different approach that attempts to mitigate some of the
 caveats they mention, such as the \textit{evaluator effect}[cite eval. effect].
 
-
-% Structure for Introduction:
-    %- How is UT done now
-    %- Why do UT
-    %- What is fallible with the current approach
-    %- How have researchers tried to mitigate those fallacies
-    %    - Briefly mention various approaches
-    %    - Mention Anders' work as an approach we deem to have the right "direction"
-    %    - We consider our work as being future work to Anders' or an extension
-    %- How to measure a user's affective state
-    %    - Sensors, self-report, expert evaluation
-    %- Tie the affective state "frustration" to UPs
-    %    - Mention similar attempts such as Anders'
-    %- State our goal - to try and tie the affective state "frustration" to UPs
-    %    - Sub-goal, to tie higher levels of frustration to higher severity of UPs
-    %- Anders have tried this, how is our attempt different?
-    %    - from Anders' paper.discussion: "The inclusion of other measures such as heart
-    %        beat may shed some light on understanding frustration induced by
-    %        usability problems" - (we could \textit{hook} onto this and introduce such
-    %        sensors!)
-    %    -  Anders' paper especially mentions the many-to-one problem: different
-    %        emotional states can result in the same physical response, e.g. GSR
-    %        peak can be both \textit{negative} and \textit{positive} valence. (we
-    %        can mitigate this issue by including sensor(s) that also measure
-    %        valence)
-    %    - Anders had to consider the evaluator effect
-    %    - We include more sensors, side-step the evaluator effect by using seeded problems
+% TODO: write more to intro
+    %- Mention other caveat (multifaceted emotions, non-orthogonal A/V, that
+        %Anders only measure arousal etc., that we aim to solve
     %- State briefly how we setup a test-environment (seeded problems, sensors, cued-recall debrief) to try and confirm/reach our goal
     %- Argue that a subjective measurement of affective state could considerably reduce UT complexity and errors
     %    - Argue how this is the case
 
+\section{Related work}
 % Structure for Related work
     %- Mention Anders' work
     %    - He has tried what we are about to, but not with additional sensors
@@ -102,6 +109,10 @@ caveats they mention, such as the \textit{evaluator effect}[cite eval. effect].
     %    quadrant with X accuracy, which is where the basic emotion frustration is
     %    situated, according to Z and Y
 
+
+
+
+%\section{Method} (this is in another file)
 % Structure for Method
     %- Some text that lead up to the hypothesis
     %- Present the hypothesis
