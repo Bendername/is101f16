@@ -1,5 +1,41 @@
 %!TEX root = ..\Main.tex
 
 \section{Method}
+In order to reject or confirm our hypothesis', a test was created. 
+Test participants were exposed of a program with seeded usability problems and physiological data was collected using different sensors while the system was in use. 
+The collected data was subsequently used to train a classifier\todo{SVM?} which can be used to classify usability problems from normal use.
+
+\subsection{Test program}
+A software application was developed specifically for this test. 
+Someone et al.\todo{cite på det paper med email clients} found that one of the major daily activities which had a high frustration level was the usage of email clients and the tasks related to these. 
+As such a simple simulation of an email client was created. 
+The user is able to do normal email-related tasks such as writing a mail, sending it, delete a mail, attach files and manage contacts. 
+
+The program was built upon a self developed framework which facilitated seeding usability problems and creating a set of tasks for the user to complete. 
+The UPs associated with a specific task were only active when the task was active. 
+For instance a particular task involved attaching an image to an email. 
+While the task is active, the attachment process will fail three times and be sucessful on the fourth. 
+Had any other task been active the attachment process would not contain the seeded usability problem.
+The program had a total of 7 tasks of which 6 contained a seeded usability problem. 
+All tasks were randomized for each test participant.
+
+\subsection{Hardware}
+The hardware used for the experiment is an Emotiv Epoc~\cite{emotiv_epoc_website} for Electroencephalograph (EEG) to recording brain activity, a Mindplace Thoughtstream~\cite{thoughtstream} for Galvanic Skin Response (GSR), an Arduino with a pulse-sensor~\cite{pulsesensor} with modified software~\cite{pulsesensorgit} to measure heart rate (HR) and a Kinect V2\cite{kinect_specs3} for tracking facial changes.
+The pulse-sensor software was modified to send beats per minute (BPM), inter-beat interval (IBI) and raw signal every 20 ms.
+All devices are low-cost consumer grade hardware.\todo{WARNING: DET HER ER KOPIERET FRA FØRST ARTIKEL - PAS PÅ PLAGIAT!}
+
+\subsection{Participants}
+A total of X people participated in the test (X male, age XX-XX SD X, Y female age YY-YY SD Y).
+The participants were students recruited from multiple faculties at Aalborg University.
 
 \subsection{Setup}
+The tests were conducted from the 13th of April, 2016, to the 30th of April 2016 and from 8:00 to 16:00 every day. 
+The participants were asked to fill out a consent form prior participation. 
+The participants were instructed in how to use the test program which included how to see the tasks, and how to indicate wether or not they could complete the given task. 
+Before starting the test all hardware was attached to the participant and verified in terms of connectivity. 
+The EEG was connected to the head according to the 10-20 system\cite{eeg_tech_10_20}, the GSR and pulse sensor was attached to their non-dominant hand. 
+
+\subsection{Test procedure}
+The test starts with a main program (the mail client simulation) on a primary monitor. 
+A secondary monitor holds the window with the current task and buttons to indicate if you have completed the task, or if you could not complete it. 
+Each task had an indefinite time threshold, but the participant could choose to continue to the next task at any given moment. 
