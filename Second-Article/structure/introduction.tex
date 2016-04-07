@@ -47,27 +47,34 @@
 
 Usability testing has long been an important aspect of software development and
 increasingly so since the paradigm shift from usability to user experience (UX).
-However, as Bruun et al. [cite] mentions, the approaches used to identify
-usability problems (UP) and categorise their severity are still based on
-traditional methods. Traditional methods include measuring task completion time
-and effort. Bruun et al. [cite] suggests revised methods for identifying UPs
-that are instead based on a user's affective state as traditional methods are
-encumbered by several fallacies [cite].
+However, as Bruun et al.~\cite{LH-paper} mentions, the approaches used to
+identify usability problems (UP) and categorise their severity are still based
+on traditional methods. Traditional methods include measuring task completion
+time and effort, focusing on performance-based metrics rather than a user's
+experience or affective state\todo{find refs on how usability is usually
+performed (which has focus on the above)}. \cite{LH-paper} suggests revised methods
+for identifying UPs that are instead based on a user's affective state as
+traditional methods are encumbered by several fallacies.
+%[17, 34, 60, 77] = "UP defined in terms of cognetive and performance-based
+%impacts that the UP excerts on the user or on developers"
+
 % maybe mention here that our work can be considered an extension/future work to
 % Anders' work (we share his sentiment/agree with him)
 
 Traditional methods for identifying UPs focus on the time taken to complete a
-given task and the effort required. Strategies such as \textit{think aloud} can
-help observes better gauge a user's thoughts, and to some extend affective
-state, while experiencing UPs [cite think aloud], but does not formalise
-capturing affective state in particular. Three predominant methods formalised
+given task and the effort required. Strategies such as \textit{think
+aloud}~\cite{use_of_TA_and_IDA} can
+help observers better gauge a user's thoughts, and to some extend affective
+state, while experiencing UPs, but does not formalise
+capturing affective state in particular and is inherently a subjective
+evaluation. Three predominant methods formalised
 for capturing a user's affective state are: affective self-report, physiological
-reactivity and observable behaviour [cite, Peter Lang]. Strategies such as \textit{think
+reactivity and observable behaviour~\cite{BRADLEY199449}. Strategies such as \textit{think
 aloud} fall within the \textit{observable behaviour} category, while
 \textit{self-report} covers methods such as \textit{Self-Assessment Manikin}
 [cite sam], both of which are subject to subjectivity-bias [cite].
 Physiological reactivity requires measuring a user's physiology during testing
-and is not yet regarded as common practice [cite our own review here?].
+and is not yet regarded as common practice \todo{cite our own review here?}.
 Physiological measuring can help reduce or eliminate the subjectivity-bias in
 traditional methods, and we hypothesise that the reason it has not yet reached
 wide-spread adoption is due to the lack of reliable and formalized methods.
@@ -85,6 +92,9 @@ to confirm it using a different approach that attempts to mitigate some of the
 caveats they mention, such as the \textit{evaluator effect}[cite eval. effect].
 
 % TODO: write more to intro
+    %- Make link to our first article (that we can measure affective state to
+%some degree based in stimuli induced by images (IAPS), using multiple sensors
+%and fusing their results)
     %- Mention other caveat (multifaceted emotions, non-orthogonal A/V, that
         %Anders only measure arousal etc., that we aim to solve
     %- State briefly how we setup a test-environment (seeded problems, sensors, cued-recall debrief) to try and confirm/reach our goal
