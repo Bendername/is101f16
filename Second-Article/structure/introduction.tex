@@ -82,15 +82,14 @@ reliable and formalized methods.
 Bruun et al.~\cite{LH-paper} formalized a method and formula for associating
 \textit{galvanic skin response} (GSR) and eye-tracking with the discrete
 negative affective state \textit{frustration}\todo{cite bruun, and maybe also wtf
-GSR is}. As mentioned in Bruun et al. \todo{cite Bruun}, frustration is well-studied
+GSR is}. As mentioned in Bruun et al.~\cite{LH-paper}, frustration is well-studied
 and manifests whenever expectations or rewards are not met in a timely manner
 \todo{cite}. They found correlation between peaks found in GSR signals and
 SAM-ratings, but was unable to confirm a relationship between the
 \textit{severity} of a UP and the level of frustration experienced. We find the
 hypothesis that frustration and UP severity are associated to be sound and aim
 to confirm it using a different approach that attempts to mitigate some of the
-caveats they mention, such as the \textit{evaluator effect}\todo{cite eval.
-effect}.
+caveats they mention, such as the \textit{evaluator effect}~\cite{eval_effect}.
 
 % TODO: write more to intro
     %- Make link to our first article (that we can measure affective state to
@@ -103,24 +102,46 @@ effect}.
     %    - Argue how this is the case
 
 \section{Related work}
-Previous and recent research related to usability testing methods suggests that
-a number of fallacies are present in traditional approaches. \cite{eval_effect}.
+Several attempts have been made to improve both efficiency and accuracy of
+usability evaluation experiments. Kjeldskov and Stages' \textit{Instant Data
+Analysis} (IDA) method aims to significantly reduce the effort and time required
+to post-analyse data when identifying usability
+problems~\cite{instant_data_analysis}. Compared to traditional video data
+analysis techniques, they found that in only 10\% time they were able to
+identify 85\% of critical usability problems. Jonathan J. et al. found the IDA
+method compelling for its reduction in time and effort required, but mentions
+several shortcomings to take into consideration of using it over a traditional
+method.
 
-%http://pro.sagepub.com.zorac.aub.aau.dk/content/42/19/1336.full.pdf+html
-% Cite to establish the evaluator effect exists
+% TODO: describe think-aloud
+% TODO: mention research into think-aloud (to improve it) \cite{two_think_aloud_protocols_study}
 
-%https://www.researchgate.net/publication/33737975_Usability_problem_description_and_the_evaluator_effect_in_usability_testing_electronic_resource
-% Cite to establish that the evaluator effect has a significant impact on which/how UPs are found/categorised
+A phenomenon that can significantly impact how and which usability problems are
+found and categorized is the \textit{evaluator effect}~\cite{eval_effect}.
+\todo{describe in a few lines what the evaluator effect is}
+Expert evaluations during both Think-Aloud sessions and post-experiment video
+analysis are inherently subjective.  Hertzum et al. found that not only do
+usability experts identify substantially different usability problems, they also
+disagree on how they should be categorized in
+severity~\cite{eval_effect_research}. Based on their findings, they suggest that
+several evaluators and domain experts should participate in evaluating critical
+software.
 
-%http://ac.els-cdn.com.zorac.aub.aau.dk/S1532046415001112/1-s2.0-S1532046415001112-main.pdf?_tid=33e43758-fcab-11e5-81a9-00000aacb361&acdnat=1460024974_353b805de22fea0cf303b5160de89586
-% Cite to establish attempts to improve the current usability testing method (make it faster, less data to analyse). Mentions "frustration"
-% Mentions the need for future work to compare different UT methods, to find the cost-benefit relationship
+% TODO: beskriv: Using Sensor Graphs to Stimulate Recall in Retrospective Think-aloud Protocols
+% De gør lidt det samme som vi gør
 
-%http://delivery.acm.org.zorac.aub.aau.dk/10.1145/2490000/2481407/p2941-mcdonald.pdf?ip=130.225.53.20&id=2481407&acc=ACTIVE%20SERVICE&key=36332CD97FA87885%2E1DDFD8390336D738%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=597877356&CFTOKEN=42407720&__acm__=1460025233_587855146dae9d48b17d9141777f17be
-% Attemps to find differences in performance between two different Think-Aloud protocols. Cite to show that there is research going on to find better alternatives to current common practice.
+
+%Previous and recent research related to usability testing methods suggests that
+%a number of fallacies are present in traditional approaches. \cite{eval_effect}.
 
 %http://ieeexplore.ieee.org.zorac.aub.aau.dk/stamp/stamp.jsp?tp=&arnumber=6264071
 % Attempts to find a relationship between what users say during Think-Aloud sessions and where their gaze is at (eye-tracking)
+
+
+
+
+
+
 
 %http://www.tandfonline.com.zorac.aub.aau.dk/doi/pdf/10.1080/03610730500206808
 % Cite for SAM
