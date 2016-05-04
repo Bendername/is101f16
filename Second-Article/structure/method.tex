@@ -3,15 +3,16 @@
 \section{Method}
 In order to reject or confirm our hypotheses, a test was created.
 Test participants were exposed of a program with seeded usability problems and physiological data was collected using different sensors while the system was in use. 
-The collected data was subsequently used to train a classifier\todo{SVM?} which can be used to classify usability problems from normal use.
+The collected data was subsequently used to train a classifier\todo{SVM?} which can be used to classify usability problems from normal use.\todo{Maybe change to something not classifier specific but more outlier specific.}
 
 \subsection{Test program}
 A software application was developed specifically for this test. 
-Someone et al.\todo{cite på det paper med email clients} found that one of the major daily activities which had a high frustration level was the usage of email clients and the tasks related to these. 
-As such a simple simulation of an email client was created. 
-The user is able to do normal email-related tasks such as writing a mail, sending it, delete a mail, attach files and manage contacts. 
+Jussi P.P. Jokinen\cite{workplace_up_study} had test participants complete tasks in four every-day work applications (text editing, image processing, browser usage and presentation editing). 
+Lazar et al.\cite{frustration_with_computers} found that text-processing and email related tasks had the highest amount of frustrating experiences.
+Since our goal is to have a familiar test setting with seeded problems, we have elected for an email client as the application of choice.
 
-The program was built upon a self developed framework which facilitated seeding usability problems and creating a set of tasks for the user to complete. 
+The application was built upon a self developed framework which facilitated seeding usability problems and creating a set of tasks for the user to complete. 
+An attempt was made to keep the application simple and low on functionality, to decrease the risk of unintentionally introducing usability problems, but still having the basic functionalities of a normal email application.  
 The UPs associated with a specific task were only active when the task was active. 
 For instance a particular task involved attaching an image to an email. 
 While the task is active, the attachment process will fail three times and be successful on the fourth. 
