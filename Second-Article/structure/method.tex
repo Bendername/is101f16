@@ -55,6 +55,7 @@ Seeded problem: none.
 \subsection*{11. Write and delete mail}
 Description: The user has to write a mail containing any text, draft it and then delete it.\\
 Seeded problem: none.
+
 \subsection{Hardware}
 The hardware used for the experiment is an Emotiv Epoc~\cite{emotiv_epoc_website} for Electroencephalograph (EEG) to recording brain activity, a Mindplace Thoughtstream~\cite{thoughtstream} for Galvanic Skin Response (GSR), an Arduino with a pulse-sensor~\cite{pulsesensor} with modified software~\cite{pulsesensorgit} to measure heart rate (HR) and a Kinect V2\cite{kinect_specs3} for tracking facial changes.
 The pulse-sensor software was modified to send beats per minute (BPM), inter-beat interval (IBI) and raw signal every 20 ms.
@@ -67,11 +68,32 @@ The participants were students recruited from multiple faculties at Aalborg Univ
 \subsection{Setup}
 The tests were conducted from the 13th of April, 2016, to the 30th of April 2016 and from 8:00 to 16:00 every day. 
 The participants were asked to fill out a consent form prior participation. 
-The participants were instructed in how to use the test program which included how to see the tasks, and how to indicate wether or not they could complete the given task. 
+The participants were instructed in how to use the test program which included how to see the tasks, and how to indicate whether or not they could complete the given task. 
 Before starting the test all hardware was attached to the participant and verified in terms of connectivity. 
 The EEG was connected to the head according to the 10-20 system\cite{eeg_tech_10_20}, the GSR and pulse sensor was attached to their non-dominant hand. 
 
 \subsection{Test procedure}
-The test starts with a main program (the mail client simulation) on a monitor. 
-A secondary monitor holds the window with the current task and buttons to indicate if you have completed the task, or if you could not complete it. 
-Each task had an indefinite time threshold, but the participant could choose to continue to the next task at any given moment. 
+The test starts with an application the mail client simulation.
+In the bottom right corner of the application a ``task'' window is located, which contains information regarding the test participants current task. 
+A red and green button indicated that you have ``completed'' or ``not completed'' a task.  
+Each task had an indefinite time threshold, but the participant could choose to continue to the next task at any given moment by pressing either a green or a red button on the keyboard. 
+The participants were not allowed to talk to the test conductor during the test, unless it was absolutely necessary. 
+In case any communication had to take place, it would be done through a microphone and speakers.
+
+
+\subsection{What indicates a user experience problem?}
+Usability tests has been done for a long time, and as mentioned they usually focus on performance metrics. 
+The practice of this has been covered in numerous articles and books, and the concept ``usability problem'' is well defined.
+There is, however, a fundamental difference between a usability problem, and a user-experience problem(UEP). 
+Where the usability problem is focused on task completion and effort required, the UEP is focused on the users affective state. 
+While this can be observed/collected through third party measures (think aloud, expert evaluations etc), it has always been a low resolution, subjective measure. 
+There is no conclusive literature regarding how a UEP unfolds it self on a physiological level, and no models that accurately depict the evolution of a user-experience problem. 
+While some papers has dealt with single sensors such as \cite{mind_the_gap} \cite{LH-paper}, the basic extraction of interesting physiological responses are based upon expert analysis of the data.
+While these interesting parts of a physiological response may to some extent be verified against cued-recall of the same points in time, it is inherently biased and suffers from the concept of the evaluator effect. 
+There is simply no guarantee that all anomalies regarding usability problems have been extracted from the data.
+This lack of a formal description of how user-experience problems unfolds it self on a physiological level over time, makes any definition of how to detect these anomalies regarding a UEP an educated guess from the researchers.
+Due to limitations and the scope of this study, we will not attempt to formalize the problems outlined above, we do however outline the definitions used in this paper to describe and detect UEPs.
+
+\subsection{User experience problem definition}
+The definition in this paper is part based on literature and data analysis.
+\todo{Vis nogle grafer for hvordan mange peaks ser ud efter et event, snak om latency og duration etc}
