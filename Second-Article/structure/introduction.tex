@@ -45,8 +45,7 @@
     %    - Argue how this is the case
 
 
-Usability testing has long been an important aspect of software development and
-increasingly so since the paradigm shift from usability to user experience (UX).
+Usability testing has long been an important aspect of software development.
 However, as Bruun et al.~\cite{LH-paper} mention, the approaches used to
 identify usability problems (UP) and categorise their severity are still based
 on traditional methods and performance based metrics such as task completion and effort required. \cite{LH-paper} suggests revised methods
@@ -62,31 +61,37 @@ Traditional methods for identifying UPs focus on the time taken to complete a
 given task and the effort required. Strategies such as \textit{think
 aloud}~\cite{use_of_TA_and_IDA} can help observers better gauge a user's
 thoughts, and to some extent affective state, while experiencing UPs, but does
-not formalise capturing affective state in particular and is inherently a
+not formalise capturing affective state in particular and is inherently a third-party
 subjective evaluation. Three predominant methods formalised for capturing a
-user's affective state are: affective self-report, physiological reactivity and
+user's affective state are affective self-report, physiological reactivity and
 observable behaviour~\cite{BRADLEY199449}. Strategies such as \textit{think
 aloud} fall within the \textit{observable behaviour} category, while
 \textit{self-report} covers methods such as \textit{Self-Assessment Manikin}
-~\cite{BRADLEY199449}, both of which are subject to
-subjectivity-bias. Obervable behaviours inherently because evaluators are making a subjective opinion based of off their own estimations which can vary\cite{eval_effect}, and SAM because of effects like the peak-end memory bias \cite{cockburn_peakend}. Physiological reactivity requires measuring a
+~\cite{BRADLEY199449}, both of which suffers from 
+subjectivity-bias. Obervable behaviours inherently because third-party evaluators are making a subjective opinion based of off their own estimations and analysis' which can vary\cite{eval_effect}, and SAM because of effects like the peak-end memory bias \cite{cockburn_peakend}. Physiological reactivity requires measuring a
 user's physiology during testing and is not yet regarded as common practice
 \todo{cite our own review here?}.  Physiological measuring can help reduce or
 eliminate the subjectivity-bias in traditional methods, and we hypothesise that
 the reason it has not yet reached wide-spread adoption is due to the lack of
-reliable and formalized methods.
+reliable and formalized methods as well as the accuracy of consumer grade hardware.
 
-Bruun et al.~\cite{LH-paper} formalized a method and formula for associating
-\textit{galvanic skin response} (GSR) and eye-tracking with the discrete
-negative affective state \textit{frustration}\todo{cite bruun, and maybe also wtf
-GSR is}. As mentioned by Bruun et al.~\cite{LH-paper}, frustration is well-studied
-and manifests whenever expectations or rewards are not met in a timely manner
-\todo{cite}. They found correlation between peaks found in GSR signals and
-SAM-ratings, but was unable to confirm a relationship between the
-\textit{severity} of a UP and the level of frustration experienced. We find the
-hypothesis that frustration and UP severity are associated to be sound and aim
-to confirm it using a different approach that attempts to mitigate some of the
-caveats they mention, such as the \textit{evaluator effect}~\cite{eval_effect}.
+Bruun et al.~\cite{LH-paper} made a study using ``Danmarks Statistik (DST)'' as the case.
+A number of UP's were found in an independent emperical study, for which they created a main task with three sub tasks for participants to complete.
+They recorded physiological data using a \textit{galvanic skin response} (GSR) which measures sweat \cite{gsr_calibration}, and an eye-tracker detecting the gaze of the participant.
+They formalized a method and a formula for associating the physiological data with the discrete negative affect state \textit{frustration}.
+As mentioned in multiple studies, e.g. ~\cite{LH-paper}, ~\cite{frustration_with_computers}, frustration is well-studied
+and manifests whenever expectations or rewards are not met in a timely manner or conflict when a goal is compromised in one way or another.
+They had a cued-recall debrief session where the participants reviewed video clips found from GSR peaks, and filled out SAM scales relating to the clip. 
+Bruun et al. found a correlation between peaks found in GSR signals and SAM-ratings, but was unable to confirm a relationship between the
+\textit{severity} of a UP and the level of frustration experienced.
+
+While Bruun et al. found a correlation, the entire study still relies on the preliminary assumption that the UPs found by third-party evaluations on DST are correcty. 
+As mentioned such evaluations suffers from various problems, and are generally only considered to find a subset of the UPs present in a system. 
+With recent advances in consumer graded hardware and machine intelligence, and the fact that studies show correlations between UPs and measured physiological responses, we propose another approach where the usage of sensors and physiological data could be used to find UPs.
+This could potentially elimate some of the need for third-party expert evaluations and not only save time, but also mitigate implications such as the \textit{evaluator effect}\cite{eval_effect}.
+As such we arrive at a preliminary research question:\\
+
+\textbf{RQ}. \textit{Is it possible to use physiological data from consumer graded hardware and machine learning, to elimate some of the implications from third-party evaluations, and save time in usability evaluations?}
 
 % TODO: write more to intro
     %- Make link to our first article (that we can measure affective state to
