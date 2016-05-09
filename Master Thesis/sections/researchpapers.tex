@@ -55,11 +55,11 @@ evaluated by third-party experts, leaving room for subjective assessments. Using
 sensors could potentially mitigate subjectivity, and help elicit more objective
 truths about how test participants feel and react during experiments.
 
-The conclusion was that while the use of sensors has increased in recent years,
+The conclusion of the literature review was that while the use of sensors has increased in recent years,
 it is still not the predominant method, or even a particular popular method for
 eliciting emotions. Furthermore, the use of multiple sensor was even
 rarer. Although not always mentioned explicitly in the reviewed material, it was
-sometimes stated that further work was needed and results between studies varied
+sometimes stated that further work was needed, additionally results between studies varied
 in accuracy. The reviewed material also proposed disparate methods, rarely
 agreeing on how sensor data should be processed, or fused in the case of
 multiple sensors.
@@ -67,24 +67,24 @@ multiple sensors.
 Our 9th semester project was motivated by the presumption that more promising
 results could be produced by using multiple sensors and fusing their results. It
 also proposed the use of consumer-grade hardware in order to make our findings
-more accessible. Common Machine Learning techniques and statistical methods for
+more accessible for others to replicate. Common Machine Learning techniques and statistical methods for
 data-processing were proposed as well, again to make our findings easily
 reproducible and accessible. The project describes a setup for experiments onto
 which the above can be applied. The setup involves multiple sensors such as GSR,
 EEG and heart-rate monitoring, and emotions were artificially induced using
 images having positive, neutral and negative connotations, selected from the
 reputable IAPS collection. However, while promising results were found, a lack
-in test participants make them particularly case-specific, and further study is
+in test participants make them particularly case-specific, and further study was
 required in order to verify them.
 
 This paper is, as mentioned, based on the above preliminary research. The
 primary motivation for the work was to remedy shortcomings in our 9th semester
 project. In particular, with an increased number of test participants, our aim
-was to confirm that using multiple sensors produce better results. Refining the
+was to confirm that using multiple sensors and fusing their data together using machine learning produce better results, than using a single sensors data. Refining the
 setup and conducting it in a proper testing environment yielded a more
 controlled experiment. In particular, our test-software was significantly
 revised and more thoroughly tested for bugs, additional literature was consulted
-w.r.t. feature extraction for the ML technique and the experiment procedure was
+with regards to feature extraction for the ML technique and the experiment procedure was
 adjusted and formalized. Due to the experiment now being conducted in a
 usability lab, we took advantage of the additional video-recording capabilities,
 and recorded both participants' facial expressions, the computer screen while
@@ -110,9 +110,7 @@ before and under the experiment, the lighting and temperature in the room, the
 particular setup of the experiment, etc. We acknowledge that the above can
 affects how participants interact with the setup, and particularly how they
 react to the stimuli. If it had any significant impact on our results is
-unknown, and investigating it would probably require approaching it from the
-field of Psychology in lieu of Computer Science
-\todo{rephrase last sentence}
+unknown, and investigating it would require making a study specifically targeting this unexplored area of the current ongoing research within HCI.
 \todo{link this somehow to Scherer and his components}
 
 Self-Assessment Manikin, the method we used during experiments to get subjective
@@ -126,9 +124,13 @@ between participants, and each participant might have difficulties mapping
 correctly to the scales if stimuli with increasingly extreme connotations are
 presented. However, taking the fallacies above into consideration, the SAM
 method is still highly regarded and widely used, as evident from our review of
-literature within the field of HCI.
+literature within the field of HCI. 
 \todo{confirm the above with sources. I have read this somewhere, I just need to
   find it again}
+
+The machine learning techniques we have used are generally basic ``off-the-shelf'' solutions to the problem area we're dealing with.
+Due to the scope of the study we are conducting, it is not feasible to dive into specific techniques which could be used. 
+The results achieved could most likely be substantially improved by using better techniques, but finding the optimal setup for ML for each sensor would most likely be a study in its own right.
 
 %Things to discuss:
 %\todo{below is just a list of things we could discuss in this section}
