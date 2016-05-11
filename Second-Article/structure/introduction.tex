@@ -1,49 +1,8 @@
 %!TEX root = ..\Main.tex
-%Struktur:
-	%Usability test/evaluering
-	% Problem med usability test/evaluering 
-	% 	emotions og user frustration
-	%  Man kan måle det!
-	% -> det vi vil.
 	
 \section{Introduction}
 %http://delivery.acm.org.zorac.aub.aau.dk/10.1145/2500000/2491883/p258-liapis.pdf?ip=130.225.53.20&id=2491883&acc=ACTIVE%20SERVICE&key=36332CD97FA87885%2E1DDFD8390336D738%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=764220047&CFTOKEN=51730471&__acm__=1459164823_6fcb563aae9287be26350addc8efbe52
 %artikel vi kan bruge som støtte.
-
-%http://www.tandfonline.com.zorac.aub.aau.dk/doi/abs/10.1207/s15327590ijhc1703_3#aHR0cDovL3d3dy50YW5kZm9ubGluZS5jb20uem9yYWMuYXViLmFhdS5kay9kb2kvcGRmLzEwLjEyMDcvczE1MzI3NTkwaWpoYzE3MDNfM0BAQDA=
-%Fortæller om hvad der kan skabe frustrationer hos users - well citet
-%Kan bruges til hvad vi gerne vil seede af problemer
-
-% Structure for Introduction:
-    %- How is UT done now
-    %- Why do UT
-    %- What is fallible with the current approach
-    %- How have researchers tried to mitigate those fallacies
-    %    - Briefly mention various approaches
-    %    - Mention Anders' work as an approach we deem to have the right "direction"
-    %    - We consider our work as being future work to Anders' or an extension
-    %- How to measure a user's affective state
-    %    - Sensors, self-report, expert evaluation
-    %- Tie the affective state "frustration" to UPs
-    %    - Mention similar attempts such as Anders'
-    %- State our goal - to try and tie the affective state "frustration" to UPs
-    %    - Sub-goal, to tie higher levels of frustration to higher severity of UPs
-    %- Anders have tried this, how is our attempt different?
-    %    - from Anders' paper.discussion: "The inclusion of other measures such as heart
-    %        beat may shed some light on understanding frustration induced by
-    %        usability problems" - (we could \textit{hook} onto this and introduce such
-    %        sensors!)
-    %    -  Anders' paper especially mentions the many-to-one problem: different
-    %        emotional states can result in the same physical response, e.g. GSR
-    %        peak can be both \textit{negative} and \textit{positive} valence. (we
-    %        can mitigate this issue by including sensor(s) that also measure
-    %        valence)
-    %    - Anders had to consider the evaluator effect
-    %    - We include more sensors, side-step the evaluator effect by using seeded problems
-    %- State briefly how we setup a test-environment (seeded problems, sensors, cued-recall debrief) to try and confirm/reach our goal
-    %- Argue that a subjective measurement of affective state could considerably reduce UT complexity and errors
-    %    - Argue how this is the case
-
 
 Usability testing has long been an important aspect of software development.
 However, as Bruun et al.~\cite{LH-paper} mention, the approaches used to
@@ -103,6 +62,7 @@ As such we arrive at a preliminary research question:\\
     %- State briefly how we setup a test-environment (seeded problems, sensors, cued-recall debrief) to try and confirm/reach our goal
     %- Argue that a subjective measurement of affective state could considerably reduce UT complexity and errors
     %    - Argue how this is the case
+
 \section{Related work}
 Several attempts have been made to improve both efficiency and accuracy of
 usability evaluation experiments. Kjeldskov and Stages' \textit{Instant Data
@@ -167,110 +127,9 @@ As such, our hypothethis' are:\\\\
  a significantly low amount of false-negatives. False-negatives are the failure to classify a usability problem being present}\\\\
 \textit{\textbf{H.3.} There is a statistical significant correlation between severity ratings and physiological measurements.}
 
-% Structure for Related work
-    %- Mention Anders' work
-    %    - He has tried what we are about to, but not with additional sensors
-    %- Mention work that tries to identify users' affective state in relation to UPs
-    %    - Mention the fallacies in those approaches (not fusing sensors, using expert evaluation, etc.)
-    %- Mention (as Anders also mentions) that affective state and UP severity has not been operationalized
-    %    - We want to close that gap - bring the measurement of affective state and UP severity together
-    %- Mention related work that is fallible because of the evaluator effect (measuring with sensors, but not using a seeded test-setup)
-    %    - (Maybe mention Anders' work, but try not to bash it)
-    %    - We can maybe more precisely confirm the hypothesis by using seeded problems and side-step the evaluator effect
-    %- Mention that current approaches are fallible because of the evaluator effect
-    %- Mention frustration and how research have shown how/when it manifests (when expectations are not met)
-    %- Mention that we are confident that we can measure frustration, based on last semester's results
-    %    - Mention that we can measure the high-arousal/negative-valence
-    %    quadrant with X accuracy, which is where the basic emotion frustration is
-    %    situated, according to Z and Y
-
-
 %http://www.tandfonline.com.zorac.aub.aau.dk/doi/pdf/10.1080/03610730500206808
 % Cite for SAM
 
 %http://www.robots.ox.ac.uk/~davidc/pubs/NDreview2014.pdf
 % Cite and use for novelty detection
 
-
-%\section{Method} (this is in another file)
-% Structure for Method
-    %- Some text that lead up to the hypothesis
-    %- Present the hypothesis
-    %- Present how in broad terms we expect to be able to confirm/reject the hypothesis
-    %    - Mention what we want to measure
-    %    - Mention how we measure it
-    %    - Mention experiment setup
-    %    - Mention that we use multiple sensors, fuse their results for input to some MI approach (decide which approach we are going to use)
-    %- Subsection: experiment setup
-    %    - How it is setup, sensors, what we measure, participants, seeded problems software, procedure/protocol, cued-recall-debrief (from parallel research)
-
-% Structure for Future work
-    %(This depends heavily on the results we get, but we assume accepting our hypothesis/success)
-    %- Establish a severity scale based on affective state, not considering completion time or effect as they are a product of affective state
-    %- Future work should based experiments on "real software", but consider the evaluator effect (maybe test against it)
-
-%\begin{itemize}
-%    \item traditional view on UP and severity scales might be fallible/lacking,
-%        as they do not consider the aspect of affect/emotional state
-%    \item traditional views on UP is mainly focused on time, effort and completion
-%        time
-%    \item affective state is rarely mentioned in severity scales. Can we maybe
-%        do this? (idea: develop a new severity scale based on affective state)
-%    \item even though HCI has shifted focus from usability to UX, few attempts have
-%        been made to do the same with severity ratings (base them on an
-%        \textit{experience}, i.e. affective state)
-%    \item Three systems for measuring emotional response/state:
-%        \begin{itemize}
-%            \item affective self-report (SAM)
-%            \item Physiological reactivity (sensors)
-%            \item Observable behaviour (expert ratings)
-%        \end{itemize}
-%    \item explain/mention what could be fallible/error-prone with SAM and expert
-%        ratings (its subjective)
-%    \item using sensors is not common-place (could we maybe use sensors to
-%        measure the affective state?)
-%    \item \textit{frustration} is a measure/label for a \textit{negative
-%        affective} state.
-%    \item Frustration is well studied: occurs when a \textit{need} or
-%        \textit{reward} is not satisfied
-%    \item Frustration does not appear in severity scales (except a single instance mentioned in Anders' paper, but is not tied to physiological measurements)
-%    \item Anders' paper proposed the hypothesis that users are more negatively
-%        aroused when experiencing UP of higher severity, but could not confirm
-%        it (we could \textit{hook}
-%        onto this and try and see if we could confirm the hypothesis)
-%    \item maybe explain why understanding/ordering UP severity levels are important
-%        (higher levels should be prioritized to be fixed)
-%    \item from Anders' paper.discussion: "The inclusion of other measures such as heart
-%        beat may shed some light on understanding frustration induced by
-%        usability problems" - (we could \textit{hook} onto this and introduce such
-%        sensors!)
-%    \item From Anders' paper "... The ability of GSR to measure arousal and thus emotion... ". (I'm not sure we agree with him, but we can add that if we include the other dimension, valence, then we get close to be able to measure emotions, at least emotional state)
-%    \item Several studies confirm that GSR change when users experience stress and negative affect
-%    \item Anders' paper mentions three big issues with GSR measurements (we should discuss/try to mitigate them as well)
-%    \item Anders' paper especially mentions the many-to-one problem: different
-%        emotional states can result in the same physical response, e.g. GSR
-%        peak can be both \textit{negative} and \textit{positive} valence. (we
-%        can mitigate this issue by including sensor(s) that also measure
-%        valence)
-%    \item Anders' paper tries to mitigate the evaluator effect. (we can sidestep this by using a seeded setup)
-%    \item Anders introduces a \textit{Frustration score/metric}. It relies on Dominance as well, so if we use it, we would have to adapt it. Maybe discuss this with Anders? Its: \[F = A * [(10-V) + (10-D)]\]
-%
-%    \item Anders did \textit{not} find a correlation between GSR peaks and
-%        severity level. If this becomes our aim, then we should try and tackle
-%        some of the suggestions he presents to why he was unable to do so
-%        (first occurrence, retain occurrences of the same issue, users might
-%        ignore a problem to remain calm, etc.). He mentions the evaluator
-%        effect being a possible cause, but we can remove this concern. Users
-%        might misinterpret SAM ratings, we can maybe sidestep this concern by
-%        relying on CRD.
-%\end{itemize}
-%
-%Ideas for hypothesis/research area:
-%\begin{itemize}
-%    \item Solidify/establish a convincing method for measuring frustration (compared to Anders' approach, we can introduce valence and thereby measure negative affect. First paper can be used as 'proof'/confirmation that we can measure negative affect, and thereby frustration)
-%    \item Attempt to find a correlation between frustration and UP severity level (should be easier in our case, now that we also measure valence)
-%    \item Propose a new method for measuring/establishing UPs (by using and fusing sensors. In this method, UPs are defined by negative affect)
-%    \item Propose a method for mapping negative affect to UP severity (we can use Anders' frustration metric)
-%    \item Propose/formulate a new severity scale that is defined by/base on affective state (instead of cosmetic, minor, critical, then measure UPs by how much it frustrates a user. UPs that highly frustrate users should be prioritized fixing. Using this metric/scale, it is no longer important what \textit{kind} a problem is but that it frustrates the user. This is much more inline with UX in general. Identifying UPs is \textit{still} an \textit{unsolved} problem - is it because of a wrong approach? Is it better to find them using affective state? Etc., etc.)
-%    \item Propose a framework/workflow/method for easily setting up lab experiments for measuring negative affect (that is, an easily understood and afforable method; focus on consumer-grade hardware and shelf-solutions for interpreting the results; focus on what kind of sensors are necessary and why, some are best at measuring A, others V; suggest easy calibration methods; etc., etc.)
-%\end{itemize}
