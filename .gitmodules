@@ -1,3 +1,5 @@
 [submodule "first-paper"]
 	path = first-paper
 	url = git@github.com:DonnoDK/first-paper.git
+    branch = master
+    ignore = dirty
