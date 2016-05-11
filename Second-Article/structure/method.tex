@@ -92,13 +92,13 @@ There is, however, still quite some debate in this area between researchers, and
 In Roto et al. \cite{what_is_ux} they write ``..No generally accepted overall measure of UX exists, but UX can be made assessable in many different ways.'' which precisely emphasize the problem with measuring UX. 
 
 There is no conclusive literature regarding how a UEP unfolds it self on a physiological level, and no models that accurately depict the evolution of a user-experience problem. 
-While some papers has dealt with single sensors such as \cite{mind_the_gap} \cite{LH-paper}, the basic extraction of interesting physiological responses are based upon expert analysis of the data.
+While some papers have dealt with single sensors such as \cite{mind_the_gap} \cite{LH-paper}, the basic extraction of interesting physiological responses are based upon expert analysis of the data.
 While these interesting parts of a physiological response may to some extent be verified against cued-recall of the same points in time, it is inherently biased and suffers from the concept of the evaluator effect. 
 There is simply no guarantee that all anomalies regarding usability problems have been extracted from the data.
 This lack of a formal description of how user-experience problems unfolds it self on a physiological level over time, makes any definition of how to detect these anomalies regarding a UEP an educated guess from the researchers.
 Due to limitations and the scope of this study, we will not attempt to formalize the problems outlined above, we do however outline the definitions used in this paper to describe and detect UEPs.
 
-\subsection{User experience problem definition}
+\subsection{Connecting psychology and physiology}
 In this section, we will try and define what user experience problems are and how they might manifest themselves in
 physiological measurements. This will be based partly on related research, our previous work and by analyzing data
 collected from our experiments.
@@ -130,21 +130,24 @@ plausible connections, or relations, between the psychological and physiological
 \end{itemize}
 
 According to Cacioppo et al., is could even be the case that one relation holds true for one individual, while a
-different relation holds for another.  We deem the above to be reason why we have been unable to find definitive and
-formalized methods that identify affective state based on physiology. That is not to say that related research have not
-been successful in doing so - quite the contrary - but only that results vary, methods are disparate and varies
-significantly depending on the context. We therefore find ourselves in a situation where an explorative approach is most
-promising, drawing inspiration from related research.
+different relation holds for another.  We suspect the above to be one of the reason why we have been unable to find
+definitive and formalized methods that identify affective state based on physiology. That is not to say that related
+research have not been successful in doing so - quite the contrary - but only that results vary, methods are disparate
+and varies significantly depending on the context. We therefore find ourselves in a situation where an explorative
+approach is most promising, drawing inspiration from related research.
 \todo{list the sources/cites of a few studies with good results w.r.t. identify affective state}
 
-In this study, we work with the assumption that the relation \textit{one-many} holds for all individuals, from the
-perspective that a particular physiological event can be manifested by many different psychological events, e.g. being
-frustrated and happy could result in a similar increase in heart-rate. This further validates our argument for using
-multiple sensors, in that the only way to separately identify feeling frustrated and happy might be dissimilar patterns
-in electrodermal activity. If the \textit{one-many} relation holds, it is perhaps more likely that we are able to
-capture and identify a particular psychological affective state if we use multiple and different types of physiological
-sensors.
+If the \textbf{one-one} relation from those suggested by Cacioppo et at. holds, then some particular affective state
+would always manifests itself in the same physiological event, e.g. fear would always see the same increase in
+heart-rate, change in skin conductance, and the same patterns in brain-waves. We find this view unplausible, at least in
+our context, and are more inclined to accept the premise that a \textbf{one-many} relation exists. We see this as
+meaning that a particular psychological event can manifest itself into several different physiological events. However,
+we do expect to see similarities in those physiological events, if originating from the same psychological event, e.g
+feeling \textit{fear} leads to some increase in heart-rate, variance in skin conductance, and activity from particular
+areas of the brain (specific sensors on the EEG). In this work, we also assume the above to be the case across all
+individuals participating in our experiments.
 
+\subsection{User experience problem definition}
 Questions such as ``when does a particular affective state manifest itself'' and ``for how long...'' when considering a
 continuous stream of physiological measurements from various different types of sensors, are difficult to answer. Not
 only are they difficult to answer, but the answer might also vary significantly from person to person. Our previous work
