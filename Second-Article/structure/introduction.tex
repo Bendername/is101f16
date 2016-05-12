@@ -122,10 +122,25 @@ The focus of this paper is to use multiple consumer graded hardware sensors to i
 By using multiple sensors and appropriate machine intelligence techniques we hope to show that it is possible to use objective physiological data to accurately find usability problems as a direct alternative or extra tool to tradtional usability evaluation methods. 
 As such, our hypothethis' are:\\\\
 
-\textit{\textbf{H.1.} Physiological sensor data can be used to detect usability problems with a significantly low amount of false-positives. False-positives are the classification of a usability problem being present, while it is not.}\\\\
-\textit{\textbf{H.2.} Physiological sensor data can be used to detect usability problems with
- a significantly low amount of false-negatives. False-negatives are the failure to classify a usability problem being present}\\\\
-\textit{\textbf{H.3.} There is a statistical significant correlation between severity ratings and physiological measurements.}
+\newcommand{\hypo}[2]{%
+  \textbf{H#1:} \textit{#2} \\\\
+}
+%\textit{\textbf{H.1.} Physiological sensor data can be used to detect usability problems with a significantly low amount of false-positives. False-positives are the classification of a usability problem being present, while it is not.}\\\\
+%\textit{\textbf{H.2.} Physiological sensor data can be used to detect usability problems with
+% a significantly low amount of false-negatives. False-negatives are the failure to classify a usability problem being present}\\\\
+%\textit{\textbf{H.3.} There is a statistical significant correlation between severity ratings and physiological measurements.}
+
+\hypo{1}{Using consumer-graded physiological sensor-hardware, it is possible with a significant degree
+  of certainty, to predict moments where usability problems are experienced during a usability test. Predictions are
+  made post-test on the physiological sensor data.}
+
+\hypo{1a}{Using multiple sensors increase the degree of certainty to which moments of usability problems are predicted}
+
+\hypo{1b}{Using multiple sensors decrease the likelihood to which false-positives occur. False-positives are moments
+  predicted to contain usability problems, but where no usability problems were experienced}
+
+\hypo{1c}{Moments containing usability problems of higher severity are more likely to be correctly predicted compared to
+moments containing usability problems of lower severity}
 
 %http://www.tandfonline.com.zorac.aub.aau.dk/doi/pdf/10.1080/03610730500206808
 % Cite for SAM
