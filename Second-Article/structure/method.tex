@@ -22,50 +22,28 @@ All tasks were randomized for each test participant beside the first two which c
 Each task and their associated usability problem can be seen in the below. 
 Task 3 and 7 can be considered full stoppers, and are incompletable. 
 Tasks 1, 2, 4, 5 and 6 can be completed given persistence or explorative user behaviour, e.g. task 6 will in fact remove the contact, but to see it has done so requires the user to close the window and reopen it to validate it.
-\subsection*{1. Add Attachment}  
-Description: The user has to add an attachment to a mail.\\
-Seeded problem: The program will ``hang'' for 2 seconds three times, before the attachment can be completed.
-\subsection*{2. Add Contact}
-Description: The user has to add a new contact to the contacts catalogue.\\
-Seeded problem: The ``Add Contact'' button will not work for the first three clicks.
-\subsection*{3. Send Draft}
-Description: The user has to find a draft, either by created a mail and drafting it or selecting a pre-created draft, and send it.\\
-Seeded Problem: An exception will show when they try to open the draft, making it impossible to send.
-\subsection*{4. Create a draft}
-Description: The user has to create a draft with the body: ``Rød grød med fløde''.\\
-Seeded problem: The keyboard language has been changed to American, making it impossible to write the Danish character ``Ø''.
-\subsection*{5. Write a mail}
-Description: The user has to create a mail with the body: ``Hi, my name is x and I am participating in a usability test''.\\
-Seeded problem: At random intervals the caret will move while writing the mail.
-\subsection*{6. Remove Contact}
-Description: The user has to remove a specific contact from the contacts catalogue.\\
-Seeded Problem: When clicking ``Delete'' the entire window will change to a black box.
-\subsection*{7. Write mail 2}
-Description: The user has to write a mail with the body text ``Hello, I am having a birthday party 10 days from now, and this is your invitation!''.\\
-Seeded problem: The window for writing a mail is unavailable, and the title changes to ``Not responding..''.
-\subsection*{8. Send a mail}
-Description: The user has to send a mail with any text, to two contacts.\\
-Seeded problem: none.
-\subsection*{9. Save a draft}
-Description: The user has to create a mail, and draft it.\\
-Seeded problem: none.
-\subsection*{10. Reply to mail}
-Description: The user has to reply to a mail.\\
-Seeded problem: none.
-\subsection*{11. Write and delete mail}
-Description: The user has to write a mail containing any text, draft it and then delete it.\\
-Seeded problem: none.
+Each task, and potentially seeded problem in each, is shown in Table~\ref{tab:ups-desc}.
 
-%\begin{table}[h]
-%  \centering
-%  \begin{tabular}[c]{|l|p{80pt}|p{80pt}|}
-%    \hline
-%    UP name         & description                                  & has seeded problem                                                                       \\ \hline
-%    Add attachement & The user has to add an attachment to a mail. & The program ``hangs'' for 2 seconds three times, before the attachment can be completed. \\ \hline
-%  \end{tabular}
-%  \caption{Usability problems descriptions}
-%  \label{tab:ups-desc}
-%\end{table}
+\begin{table}[h]
+  \centering
+  \begin{tabular}[c]{|l|p{80pt}|p{80pt}|}
+    \hline
+    UP name                       & description                                                                                                                                    & seeded problem                                                                                           \\ \hline
+    \small{Add attachement}       & \small{The user has to add an attachment to a mail}                                                                                            & \small{Program ``hangs'' for 2 seconds three times, before the attachment can be completed.}             \\ \hline
+    \small{Add contact}           & \small{The user has to add a new contact to the contacts catalogue}                                                                            & \small{The ``Add Contact'' button will not work for the first three clicks}                              \\ \hline
+    \small{Send Draft}            & \small{The user has to find a draft, either by creating a mail and drafting it or selecting a pre-created draft, and send it}                  & \small{An exception will show when they try to open the draft, making it impossible to send}             \\ \hline
+    \small{Create a draft}        & \small{The user has to create a draft with the body: ``Rød grød med føde''}                                                                    & \small{The keyboard layout changes to American, making it impossible to type the Danish character ``ø''} \\ \hline
+    \small{Write a mail}          & \small{The user has to create a mail with the body: ``Hi, my name is x and I am participating in a usability test''}                           & \small{At random intervals the caret will move while writing the mail}                                   \\ \hline
+    \small{Remove Contact}        & \small{The user has to remove a specific contact from the contacts catalogue}                                                                  & \small{When clicking ``Delete'', the entire window will change to a black box}                           \\ \hline
+    \small{Write mail 2}          & \small{The user has to write a mail with the body text ``Hello, I am having a birthday party 10 days from now, and this is your invitation!''} & \small{The window for writing a mail is unavailable, and the title changes to ``Not responding...''}     \\ \hline
+    \small{Send a mail}           & \small{The user has to send a mail with any text, to two contacts}                                                                             & \small{None}                                                                                             \\ \hline
+    \small{Save a draft}          & \small{The user has to create a mail, and draft it}                                                                                            & \small{None}                                                                                             \\ \hline
+    \small{Reply to mail}         & \small{The user has to reply to a mail}                                                                                                        & \small{None}                                                                                             \\ \hline
+    \small{Write and delete mail} & \small{The user has to write a mail containing any text, draft it and then delete it}                                                          & \small{None}                                                                                             \\ \hline
+  \end{tabular}
+  \caption{Usability problems descriptions}
+  \label{tab:ups-desc}
+\end{table}
 
 \subsection{Hardware}
 The hardware used for the experiment is an Emotiv Epoc~\cite{emotiv_epoc_website} for Electroencephalograph (EEG) to recording brain activity, a Mindplace Thoughtstream~\cite{thoughtstream} for Galvanic Skin Response (GSR), an Arduino with a pulse-sensor~\cite{pulsesensor} with modified software~\cite{pulsesensorgit} to measure heart rate (HR) and a Kinect V2\cite{kinect_specs3} for tracking facial changes.
