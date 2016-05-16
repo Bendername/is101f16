@@ -1,0 +1,107 @@
+%!TEX root = ..\Main.tex
+\section{Theory}
+\subsection{Measuring UX physiologically}
+Usability tests has been done for a long time, and as mentioned they usually focus on performance metrics, and less so
+on experiential metrics such as emotions. 
+The practices and limitations of this has been covered in numerous articles (e.g. \cite{usability_eval} and \cite{eval_effect}) and books (e.g. \cite{guide_to_upeval}) and the concept ``usability problem'' is well defined.
+There is, however, a fundamental intuitive difference between UPs and user-experience problems(UXP). 
+Where the usability problem is focused on task completion and effort required, the UEP is focused on the users affective state, or experience with the task.
+How to measure this ``experience'' is another problem completely.
+While this can be observed/collected through third party measures (think aloud, expert evaluations etc), it has always been a low resolution, subjective measure. 
+There is, however, still quite some debate in this area between researchers, and the exploration of this is beyond the scope of this paper, but an overview is given by Law et. al \cite{attitudes_ux_measure}. 
+In Roto et al. \cite{what_is_ux} they write ``..No generally accepted overall measure of UX exists, but UX can be made assessable in many different ways.'' which precisely emphasize the problem with measuring UX. 
+
+There is no conclusive literature regarding how UXPs unfolds on a physiological level, and no models that accurately depict the evolution of a user-experience problem. 
+While some papers have dealt with single sensors such as \cite{mind_the_gap} \cite{LH-paper}, the basic extraction of interesting physiological responses are based upon expert analysis of the data.
+While these interesting parts of a physiological response may to some extent be verified against cued-recall of the same points in time, it is inherently biased and suffers from the concept of the evaluator effect. 
+There is simply no guarantee that all anomalies regarding usability problems have been extracted from the data.
+This lack of a formal description of how user-experience problems unfolds it self on a physiological level over time, makes any definition of how to detect these anomalies regarding a UEP an educated guess from the researchers.
+Due to limitations and the scope of this study, we will not attempt to formalize the problems outlined above, we do however outline the definitions used in this paper to describe and detect UEPs.
+
+\subsection{Relation between psychology and physiology}
+In this section, we will try and define what user experience problems are and how they might manifest themselves in
+physiological measurements. This will be based partly on related research, our previous work and by analyzing data
+collected from our experiments.
+
+Before defining how we interpret user experience problems, let us remind ourselves how usability problems can be
+defined. Lavery D. et al.~\cite[p. 254]{comp-eval-methods} suggests the following definition:
+
+\begin{quotation}
+  \textit{``A usability problem is an aspect of the system and/or a demand on the user which makes it unpleasant,
+    inefficient, onerous or impossible for the user to achieve their goals in typical usage situations''} 
+\end{quotation}
+
+From this definition, we find it reasonable to expect test participants to experience affective states such as
+\textit{frustration, irritation} or \textit{stress}. We also find this similar to suggestions by Brunn et
+al.~\cite{LH-paper} and Lazar et al.~\cite{frustration_with_computers}, with \textit{frustration} being a predominant
+affective state. Similarly, Ceaparu et al.~\cite{determining-causes-end-user-frust} claim that \textit{frustration} is
+universally experienced by computer users, whenever expectations are not fulfilled and unexpected time delays are
+imposed. However, how such affective states manifests themselves in physiological measurements, we deem to be an
+advanced and complex topic on its own.
+
+As mentioned by Liapis et al.~\cite{fusion4}, Cacioppo et al.~\cite[p. 8-9]{handbook-psychophysiology} offers five
+plausible connections, or relations, between the psychological and physiological domains, briefly listed as:
+
+\begin{itemize}[noitemsep, nolistsep]
+\item \textbf{one-one:} a psychological event is associated with one and only on physiological event, and vice versa
+\item \textbf{one-many:} a psychological event is associated with several physiological events. The opposite could also
+  hold true, that several psychological events could cause the same physiological event.
+\item \textbf{many-many:} a particular set of psychological events are related to a particular set of physiological
+  events
+\item \textbf{null:} that there exists no particular relation between physiological and psychological events.
+\end{itemize}
+
+According to Cacioppo et al., is could even be the case that one relation holds true for one individual, while a
+different relation holds for another. We suspect the above to be one of the reason why we have been unable to find
+definitive and formalized methods that identify affective state based on physiology. That is not to say that related
+research have not been successful in doing so - quite the contrary - but only that results vary, methods are disparate
+and varies depending on the context. We therefore find ourselves in a situation where an explorative approach is most
+promising, drawing inspiration from related research.
+\todo{list the sources/cites of a few studies with good results w.r.t. identify affective state}
+
+If the \textbf{one-one} relation from those suggested by Cacioppo et at. holds, then some particular affective state
+would always manifests itself in the same physiological event, e.g. fear would always see the same increase in
+heart-rate, change in skin conductance, and the same patterns in brain-waves. We find this view unplausible, at least in
+our context, and are more inclined to accept the premise that a \textbf{one-many} relation exists. We see this as
+meaning that a particular psychological event can manifest itself into several different physiological events. However,
+we do expect to see similarities in those physiological events, if originating from the same psychological event, e.g
+feeling \textit{fear} leads to some increase in heart-rate, variance in skin conductance, and activity from particular
+areas of the brain (specific sensors on the EEG). In this work, we also assume the above to be the case across all
+individuals participating in our experiments.
+
+\subsection{User experience problem definition}
+Questions such as ``when does a particular affective state manifest itself'' and ``for how long...'' when considering a
+continuous stream of physiological measurements from various different types of sensors, are difficult to answer. Not
+only are they difficult to answer, but the answer might also vary significantly from person to person. Our previous work
+was faced with with similar questions, however the problem was easier to approach since stimuli was very specific and
+induced at very specific moments, leading us to approach the above differently.
+\todo{cite our previous work somehow}
+
+In this definition, we consider particular moments within the experiment to be \textit{normal}, where we expect test
+participants to exhibit physiological states that are \textit{not} related to \textit{frustration} or similar negative
+affective states. We refer to such \textit{normal} states as the \textit{baseline}. Further, we do not expect test
+participants to exhibit any positive affective states during the experiment, such as \textit{happiness} or \textit{joy}
+- our test setup is designed with this in mind. Based on these assumptions, we hypothesize that any physiological
+measurements that deviate from \textit{normal} could be interpreted as negative affective state. This of course leads to
+the question of how do we consider some particular measurements to be outside of this \textit{normal} state? The answer
+depends on the particular sensor in question, and for this we lean on our previous work.
+
+We consider affective state changes in GSR to manifest themselves 2-4 seconds after the experience occurred which
+induced the stimuli, and is noticeable within a time-frame of 3-4 seconds thereafter. EEG is considerably different,
+manifesting after 350 milliseconds, lasting 760 milliseconds. Reactions to stimuli can be seen manifesting in heart-rates
+after 4 seconds, and lasts for 3 seconds. Lastly face changes has a delay of 500ms and lasts for 500ms.\todo{just pick cites from paper1}
+
+Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
+each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
+likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
+indicate that the test participant is \textit{frustrated}. The above is based on many assumption, both about human
+physiology and how experiencing usability problems manifests themselves in said physiology. This is necessary in order
+to formalize a method with which we can conduct experiments.
+
+In our setup, the particular moments which we deem to be \textit{normal} are defined as the two first tasks the test
+participant is asked to solve, i.e. all physiological measurements collected within those moments are treated as a
+\textit{baseline}. This is because the two first tasks are always chosen from a set of tasks containing no seeded
+usability problems. From the baseline, we extract various statistical measurements from which \textit{unknown} data
+should deviate from, in order to signify the existence of a usability problem.
+
+\todo{I think we need a section/table below this, where we concretise the above}
