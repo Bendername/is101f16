@@ -1,5 +1,6 @@
 %!TEX root = ..\Main.tex
 
+
 \section{Method}
 In order to reject or confirm our hypotheses, a test was created.
 Test participants were exposed of a program with seeded usability problems and physiological data was collected using different sensors while the system was in use. 
@@ -70,14 +71,17 @@ The participants were not allowed to talk to the test conductor during the test,
 In case any communication had to take place, it would be done through a microphone and speakers.
 
 
-\subsection{What indicates a user experience problem?}
-Usability tests has been done for a long time, and as mentioned they usually focus on performance metrics. 
+\section{Theory}
+
+\subsection{Measuring UX physiologically}
+Usability tests has been done for a long time, and as mentioned they usually focus on performance metrics, and less so
+on experiential metrics such as emotions. 
 The practices and limitations of this has been covered in numerous articles (e.g. \cite{usability_eval} and \cite{eval_effect}) and books (e.g. \cite{guide_to_upeval}) and the concept ``usability problem'' is well defined.
-There is, however, a fundamental intuitive difference between UPs and user-experience problems(UEP). 
+There is, however, a fundamental intuitive difference between UPs and user-experience problems(UXP). 
 Where the usability problem is focused on task completion and effort required, the UEP is focused on the users affective state, or experience with the task.
 How to measure this ``experience'' is another problem completely.
 While this can be observed/collected through third party measures (think aloud, expert evaluations etc), it has always been a low resolution, subjective measure. 
-There is, however, still quite some debate in this area between researchers, and the exploration of this is beyond the scope of this paper, but an excellent overview is given by Law et. al \cite{attitudes_ux_measure}. 
+There is, however, still quite some debate in this area between researchers, and the exploration of this is beyond the scope of this paper, but an overview is given by Law et. al \cite{attitudes_ux_measure}. 
 In Roto et al. \cite{what_is_ux} they write ``..No generally accepted overall measure of UX exists, but UX can be made assessable in many different ways.'' which precisely emphasize the problem with measuring UX. 
 
 There is no conclusive literature regarding how a UEP unfolds it self on a physiological level, and no models that accurately depict the evolution of a user-experience problem. 
@@ -87,7 +91,7 @@ There is simply no guarantee that all anomalies regarding usability problems hav
 This lack of a formal description of how user-experience problems unfolds it self on a physiological level over time, makes any definition of how to detect these anomalies regarding a UEP an educated guess from the researchers.
 Due to limitations and the scope of this study, we will not attempt to formalize the problems outlined above, we do however outline the definitions used in this paper to describe and detect UEPs.
 
-\subsection{Connecting psychology and physiology}
+\subsection{Relation between psychology and physiology}
 In this section, we will try and define what user experience problems are and how they might manifest themselves in
 physiological measurements. This will be based partly on related research, our previous work and by analyzing data
 collected from our experiments.
@@ -124,8 +128,8 @@ According to Cacioppo et al., is could even be the case that one relation holds 
 different relation holds for another. We suspect the above to be one of the reason why we have been unable to find
 definitive and formalized methods that identify affective state based on physiology. That is not to say that related
 research have not been successful in doing so - quite the contrary - but only that results vary, methods are disparate
-and varies significantly depending on the context. We therefore find ourselves in a situation where an explorative
-approach is most promising, drawing inspiration from related research.
+and varies depending on the context. We therefore find ourselves in a situation where an explorative approach is most
+promising, drawing inspiration from related research.
 \todo{list the sources/cites of a few studies with good results w.r.t. identify affective state}
 
 If the \textbf{one-one} relation from those suggested by Cacioppo et at. holds, then some particular affective state
@@ -162,10 +166,10 @@ after 4 seconds, and lasts for 3 seconds. Lastly face changes has a delay of 500
 
 Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
 each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
-likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, they express that
-the test participant is \textit{frustrated}. The above is based on many assumption, both about human physiology and how
-experiencing usability problems manifests themselves in said physiology. However, this is necessary in order to
-formalize a method with which we can conduct experiments.
+likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
+indicate that the test participant is \textit{frustrated}. The above is based on many assumption, both about human
+physiology and how experiencing usability problems manifests themselves in said physiology. This is necessary in order
+to formalize a method with which we can conduct experiments.
 
 In our setup, the particular moments which we deem to be \textit{normal} are defined as the two first tasks the test
 participant is asked to solve, i.e. all physiological measurements collected within those moments are treated as a
