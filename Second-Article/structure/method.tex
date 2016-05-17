@@ -1,69 +1,85 @@
 %!TEX root = ..\Main.tex
 \section{Method}
-In order to reject or confirm our hypotheses, a test was created.
-Test participants were exposed of a program with seeded usability problems and physiological data was collected using different sensors while the system was in use. 
-The collected data was subsequently used to train a classifier\todo{SVM?} which can be used to classify usability problems from normal use.\todo{Maybe change to something not classifier specific but more outlier specific.}
+In this section, we explain the methods and practices we apply in order to answer our hypothesis. In particular, an
+experiment was conducted and its setup will be explain, along with applied MI and statistical techniques used to analyse
+physiological data, collected during experiments.
 
-\subsection{Test program}
-A software application was developed specifically for this test. 
-As mentioned under Related Work, Lazar et al.~\cite{frustration_with_computers} found that email-related work can induce
-high amounts of frustration in users. We use this discovery as inspiration to develop a ``mock email client'', i.e a program
-with the appearence of an email client, with the intention of studying how users interact with it.
+\subsection{Experiment}
+Our experiement is reminicent of a traditional usability test(UT) setup: a software application is tested by a test
+participant, solving pre-defined tasks. However, unlike a traditional UT setup, we also attach physiological sensors
+onto the test participant, and expose them to a software application that - intentionally but unknown to the test
+participant - has usability problems embedded into it. This is to induce the anticipated affective state changes using
+usability problems at \textit{known} moments during the experiment and to increase reproducibility of the experiment.
+
+\subsubsection{Problem-seeded test application}
+In order to control the kind of seeded problems, and at which moments they should be revealed, we developed a software
+application, into which we could embed such problems. This application is mimicking the functionality of a subset of
+features found in ``real-world'' equivalent applications, but with controllable seeded problems.  Many choices could be
+made as to the kind of software application it should mimic, but research shows that some domains within software
+applications are more likely to induce stress and frustration in the user, compared to other domains.  As mentioned
+under Related Work, Lazar et al.~\cite{frustration_with_computers} found that email-related and text-based work induce
+the highest amounts of frustration in users. We use this discovery as inspiration to develop a ``mock'' email application,
+i.e a program with the appearence of an email client, implementing some features found in a real email
+application. Using this application, we expect to increase the chances of inducing frustration in users.
 
 The application was built upon a self developed framework which facilitated seeding usability problems and creating a set of tasks for the user to complete. 
-An attempt was made to keep the application simple and low on functionality, to decrease the risk of unintentionally introducing usability problems, but still having the basic functionalities of a normal email application.  
-The UPs associated with a specific task were only active when the task was active. 
+The application is kept simple with few features to decrease the risk of unintentionally introducing usability problems, while still having the basic functionalities of a normal email application.  
+The UPs associated with a specific task were only active when the task was active, i.e. the test participant was
+attempting to complete that particular task.
 For instance a particular task involved attaching an image to an email. 
 While the task is active, the attachment process will fail three times and be successful on the fourth. 
 Had any other task been active the attachment process would not contain the seeded usability problem.
-The program had a total of 11 tasks of which 7 contained a seeded usability problem. 
-All tasks were randomized for each test participant beside the first two which contained no seeded problems, and were used for baseline training data for outlier detection. 
-Each task and their associated usability problem can be seen in the below. 
-Task 3 and 7 can be considered full stoppers, and are incompletable. 
-Tasks 1, 2, 4, 5 and 6 can be completed given persistence or explorative user behaviour, e.g. task 6 will in fact remove the contact, but to see it has done so requires the user to close the window and reopen it to validate it.
-Each task, and potentially seeded problem in each, is shown in Table~\ref{tab:ups-desc}.
+The program has a total of 11 tasks of which 7 contained a seeded usability problem. 
+All tasks were randomized for each test participant beside the first two which contained no seeded problems, with the
+intention of using them as baseline training data for outlier detection. 
+Each task and their associated usability problem can be seen in Table~\ref{tab:ups-desc}
+Task 3 and 7 can be considered full stoppers, and are incompletable.
+Tasks 1, 2, 4, 5 and 6 can be completed given persistence or explorative user behavior, e.g. task 6 will in fact remove the contact, but to see it has done so requires the user to close the window and reopen it to validate it.
 
 \begin{table}[h]
   \centering
-  \begin{tabular}[c]{|l|p{80pt}|p{80pt}|}
+  \begin{tabular}[c]{|p{60pt}|p{80pt}|p{80pt}|}
     \hline
-    task name                     & description                                                                                                                                    & seeded problem                                                                                           \\ \hline
-    \small{Add attachement}       & \small{The user has to add an attachment to a mail}                                                                                            & \small{Program ``hangs'' for 2 seconds three times, before the attachment can be completed.}             \\ \hline
-    \small{Add contact}           & \small{The user has to add a new contact to the contacts catalogue}                                                                            & \small{The ``Add Contact'' button will not work for the first three clicks}                              \\ \hline
-    \small{Send Draft}            & \small{The user has to find a draft, either by creating a mail and drafting it or selecting a pre-created draft, and send it}                  & \small{An exception will show when they try to open the draft, making it impossible to send}             \\ \hline
-    \small{Create a draft}        & \small{The user has to create a draft with the body: ``Rød grød med føde''}                                                                    & \small{The keyboard layout changes to American, making it impossible to type the Danish character ``ø''} \\ \hline
-    \small{Write a mail}          & \small{The user has to create a mail with the body: ``Hi, my name is x and I am participating in a usability test''}                           & \small{At random intervals the caret will move while writing the mail}                                   \\ \hline
-    \small{Remove Contact}        & \small{The user has to remove a specific contact from the contacts catalogue}                                                                  & \small{When clicking ``Delete'', the entire window will change to a black box}                           \\ \hline
-    \small{Write mail 2}          & \small{The user has to write a mail with the body text ``Hello, I am having a birthday party 10 days from now, and this is your invitation!''} & \small{The window for writing a mail is unavailable, and the title changes to ``Not responding...''}     \\ \hline
-    \small{Send a mail}           & \small{The user has to send a mail with any text, to two contacts}                                                                             & \small{None}                                                                                             \\ \hline
-    \small{Save a draft}          & \small{The user has to create a mail, and draft it}                                                                                            & \small{None}                                                                                             \\ \hline
-    \small{Reply to mail}         & \small{The user has to reply to a mail}                                                                                                        & \small{None}                                                                                             \\ \hline
-    \small{Write and delete mail} & \small{The user has to write a mail containing any text, draft it and then delete it}                                                          & \small{None}                                                                                             \\ \hline
+    task name                         & description                                                                                                                                    & seeded problem                                                                                           \\ \hline
+    \small{1. Add~attachement}        & \small{The user has to add an attachment to a mail}                                                                                            & \small{Program ``hangs'' for 2 seconds three times, before the attachment can be completed.}             \\ \hline
+    \small{2. Add~contact}            & \small{The user has to add a new contact to the contacts catalogue}                                                                            & \small{The ``Add Contact'' button will not work for the first three clicks}                              \\ \hline
+    \small{3. Send~Draft}             & \small{The user has to find a draft, either by creating a mail and drafting it or selecting a pre-created draft, and send it}                  & \small{An exception will show when they try to open the draft, making it impossible to send}             \\ \hline
+    \small{4. Create~a~draft}         & \small{The user has to create a draft with the body: ``Rød grød med føde''}                                                                    & \small{The keyboard layout changes to American, making it impossible to type the Danish character ``ø''} \\ \hline
+    \small{5. Write~a~mail}           & \small{The user has to create a mail with the body: ``Hi, my name is x and I am participating in a usability test''}                           & \small{At random intervals the caret will move while writing the mail}                                   \\ \hline
+    \small{6. Remove~Contact}         & \small{The user has to remove a specific contact from the contacts catalogue}                                                                  & \small{When clicking ``Delete'', the entire window will change to a black box}                           \\ \hline
+    \small{7. Write~mail~2}           & \small{The user has to write a mail with the body text ``Hello, I am having a birthday party 10 days from now, and this is your invitation!''} & \small{The window for writing a mail is unavailable, and the title changes to ``Not responding...''}     \\ \hline
+    \small{8. Send~a~mail}            & \small{The user has to send a mail with any text, to two contacts}                                                                             & \small{None}                                                                                             \\ \hline
+    \small{9. Save~a~draft}           & \small{The user has to create a mail, and draft it}                                                                                            & \small{None}                                                                                             \\ \hline
+    \small{10. Reply~to~mail}         & \small{The user has to reply to a mail}                                                                                                        & \small{None}                                                                                             \\ \hline
+    \small{11. Write~and delete~mail} & \small{The user has to write a mail containing any text, draft it and then delete it}                                                          & \small{None}                                                                                             \\ \hline
   \end{tabular}
   \caption{Usability problems descriptions}
   \label{tab:ups-desc}
 \end{table}
 
-\subsection{Hardware}
+\subsubsection{Hardware}
 The hardware used for the experiment is an Emotiv Epoc~\cite{emotiv_epoc_website} for Electroencephalograph (EEG) to recording brain activity, a Mindplace Thoughtstream~\cite{thoughtstream} for Galvanic Skin Response (GSR), an Arduino with a pulse-sensor~\cite{pulsesensor} with modified software~\cite{pulsesensorgit} to measure heart rate (HR) and a Kinect V2\cite{kinect_specs3} for tracking facial changes.
 The pulse-sensor software was modified to send beats per minute (BPM), inter-beat interval (IBI) and raw signal every 20 ms.
 All devices are low-cost consumer grade hardware.
 
-\subsection{Participants}
+\subsubsection{Participants and setup}
 A total of 29 people participated in the test (16 male, age 20-29 SD 2.24, 13 female age 19-32 SD 3.04).
 The participants were students recruited from multiple faculties at Aalborg University. 
 All participants filled out a Big-Five\cite{big5} which revealed no bias in terms of personality.\todo{We should probably add numbers here}
-\subsection{Setup}
+
 The tests were conducted from the 13th of April, 2016, to the 30th of April 2016 and from 8:00 to 16:00 every day. 
 The participants were asked to fill out a consent form prior participation. 
 The participants were instructed in how to use the test program which included how to see the tasks, and how to indicate whether or not they could complete the given task. 
 Before starting the test all hardware was attached to the participant and verified in terms of connectivity. 
 The EEG was connected to the head according to the 10-20 system\cite{eeg_tech_10_20}, the GSR and pulse sensor was attached to their non-dominant hand. 
 
-\subsection{Test procedure}
+\subsubsection{Test procedure}
 The test starts with an application the mail client simulation.
 In the bottom right corner of the application a ``task'' window is located, which contains information regarding the test participants current task. 
 A red and green button indicated that you have ``completed'' or ``not completed'' a task.  
 Each task had an indefinite time threshold, but the participant could choose to continue to the next task at any given moment by pressing either a green or a red button on the keyboard. 
 The participants were not allowed to talk to the test conductor during the test, unless it was absolutely necessary. 
 In case any communication had to take place, it would be done through a microphone and speakers.
+
+\subsection{Usability problem detection}
+write here how we detect UPs
