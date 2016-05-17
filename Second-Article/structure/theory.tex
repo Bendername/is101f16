@@ -1,23 +1,39 @@
 %!TEX root = ..\Main.tex
 \section{Theory}
 \subsection{Measuring UX physiologically}
-Usability tests has been done for a long time, and as mentioned they usually focus on performance metrics, and less so
-on experiential metrics such as emotions. 
-The practices and limitations of this has been covered in numerous articles (e.g. \cite{usability_eval} and \cite{eval_effect}) and books (e.g. \cite{guide_to_upeval}) and the concept ``usability problem'' is well defined.
-There is, however, a fundamental intuitive difference between UPs and user-experience problems(UXP). 
-Where the usability problem is focused on task completion and effort required, the UEP is focused on the users affective state, or experience with the task.
-How to measure this ``experience'' is another problem completely.
-While this can be observed/collected through third party measures (think aloud, expert evaluations etc), it has always been a low resolution, subjective measure. 
-There is, however, still quite some debate in this area between researchers, and the exploration of this is beyond the scope of this paper, but an overview is given by Law et. al \cite{attitudes_ux_measure}. 
-In Roto et al. \cite{what_is_ux} they write ``..No generally accepted overall measure of UX exists, but UX can be made assessable in many different ways.'' which precisely emphasize the problem with measuring UX. 
+Usability tests has long history, and as mentioned, is usually focused on performance metrics, and less so
+on experiential metrics such as emotions.  The practices and limitations of this has been covered in numerous articles
+(e.g. \cite{usability_eval} and \cite{eval_effect}) and books (e.g. \cite{guide_to_upeval}) and the concept ``usability
+problem'' is well defined.
 
-There is no conclusive literature regarding how UXPs unfolds on a physiological level, and no models that accurately
-depict the evolution of a user-experience problem. \todo{Anders: hvad mener I med evolution? Et eksempel kunne være godt}
-While some papers have dealt with single sensors such as \cite{mind_the_gap} \cite{LH-paper}, the basic extraction of interesting physiological responses are based upon expert analysis of the data.
-While these interesting parts of a physiological response may to some extent be verified against cued-recall of the same points in time, it is inherently biased and suffers from the concept of the evaluator effect. 
-There is simply no guarantee that all anomalies regarding usability problems have been extracted from the data.
-This lack of a formal description of how user-experience problems unfolds it self on a physiological level over time, makes any definition of how to detect these anomalies regarding a UEP an educated guess from the researchers.
-Due to limitations and the scope of this study, we will not attempt to formalize the problems outlined above, we do however outline the definitions used in this paper to describe and detect UEPs.
+It can be argued, that there is a fundamental intuitive difference between UPs and user-experience problems(UXP).  Where
+identifying usability problems is focused on task completion and effort required, identifying UXP is focused on the
+users affective state, or experience with the task.  How to measure this ``experience'' is another problem completely,
+and still non-trivial. While this can be observed/collected through third party measures
+(think aloud, expert evaluations, etc.), it is a subjective and fallible measure.  There is, however,
+still quite some debate in this area between researchers and the exploration of this is beyond the scope of this paper,
+but an overview is given by Law et. al \cite{attitudes_ux_measure}.  In Roto et al. \cite{what_is_ux} they write ``..No
+generally accepted overall measure of UX exists, but UX can be made assessable in many different ways.'' which 
+emphasize the problem with measuring UX, and by extension UXPs.
+
+To our knowledge, no conclusive research exists regarding how UXPs unfolds on a physiological level. This includes
+fundamental aspects such as how experiencing UPs reflect on the physiological level, how different (severity, nature,
+duration, etc.) UPs affect this and how the order of experienced UPs might influence this as well.
+\todo{nævn nogle af de forsøg der har været med at kategoriserer UPs ud fra frustration (dog er de inkosistente. vist nok nævnt i Anders artikel)}
+
+While some work have dealt with single sensors such as \cite{mind_the_gap} \cite{LH-paper}, the basic extraction of
+interesting physiological responses are based on subsequent expert analysis of the data.  While these interesting parts
+of a physiological response may to some extent be verified against cued-recall of the same points in time, it is
+inherently biased and suffers from the concept of the evaluator effect. Often, evaluators analyze data based on
+intuition, e.g. finding anomalies in GSR data such as unexpected peaks, which does not guarantee that all UPs have been
+extracted from the data.  This lack of a formal description of how user-experience problems unfolds itself on a
+physiological level over time, makes any definition of how to detect anomalies in data which could be a manifestation of
+experiencing a UP, an educated guess from the researchers.  Due to limitations and the scope of this study, we will not
+attempt to formalize a solution to the problems outlined above, but will take them into account and outline the
+definitions used in this paper to describe and detect UPs.
+
+\todo{slut af med at sige at vi finder det interresant at identificere UPs ud fra experience, men at vi holder os til at
+id dem udfra affective state, e.g. frustration}
 
 \subsection{Relation between psychology and physiology}
 In this section, we will try and define what user experience problems are and how they might manifest themselves in
