@@ -1,10 +1,16 @@
-
 \section{Related work}
-This paper focuses on three different areas in the HCI context. (1) Methods used for usability- and user experience-testing. (2)General use of sensors in HCI. (3) The use of sensors in usability- and user experience-testing.
+This paper focuses on three different areas in the HCI context. (1) General methods used for usability testing and user experience evaluation. (2) General use of sensors in HCI. (3) The use of sensors in usability- and user experience-testing.
 
-\subsection{Common methods}
+\subsection{Traditional methods}
+According to Rubin et al.~\cite{rubin2008handbook} usability testing are user centred tests that focuses on three main groups.
+Informing Design, which concerns the usefulness and learning rate of the program.
+Elimination of design problems and frustration, which not only focuses on removing design problems and bugs, but also about establishing a good relation with the customer.
+The last group is improving profitability, which is centred around reducing maintenance and increasing sales.
+The tests can take many different shapes and forms, ranging from an all included test with test conductors, test observers, recording devices, post-test interview and questionnaire to automated testing which is unmoderated and depends on the users written feedback on different points in the test.
+Where the all included test is time consuming.
+
 Several attempts have been made to improve both efficiency and accuracy of
-usability evaluation experiments. Kjeldskov and Stages' \textit{Instant Data
+usability testing. Kjeldskov and Stages' \textit{Instant Data
 Analysis} (IDA) method aims to significantly reduce the effort and time required
 to post-analyse data when identifying usability
 problems~\cite{instant_data_analysis}. Compared to traditional video data
@@ -36,7 +42,7 @@ several evaluators and domain experts should participate in evaluating critical
 software.
 
 Identifying usability problems on a physiological, or psychological level, has been shown to be just as difficult. In a
-shift towards a focus on \textit{user experience}, several attempts have been made at identifying usability problems
+shift towards a focus on \textit{user experience}, several attempts\todo{What several attempts?} have been made at identifying usability problems
 from the perspective of how test participants are affected by the experience of interacting with a system. In other
 words, the affective state of a test participant might reveal potential problems within a software system. Jussi
 P.P. Jokinen~\cite{workplace_up_study} investigated how frustration plays a key-role in how individuals interact with a
@@ -44,10 +50,10 @@ system. Likewise, Lazar et al.~\cite{frustration_with_computers} found that text
 induces the highest amount of frustration.
 
 \subsection{Sensors}
-Sensors has been used in various scenarios in the HCI field, spanning from input devices for games to detecting the well being of a person.
-\todo{se latex comment for inspiration}
-%Ved ikke lige helt hvordan det her skal skrives godt
-%Noget i stilen med at sensors er et meget kendt phenomen inden for HCI, brug til bla bla bla et par cites. Mere interessant er det blevet brugt til at establishe effective state på personer - Dog med forskellige resultater og stimuli. (many cites)
+Sensors has been used in various studies in the HCI field, serving as input devices to detecting the well being of a person.
+Moreover some of these studies focus is to try and predict a test participants emotions or affective state in different test scenarios. 
+An example could be Schmidt et al.~\cite{schmidt_trainor}, who used an electroencephalogram (EEG) to identify valence and intensity, where they found some correlation with different part of the brain.
+Zhai et al.~\cite{gsr_data_processing2} used galvanic skin response (GSR), blood volume pulse (BVP), pupil diameter (PD) and skin temperature to measure if a person was stressed or not stressed. Where they achieved a 90\% accuracy with an support vector machcine (SVM) and 11 features.
 
 \subsection{Sensors and usability testing}
 While still a relatively unexplored area within HCI research,
@@ -59,14 +65,16 @@ think-aloud method and to complement it. Similarly, P\"{a}tsch et
 al.~\cite{using_sensor_graphs_think_aloud} complimented think-aloud recall
 sessions using GSR sensor data.
 
-%Brug det shitty liapis paper her
+In 2014 Liapis et. al~\cite{fusion4} has created a PhysiOBS a post-test data processing tool to help usability test evaluators speed up the analysis process of a usability test. It do this by giving the evaluator the ability to label specific areas with emotions, showing both screen and face camera in one window, as well as physiological data collected from different sensors. It also offers indicators for what task users is doing at the given time.
+
+Aggarwal et al.~\cite{sensor_example} used an Emotiv EPOC and their Emotivs build-in software to detect frustration in a user experience test with three seeded events. Where they show to some promising results.
 
 As mentioned in the introduction, Bruun et al. combined both GSR sensor and
 eye-tracking data to compliment think-aloud recall sessions. They found a
 significant correlation between moments of peaks in GSR readings and instances
 of usability problems. They results were however encumbered by the
 \textit{evaluator effect} and conclude that a structured and operationalized
-method for capturing affective state and associated it with usabilty problem
+method for capturing affective state and associated it with usability problem
 severity is still needed within HCI.
 
 It is clear from the literature and recent research trends within the HCI community, that a revision of the traditional usability evaluation methods is being explored. \todo{er det clear though?}
