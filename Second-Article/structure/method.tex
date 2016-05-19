@@ -1,11 +1,11 @@
 %!TEX root = ..\Main.tex
 \section{Method}
 In this section, we explain the methods and practices we apply in order to answer our hypothesis. In particular, an
-experiment was conducted and its setup will be explained, along with applied MI and statistical techniques used to analyse
-physiological data collected during experiments.
+experiment was conducted and its setup will be explained, along with applied MI and statistical techniques used to
+analyse physiological data collected during experiments.
 
 \subsection{Experiment}
-Our experiement is reminicent of a traditional usability test(UT) setup: a software application is tested by a test
+Our experiment is reminiscent of a traditional usability test(UT) setup: a software application is tested by a test
 participant, solving pre-defined tasks. However, unlike a traditional UT setup, we attach physiological sensors
 onto the test participant, and expose them to a software application that - intentionally but unknown to the test
 participant - has usability problems embedded into it. This is to induce the anticipated affective state changes using
@@ -34,7 +34,7 @@ All tasks were randomized for each test participant besides the first two which 
 intention of using them as baseline training data for novelty detection. 
 Each task and their associated usability problem can be seen in Table~\ref{tab:ups-desc}.
 Task 3 and 7 can be considered full stops, and are incompletable.
-Tasks 1, 2, 4, 5 and 6 can be completed given persistence or explorative user behavior, e.g. task 6 will in fact remove the contact, but to see it has done so requires the user to close the window and reopen it to validate it.
+Tasks 1,2,4,5 and 6 can be completed given persistence or explorative user behavior, e.g. task 6 will in fact remove the contact, but to see it has done so requires the user to close the window and reopen it to validate it.
 
 \begin{table}[h]
   \centering
@@ -101,33 +101,9 @@ manifesting after 350 milliseconds, lasting 760 milliseconds. Reactions to stimu
 after 4 seconds, and lasts for 3 seconds. Lastly face changes has a delay of 500ms and lasts for 500ms. As mentioned,
 the above is based on our previous work, which in turn is based on related research within HCI, psychology and
 physiology of the human body~\cite{9th_semester_project}.
-\todo{cite also 1st. paper}
+\todo{cite also 1st. paper and lots of others. Put them in the beginning of this paragraph}
 
 Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
 each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
 likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
 indicate that the test participant is \textit{frustrated}.
-
-%Based on these assumptions, we hypothesize that any physiological measurements that
-%deviate from \textit{normal} could be interpreted as negative affective state. This of course leads to the question of
-%how do we consider some particular measurements to be outside of this \textit{normal} state? The answer depends on the
-%particular sensor in question, and for this we lean on our previous work.
-%
-%We consider affective state changes in GSR to manifest themselves 2-4 seconds after the experience occurred which
-%induced the stimuli, and is noticeable within a time-frame of 3-4 seconds thereafter. EEG is considerably different,
-%manifesting after 350 milliseconds, lasting 760 milliseconds. Reactions to stimuli can be seen manifesting in heart-rates
-%after 4 seconds, and lasts for 3 seconds. Lastly face changes has a delay of 500ms and lasts for 500ms. As mentioned,
-%the above is based on our previous work, which in turn is based on related research within HCI, psychology and
-%physiology of the human body~\cite{9th_semester_project}.
-%\todo{cite also 1st. paper}
-%
-%Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
-%each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
-%likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
-%indicate that the test participant is \textit{frustrated}. The above is based on many assumption, both about human
-%physiology and how experiencing usability problems manifests themselves in said physiology. This is necessary in order
-%to formalize a method with which we can conduct experiments.
-%
-%
-%\todo{I think we need a section/table below this, where we concretise the above}
-%write here how we detect UPs
