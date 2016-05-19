@@ -85,4 +85,50 @@ In case any communication had to take place, it would be done through a micropho
 \todo{really, a flowchart showing the process might be a good idea}
 
 \subsection{Usability problem detection}
-write here how we detect UPs
+Before we can predict potential usability problems, we must establish certain criteria to fulfilled.  We consider a
+particular section within the experiment to be \textit{normal}, i.e. containing no usability problems.  We do not expect
+test participants to exhibit physiological states that are related to \textit{frustration} or similar negative affective
+states during this section. We refer to this normal section as the \textit{baseline}. The baseline is established in the
+beginning of the test during the two first tasks, after the initial relaxation section, and before the third task
+begins. This is because the two first tasks are always chosen from a set of tasks containing no seeded usability
+problems. All physiological measurements collected within this section are treated as a \textit{baseline} data.  From
+the baseline, we extract various statistical measurements from which \textit{unknown} data should deviate from, in order
+to signify the existence of a potential usability problem.
+
+\subsubsection{Detecting affective state changes}
+We consider affective state changes in GSR to manifest themselves 2-4 seconds after the experience occurred which
+induced the stimuli, and is noticeable within a time-frame of 3-4 seconds thereafter. EEG is considerably different,
+manifesting after 350 milliseconds, lasting 760 milliseconds. Reactions to stimuli can be seen manifesting in heart-rates
+after 4 seconds, and lasts for 3 seconds. Lastly face changes has a delay of 500ms and lasts for 500ms. As mentioned,
+the above is based on our previous work, which in turn is based on related research within HCI, psychology and
+physiology of the human body~\cite{9th_semester_project}.
+\todo{cite also 1st. paper}
+
+Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
+each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
+likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
+indicate that the test participant is \textit{frustrated}.
+
+%Based on these assumptions, we hypothesize that any physiological measurements that
+%deviate from \textit{normal} could be interpreted as negative affective state. This of course leads to the question of
+%how do we consider some particular measurements to be outside of this \textit{normal} state? The answer depends on the
+%particular sensor in question, and for this we lean on our previous work.
+%
+%We consider affective state changes in GSR to manifest themselves 2-4 seconds after the experience occurred which
+%induced the stimuli, and is noticeable within a time-frame of 3-4 seconds thereafter. EEG is considerably different,
+%manifesting after 350 milliseconds, lasting 760 milliseconds. Reactions to stimuli can be seen manifesting in heart-rates
+%after 4 seconds, and lasts for 3 seconds. Lastly face changes has a delay of 500ms and lasts for 500ms. As mentioned,
+%the above is based on our previous work, which in turn is based on related research within HCI, psychology and
+%physiology of the human body~\cite{9th_semester_project}.
+%\todo{cite also 1st. paper}
+%
+%Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
+%each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
+%likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
+%indicate that the test participant is \textit{frustrated}. The above is based on many assumption, both about human
+%physiology and how experiencing usability problems manifests themselves in said physiology. This is necessary in order
+%to formalize a method with which we can conduct experiments.
+%
+%
+%\todo{I think we need a section/table below this, where we concretise the above}
+%write here how we detect UPs
