@@ -4,48 +4,45 @@
 \section{Introduction}
 %http://delivery.acm.org.zorac.aub.aau.dk/10.1145/2500000/2491883/p258-liapis.pdf?ip=130.225.53.20&id=2491883&acc=ACTIVE%20SERVICE&key=36332CD97FA87885%2E1DDFD8390336D738%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=764220047&CFTOKEN=51730471&__acm__=1459164823_6fcb563aae9287be26350addc8efbe52
 %artikel vi kan bruge som støtte.
-
-Usability testing has long been an important aspect of software development.
-However, as Bruun et al.~\cite{LH-paper} mention, the approaches used to
-identify usability problems (UP) and categorise their severity are still based
-on traditional methods and performance based metrics such as task completion and effort required. \cite{LH-paper} suggests revised methods
-for identifying UPs that are instead based on a user's affective state as
-traditional methods are encumbered by several fallacies.
 %[17, 34, 60, 77] = "UP defined in terms of cognetive and performance-based
 %impacts that the UP excerts on the user or on developers"
 
 % maybe mention here that our work can be considered an extension/future work to
 % Anders' work (we share his sentiment/agree with him)
 
-Traditional methods for identifying UPs focus on the time taken to complete a
-given task and the effort required. Strategies such as \textit{think
-aloud}~\cite{use_of_TA_and_IDA} can help observers better gauge a user's
-thoughts, and to some extent affective state, while experiencing UPs, but does
-not formalise capturing affective state in particular and is inherently a third-party
-subjective evaluation. Three predominant methods formalised for capturing a
-user's affective state are affective self-report, physiological reactivity and
+Usability testing has long been an important aspect of software development and according to Rubin et al.~\cite{rubin2008handbook} usability testing are user centred tests that focuses on three main groups.
+Informing Design, which concerns the usefulness and learning rate of the program.
+Elimination of design problems and frustration, which not only focuses on removing design problems and bugs, but also about establishing a good relation with the customer.
+The last group is improving profitability, which is centred around reducing maintenance and increasing sales.
+However the second group, elimination of design problems and frustration, is often measured with methods involving third part observers.
+These observers has to, objectively as possible, note if a test person is encountering a usability problem, even so these results are often still very subjective given the evaluator effect\cite{eval_effect}, which states that the results from the evaluations are different from individual to individual.
+Strategies such as \textit{think aloud}~\cite{use_of_TA_and_IDA} can help observers better gauge a user's
+thoughts, and to some extent affective state, while experiencing UP's. However it does
+not formalise capturing of the affective state in particular and is inherently a third-party
+subjective evaluation. 
+
+There are three predominant methods formalised for capturing a user's affective state are affective self-report, physiological reactivity and
 observable behaviour~\cite{BRADLEY199449}. Strategies such as \textit{think
 aloud} fall within the \textit{observable behaviour} category, while
 \textit{self-report} covers methods such as \textit{Self-Assessment Manikin}
-~\cite{BRADLEY199449}, both of which suffers from 
-subjectivity-bias. Observable behaviors inherently because third-party evaluators are making a subjective opinion based of off their own estimations and analysis' which can vary\cite{eval_effect}, and SAM because of effects like the peak-end memory bias \cite{cockburn_peakend}.
-Physiological measuring has been showed at several occasions that it can to some degree be used to reflect a persons affective state, and thus has interesting propositions to offer to the traditional evaluation methods.
-%An example of this blab bla ->>>
-Bruun et al.~\cite{LH-paper} made a usability case-study of ``Danmarks Statistik (DST)''. %Based on a web application
-A number of UP's were found in an independent emperical study, for which they created a main task with three sub tasks for participants to complete.
-They recorded physiological data using a \textit{galvanic skin response} (GSR) which measures sweat \cite{gsr_calibration}, and an eye-tracker detecting the gaze of the participant.
+~\cite{BRADLEY199449}, both of which suffers from subjectivity-bias. 
+Observable behaviours inherently because third-party evaluators are making a subjective opinion based off their own estimations and analysis' which can vary due to the evaluator effect, and SAM because of effects like the peak-end memory bias \cite{cockburn_peakend}.
+Physiological measuring has been showed at several occasions\todo{cite} that it can to some degree be used to predict a persons affective state, and thus has interesting propositions to offer to the traditional evaluation methods.
+
+An example of such study was made by Bruun et al.~\cite{LH-paper}, who made a usability case-study based on a website.
+Where a number of UP's were found in an empirical study, from which they created three tasks for the participants to complete.
+They recorded physiological data using \textit{galvanic skin response} (GSR) which measures sweat \cite{gsr_calibration}, and an eye-tracker detecting the gaze of the participant.
 They formalized a method and a formula for associating the physiological data with the discrete negative affect state \textit{frustration}.
 As mentioned in multiple studies, e.g. ~\cite{LH-paper}, ~\cite{frustration_with_computers}, frustration is well-studied
-and manifests whenever expectations or rewards are not met in a timely manner or conflict when a goal is compromised in one way or another.
-They had a cued-recall debrief session where the participants reviewed video clips found from GSR peaks, and filled out SAM scales relating to the clip. 
-Bruun et al. found a correlation between peaks found in GSR signals and SAM-ratings, but was unable to confirm a relationship between the
+and manifests whenever expectations or rewards are not met in a timely manner or conflict when a goal is compromised in one way or another. These traits match the signature of a UP.
+Bruun et al. also had a cued-recall debrief session where the participants reviewed video clips found from GSR peaks, and filled out SAM scales relating to the clip. 
+They found a correlation between peaks in GSR and SAM-ratings, but was unable to confirm a relationship between the
 \textit{severity} of a UP and the level of frustration experienced.
-While Bruun et al. found a correlation, the entire study still relies on the preliminary assumption that the UPs found by third-party evaluations on DST are correct. 
+While they found a correlation, the entire study still relies on the preliminary assumption that the UPs found by third-party evaluations on DST are correct. 
 As mentioned such evaluations suffers from various problems, and are generally only considered to find a subset of the UPs present in a system. 
-With recent advances in consumer graded hardware and machine intelligence, and the fact that studies show correlations between UPs and measured physiological responses, we propose another approach where the usage of sensors and physiological data could be used to find UPs.
-This could potentially elimate some of the need for third-party expert evaluations and not only save time, but also mitigate implications such as the \textit{evaluator effect}\cite{eval_effect}.
-%Fokus området skal  slået fast lige her! hvad er det vi vil se på?
-We define the preliminary research question as:\\
+This raises the question if the sensors are detection ´´actual'' problems and how they would perform in a more controlled environment.
+Our focus in this study will be to use multiple sensors to detect usability problem. 
+Thus we define the preliminary research question as:\\
 
 \textbf{RQ}. \textit{Is it possible to use physiological data from consumer graded hardware and machine learning, to
   eliminate some of the implications from third-party evaluations, and in usability evaluations?}
