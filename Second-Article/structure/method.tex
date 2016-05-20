@@ -1,11 +1,11 @@
 %!TEX root = ..\Main.tex
 \section{Method}
 In this section, we explain the methods and practices we apply in order to answer our hypothesis. In particular, an
-experiment was conducted and its setup will be explain, along with applied MI and statistical techniques used to analyse
-physiological data, collected during experiments.
+experiment was conducted and its setup will be explained, along with applied MI and statistical techniques used to
+analyse physiological data collected during experiments.
 
 \subsection{Experiment}
-Our experiement is reminicent of a traditional usability test(UT) setup: a software application is tested by a test
+Our experiment is reminiscent of a traditional usability test(UT) setup: a software application is tested by a test
 participant, solving pre-defined tasks. However, unlike a traditional UT setup, we attach physiological sensors
 onto the test participant, and expose them to a software application that - intentionally but unknown to the test
 participant - has usability problems embedded into it. This is to induce the anticipated affective state changes using
@@ -18,10 +18,9 @@ application, into which we could embed such problems. This application is mimick
 features found in ``real-world'' equivalent applications, but with controllable seeded problems.  Many choices could be
 made as to the kind of software application it should mimic, but research shows that some domains within software
 applications are more likely to induce stress and frustration in the user, compared to other domains.  As mentioned
-under Related Work, Lazar et al.~\cite{frustration_with_computers} found that email-related and text-based work induce
-the highest amounts of frustration in users. We use this discovery as inspiration to develop a ``mock'' email
-application, i.e it does not send any emails but merely pretends to do so. Using this application, we expect to increase
-the chances of inducing frustration in users.
+under Related Work, Lazar et al.~\cite{frustration_with_computers} found that email- and text-related work tends to
+induce the highest amounts of frustration in users. We use this discovery as inspiration to develop a ``mock'' email
+application, i.e it does not send any emails but merely pretends to do so.
 
 The application was built upon a self developed framework which facilitated seeding usability problems and creating a set of tasks for the user to complete. 
 The application is kept simple with few features to decrease the risk of unintentionally introducing usability problems, while still having the basic functionalities of a normal email application.  
@@ -31,11 +30,11 @@ For instance a particular task involved attaching an image to an email.
 While the task is active, the attachment process will fail three times and be successful on the fourth. 
 Had any other task been active the attachment process would not contain the seeded usability problem.
 The program has a total of 11 tasks of which 7 contained a seeded usability problem. 
-All tasks were randomized for each test participant beside the first two which contained no seeded problems, with the
-intention of using them as baseline training data for outlier detection. 
-Each task and their associated usability problem can be seen in Table~\ref{tab:ups-desc}
-Task 3 and 7 can be considered full stoppers, and are incompletable.
-Tasks 1, 2, 4, 5 and 6 can be completed given persistence or explorative user behavior, e.g. task 6 will in fact remove the contact, but to see it has done so requires the user to close the window and reopen it to validate it.
+All tasks were randomized for each test participant besides the first two which contained no seeded problems, with the
+intention of using them as baseline training data for novelty detection. 
+Each task and their associated usability problem can be seen in Table~\ref{tab:ups-desc}.
+Task 3 and 7 can be considered full stops, and are incompletable.
+Tasks 1,2,4,5 and 6 can be completed given persistence or explorative user behavior, e.g. task 6 will in fact remove the contact, but to see it has done so requires the user to close the window and reopen it to validate it.
 
 \begin{table}[h]
   \centering
@@ -77,7 +76,7 @@ The EEG was connected to the head according to the 10-20 system\cite{eeg_tech_10
 
 \subsubsection{Test procedure}
 The test starts with an application the mail client simulation.
-In the bottom right corner of the application a ``task'' window is located, which contains information regarding the test participants current task. 
+In the bottom right corner of the application a ``task'' window is located, which contains information regarding the test participant's current task. 
 A red and green button indicated that you have ``completed'' or ``not completed'' a task.  
 Each task had an indefinite time threshold, but the participant could choose to continue to the next task at any given moment by pressing either a green or a red button on the keyboard. 
 The participants were not allowed to talk to the test conductor during the test, unless it was absolutely necessary. 
@@ -85,4 +84,33 @@ In case any communication had to take place, it would be done through a micropho
 \todo{really, a flowchart showing the process might be a good idea}
 
 \subsection{Usability problem detection}
-write here how we detect UPs
+Before we can predict potential usability problems, we must establish certain criteria to fulfilled.  We consider a
+particular section within the experiment to be \textit{normal}, i.e. containing no usability problems.  We do not expect
+test participants to exhibit physiological states that are related to \textit{frustration} or similar negative affective
+states during this section. We refer to this normal section as the \textit{baseline}. The baseline is established in the
+beginning of the test during the two first tasks, after the initial relaxation section, and before the third task
+begins. This is because the two first tasks are always chosen from a set of tasks containing no seeded usability
+problems. All physiological measurements collected within this section are treated as a \textit{baseline} data.  From
+the baseline, we extract various statistical measurements from which \textit{unknown} data should deviate from, in order
+to signify the existence of a potential usability problem.
+
+\subsubsection{Categorizing seeded problems}
+write this
+\todo{write something about: since the seeded problems are different in nature, we also expect them to trigger different
+physiological reactions and at different moments}
+
+\subsubsection{Detecting affective state changes}
+We consider affective state changes in GSR to manifest themselves 2-4 seconds after the experience occurred which
+induced the stimuli, and is noticeable within a time-frame of 3-4 seconds thereafter. EEG is considerably different,
+manifesting after 350 milliseconds, lasting 760 milliseconds. Reactions to stimuli can be seen manifesting in heart-rates
+after 4 seconds, and lasts for 3 seconds. Lastly face changes has a delay of 500ms and lasts for 500ms. As mentioned,
+the above is based on our previous work, which in turn is based on related research within HCI, psychology and
+physiology of the human body~\cite{9th_semester_project}.
+\todo{cite also 1st. paper and lots of others. Put them in the beginning of this paragraph}
+
+Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
+each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
+likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
+indicate that the test participant is \textit{frustrated}.
+
+\todo{write more here about how we detect stuff}
