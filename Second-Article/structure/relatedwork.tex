@@ -12,7 +12,7 @@ identify 85\% of critical usability problems. Jonathan J. et
 al.~\cite{use_of_TA_and_IDA} found the IDA
 method compelling for its reduction in time and effort required, but mentions
 several shortcomings to take into consideration of using it over a traditional
-method.
+method, in particular the still-present evaluator effect.
 
 \textit{Think-Aloud} sessions can help evaluators extract the thought-process
 and affective state of test participant while they interact with the system
@@ -26,7 +26,7 @@ such methods become, they are inherently subjective.
 A phenomenon that can significantly impact how and which usability problems are
 found and categorized, is the \textit{evaluator effect}~\cite{eval_effect}.
 The evaluator effect is the phenomenon that a set of evaluators will individually only find a subset of all usability problems.
-Further the evaluators will tend to find unrelated problems from one another, and score them differently as well.\cite{eval_effect}
+Further the evaluators will tend to find unrelated problems from one another~\cite{eval_effect}.
 Hertzum et al. found that not only do
 usability experts identify substantially different usability problems, they also
 disagree on how they should be categorized in
@@ -40,13 +40,13 @@ from the perspective of how test participants are affected by the experience of 
 words, the affective state of a test participant might reveal potential problems within a software system. Jussi
 P.P. Jokinen~\cite{workplace_up_study} investigated how frustration plays a key-role in how individuals interact with a
 system. Likewise, Lazar et al.~\cite{frustration_with_computers} found that text-processing and email-related tasks
-induces the highest amount of frustration.
+induce the highest amount of frustration.
 
 \subsection{Sensors and usability testing}
-Sensors has been used in various studies in the HCI field, serving as input devices to detecting the well being of a person.
-Moreover some of these studies focus is to try and predict a test participants emotions or affective state in different test scenarios. 
-An example could be Schmidt et al.~\cite{schmidt_trainor}, who used an electroencephalogram (EEG) to identify valence and intensity, where they found some correlation with different part of the brain.
-Zhai et al.~\cite{gsr_data_processing2} used galvanic skin response (GSR), blood volume pulse (BVP), pupil diameter (PD) and skin temperature to measure if a person was stressed or not stressed. Where they achieved a 90\% accuracy with an support vector machcine (SVM) and 11 features.
+Sensors have been used in various studies in the HCI field, serving as input devices to detecting the well being of a person.
+Moreover some studies try and predict a test participants emotions or affective state in different test scenarios. 
+An example could be Schmidt et al.~\cite{schmidt_trainor}, who used an electroencephalogram (EEG) to identify valence and intensity, where they found some correlation with different parts of the brain.
+And Zhai et al.~\cite{gsr_data_processing2} used galvanic skin response (GSR), blood volume pulse (BVP), pupil diameter (PD) and skin temperature to measure if a person was stressed or not stressed, where they achieved a 90\% accuracy with a support vector machine (SVM) and 11 features.
 
 While still a relatively unexplored area within HCI research,
 physiological sensors are increasingly being applied in usability experiments.
@@ -57,9 +57,11 @@ think-aloud method and to complement it. Similarly, P\"{a}tsch et
 al.~\cite{using_sensor_graphs_think_aloud} complimented think-aloud recall
 sessions using GSR sensor data.
 
-In 2014 Liapis et. al~\cite{fusion4} has created a PhysiOBS a post-test data processing tool to help usability test evaluators speed up the analysis process of a usability test. It do this by giving the evaluator the ability to label specific areas with emotions, showing both screen and face camera in one window, as well as physiological data collected from different sensors. It also offers indicators for what task users is doing at the given time.
+In 2014 Liapis et. al~\cite{fusion4} created PhysiOBS, a post-test data processing tool to help usability test evaluators speed up the analysis process of a usability test. It does this by giving the evaluator the ability to label specific areas with emotions, showing both screen and face camera in one window, as well as physiological data collected from different sensors. It also offers indicators for what task users is doing at the given time.
+Aggarwal et al.~\cite{sensor_example} used an Emotiv EPOC and the vendor-supplied software to detect frustration in a
+user experience test with three seeded events, showing promising results.
 
-Aggarwal et al.~\cite{sensor_example} used an Emotiv EPOC and their Emotivs build-in software to detect frustration in a user experience test with three seeded events. Where they show to some promising results.
-
-From the literature and recent research trends within the HCI community, that a revision of the traditional usability evaluation methods is being explored to ease the task of analysing the results from a test. Current methods mostly rely on experts and their subjective analytic abilities whilst being focused on performance-based metrics.
-Furthermore some attempts, using sensors, has been made to automate the process of analysing the data from the usability test or user experience evaluation. 
+It is evident from recent research and trends within the HCI community, that revisions of the traditional usability
+evaluation methods are being explored to ease the task of analysing the results from a test.
+Current methods mostly rely on experts and their subjective analytic abilities with a strong emphasis on performance-based
+metrics, and state-of-the-art research is pushing for more objective and user-centric analysis.

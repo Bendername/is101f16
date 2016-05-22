@@ -4,33 +4,29 @@
 \section{Introduction}
 %http://delivery.acm.org.zorac.aub.aau.dk/10.1145/2500000/2491883/p258-liapis.pdf?ip=130.225.53.20&id=2491883&acc=ACTIVE%20SERVICE&key=36332CD97FA87885%2E1DDFD8390336D738%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=764220047&CFTOKEN=51730471&__acm__=1459164823_6fcb563aae9287be26350addc8efbe52
 %artikel vi kan bruge som støtte.
-%[17, 34, 60, 77] = "UP defined in terms of cognetive and performance-based
-%impacts that the UP excerts on the user or on developers"
 
-% maybe mention here that our work can be considered an extension/future work to
-% Anders' work (we share his sentiment/agree with him)
-
-Usability testing has long been an important aspect of software development and according to Rubin et al.~\cite{rubin2008handbook} usability testing are user centred tests that focuses on three main groups.
+Usability testing has long been an important aspect of software development and according to Rubin et al.~\cite{rubin2008handbook} usability testing is user centered tests that focuses on three main groups.
 Informing Design, which concerns the usefulness and learning rate of the program.
-Elimination of design problems and frustration, which not only focuses on removing design problems and bugs, but also about establishing a good relation with the customer.
-The last group is improving profitability, which is centred around reducing maintenance and increasing sales.
+Elimination of design problems and frustration, which not only focuses on removing design problems and bugs, but is also about establishing a good relation to the customer.
+The last group is improving profitability, which is centered around reducing maintenance and increasing sales.
 However the second group, elimination of design problems and frustration, is often measured with methods involving third part observers.
-These observers has to, objectively as possible, note if a test person is encountering a usability problem, even so these results are often still very subjective given the evaluator effect\cite{eval_effect}, which states that the results from the evaluations are different from individual to individual.
+These observers has to, as objectively as possible, note if a test person is encountering a usability problem.
+However, such observations are often still very subjective given the evaluator effect\cite{eval_effect}, which states that the results from the evaluations are different from individual to individual.
 Strategies such as \textit{think aloud}~\cite{use_of_TA_and_IDA} can help observers better gauge a user's
 thoughts, and to some extent affective state, while experiencing UP's. However it does
 not formalise capturing of the affective state in particular and is inherently a third-party
 subjective evaluation. 
 
-There are three predominant methods formalised for capturing a user's affective state are affective self-report, physiological reactivity and
+There are three predominant methods formalised for capturing a user's affective state: affective self-report, physiological reactivity and
 observable behaviour~\cite{BRADLEY199449}. Strategies such as \textit{think
 aloud} fall within the \textit{observable behaviour} category, while
 \textit{self-report} covers methods such as \textit{Self-Assessment Manikin}
 ~\cite{BRADLEY199449}, both of which suffers from subjectivity-bias. 
-Observable behaviours inherently because third-party evaluators are making a subjective opinion based off their own estimations and analysis' which can vary due to the evaluator effect, and SAM because of effects like the peak-end memory bias \cite{cockburn_peakend}.
-Physiological measuring has been showed at several occasions\todo{cite} that it can to some degree be used to predict a persons affective state, and thus has interesting propositions to offer to the traditional evaluation methods.
+Observable behaviors inherently so because third-party evaluators are making a subjective opinion based off their own estimations and analysis' which can vary due to the evaluator effect, and SAM because of effects like the peak-end memory bias \cite{cockburn_peakend}.
+Physiological measuring has shown at several occasions\todo{cite} that it can, to some degree, be used to predict a persons affective state, and thus has interesting propositions to offer to the traditional evaluation methods.
 
 An example of such study was made by Bruun et al.~\cite{LH-paper}, who made a usability case-study based on a website.
-Where a number of UP's were found in an empirical study, from which they created three tasks for the participants to complete.
+A number of UP's were found in a prior empirical study, from which they created three tasks for the participants to complete.
 They recorded physiological data using \textit{galvanic skin response} (GSR) which measures sweat \cite{gsr_calibration}, and an eye-tracker detecting the gaze of the participant.
 They formalized a method and a formula for associating the physiological data with the discrete negative affect state \textit{frustration}.
 As mentioned in multiple studies, e.g. ~\cite{LH-paper}, ~\cite{frustration_with_computers}, frustration is well-studied
@@ -38,21 +34,12 @@ and manifests whenever expectations or rewards are not met in a timely manner or
 Bruun et al. also had a cued-recall debrief session where the participants reviewed video clips found from GSR peaks, and filled out SAM scales relating to the clip. 
 They found a correlation between peaks in GSR and SAM-ratings, but was unable to confirm a relationship between the
 \textit{severity} of a UP and the level of frustration experienced.
-While they found a correlation, the entire study still relies on the preliminary assumption that the UPs found by third-party evaluations on DST are correct. 
-As mentioned such evaluations suffers from various problems, and are generally only considered to find a subset of the UPs present in a system. 
-This raises the question if the sensors are detection ´´actual'' problems and how they would perform in a more controlled environment.
-Our focus in this study will be to use multiple sensors to detect usability problem. 
-Thus we define the preliminary research question as:\\
+While they found a correlation, the entire study still relies on the preliminary assumption that the UPs found by
+third-party evaluations on the website in question are correct. 
+As mentioned such evaluations suffer from various problems, and are generally only expected to find a subset of the UPs present in a system. 
+This raises the question if the sensors where detection ``actual'' problems and how they would perform in a more controlled environment.
 
-\textbf{RQ}. \textit{Is it possible to use physiological data from consumer graded hardware and machine learning, to
-  eliminate some of the implications from third-party evaluations, and in usability evaluations?}
-
-% TODO: write more to intro
-    %- Make link to our first article (that we can measure affective state to
-%some degree based in stimuli induced by images (IAPS), using multiple sensors
-%and fusing their results)
-    %- Mention other caveat (multifaceted emotions, non-orthogonal A/V, that
-        %Anders only measure arousal etc., that we aim to solve
-    %- State briefly how we setup a test-environment (seeded problems, sensors, cued-recall debrief) to try and confirm/reach our goal
-    %- Argue that a subjective measurement of affective state could considerably reduce UT complexity and errors
-    %    - Argue how this is the case
+Our focus in this study will be to use multiple physiological sensors to detect usability problem. We aim to use
+consumer graded sensors, to make our setup more accessible should other researchers find the interest to reproduce
+it. We couple physiological data from various sensors with established Machine Learning techniques as the method for
+detecting usability problems.
