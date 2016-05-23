@@ -88,15 +88,33 @@ the participant is informed about the current task and has the option to report 
 successfully or not. In any case they are presented with the next task.  Interaction with the task manager is through
 keyboard shortcuts labeled red and green, signifying either unsuccessful or successful completion.  Each task had an
 indefinite time threshold, and the participant could choose to continue to the next task at any given moment by pressing
-either a green or a red button on the keyboard.
-
-The test starts with an application the mail client simulation.
-In the bottom right corner of the application a ``task'' window is located, which contains information regarding the test participant's current task. 
-A red and green button indicated that you have ``completed'' or ``not completed'' a task.  
-Each task had an indefinite time threshold, but the participant could choose to continue to the next task at any given moment by pressing either a green or a red button on the keyboard. 
-The participants were not allowed to communicate with the test conductor during the test, unless absolutely necessary. 
-In case any communication had to take place, it was done through a microphone and speakers.
+either a green or a red button on the keyboard.  The participants were not allowed to communicate with the test
+conductor during the test, unless absolutely necessary.  In case any communication had to take place, it was done
+through a microphone and speakers.
 \todo{really, a flowchart showing the process might be a good idea}
+
+%\begin{figure}
+%	\centering
+%	\resizebox {\columnwidth} {!} {
+%		\begin{tikzpicture}[
+%			node/.style={rectangle, draw=black!60, fill=black!5, very thick, align=center, rounded corners},
+%			edge/.style={-latex,line width=3pt, shorten >=2pt, shorten <=2pt, rounded corners}]
+%			% Nodes
+%			\node[node] 			(start)									{Initial\\rest period};
+%			\node[node] 			(state A)	[right = 50pt of start]		{Rest period};
+%			\node[align=center]		(mid) 		[right = 15pt of state A]	{Stimuli loop\\\small{Runs $30$ times}};
+%			\node[node] 			(state B)	[below = 15pt of mid]		{Stimuli\\picture is\\shown};
+%			\node[node] 			(state C)	[right = 15pt of mid]		{Arousal \& valence\\interface};
+%			% Edges
+%			\draw[edge]	(start)					-- (state A) 	node [midway, above = 2pt] 		(TextNode) {\small{$3$ minutes}};
+%			\draw[edge]	(state A)				|- (state B) 	node [midway, below = 2pt] 		(TextNode) {\small{$20-30$ seconds}};
+%			\draw[edge]	(state B)				-| (state C) 	node [midway, below = 2pt] 		(TextNode) {\small{$7$ seconds}};
+%			\draw[edge]	(state C)	 -- +(0,1) 	-| (state A) 	node [near start, above = 2pt]	(TextNode) {\small{Until test subject clicks next}};
+%		\end{tikzpicture}
+%	}
+%	\caption{Flow chart of the test.}
+%	\label{[FIGURE] TESTLOOP}
+%\end{figure}
 
 \subsection{Usability problem detection}
 Before predicting potential usability problems, we establish certain criteria to be fulfilled in order for them to
