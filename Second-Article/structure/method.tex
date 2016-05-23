@@ -4,29 +4,7 @@ In this section, we explain the methods and practices we apply in order to answe
 experiment was conducted and its setup will be explained, along with applied MI and statistical techniques used to
 analyse physiological data collected during experiments.
 
-\subsection{Experiment}
-\todo{Mention lab setting} Our experiment is a traditional usability test(UT) setup: a software application is tested by
-a test participant, solving pre-defined tasks. However, unlike a traditional UT setup, we attach physiological sensors
-onto the test participant, and expose them to a software application that - intentionally but unknown to the test
-participant - has usability problems embedded into it. This is to induce the anticipated affective state changes using
-usability problems at \textit{known} moments during the experiment and to increase reproducibility of our
-experiment. Furthermore, no usability experts are present in the room and no communication between the test participant
-and usability expert takes place, while the usability test is undergoing. The experiment is set up and conducted inside
-a traditional usability lab, located at Aalborg University~\cite{usability_lab_cassiopeia}.
-
-\subsubsection{Participants and setup}
-A total of 29 people participated in the test (16 male, age 20-29 SD 2.24, 13 female age 19-32 SD 3.04).
-The participants were students recruited from multiple faculties at Aalborg University. 
-All participants filled out a Big-Five\cite{big5} which revealed no bias in terms of personality.
-\todo{We should probably add numbers here}
-
-The tests were conducted from the 13th of April, 2016, to the 30th of April 2016 and from 8:00 to 16:00 every day. 
-The participants were asked to fill out a consent form prior to participating. 
-The participants were instructed in how to use the test program which included how to see the tasks, and how to indicate whether or not they could complete the given task. 
-Before starting the test all hardware was attached to the participant and verified in terms of connectivity. 
-The EEG was connected to the head according to the 10-20 system\cite{eeg_tech_10_20}, the GSR and pulse sensor was attached to their non-dominant hand. 
-
-\subsubsection{Problem-seeded test application}
+\subsection{Problem-seeded test application}
 In order to control the kind of seeded problems, and at which moments they should be revealed, we developed a software
 application, into which we could embed such problems. This application is mimicking the functionality of a subset of
 features found in ``real-world'' equivalent applications, but with controllable seeded problems.  Many choices could be
@@ -71,19 +49,40 @@ Tasks 1,2,4,5 and 6 can be completed given persistence or explorative user behav
   \label{tab:ups-desc}
 \end{table}
 
+\subsection{Experiment}
+Our experiment is a traditional usability test(UT) setup: a software application is tested by
+a test participant, solving pre-defined tasks. However, unlike a traditional UT setup, we attach physiological sensors
+onto the test participant, and expose them to a software application that - intentionally but unknown to the test
+participant - has usability problems embedded into it. This is to induce the anticipated affective state changes using
+usability problems at \textit{known} moments during the experiment and to increase reproducibility of our
+experiment. Furthermore, no usability experts are present in the room and no communication between the test participant
+and usability expert takes place, while the usability test is undergoing. The experiment is set up and conducted inside
+a traditional usability lab, located at Aalborg University~\cite{usability_lab_cassiopeia}.
+
 \subsubsection{Hardware}
 The hardware used for the experiment is an Emotiv Epoc~\cite{emotiv_epoc_website} for Electroencephalograph (EEG) to recording brain activity, a Mindplace Thoughtstream~\cite{thoughtstream} for Galvanic Skin Response (GSR), an Arduino with a pulse-sensor~\cite{pulsesensor} with modified software~\cite{pulsesensorgit} to measure heart rate (HR) and a Kinect V2\cite{kinect_specs3} for tracking facial changes.
 The pulse-sensor software was modified to send beats per minute (BPM), inter-beat interval (IBI) and raw signal every 20 ms.
 All devices are low-cost consumer grade hardware.
 
+\subsubsection{Participants and setup}
+A total of 29 people participated in the test (16 male, age 20-29 SD 2.24, 13 female age 19-32 SD 3.04).
+The participants were students recruited from multiple faculties at Aalborg University. 
+All participants filled out a Big-Five\cite{big5} which revealed no bias in terms of personality.
+\todo{We should probably add numbers here}
 
-\subsubsection{Test procedure}
+The tests were conducted from the 13th of April, 2016, to the 30th of April 2016 and from 8:00 to 16:00 every day. 
+The participants were asked to fill out a consent form prior to participating. 
+The participants were instructed in how to use the test program which included how to see the tasks, and how to indicate whether or not they could complete the given task. 
+Before starting the test all hardware was attached to the participant and verified in terms of connectivity. 
+The EEG was connected to the head according to the 10-20 system\cite{eeg_tech_10_20}, the GSR and pulse sensor was attached to their non-dominant hand. 
+
+\subsubsection{Procedure}
 The test starts with an application the mail client simulation.
 In the bottom right corner of the application a ``task'' window is located, which contains information regarding the test participant's current task. 
 A red and green button indicated that you have ``completed'' or ``not completed'' a task.  
 Each task had an indefinite time threshold, but the participant could choose to continue to the next task at any given moment by pressing either a green or a red button on the keyboard. 
-The participants were not allowed to talk to the test conductor during the test, unless it was absolutely necessary. 
-In case any communication had to take place, it would be done through a microphone and speakers.
+The participants were not allowed to communicate with the test conductor during the test, unless absolutely necessary. 
+In case any communication had to take place, it was done through a microphone and speakers.
 \todo{really, a flowchart showing the process might be a good idea}
 
 \subsection{Usability problem detection}
