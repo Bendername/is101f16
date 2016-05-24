@@ -93,39 +93,20 @@ conductor during the test, unless absolutely necessary.  In case any communicati
 through a microphone and speakers.
 \todo{really, a flowchart showing the process might be a good idea}
 
-%\begin{figure}
-%	\centering
-%	\resizebox {\columnwidth} {!} {
-%		\begin{tikzpicture}[
-%			node/.style={rectangle, draw=black!60, fill=black!5, very thick, align=center, rounded corners},
-%			edge/.style={-latex,line width=3pt, shorten >=2pt, shorten <=2pt, rounded corners}]
-%			% Nodes
-%			\node[node] 			(start)									{Initial\\rest period};
-%			\node[node] 			(state A)	[right = 50pt of start]		{Rest period};
-%			\node[align=center]		(mid) 		[right = 15pt of state A]	{Stimuli loop\\\small{Runs $30$ times}};
-%			\node[node] 			(state B)	[below = 15pt of mid]		{Stimuli\\picture is\\shown};
-%			\node[node] 			(state C)	[right = 15pt of mid]		{Arousal \& valence\\interface};
-%			% Edges
-%			\draw[edge]	(start)					-- (state A) 	node [midway, above = 2pt] 		(TextNode) {\small{$3$ minutes}};
-%			\draw[edge]	(state A)				|- (state B) 	node [midway, below = 2pt] 		(TextNode) {\small{$20-30$ seconds}};
-%			\draw[edge]	(state B)				-| (state C) 	node [midway, below = 2pt] 		(TextNode) {\small{$7$ seconds}};
-%			\draw[edge]	(state C)	 -- +(0,1) 	-| (state A) 	node [near start, above = 2pt]	(TextNode) {\small{Until test subject clicks next}};
-%		\end{tikzpicture}
-%	}
-%	\caption{Flow chart of the test.}
-%	\label{[FIGURE] TESTLOOP}
-%\end{figure}
-
-%\begin{figure}
-%  \centering
-%  \begin{tikzpicture}
-%    \draw (0,0) rectangle (1,1) node [pos=0.5] {resting};
-%    \draw (1,0) rectangle (2,1) node [pos=0.5] {task};
-%    \draw (2,0) rectangle (3,1) node [pos=0.5] {task};
-%  \end{tikzpicture}
-%	\caption{Flow chart of the test.}
-%	\label{[FIGURE] TESTLOOP}
-%\end{figure}
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[
+    node/.style={rectangle, draw=black!60, fill=black!5, very thick, align=center, minimum height=20pt},
+    edge/.style={-latex,line width=3pt, shorten >=2pt, shorten <=2pt, rounded corners}]
+    \node[node] (start) {Rest period};
+    \node[node] (unseeded) [right = 40pt of start] {Two unseeded tasks};
+    \node[node] (tasks)    [below = 20pt of unseeded] {random seeded/unseeded tasks};
+    \draw[edge] (start) -- (unseeded) node [midway, above = 2pt] (TextNode) {\small{3min}};
+    \draw[edge] (unseeded) -- (tasks);
+  \end{tikzpicture}
+  \caption{test}
+  \label{fig:test}
+\end{figure}
 
 \subsection{Usability problem detection}
 Before predicting potential usability problems, we establish certain criteria to be fulfilled in order for them to
