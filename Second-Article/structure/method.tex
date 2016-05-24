@@ -141,4 +141,24 @@ each sensor, for a particular moment in time. We do so for moments within what w
 likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
 indicate that the test participant is \textit{frustrated}.
 
-\todo{write more here about how we detect stuff}
+\subsection{Classification}
+\todo{skriv det her sammen med subsectionen ``Usability problem detection''. Kald det evt. ``Classification''}
+To predict whether or not a usability problem is present a one-class SVM has been used.\todo{LIBSVM} The one-class SVM
+is an algorithm used for novelty detection. Novelty detection is a means to detect ``anomalies'', i.e. data which is
+considerably different from normal data. As mentioned, we consider data collected during the two first tasks to be
+normal. For novelty detection to function properly the training data must contain no anomalies - a requirement we meet
+by training on data from the first two tasks\todo{og måske resting dataen?}. The remaining data, except for the resting
+period, will act as the prediction set.
+
+We create one one-class SVM for each of the sensors, and a voting system implemented on-top. 
+
+\subsubsection{Data processing}
+For the one-class SVM can work with the data, the data first has to be transformed into feature vectors.
+A feature vector is simply a n-space vector containing values extract from the a sensor.
+The features selected are based off .. \todo{Old article?}
+A feature vector is created for each 100~ms in a test, which for some of the sensors result in data overlapping\todo{Spørg Thomas om hvordan vi lige skriver det her med data overlapping}.
+
+\subsubsection{Prediction}
+After the model for the one-class SVM is trained on the two first task, the model can then be used to predict on feature vectors from the remaining task. 
+The return value from this prediction is a binary 1 for a normality and -1 for an anomaly.
+The fusion of the results from the different machines will be a simple voting approach where a machine must declare whether it has found an anomaly to the  given point in time. If x\todo{How many must agree?} sensors agrees the given point will be flagged as an anomaly. 
