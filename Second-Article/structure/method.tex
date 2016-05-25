@@ -91,41 +91,25 @@ indefinite time threshold, and the participant could choose to continue to the n
 either a green or a red button on the keyboard.  The participants were not allowed to communicate with the test
 conductor during the test, unless absolutely necessary.  In case any communication had to take place, it was done
 through a microphone and speakers.
-\todo{really, a flowchart showing the process might be a good idea}
 
-%\begin{figure}
-%	\centering
-%	\resizebox {\columnwidth} {!} {
-%		\begin{tikzpicture}[
-%			node/.style={rectangle, draw=black!60, fill=black!5, very thick, align=center, rounded corners},
-%			edge/.style={-latex,line width=3pt, shorten >=2pt, shorten <=2pt, rounded corners}]
-%			% Nodes
-%			\node[node] 			(start)									{Initial\\rest period};
-%			\node[node] 			(state A)	[right = 50pt of start]		{Rest period};
-%			\node[align=center]		(mid) 		[right = 15pt of state A]	{Stimuli loop\\\small{Runs $30$ times}};
-%			\node[node] 			(state B)	[below = 15pt of mid]		{Stimuli\\picture is\\shown};
-%			\node[node] 			(state C)	[right = 15pt of mid]		{Arousal \& valence\\interface};
-%			% Edges
-%			\draw[edge]	(start)					-- (state A) 	node [midway, above = 2pt] 		(TextNode) {\small{$3$ minutes}};
-%			\draw[edge]	(state A)				|- (state B) 	node [midway, below = 2pt] 		(TextNode) {\small{$20-30$ seconds}};
-%			\draw[edge]	(state B)				-| (state C) 	node [midway, below = 2pt] 		(TextNode) {\small{$7$ seconds}};
-%			\draw[edge]	(state C)	 -- +(0,1) 	-| (state A) 	node [near start, above = 2pt]	(TextNode) {\small{Until test subject clicks next}};
-%		\end{tikzpicture}
-%	}
-%	\caption{Flow chart of the test.}
-%	\label{[FIGURE] TESTLOOP}
-%\end{figure}
+Experiments are conducted individually for each test participant and the procedure is a follows:
 
-%\begin{figure}
-%  \centering
-%  \begin{tikzpicture}
-%    \draw (0,0) rectangle (1,1) node [pos=0.5] {resting};
-%    \draw (1,0) rectangle (2,1) node [pos=0.5] {task};
-%    \draw (2,0) rectangle (3,1) node [pos=0.5] {task};
-%  \end{tikzpicture}
-%	\caption{Flow chart of the test.}
-%	\label{[FIGURE] TESTLOOP}
-%\end{figure}
+\begin{enumerate}
+\item \paragraph{Introduction:} The test participant is greeted and asked to agree with and sign a consent form. The
+  participant is then given a brief explanation of the nature of the experiment, e.g. that it is a usability test.
+\item \paragraph{Setup:} Sensors are attached to the participant and connectivity is verified. During this, the
+  participant is also instructed in how to interact with the task manager and when to use it, e.g. whenever they feel
+  they cannot complete a task or when a task has been successfully completed.
+\item \paragraph{Resting period and establishing baseline data:} The experiment is initiated and the initial 3 minute
+  resting period starts to elapse. The conductor leaves the room, immediately after initiating the experiment. After the
+  resting period has elapsed, the participant chooses to start the first task. The first and the second task do not
+  contain any seeded usability problems and physiological data collected during this part of the experiment is used to
+  establish \textit{baseline} data from which we later predict anomalies from.
+\item \paragraph{Remainder:} The test participant continues completing tasks. If the participant believes to have
+  successfully completed the task, he/she presses the green button, otherwise the red button is pressed. Whenever either
+  button is pressed, the next task is presented to the participant. This is repeated until all remaining 9 out of 11
+  tasks are completed.
+\end{enumerate}
 
 \subsection{Usability problem detection}
 Before predicting potential usability problems, we establish certain criteria to be fulfilled in order for them to
@@ -157,4 +141,24 @@ each sensor, for a particular moment in time. We do so for moments within what w
 likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
 indicate that the test participant is \textit{frustrated}.
 
-\todo{write more here about how we detect stuff}
+\subsection{Classification}
+\todo{skriv det her sammen med subsectionen ``Usability problem detection''. Kald det evt. ``Classification''}
+To predict whether or not a usability problem is present a one-class SVM has been used.\todo{LIBSVM} The one-class SVM
+is an algorithm used for novelty detection. Novelty detection is a means to detect ``anomalies'', i.e. data which is
+considerably different from normal data. As mentioned, we consider data collected during the two first tasks to be
+normal. For novelty detection to function properly the training data must contain no anomalies - a requirement we meet
+by training on data from the first two tasks\todo{og måske resting dataen?}. The remaining data, except for the resting
+period, will act as the prediction set.
+
+We create one one-class SVM for each of the sensors, and a voting system implemented on-top. 
+
+\subsubsection{Data processing}
+For the one-class SVM can work with the data, the data first has to be transformed into feature vectors.
+A feature vector is simply a n-space vector containing values extract from the a sensor.
+The features selected are based off .. \todo{Old article?}
+A feature vector is created for each 100~ms in a test, which for some of the sensors result in data overlapping\todo{Spørg Thomas om hvordan vi lige skriver det her med data overlapping}.
+
+\subsubsection{Prediction}
+After the model for the one-class SVM is trained on the two first task, the model can then be used to predict on feature vectors from the remaining task. 
+The return value from this prediction is a binary 1 for a normality and -1 for an anomaly.
+The fusion of the results from the different machines will be a simple voting approach where a machine must declare whether it has found an anomaly to the  given point in time. If x\todo{How many must agree?} sensors agrees the given point will be flagged as an anomaly. 
