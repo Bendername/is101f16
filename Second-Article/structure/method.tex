@@ -30,29 +30,54 @@ The program has a total of 11 tasks of which 7 contained a seeded usability prob
 All tasks were randomized for each test participant except the first two which contained no seeded problems, with the
 intention of using them as training data for novelty detection. 
 Each task and their associated usability problem can be seen in Table~\ref{tab:ups-desc}.
-Task 3 and 7 can be considered full stops, and are incompletable.\todo{Måske uddyb mere på grouping af vores problemer}
-Tasks 1,2,4,5 and 6 can be completed given persistence or explorative user behaviour, e.g. task 6 will in fact remove the contact, but to see it has done so requires the user to close the window and reopen it to validate it.
+
+In addition to seeding problems into the application, we implemented the ability to capture specific moments, i.e. timestamp,
+for important events. Events are moments such as ``user clicked button'' and ``task X completed''. This offers us a
+measurement for when we expect physiological anomalies to manifest.
 
 \begin{table}[h]
   \centering
   \begin{tabular}[c]{|p{60pt}|p{80pt}|p{80pt}|}
     \hline
-    task name                         & description                                                                                                                    & seeded problem                                                                                           \\ \hline
-    \small{1. Add~attachement}        & \small{Add an attachment to a mail}                                                                                            & \small{Program ``hangs'' for 2 seconds three times, before the attachment can be completed.}             \\ \hline
-    \small{2. Add~contact}            & \small{Add a new contact to the contacts catalogue}                                                                            & \small{The ``Add Contact'' button will not work for the first three clicks}                              \\ \hline
-    \small{3. Send~Draft}             & \small{Find a draft, either by creating a mail and drafting it or selecting a pre-created draft, and send it}                  & \small{An exception will show when they try to open the draft, making it impossible to send}             \\ \hline
-    \small{4. Create~a~draft}         & \small{Create a draft with the body: ``Rød grød med fløde''}                                                                    & \small{The keyboard layout changes to American, making it impossible to type the Danish character ``ø''} \\ \hline
-    \small{5. Write~a~mail}           & \small{Create a mail with the body: ``Hi, my name is x and I am participating in a usability test''}                           & \small{At random intervals the caret will move while writing the mail}                                   \\ \hline
-    \small{6. Remove~Contact}         & \small{Remove a specific contact from the contacts catalogue}                                                                  & \small{When clicking ``Delete'', the entire window will change to a black box}                           \\ \hline
-    \small{7. Write~mail~2}           & \small{Write a mail with the body text ``Hello, I am having a birthday party 10 days from now, and this is your invitation!''} & \small{The window for writing a mail is unavailable, and the title changes to ``Not responding...''}     \\ \hline
-    \small{8. Send~a~mail}            & \small{Send a mail with any text, to two contacts}                                                                             & \small{None}                                                                                             \\ \hline
-    \small{9. Save~a~draft}           & \small{Create a mail, and draft it}                                                                                            & \small{None}                                                                                             \\ \hline
-    \small{10. Reply~to~mail}         & \small{Reply to a mail}                                                                                                        & \small{None}                                                                                             \\ \hline
-    \small{11. Write~and delete~mail} & \small{Write a mail containing any text, draft it and then delete it}                                                          & \small{None}                                                                                             \\ \hline
+    task name                         & description                                                                                                                    & seeded problem                                                                                                                                      \\ \hline
+    \small{1. Add~attachment}         & \small{Add an attachment to a mail}                                                                                            & \small{Program appears to be processing for 2 seconds, then fails with an error. This happens three times, before the attachment can be completed.} \\ \hline
+    \small{2. Add~contact}            & \small{Add a new contact to the contacts catalogue}                                                                            & \small{The ``Add Contact'' button will not work for the first three clicks}                                                                         \\ \hline
+    \small{3. Send~Draft}             & \small{Find a draft, either by creating a mail and drafting it or selecting a pre-created draft, and send it}                  & \small{An exception will show when they try to open the draft, making it impossible to send}                                                        \\ \hline
+    \small{4. Create~a~draft}         & \small{Create a draft with the body: ``Rød grød med fløde''}                                                                   & \small{The keyboard layout changes to American, making it impossible to type the Danish character ``ø''}                                            \\ \hline
+    \small{5. Write~a~mail}           & \small{Create a mail with the body: ``Hi, my name is x and I am participating in a usability test''}                           & \small{At random intervals the caret will move while writing the mail}                                                                              \\ \hline
+    \small{6. Remove~Contact}         & \small{Remove a specific contact from the contacts catalogue}                                                                  & \small{When clicking ``Delete'', the entire window will change to a black box}                                                                      \\ \hline
+    \small{7. Write~mail~2}           & \small{Write a mail with the body text ``Hello, I am having a birthday party 10 days from now, and this is your invitation!''} & \small{The window for writing a mail is unavailable, and the title changes to ``Not responding...''}                                                \\ \hline
+    \small{8. Send~a~mail}            & \small{Send a mail with any text, to two contacts}                                                                             & \small{None}                                                                                                                                        \\ \hline
+    \small{9. Save~a~draft}           & \small{Create a mail, and draft it}                                                                                            & \small{None}                                                                                                                                        \\ \hline
+    \small{10. Reply~to~mail}         & \small{Reply to a mail}                                                                                                        & \small{None}                                                                                                                                        \\ \hline
+    \small{11. Write~and delete~mail} & \small{Write a mail containing any text, draft it and then delete it}                                                          & \small{None}                                                                                                                                        \\ \hline
   \end{tabular}
   \caption{Usability problems descriptions}
   \label{tab:ups-desc}
 \end{table}
+
+\subsubsection{Categorizing tasks}
+In order to better establish expected reactions whenever test participants experience the problems seeded in our tasks,
+we discuss them in more detail. In particular, we discuss how each problem can be experienced differently, and how that
+has implications w.r.t. how we determine whether a particular problem has been correctly predicted via physiological
+measurements.
+
+Tasks 1, 3, 6 and 7 we group, based on the assumption that they induce a reaction at known moments. Our argument for
+this is that all three tasks present obtrusive visual feedback on error, and in the case of task 3 also audio
+feedback. Task 3 displays an exception error message whenever the user attempts to open a draft, task 6 turns window
+black, task 7 displays a ``not responding'' window whenever the user attempts to write an email and task 1 displays an
+error message after 2 seconds. Task 3 and 7 in particular are considered ``full stops'', and it is not possible for the
+user in any way to successfully complete them. It is possible to complete task 1 and 6, but requires the user to
+re-attempt 3 times before success. Regardless, we group them equally as \textit{instant} error feedback.
+
+Tasks 2, 4 and 5 we group as \textit{not instant}. All three tasks requires the user to notice that an error occurred, or
+that the action was not successfully performed. During task 2, the user has to notice that the contact was not added,
+task 4 is first noticed when the user realizes that incorrect characters appear on-screen and task 5 again requires the
+user to notice that the caret has moved. While task 4 and 5 could induce an in \todo{write something about the user
+  looking at the keyboard and might not notice the error}
+
+
+%\todo{Måske uddyb mere på grouping af vores problemer}
 
 \subsection{Hardware}
 The hardware used for the experiment is an Emotiv Epoc~\cite{emotiv_epoc_website} for Electroencephalograph (EEG) to recording brain activity, a Mindplace Thoughtstream~\cite{thoughtstream} for Galvanic Skin Response (GSR), an Arduino with a pulse-sensor~\cite{pulsesensor} with modified software~\cite{pulsesensorgit} to measure heart rate (HR) and a Kinect V2\cite{kinect_specs3} for tracking facial changes.
