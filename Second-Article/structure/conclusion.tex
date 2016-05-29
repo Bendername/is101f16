@@ -2,6 +2,24 @@
 
 \section{Conclusion}
 
+
+\section{Discussion}
+A fundemental issue with the results of the paper also includes the actual definition of frustration in terms of usability problems. 
+While there is a lot of litterature on this subject, almost no one has explored the actual development of frustration on a physiological level. 
+We have set up somewhat naive conditions simply because it is beyond the scope of this study to examine and map the physiological changes over time for when a person is experiencing frustration. 
+One consideration the authors has made, is that a physiological reaction may increase in amplitude over time from the beginning of the exposure to a frustrating event. As the frustrating event persists, the amplitude may increase while containing multiple spikes of reactions. This could for example be the case when a user tries to work around a problem but keeps experiencing it.
+If this is the case it could have potential implications for the technique used to find outliers and ultimately for the results of this study both in terms of false-negative and false-positive detections.
+We would currently not detect a slow increase in amplitude of a physiological reaction. This could, however, be detected by tailoring the technique to considering such data. 
+Further we have a naive consideration of all outliers found after a frustrating event. 
+While we know when a frustrating event has occured in time because of the seeded problems, we ultimately considers all following outliers from that event to be caused by it. 
+We have no way to accurately verify if this is the case.
+It could be a change of thought, a noise from outside the experiment room or something else completely.
+
+The fact that this area is largely unexplored leaves a lot of assumptions to be made, and as such the validity of our results can be questioned. 
+Further research in all sensors in terms of making a general model of a physiological representation of frustration would greatly increase the replicability of research results, and create a common path to iterate over established research and come up with better models, techniques and results. 
+This is, however, a huge task even just for one sensor, but we believe it to currently be one of the most lacking area of research within this area of HCI.
+
+
 \subsection{Future work}
 One of the most promising areas to continue research within user experience problem detection through physiological affective state, is the means to detect the affective state change. 
 We have chosen off-the-shelf standard and basic solutions to solve the problem, but doing research aimed at optimizing these techniques should be done. 
@@ -10,14 +28,7 @@ Further, the entire study has revolved around fusing multiple sensors, and while
 A further exploration into the feature space could also be conducted. 
 Especially for the EEG better hardware could open up for some more interesting models like DASM12\cite{eeg_music_listening}. 
 
-Further research also has to be done with regards to the emotional baggage people arrive with. 
-The personality type of a user fundamentally change the way their physiological response is, such as the difference between introvert and extrovert GSR streams. 
-It is natural to hypothesize that other emotional contextual influences such as being hungry or having ``a bad day'' may influence the physiological patterns as well. 
-
-A fundemental issue with the results of the paper also includes the actual definition of frustration in terms of usability problems. 
-While there is a lot of litterature on this subject, almost no one has explored the actual development of frustration on a physiological level. 
-We have set up somewhat naive conditions because it is beyond the scope of this study to examine and map the physiological changes over time for frustrating events. 
-It may be that physiological reactions increase in amplitude over time as the frustrating event persists with spikes within this period of time. This could have potential implications for the amount of outliers detected, both as false-negative and false-positives. If a frustrating event is seen as such, the initial slope of frustration would not be detected by our anomaly detection, this could potentially be done with a more proper model. 
-The fact that this area is largely unexplored leaves a lot of assumptions to be made, and as such the validity of our results can be questioned. 
-Further research in all sensors in terms of making a general model of a physiological representation of frustration would greatly increase the replicability of research results, and create a common path to iterate over research to come up with better models and results. 
-This is, however, a huge task even just for one sensor and within subject, but it is the most lacking area of research within this area of HCI currently.
+Further research also has to be done with regards to the emotional ``baggage'' people arrive with. 
+The personality type of a user change the way their physiological response is, such as the difference between introvert and extrovert GSR streams. 
+As such, it would be natural to hypothesize that other emotional and contextual influences such as being hungry or having ``a bad day'' may influence the physiological patterns as well. 
+A thorough study to elaborate the considerations needed and consequences of such baggage would be beneficial to the field of study as a whole. 
