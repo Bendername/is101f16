@@ -158,14 +158,36 @@ treated as a \textit{baseline} data.  From the baseline, we extract various stat
 \textit{unknown} data should deviate from, in order to signify the existence of a potential usability problem.
 
 \subsubsection{Detecting frustration changes}
-While frustration has not been mapped thoroughly to physiological responses, some studies have explored measuring frustration with sensors one way or another, usually in the form of ``frustration'', ``irritation'', ``stress'' or a degree of ``anger''. In this study, all of these are considered ``frustration''.
-Scherer used ``Facial Action Coding System'' to define and measure facial expressions during an enacted emotion, of which anger and irritation was investigated.\textit{facial action units}
+While frustration has not been mapped thoroughly to physiological responses, some studies have explored measuring frustration with sensors one way or another, usually in the form of ``frustration'', ``irritation'', ``stress'' or a degree of ``anger''. In this study, all of these are considered ``frustration''. 
+The feature extraction of each individual sensor is outlined below.
+
+\subsection{EEG features}
+Poel et al. \cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
+Trogo et al. \cite{brainwave_signals_frustration} studied the affective state of students. More specifically they looked at boredom, confusion, engagement and frustration. 
+A simple application with Berg's Card Sorting Task\cite{bergs_card_sorting} was used as stimuli.
+They used the following features on a raw EEG signal: mean, standard deviation, mean of absolute first and second differences and standardized mean of absolute first and second differences.
+
+\subsection{GSR features}
+Nothing here yet
+
+\subsection{Heart Rate features}
 Dang et al.\cite{stress_robot} used a game to induce stress and had a robot react to the stress levels and try to support the test participant. 
 They used heart rate information in form of beats per minute to deduce the stress level.
 In Edge et al. \cite{bipolar_frustration} bipolar test participants were studied where anger is a fundamental emotion in the disorder. 
 They investigated frustration and irritation as a subset of anger with heart rate variability and facial expressions using an emotional expressive behaviour coding system. 
-As mentioned Bruun et al. \cite{LH-paper} used a GSR to find relevant peaks of frustration to be investigated in a cued recall debrief. 
-Poel et al. \cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. They found a significant difference between normal condition and frustrated conditions in the delta and theta bands - albeit, a preliminary research.
+Kosunen et al. \cite{boredom_negative_mood_features} tries to classify negative emotions like frustration and boredom, by making test participants playing a 3d Maze game. 
+They found stasticly significant features for frustration to be interbeat-interval(IBI) mean and IBI low frequency/high frequency band power, but also had IBI standard deviation.
+
+
+\subsection{Facial features}
+With our hardware, the Kinect, data was captured as Face Shape Animations(FSA)\cite{faceshapes}.
+FSA data tracks a subset of the Action Units (AU) in the Facial Action Coding System~\cite{facs_kinect_muscles} (FACS) for both the left and right side of the face.
+Dimberg et al. \cite{face_onset} found unconscious facial reactions happens in the interval 500-1000 ms.
+Scherer used ``Facial Action Coding System'' to define and measure facial expressions during an enacted emotion, of which anger and irritation was investigated on an arousal/valence scale.\cite{scherer_kinect}
+We largely base our features on their features, from the ones they have found to have a statistically significant correlation with arousal and valence, while also being measureable with the kinects animation units.
+Since Scherer used AU without differentiating between the left and right sides of the face, we use the average of the feature values from the left and right side of the face.
+
+\subsection{Windows}
 While frustration can be measured, no golden-standard has been proposed for doing so. 
 As such we define the specifics of our data collection below.\\
 We consider affective state changes in GSR to manifest themselves 2-4 seconds after the experience occurred which
