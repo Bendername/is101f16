@@ -1,2 +1,25 @@
 %!TEX root = ..\Main.tex
 \chapter{Answer to research question}
+In this chapter the answers for both papers research questions will be presented.
+\section{Paper 1}
+In this paper it was explored that it is possible to gather physiological data through sensors, and further use this data to predict subjective SAM ratings with individual sensors as well as using fusion techniques. 
+Participants were subjected to stimuli in the form of IAPS pictures, presented in a self developed application. 
+They also reported subjective SAM values after each stimulus. 
+Synced physiological data was collected in another application, and the sensors used were GSR, EEG, Pulse Sensors as well as a Kinect.
+A SVM was selected as the classification technique and fusion techniques were stacking and voting.
+
+In paper one there was the following hypothes':
+\begin{itemize}
+    \item \textbf{H1:} Physiological measurements from consumer-grade sensors using a classification technique can achieve significantly higher accuracy than naive guessing when predicting subjective SAM ratings.
+    \item \textbf{H2:} Statistically, fusion of consumer-grade sensors has a significantly
+higher prediction rate than each sensor individually.
+\end{itemize}
+
+Results of the classification showed that naively guessing a class was significantly worse in all cases beside voting on the valance3 group. 
+This confirms the hypothesis H1. The result can be seen in Table 7 in paper 1.
+
+The second hypothesis propose that using machine learning fusion techniques for multiple sensors are better than using a single sensor. 
+Results show that the technique ``voting'' is not substantially better than single sensors and other methods, however the technique ``stacking'' performs significantly better than most methods. 
+
+This confirms the second hypothethis. The results can be seen in Table 8 and 9 in the paper 1.
+
