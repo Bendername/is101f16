@@ -195,6 +195,12 @@ research with that area of interest being the specific purpose of the research. 
 between researchers, a definitive conclusion seems to be some ways out as simply agreeing on what an affective state
 truly consists of is very opinionated.
 
+The method used in this paper is \textit{novelty detection} using a one-class SVM. A primary requirements for
+achieving good performance, i.e. good predictive power, is to ensure that training data contains as few anomalies as
+possible. The difficulty associated with ensuring this can vary depending on the kind of data considering, but in our
+case where we consider physiological data, we deem it considerably difficult. We attempt to minimize the risk of
+training on data containing anomalies by considering only data from the first two tasks, containing no seeded
+problems. However, we cannot be certain that this data never contains any anomalies. 
 %remember to mention:
     %that training data has to be clean
     %specifying windows to specify as usability problems occurring
