@@ -62,22 +62,20 @@ we discuss them in more detail. In particular, we discuss how each problem can b
 has implications w.r.t. how we determine whether a particular problem has been correctly predicted via physiological
 measurements.
 
-Tasks 1, 3, 6 and 7 we group, based on the assumption that they induce a reaction at known moments. Our argument for
+We group tasks 1, 3, 6 and 7, based on the assumption that they induce a reaction at known moments. Our argument for
 this is that all three tasks present obtrusive visual feedback on error, and in the case of task 3 also audio
-feedback. Task 3 displays an exception error message whenever the user attempts to open a draft, task 6 turns window
+feedback. Task 3 displays an exception error message whenever the user attempts to open a draft, task 6 turns the
+current window
 black, task 7 displays a ``not responding'' window whenever the user attempts to write an email and task 1 displays an
-error message after 2 seconds. Task 3 and 7 in particular are considered ``full stops'', and it is not possible for the
-user in any way to successfully complete them. It is possible to complete task 1 and 6, but requires the user to
+error message after 2 seconds. Tasks 3 and 7 in particular are considered ``full stops'', and it is not possible for the
+user in any way to successfully complete them. It is possible to complete tasks 1 and 6, but requires the user to
 re-attempt 3 times before success. Regardless, we group them equally as \textit{instant} error feedback.
 
 Tasks 2, 4 and 5 we group as \textit{not instant}. All three tasks requires the user to notice that an error occurred, or
 that the action was not successfully performed. During task 2, the user has to notice that the contact was not added,
 task 4 is first noticed when the user realizes that incorrect characters appear on-screen and task 5 again requires the
-user to notice that the caret has moved. While task 4 and 5 could induce an in \todo{write something about the user
-  looking at the keyboard and might not notice the error}
-
-
-%\todo{Måske uddyb mere på grouping af vores problemer}
+user to notice that the caret has moved. While task 4 and 5 could induce an in instant reactions, we cannot know for
+certain that this is the case - the might be looking at the keyboard while the error occurs.
 
 \subsection{Hardware}
 The hardware used for the experiment is an Emotiv Epoc~\cite{emotiv_epoc_website} for Electroencephalograph (EEG) to recording brain activity, a Mindplace Thoughtstream~\cite{thoughtstream} for Galvanic Skin Response (GSR), an Arduino with a pulse-sensor~\cite{pulsesensor} with modified software~\cite{pulsesensorgit} to measure heart rate (HR) and a Kinect V2\cite{kinect_specs3} for tracking facial changes.
@@ -157,38 +155,15 @@ a set of tasks containing no seeded usability problems. All physiological measur
 treated as a \textit{baseline} data.  From the baseline, we extract various statistical measurements from which
 \textit{unknown} data should deviate from, in order to signify the existence of a potential usability problem.
 
-\subsubsection{Detecting frustration changes}
-While frustration has not been mapped thoroughly to physiological responses, some studies have explored measuring frustration with sensors one way or another, usually in the form of ``frustration'', ``irritation'', ``stress'' or a degree of ``anger''. In this study, all of these are considered ``frustration''. 
-The feature extraction of each individual sensor is outlined below.
+While frustration has not been mapped thoroughly to physiological responses, some studies have explored measuring
+frustration with sensors one way or another, usually in the form of ``frustration'', ``irritation'', ``stress'' or a
+degree of ``anger''. In this study, all of these are considered ``frustration'' and we expect this affective state to be
+experienced by test participants, whenever they are exposed to a usability problem. We expect such an affective change
+to deviate from the baseline data, and thereby become detectable by our classification algorithm.
 
-\subsection{EEG features}
-Poel et al. \cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
-Trogo et al. \cite{brainwave_signals_frustration} studied the affective state of students. More specifically they looked at boredom, confusion, engagement and frustration. 
-A simple application with Berg's Card Sorting Task\cite{bergs_card_sorting} was used as stimuli.
-They used the following features on a raw EEG signal: mean, standard deviation, mean of absolute first and second differences and standardized mean of absolute first and second differences.
+\subsection{Feature selection}
+% mention related work for [gsr, face, eeg, hr] that looks at frustration or irritation
 
-\subsection{GSR features}
-Harper et al. \cite{web20_frustration} investigated the frustration induced from the dynamic content of Web 2.0 websites. 
-They used GSR to measure frustration levels and found them from peaks in smoothed GSR graphs.
-
-\subsection{Heart Rate features}
-Dang et al.\cite{stress_robot} used a game to induce stress and had a robot react to the stress levels and try to support the test participant. 
-They used heart rate information in form of heart beats per minute to deduce the stress level.
-In Edge et al. \cite{bipolar_frustration} bipolar test participants were studied where anger is a fundamental emotion in the disorder. 
-They investigated frustration and irritation as a subset of anger with heart rate variability.
-Kosunen et al. \cite{boredom_negative_mood_features} also used a heart rate sensor.
-They found stasticly significant features for frustration with intervals of 500-1200ms, to be interbeat-interval(IBI) mean and IBI low frequency/high frequency band power, but also had IBI standard deviation.
-
-
-\subsection{Facial features}
-With our hardware, the Kinect, data was captured as Face Shape Animations(FSA)\cite{faceshapes}.
-FSA data tracks a subset of the Action Units (AU) in the Facial Action Coding System~\cite{facs_kinect_muscles} (FACS) for both the left and right side of the face.
-Dimberg et al. \cite{face_onset} found unconscious facial reactions happens in the interval 500-1000 ms.
-Scherer used ``Facial Action Coding System'' to define and measure facial expressions during an enacted emotion, of which anger and irritation was investigated on an arousal/valence scale.\cite{scherer_kinect}
-We largely base our features on their features, from the ones they have found to have a statistically significant correlation with arousal and valence, while also being measureable with the kinects animation units.
-Since Scherer used AU without differentiating between the left and right sides of the face, we use the average of the feature values from the left and right side of the face.
-
-\subsection{Windows}
 While frustration can be measured, no golden-standard has been proposed for doing so. 
 In this study features which as been used for classifying frustration will be used.
 However, due to the lack of uniform agreement on the duration for physiological responses in terms of ``frustration'', this study choose to rely on the biological limitations of responses as if there upon stimuli is an instant reaction.
@@ -204,4 +179,32 @@ physiology of the human body~\cite{9th_semester_project}.
 Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
 each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
 likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
-indicate that the test participant is \textit{frustrated}.
+indicate that the test participant is \textit{frustrated}, and thus is experiencing a usability problem.
+
+%\subsection{EEG features}
+%Poel et al.~\cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
+%Trogo et al.~\cite{brainwave_signals_frustration} studied the affective state of students. More specifically they looked at boredom, confusion, engagement and frustration. 
+%A simple application with Berg's Card Sorting Task\cite{bergs_card_sorting} was used as stimuli.
+%They used the following features on a raw EEG signal: mean, standard deviation, mean of absolute first and second differences and standardized mean of absolute first and second differences.
+%
+%\subsection{GSR features}
+%Harper et al.~\cite{web20_frustration} investigated the frustration induced from the dynamic content of Web 2.0 websites. 
+%They used GSR to measure frustration levels and found them from peaks in smoothed GSR graphs.
+%
+%\subsection{Heart Rate features}
+%Dang et al.~\cite{stress_robot} used a game to induce stress and had a robot react to the stress levels and try to support the test participant. 
+%They used heart rate information in form of heart beats per minute to deduce the stress level.
+%In Edge et al.~\cite{bipolar_frustration} bipolar test participants were studied where anger is a fundamental emotion in the disorder. 
+%They investigated frustration and irritation as a subset of anger with heart rate variability.
+%Kosunen et al.~\cite{boredom_negative_mood_features} also used a heart rate sensor.
+%They found stasticly significant features for frustration with intervals of 500-1200ms, to be interbeat-interval(IBI) mean and IBI low frequency/high frequency band power, but also had IBI standard deviation.
+%
+%
+%\subsection{Facial features}
+%With our hardware, the Kinect, data was captured as Face Shape Animations(FSA)\cite{faceshapes}.
+%FSA data tracks a subset of the Action Units (AU) in the Facial Action Coding System~\cite{facs_kinect_muscles} (FACS) for both the left and right side of the face.
+%Dimberg et al. \cite{face_onset} found unconscious facial reactions happens in the interval 500-1000 ms.
+%Scherer used ``Facial Action Coding System'' to define and measure facial expressions during an enacted emotion, of which anger and irritation was investigated on an arousal/valence scale.\cite{scherer_kinect}
+%We largely base our features on their features, from the ones they have found to have a statistically significant correlation with arousal and valence, while also being measureable with the kinects animation units.
+%Since Scherer used AU without differentiating between the left and right sides of the face, we use the average of the feature values from the left and right side of the face.
+
