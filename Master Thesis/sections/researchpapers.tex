@@ -198,9 +198,25 @@ truly consists of is very opinionated.
 The method used in this paper is \textit{novelty detection} using a one-class SVM. A primary requirements for
 achieving good performance, i.e. good predictive power, is to ensure that training data contains as few anomalies as
 possible. The difficulty associated with ensuring this can vary depending on the kind of data considering, but in our
-case where we consider physiological data, we deem it considerably difficult. We attempt to minimize the risk of
+case, where we consider physiological data, we deem it considerably difficult. We attempt to minimize the risk of
 training on data containing anomalies by considering only data from the first two tasks, containing no seeded
-problems. However, we cannot be certain that this data never contains any anomalies. 
+problems. However, we cannot be certain that this data never contains any anomalies, as identifying anomalies is what we
+are attempting in the first place. This is to say, that our ability to identify anomalies is at most as good as the data
+we train on.
+
+A recurring concern, also present during the first paper and our 9th semester project, is that of finding the
+\textit{correct} parameters and features for the classification algorithm. In an attempt to mitigate these concerns, we
+performed grid searching, i.e. a near-exhaustive search, on parameters. However, doing so is considerably time consuming
+and dependent on chosen features. This means, that although we can search for optimal parameters for a set of features,
+a new search has to be performed if a new set of features are considered. This is to say, that validating if a set of
+features yields good results, e.g. many true-positives and few false-positives, is considerably time consuming. Features
+suggested in related work are disparate, i.e. varying time-spans and extracted from various statistics, and we have not
+been able to find conclusive indications as to which features should be used. We have attempted to uncover differences
+in features by considering two different sets of features - one considering short-term reactions and another considering
+long-term reactions, governed by the time-spans considered. We present the findings under a discussion in the paper. We
+want to make it clear, that finding optimal features and classification parameters, is not trivial.
+
+
 %remember to mention:
     %that training data has to be clean
     %specifying windows to specify as usability problems occurring
