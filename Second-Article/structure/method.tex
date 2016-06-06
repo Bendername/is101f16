@@ -168,15 +168,16 @@ A simple application with Berg's Card Sorting Task\cite{bergs_card_sorting} was 
 They used the following features on a raw EEG signal: mean, standard deviation, mean of absolute first and second differences and standardized mean of absolute first and second differences.
 
 \subsection{GSR features}
-Nothing here yet
+Harper et al. \cite{web20_frustration} investigated the frustration induced from the dynamic content of Web 2.0 websites. 
+They used GSR to measure frustration levels and found them from peaks in smoothed GSR graphs.
 
 \subsection{Heart Rate features}
 Dang et al.\cite{stress_robot} used a game to induce stress and had a robot react to the stress levels and try to support the test participant. 
-They used heart rate information in form of beats per minute to deduce the stress level.
+They used heart rate information in form of heart beats per minute to deduce the stress level.
 In Edge et al. \cite{bipolar_frustration} bipolar test participants were studied where anger is a fundamental emotion in the disorder. 
-They investigated frustration and irritation as a subset of anger with heart rate variability and facial expressions using an emotional expressive behaviour coding system. 
-Kosunen et al. \cite{boredom_negative_mood_features} tries to classify negative emotions like frustration and boredom, by making test participants playing a 3d Maze game. 
-They found stasticly significant features for frustration to be interbeat-interval(IBI) mean and IBI low frequency/high frequency band power, but also had IBI standard deviation.
+They investigated frustration and irritation as a subset of anger with heart rate variability.
+Kosunen et al. \cite{boredom_negative_mood_features} also used a heart rate sensor.
+They found stasticly significant features for frustration with intervals of 500-1200ms, to be interbeat-interval(IBI) mean and IBI low frequency/high frequency band power, but also had IBI standard deviation.
 
 
 \subsection{Facial features}
@@ -189,7 +190,9 @@ Since Scherer used AU without differentiating between the left and right sides o
 
 \subsection{Windows}
 While frustration can be measured, no golden-standard has been proposed for doing so. 
-As such we define the specifics of our data collection below.\\
+In this study features which as been used for classifying frustration will be used.
+However, due to the lack of uniform agreement on the duration for physiological responses in terms of ``frustration'', this study choose to rely on the biological limitations of responses as if there upon stimuli is an instant reaction.
+As such we define the specifics of our data collection windows below.\\
 We consider affective state changes in GSR to manifest themselves 2-4 seconds after the experience occurred which
 induced the stimuli, and is noticeable within a time-frame of 3-4 seconds thereafter. EEG is considerably different,
 manifesting after 350 milliseconds, lasting 760 milliseconds. Reactions to stimuli can be seen manifesting in heart-rates
