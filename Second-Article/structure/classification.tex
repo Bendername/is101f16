@@ -1,22 +1,30 @@
 \section{Classification}
-To predict whether or not a usability problem is present a one-class SVM has been used.\todo{LIBSVM}
-The one-class SVM is an algorithm used for novelty detection. Novelty detection means that the training data contains no anomalies, which is a requirement we should meet by training on the data from the first two tasks\todo{og måske resting dataen?}
+To predict whether or not a usability problem is present a one-class SVM is used
+The one-class SVM is an algorithm used for novelty detection. Novelty detection means that the training data contains no anomalies, which is a requirement we should meet by training on the sensor data from the first two tasks.
 The rest of the data will then act as the prediction set, in which we will try and detect anomalies.
+We use LibSVMSharp\cite{libsvmsharp}, a wrapper for LibSVM\cite{libsvm}, which is a library that have implemented a one-class SVM.
 
 \subsection{Data processing}
-For the one-class SVM can work with the data, the data first has to be transformed into feature vectors.
-A feature vector is simply a n-space vector containing the features extracted from the a sensor.
-A feature vector to each machine is created for each 100~ms in the test.
+For the one-class SVM to be able to work with the data, the data first has to be transformed into feature vectors.
+A feature vector is a n-space vector containing the features extracted from the a sensor data.
+A feature vector is created every 300~ms of the test for each sensor.
+\todo{Skal bindes sammen med feature}
 
-\subsection{Prediction \& Scoring}
-We create a one-class SVM for each of the sensors, and after the model of the one-class SVM is trained on the two first task, the model can then be used to predict on the remaining feature vectors from remainder of the test.
-To optimize each machine a grid search for the best parameters
-  
-The return value from a prediction of a feature vector machine is a binary 1 for a normality and -1 for an anomaly.
-The fusion of the results from the different machines will done by a simple voting approach, where a machine must declare whether it has found an anomaly to the given point in time. If x\todo{How many must agree?} sensors agrees the given point will be flagged as an anomaly. 
 
-To fit our use case a formula has been created to score the performance of a SVM model: $score = \frac{a*(PercentEventsHit/TotalEvents)+ b*(1-AnomalyCovered/TotalTime)}{a+b}$
-Where an event hit 
-Where a and b variables which the reflect the weight for if the formula should reward event hit or time reduction higher.
+To optimize each machine a exhaustive grid search on the hyperparameters $Nu = {0.01,0.06,..,0.41, 0.46\}$ and $Gamma = {2^-14,..2^2}$ is performed, together with the Sigmoid and RBF kernel. \todo{Found out where this should be placed.}
+
+\subsection{Prediction \& Scoring}\todo{Make this sound better}
+We create a one-class SVM for each of the sensors, each of the SVM's is then trained on the feature vectors from the first two task. The model created can then be used to predict on feature vectors from remainder of the test, which we call the prediction set.
+A prediction from a one-class SVM is a binary 1 for a normality and -1 for an anomaly for the given feature vector.
+This results in a label for each feature vector in the prediction set, which is then scored modified version of F-score.
+Where $F_1-score$ is usually defined as $F_1 = 2 * \frac{precision \times recall}{precision + recall}$. Where we have chosen to define our scoring function as $F_1 = 2 * \frac{precision \times EventsHitRate}{precision + EventsHitRate}$. This is done to reward hitting as many different events as possible and not just the same event multiple times.
+When an anomaly is found an area of 2.5 seconds to each side it is marked around is, to create a point of interest. The point of interest is created to satisfy the use case of a third-party evaluator having to look through the video again, the evaluator should have more than just a millisecond to see the problem. \todo{Make Drawing of this}
+To evaluate if an event is correctly found by the machine the two types of events will be considered.
+The events which contain instant feedback is classified as a hit the points of interest covers the time of which the event happens.
+For the events which does not contain instant feedback, an area for when the usability errors start to when the errors stops again is marked, if the point of interest hits inside the area the 
+
+The fusion of the results from the different machines will done by a simple voting approach, where a machine must declare whether it has found an anomaly to the given point in time. If an certain amount of sensors agrees the given point will be flagged as an anomaly. 
+
+
 
 
