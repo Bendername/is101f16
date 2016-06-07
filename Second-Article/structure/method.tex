@@ -120,30 +120,6 @@ down to a normal level. After the initial resting period, the participant can st
 The method is based on showing small screen capture video clips from the test to the test participant. These cues will help the participant remember the shown situation/event. The events shown was selected by looking at the GSR signal and finding points of interest which was determined by finding spikes in the raw data.
 After a clip was shown the user should then give a SAM rating reflecting their feeling in the given clip.
 
-
-%\begin{figure}
-%	\centering
-%	\resizebox {\columnwidth} {!} {
-%		\begin{tikzpicture}[
-%			node/.style={rectangle, draw=black!60, fill=black!5, very thick, align=center, rounded corners},
-%			edge/.style={-latex,line width=3pt, shorten >=2pt, shorten <=2pt, rounded corners}]
-%			% Nodes
-%			\node[node] 			(start)									{Initial\\rest period};
-%			\node[node] 			(state A)	[right = 50pt of start]		{Rest period};
-%			\node[align=center]		(mid) 		[right = 15pt of state A]	{Stimuli loop\\\small{Runs $30$ times}};
-%			\node[node] 			(state B)	[below = 15pt of mid]		{Stimuli\\picture is\\shown};
-%			\node[node] 			(state C)	[right = 15pt of mid]		{Arousal \& valence\\interface};
-%			% Edges
-%			\draw[edge]	(start)					-- (state A) 	node [midway, above = 2pt] 		(TextNode) {\small{$3$ minutes}};
-%			\draw[edge]	(state A)				|- (state B) 	node [midway, below = 2pt] 		(TextNode) {\small{$20-30$ seconds}};
-%			\draw[edge]	(state B)				-| (state C) 	node [midway, below = 2pt] 		(TextNode) {\small{$7$ seconds}};
-%			\draw[edge]	(state C)	 -- +(0,1) 	-| (state A) 	node [near start, above = 2pt]	(TextNode) {\small{Until test subject clicks next}};
-%		\end{tikzpicture}
-%	}
-%	\caption{Flow chart of the test.}
-%	\label{[FIGURE] TESTLOOP}
-%\end{figure}
-
 \subsection{Usability problem detection}
 Before predicting potential usability problems, we establish certain criteria to be fulfilled in order for them to
 classified as such.  We consider a particular section within the experiment to be \textit{normal}, i.e. containing no
@@ -167,7 +143,16 @@ During our previous work~\cite{9th_semester_project}, we encountered many dispar
 consider for each of the sensors we use. This is the case both when considering several emotions simultaneously,
 e.g. frustration, happiness, sadness, or when attempting to capture only a single emotion. We find that uncovering
 features that yield the best results, to be a study in its own right.
-% write more
+
+Our previous work showed promising results using descriptive statistics, e.g. mean, median, standard deviation, over
+some samples. As with our previous work, we attempt to capture affective state changes at stimuli onset and then
+considering the \textit{least} amount of time thereafter, but within physiological limitations. As an example, Zhai et
+al.~\cite{gsr_len_lat3} suggests that reactions in GSR can be seen 2-4 seconds after stimuli, and remain
+observable 3-4 seconds thereafter. This is to say, that in order to capture reactions in GSR, we have to consider
+\textit{at least} data within those boundaries. However, we would like to mention that work such as \todo{ffs, I cannot
+  find this source right now (i looked)} proposes durations as long as 50 seconds. While such durations could indeed capture the
+occurrence of some stimuli, it would prove difficult in our situation as such durations could cover more than just one
+event. 
 
 While frustration can be measured, no golden-standard has been proposed for doing so. 
 In this study features which as been used for classifying frustration will be used.
