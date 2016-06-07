@@ -4,20 +4,33 @@
 
 
 \section{Discussion}
-A fundemental issue with the results of the paper also includes the actual definition of frustration in terms of usability problems. 
-While there is a lot of litterature on this subject, almost no one has explored the actual development of frustration on a physiological level. 
-We have set up somewhat naive conditions simply because it is beyond the scope of this study to examine and map the physiological changes over time for when a person is experiencing frustration. 
-One consideration the authors has made, is that a physiological reaction may increase in amplitude over time from the beginning of the exposure to a frustrating event. As the frustrating event persists, the amplitude may increase while containing multiple spikes of reactions. This could for example be the case when a user tries to work around a problem but keeps experiencing it.
-If this is the case it could have potential implications for the technique used to find outliers and ultimately for the results of this study both in terms of false-negative and false-positive detections.
-We would currently not detect a slow increase in amplitude of a physiological reaction. This could, however, be detected by tailoring the technique to considering such data. 
-Further we have a naive consideration of all outliers found after a frustrating event. 
-While we know when a frustrating event has occured in time because of the seeded problems, we ultimately considers all following outliers from that event to be caused by it. 
-We have no way to accurately verify if this is the case.
-It could be a change of thought, a noise from outside the experiment room or something else completely.
+A fundemental limitation with the results of the paper includes the actual definition of frustration in terms of usability problems. 
+While there is a lot of litterature on this subject, almost no one has extensively explored the development of frustration on a physiological level over time. 
+There are multiple studies classifying frustration, the usecases they have are extremely different. 
+Some studies look at windows of 100 seconds or more, some at 5 seconds and others at 30 seconds.
+In this paper the most pessimistic option was selected; after a stimuli there is a physiological delay followed by a measureable reaction which last a short duration according to our features.
+This, however, implies that frustration is not a continues reaction over time while using a system, but rather a reaction to a specific event with a timelimit for how long it ``lasts in the body''.
+This requires the consideration that a physiological reaction may in fact be different. 
+One such consideration the authors has made is that frustration may increase in amplitude over time from the beginning of a stimuli. 
+That is, at the start of a frustrating event a user may not produce physiological spikes large enough to detect with our current anomaly detection, but over time as the frustrating event persists the physiological reaction will increase up until a point where it is detectable. 
+This would lead to a situation where an anomaly may be detected X seconds from a stimuli, but in fact the negative affective state started some time before that.
+A more specific model for detecting such affective states may increase the actual performance of the algorithms.
 
-The fact that this area is largely unexplored leaves a lot of assumptions to be made, and as such the validity of our results can be questioned. 
-Further research in all sensors in terms of making a general model of a physiological representation of frustration would greatly increase the replicability of research results, and create a common path to iterate over established research and come up with better models, techniques and results. 
-This is, however, a huge task even just for one sensor, but we believe it to currently be one of the most lacking area of research within this area of HCI.
+Additionally because of the assumption that a physiological reaction has a fixed time window it is present, we may have anomalies which are detected as false-positives when actually being true positives. 
+While we have explored this by increasing the time-frame for which we expect a reaction, it would be benficial to make a study which specifically tries to detail how these reactions unfold.
+
+Further it is also assumed that any anomaly within our test is caused by the system, and not an uncontrolled variable from outside the system. 
+The reality, however, is that the brain and physiological responses it creates is highly volatile according to the stimuli it receives.
+This could be noise from outside the test laboratory, hunger, a stray thought of a family member passing away, or anything else completely. 
+The fact is that it is impossible to control these factors with our current setup, and further it has been out of scope of this study to try and take it into consideration.
+
+All in all this area is largely unexplored, and as such leaves a lot of assumptions to be made.
+This in turn creates a natural skeptisism of the validity of our results.
+While they may be valid within the assumptions and limitations of the experiment, they are not presented as a general model of detecting frustration. 
+They are, however, a step in the right direction in terms of studying the affective state of a user while using a real-world system and another consideration to be made when trying to tackle the complex task of mapping affective states to physiological data. 
+A natural path to explore would be removing the complexity of having sensor fusion, and instead focus on improving the understanding of how specific sensors captured data relates to affective states more generally. 
+When such a generic model have been approximated, it would make more sense to explore the idea of using ML to detect affective state changes.
+This is, however, a huge task even just for one sensor, but we believe it to currently be one of the most lacking areas of research within this branch of HCI.
 
 
 \subsection{Future work}

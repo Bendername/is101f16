@@ -104,40 +104,52 @@ This is to ensure physiological reactions such as elevated heart rate, e.g. from
 After the initial resting period, the participant can start using the program and begin solving the tasks. 
 
 \subsection{Usability problem detection}
-Before predicting potential usability problems, we establish certain criteria to be fulfilled in order for them to
-classified as such.  We consider a particular section within the experiment to be \textit{normal}, i.e. containing no
-usability problems.  We do not expect test participants to exhibit physiological states that are related to
-\textit{frustration} or similar negative affective states during this section. We refer to this normal section as the
+While frustration has not been mapped thoroughly to physiological responses, some studies have explored measuring
+frustration with sensors one way or another, usually in the form of ``frustration'', ``irritation'', ``stress'' or a
+degree of ``anger''. \todo{need cites/examples on this}
+In this study, all of these are considered ``frustration'' and we expect this affective state to be
+experienced by test participants whenever they are exposed to a usability problem. We expect such an affective change
+to deviate from the baseline data, and thereby be detectable by our classification algorithm.
+
+Frustration, and similar discrete emotions, can be mapped to and expressed via the dimensional model of \textit{valence}
+and \textit{arousal}. Frustration could be expressed as \textit{medium to high arousal} and \textit{negative
+  valence}. This is to say, that it is our goal to detect anomalies expressing such values of arousal and
+valence. However, we argue that it is reasonable to simplify this problem, by expecting test participants to only
+express \textit{content} or \textit{negative valence}, during the test. In other words, we argue that test participants
+experience only neutral stimuli, or stimuli inducing frustration and thereby negative valence. By this assumption, we
+aim to capture moments of elevated arousal, from which we infer it to be negative valence and thus frustration.
+Such moments of frustration could indicate a usability problem.
+
+Before predicting and detecting moments of frustration, we must establish certain criteria to be fulfilled in order for
+them to classified as such.  We consider a particular section within the experiment to be \textit{normal},
+i.e. containing no usability problems, during which we do not expect test participants to exhibit physiological states
+that are related to \textit{frustration} or similar negative affective states. We refer to this normal section as the
 \textit{baseline}. The baseline is established in the beginning of the test during the two first tasks, after the
 initial relaxation section, and before the third task begins. This is because the two first tasks are always chosen from
 a set of tasks containing no seeded usability problems. All physiological measurements collected within this section are
-treated as a \textit{baseline} data.  From the baseline, we extract various statistical measurements from which
-\textit{unknown} data should deviate from, in order to signify the existence of a potential usability problem.
-
-While frustration has not been mapped thoroughly to physiological responses, some studies have explored measuring
-frustration with sensors one way or another, usually in the form of ``frustration'', ``irritation'', ``stress'' or a
-degree of ``anger''. In this study, all of these are considered ``frustration'' and we expect this affective state to be
-experienced by test participants whenever they are exposed to a usability problem. We expect such an affective change
-to deviate from the baseline data, and thereby be detectable by our classification algorithm.
+treated as a \textit{baseline} data.  From the baseline, we extract various statistical measurements, in the form of
+feature vectors, from which \textit{unknown} data should deviate, in order to signify the existence of a potential
+usability problem.
 
 \subsection{Feature selection}
 % mention related work for [gsr, face, eeg, hr] that looks at frustration or irritation
 
 % UP -> frustatrion -> a / v -> features brugt i papers -> øst og vest -> kigger på features tidligere -> reaction
 % kommer instant -> vi bruger derfor de gamle features
-While frustration can be measured, no golden-standard has been proposed for doing so.  In this study features which as
+While frustration can be measured, no golden-standard has been proposed for doing so.  In this study, features which has
 been used for classifying frustration will be used.  However, due to the lack of uniform agreement on the duration for
-physiological responses in terms of ``frustration'', this study choose to rely on the biological limitations of
-responses as if there upon stimuli is an instant reaction.
+physiological responses in terms of ``frustration'', we choose to rely on the biological limitations of
+responses as if there upon stimuli, is an instant reaction.
 
 During our previous work~\cite{9th_semester_project}, we encountered many disparate suggestions to which features to
 consider for each of the sensors we use. This is the case both when considering several emotions simultaneously,
 e.g. frustration, happiness, sadness, or when attempting to capture only a single emotion. We find that uncovering
 features that yield the best results, to be a study in its own right.
 
-Our previous work showed promising results using descriptive statistics, e.g. mean, median, standard deviation, over
-some samples. As with our previous work, we attempt to capture affective state changes at stimuli onset and then
-considering the \textit{least} amount of time thereafter, but within physiological limitations. As an example, Zhai et
+Our previous work showed promising results using descriptive statistics, e.g. mean, median, standard deviation. As with
+our previous work, we attempt to capture affective state changes at stimuli onset and then considering the
+\textit{least} amount of time thereafter. This is to increase the chances that the affective state we capture,
+corresponds to the time $t$ we consider. As an example, Zhai et
 al.~\cite{gsr_len_lat3} suggests that reactions in GSR can be seen 2-4 seconds after stimuli, and remain observable 3-4
 seconds thereafter. This is to say, that in order to capture reactions in GSR, we have to consider \textit{at least}
 data within those boundaries. However, we would like to mention that work such as Ghaderi et
@@ -163,6 +175,7 @@ indicate that the test participant is \textit{frustrated}, and thus is experienc
 
 \begin{table}[H]
     \centering
+
     {\large \textbf{EEG Features}}\vspace{2pt}
     \begin{tabularx}{\columnwidth}{cXc}
         \toprule
@@ -180,12 +193,10 @@ indicate that the test participant is \textit{frustrated}, and thus is experienc
         \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & F3-F4 ($\gamma$) & 350 - 1060 \\
         \bottomrule
     \end{tabularx}
-    %\caption{Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence. Only features using electrodes accessible with the Emotiv EPOC were used.}
+    % \caption{Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V
+    % indicates the same for valence. Only features using electrodes accessible with the Emotiv EPOC were used.}
     \label{[TABLE] features eeg}
-\end{table}
 
-\begin{table}[H]
-    \centering
     {\large \textbf{GSR Features}}\vspace{2pt}
     \begin{tabularx}{\columnwidth}{cXc}
         \toprule
@@ -199,42 +210,32 @@ indicate that the test participant is \textit{frustrated}, and thus is experienc
     \end{tabularx}
     %\caption{Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence.}
     \label{[TABLE] features gsr}
-\end{table}
 
-\begin{table}[H]
-    \centering
     {\large \textbf{HR Features}}\vspace{2pt}
     \begin{tabularx}{\columnwidth}{cXc}
         \toprule
-        \textbf{Source} & \textbf{Data captured} & \textbf{Timespan (ms)} \\
+        \textbf{Source}                  & \textbf{Data captured} & \textbf{Timespan (ms)} \\
         \midrule
-        \cite{hr_feature1, hrv_source_3} & IBI mean & 4000 - 7000 \\
-        \cite{hr_feature1} & IBI std & 4000 - 7000 \\
-        \cite{hr_feature1} & HRV RMSSD & 4000 - 7000 \\
+        \cite{hr_feature1, hrv_source_3} & IBI mean               & 4000 - 7000            \\
+        \cite{hr_feature1}               & IBI std                & 4000 - 7000            \\
+        \cite{hr_feature1}               & HRV RMSSD              & 4000 - 7000            \\
         \bottomrule
     \end{tabularx}
     %\caption{Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence.}
     \label{[TABLE] features hr}
-\end{table}
 
-\begin{table}[H]
-    \centering
     {\large \textbf{Facial Features}}\vspace{2pt}
     \begin{tabularx}{\columnwidth}{cXc}
         \toprule
         \textbf{Source} & \textbf{Data captured} & \textbf{Timespan (ms)} \\
         \midrule
-        \cite{scherer_kinect} & Mean of 11 \& 12 & 500 - 1000 \\
-        \cite{scherer_kinect} & SD of 11 \& 12 & 500 - 1000 \\
+        \cite{scherer_kinect} & Mean of ``eyes closed'' & 500 - 1000 \\
+        \cite{scherer_kinect} & SD of ``eyes closed''   & 500 - 1000 \\
         \bottomrule
     \end{tabularx}
-    \caption{Facial features. Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence. The numbers in the data captured column correspond to Kinect FaceShapeAnimation~\protect\cite{faceshapes}.}
+    \caption{Timespans are in milliseconds, after some time $t$.}
     \label{[TABLE] features face}
 \end{table}
-
-\todo{fix the shitty tables so that they dont take up as much space, and references are correct}
-
-%put table here with all features and time we look
 
 %\subsection{EEG features}
 %Poel et al.~\cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
