@@ -10,10 +10,10 @@ Usability testing has long been an important aspect of software development, and
 Informing Design, which concerns the usefulness and learning rate of a program,
 elimination of design problems and frustration, which not only focuses on removing design problems and bugs, but is also about establishing a good relation to the customer, and lastly improving profitability, which is centred around reducing maintenance and increasing sales.
 However, the second group, elimination of design problems and frustration, is often measured with methods involving third party observers.
-These observers has to, as objectively as possible, note if a test person is encountering a usability problem(UP).
+These observers has to, as objectively as possible, note if a test person is encountering a usability problem.
 However, such observations are often still very subjective given the evaluator effect\cite{eval_effect}, which states that the results from the evaluations are different from individual to individual.
 Strategies such as \textit{think aloud}~\cite{use_of_TA_and_IDA} can help observers better gauge a user's
-thoughts, and to some extent affective state, while experiencing UPs. However it does
+thoughts, and to some extent affective state, while experiencing usability problems. However it does
 not formalise capture of the affective state in particular and is inherently a third-party
 subjective evaluation. 
 
@@ -27,22 +27,22 @@ Physiological measuring has shown at several occasions that it can, to some degr
 affective state, and thus has interesting propositions to offer to the traditional evaluation methods~\cite{eeg_facial_expressions,fusion4,90_percent_eeg_emotion}.
 
 An example of such study was made by Bruun et al.~\cite{LH-paper}, who made a usability case-study based on a website.
-A number of UPs were found in a prior empirical study, from which they created three tasks for the participants to complete.
+A number of usability problems were found in a prior empirical study, from which they created three tasks for the participants to complete.
 They recorded physiological data using \textit{galvanic skin response} (GSR) which measures sweat \cite{gsr_calibration}, and an eye-tracker detecting the gaze of the participant.
 They formalized a method and a formula for associating the physiological data with the discrete negative affect state \textit{frustration}.
 As mentioned in multiple studies, e.g.~\cite{LH-paper,frustration_with_computers}, frustration is well-studied
 and manifests whenever expectations or rewards are not met in a timely manner, or when a goal is compromised in one way or another.
-These traits match the signature of a UP.
+These traits match the signature of a usability problem.
 Bruun et al. also had cued-recall debrief sessions, where participants reviewed video clips found from GSR peaks, and filled out SAM scales relating to the clip. 
 They found a correlation between peaks in GSR and SAM-ratings, but was unable to confirm a relationship between the
-\textit{severity} of a UP and the level of frustration experienced.
-While they found a correlation, the entire study still relies on the preliminary assumption that the UPs found by
+\textit{severity} of a usability problem and the level of frustration experienced.
+While they found a correlation, the entire study still relies on the preliminary assumption that the usability problems found by
 third-party evaluations on the website in question are correctly identified.
-As mentioned, such evaluations suffer from various problems, and are generally only expected to find a subset of the UPs present in a system. 
+As mentioned, such evaluations suffer from various problems, and are generally only expected to find a subset of the usability problems present in a system. 
 
 Our focus in this study will be to use multiple physiological sensors to detect usability problems.
 This can have a potential impact as another tool for third party evaluators, by finding points of interest based on physiological data. 
 This would effectively be data from the primary source, the user, rather than a secondary source in terms of the evaluator who tries to describe the users experience through obsservation and analysis. 
 We aim to use consumer graded sensors in order to make our setup more accessible, should other researchers find the interest to reproduce
-it. We couple physiological data from various sensors with established Machine Learning techniques as the method for
+it. We couple physiological data from various sensors with established Machine Learning(ML) techniques as the method for
 detecting usability problems.
