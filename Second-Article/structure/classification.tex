@@ -11,7 +11,7 @@ A feature vector is created every 300~ms of the test for each sensor.
 \todo{Skal bindes sammen med feature}
 
 
-To optimize each machine a exhaustive grid search on the hyperparameters $Nu = {0.01,0.06,..,0.41, 0.46\}$ and $Gamma = {2^-14,..2^2}$ is performed, together with the Sigmoid and RBF kernel. \todo{Found out where this should be placed.}
+To optimize each machine a exhaustive grid search on the hyperparameters $Nu = \{0.01,0.06,..,0.41, 0.46\}$ and $Gamma = \{2^-14,..2^2\}$ is performed, together with the Sigmoid and RBF kernel. \todo{Found out where this should be placed.}
 
 \subsection{Prediction \& Scoring}\todo{Make this sound better}
 We create a one-class SVM for each of the sensors, each of the SVM's is then trained on the feature vectors from the first two task. The model created can then be used to predict on feature vectors from remainder of the test, which we call the prediction set.
