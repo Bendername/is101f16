@@ -104,19 +104,10 @@ This is to ensure physiological reactions such as elevated heart rate, e.g. from
 After the initial resting period, the participant can start using the program and begin solving the tasks. 
 
 \subsection{Usability problem detection}
-Before predicting potential usability problems, we establish certain criteria to be fulfilled in order for them to
-classified as such.  We consider a particular section within the experiment to be \textit{normal}, i.e. containing no
-usability problems.  We do not expect test participants to exhibit physiological states that are related to
-\textit{frustration} or similar negative affective states during this section. We refer to this normal section as the
-\textit{baseline}. The baseline is established in the beginning of the test during the two first tasks, after the
-initial relaxation section, and before the third task begins. This is because the two first tasks are always chosen from
-a set of tasks containing no seeded usability problems. All physiological measurements collected within this section are
-treated as a \textit{baseline} data.  From the baseline, we extract various statistical measurements from which
-\textit{unknown} data should deviate from, in order to signify the existence of a potential usability problem.
-
 While frustration has not been mapped thoroughly to physiological responses, some studies have explored measuring
 frustration with sensors one way or another, usually in the form of ``frustration'', ``irritation'', ``stress'' or a
-degree of ``anger''. In this study, all of these are considered ``frustration'' and we expect this affective state to be
+degree of ``anger''. \todo{need cites/examples on this}
+In this study, all of these are considered ``frustration'' and we expect this affective state to be
 experienced by test participants whenever they are exposed to a usability problem. We expect such an affective change
 to deviate from the baseline data, and thereby be detectable by our classification algorithm.
 
@@ -126,16 +117,26 @@ and \textit{arousal}. Frustration could be expressed as \textit{medium to high a
 valence. However, we argue that it is reasonable to simplify this problem, by expecting test participants to only
 express \textit{content} or \textit{negative valence}, during the test. In other words, we argue that test participants
 experience only neutral stimuli, or stimuli inducing frustration and thereby negative valence. By this assumption, we
-aim to capture moments of elevated arousal, from which we infer it to be negative valence, which in turn we infer to be
-frustration, and thus an indication of a usability problem.
-\todo{consider rewriting this}
+aim to capture moments of elevated arousal, from which we infer it to be negative valence and thus frustration.
+Such moments of frustration could indicate a usability problem.
+
+Before predicting and detecting moments of frustration, we must establish certain criteria to be fulfilled in order for
+them to classified as such.  We consider a particular section within the experiment to be \textit{normal},
+i.e. containing no usability problems, during which we do not expect test participants to exhibit physiological states
+that are related to \textit{frustration} or similar negative affective states. We refer to this normal section as the
+\textit{baseline}. The baseline is established in the beginning of the test during the two first tasks, after the
+initial relaxation section, and before the third task begins. This is because the two first tasks are always chosen from
+a set of tasks containing no seeded usability problems. All physiological measurements collected within this section are
+treated as a \textit{baseline} data.  From the baseline, we extract various statistical measurements, in the form of
+feature vectors, from which \textit{unknown} data should deviate, in order to signify the existence of a potential
+usability problem.
 
 \subsection{Feature selection}
 % mention related work for [gsr, face, eeg, hr] that looks at frustration or irritation
 
 % UP -> frustatrion -> a / v -> features brugt i papers -> øst og vest -> kigger på features tidligere -> reaction
 % kommer instant -> vi bruger derfor de gamle features
-While frustration can be measured, no golden-standard has been proposed for doing so.  In this study features which as
+While frustration can be measured, no golden-standard has been proposed for doing so.  In this study, features which has
 been used for classifying frustration will be used.  However, due to the lack of uniform agreement on the duration for
 physiological responses in terms of ``frustration'', this study choose to rely on the biological limitations of
 responses as if there upon stimuli is an instant reaction.
