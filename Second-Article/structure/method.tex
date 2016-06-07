@@ -123,6 +123,9 @@ to deviate from the baseline data, and thereby become detectable by our classifi
 
 \subsection{Feature selection}
 % mention related work for [gsr, face, eeg, hr] that looks at frustration or irritation
+
+% UP -> frustatrion -> a / v -> features brugt i papers -> øst og vest -> kigger på features tidligere -> reaction
+% kommer instant -> vi bruger derfor de gamle features
 While frustration can be measured, no golden-standard has been proposed for doing so.  In this study features which as
 been used for classifying frustration will be used.  However, due to the lack of uniform agreement on the duration for
 physiological responses in terms of ``frustration'', this study choose to rely on the biological limitations of
@@ -159,21 +162,78 @@ each sensor, for a particular moment in time. We do so for moments within what w
 likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
 indicate that the test participant is \textit{frustrated}, and thus is experiencing a usability problem.
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}[c]{l|c|c|r}
-    \hline
-    sensor     & features & latency & duration \\ \hline
-    GSR        & mean, median     & 2s & 4s \\ \hline
-    EEG        & mean, median     & 2s & 4s \\ \hline
-    Kinect     & mean, median     & 2s & 4s \\ \hline
-    Heart rate & mean, median     & 2s & 4s \\ \hline
-  \end{tabular}
-  \caption{features}
-  \label{tab:features}
+\begin{table}[H]
+    \centering
+    {\large \textbf{EEG Features}}\vspace{2pt}
+    \begin{tabularx}{\columnwidth}{cXc}
+        \toprule
+        \textbf{Source} & \textbf{Data captured} & \textbf{Timespan (ms)} \\
+        \midrule
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & AF3-AF4 ($\delta$) & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & AF3-AF4 ($\theta$) & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & AF3-AF4 ($\alpha$) & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & AF3-AF4 ($\beta$)  & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & AF3-AF4 ($\gamma$) & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & F3-F4 ($\delta$) & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & F3-F4 ($\theta$) & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & F3-F4 ($\alpha$) & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & F3-F4 ($\beta$)  & 350 - 1060 \\
+        \small{\cite{eeg_music_listening,eeg_timespan_1,eeg_electrodes_1,eeg_electrodes_0}} & F3-F4 ($\gamma$) & 350 - 1060 \\
+        \bottomrule
+    \end{tabularx}
+    %\caption{Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence. Only features using electrodes accessible with the Emotiv EPOC were used.}
+    \label{[TABLE] features eeg}
 \end{table}
 
-\todo{fix table to show the correct features used}
+\begin{table}[H]
+    \centering
+    {\large \textbf{GSR Features}}\vspace{2pt}
+    \begin{tabularx}{\columnwidth}{cXc}
+        \toprule
+        \textbf{Source} & \textbf{Data captured} & \textbf{Timespan (ms)}\\
+        \midrule
+        \cite{gsr_len_lat3, gsr_data_processing} & SD of filtered signal & 2000 - 7000\\
+        \cite{gsr_len_lat3, gsr_data_processing} & Mean of filtered signal & 2000 - 7000\\
+        \cite{gsr_len_lat3, gsr_data_processing} & Max of filtered signal & 2000 - 7000\\
+        \cite{gsr_len_lat3, gsr_data_processing} & Min of filtered signal & 2000 - 7000\\
+        \bottomrule
+    \end{tabularx}
+    %\caption{Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence.}
+    \label{[TABLE] features gsr}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    {\large \textbf{HR Features}}\vspace{2pt}
+    \begin{tabularx}{\columnwidth}{cXc}
+        \toprule
+        \textbf{Source} & \textbf{Data captured} & \textbf{Timespan (ms)} \\
+        \midrule
+        \cite{hr_feature1, hrv_source_3} & IBI mean & 4000 - 7000 \\
+        \cite{hr_feature1} & IBI std & 4000 - 7000 \\
+        \cite{hr_feature1} & HRV RMSSD & 4000 - 7000 \\
+        \bottomrule
+    \end{tabularx}
+    %\caption{Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence.}
+    \label{[TABLE] features hr}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    {\large \textbf{Facial Features}}\vspace{2pt}
+    \begin{tabularx}{\columnwidth}{cXc}
+        \toprule
+        \textbf{Source} & \textbf{Data captured} & \textbf{Timespan (ms)} \\
+        \midrule
+        \cite{scherer_kinect} & Mean of 11 \& 12 & 500 - 1000 \\
+        \cite{scherer_kinect} & SD of 11 \& 12 & 500 - 1000 \\
+        \bottomrule
+    \end{tabularx}
+    \caption{Facial features. Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence. The numbers in the data captured column correspond to Kinect FaceShapeAnimation~\protect\cite{faceshapes}.}
+    \label{[TABLE] features face}
+\end{table}
+
+\todo{fix the shitty tables so that they dont take up as much space, and references are correct}
 
 %put table here with all features and time we look
 
