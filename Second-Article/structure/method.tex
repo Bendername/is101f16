@@ -121,6 +121,15 @@ degree of ``anger''. In this study, all of these are considered ``frustration'' 
 experienced by test participants, whenever they are exposed to a usability problem. We expect such an affective change
 to deviate from the baseline data, and thereby become detectable by our classification algorithm.
 
+Frustration, and similar discrete emotions, can be mapped to and expressed via the dimensional model of \textit{valence}
+and \textit{arousal}. Frustration could be expressed as \textit{medium to high arousal} and \textit{negative
+  valence}. This is to say, that it is our goal to detect anomalies expressing such values of arousal and
+valence. However, we argue that it is reasonable to simplify this problem, by expecting test participants to only
+express \textit{content} or \textit{negative valence}, during the test. In other words, we argue that test participants
+experience only neutral stimuli, or stimuli inducing frustration and thereby negative valence. By this assumption, we
+aim to capture moments of elevated arousal, from which we infer it to be negative valence, which in turn we infer to be
+frustration, and thus an indication of a usability problem.
+
 \subsection{Feature selection}
 % mention related work for [gsr, face, eeg, hr] that looks at frustration or irritation
 
@@ -207,11 +216,11 @@ indicate that the test participant is \textit{frustrated}, and thus is experienc
     {\large \textbf{HR Features}}\vspace{2pt}
     \begin{tabularx}{\columnwidth}{cXc}
         \toprule
-        \textbf{Source} & \textbf{Data captured} & \textbf{Timespan (ms)} \\
+        \textbf{Source}                  & \textbf{Data captured} & \textbf{Timespan (ms)} \\
         \midrule
-        \cite{hr_feature1, hrv_source_3} & IBI mean & 4000 - 7000 \\
-        \cite{hr_feature1} & IBI std & 4000 - 7000 \\
-        \cite{hr_feature1} & HRV RMSSD & 4000 - 7000 \\
+        \cite{hr_feature1, hrv_source_3} & IBI mean               & 4000 - 7000            \\
+        \cite{hr_feature1}               & IBI std                & 4000 - 7000            \\
+        \cite{hr_feature1}               & HRV RMSSD              & 4000 - 7000            \\
         \bottomrule
     \end{tabularx}
     %\caption{Timespan is in milliseconds, after stimuli. A indicates the feature can be used to classify arousal and V indicates the same for valence.}
