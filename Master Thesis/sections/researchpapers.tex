@@ -187,11 +187,11 @@ This obviously leave us with the same concerns as in paper 1, that context has n
 into consideration. As with the first paper, this was simply dismissed as a limitation and scope of this paper.
 
 Specific to this test, the program developed is also a factor to consider when looking at the results.  We attempted to
-make a program with no usability errors, but as research has shown since the dawn of HCI this is nearly impossible.  We
-experienced problems with the computer used for the test, where the program would cause unexpected latency and unresponsiveness on keyboard
-and mouse input. This was not a deliberate and therefore seeded usability problem, however the user might still perceive the
-unresponsiveness of the program as a usability problem. This was the case in at least one test.  Further we found small
-areas of the program that could be considered cosmetic usability problems, however, as the paper does not actively try
+make a program with no usability errors, but as research has shown since the dawn of HCI, this is nearly impossible.  We
+experienced problems with the computer used for the test, where the program would have unexpected latency and unresponsiveness when using the keyboard and mouse. This was not intentional, and hence not a seeded usability problem.
+The user might however, still perceive the unresponsiveness of the program as a usability problem. 
+This was the case in at least one test.  
+Further we found small areas of the program that could be considered cosmetic usability problems, however, as the paper does not actively try
 to estimate severity this was left out in the evaluation. Other concerns became evident when considering how each
 individual seeded problem was perceived by the test participant. Some problems were perceived immediately,
 e.g. participants were paying attention when error feedback was given, while others problems were not. In particular,
@@ -208,16 +208,17 @@ attempt at defining it from previous literature concerning frustration and the a
 leading to frustration, but as said, this is not a conclusive formalized method. Creating this would require significant
 research with that area of interest being the specific purpose of the research. Further looking at the general opinions
 between researchers, a definitive conclusion seems to be some ways out as simply agreeing on what an affective state
-truly consists of is very opinionated.
+truly consists of is very opinionated.\todo{Hele det her skal nok skrives om / smides ud.}
 
-The method used in this paper is \textit{novelty detection} using a one-class SVM. A primary requirements for
+The method used in this paper is \textit{novelty detection} using a one-class SVM. The primary requirements for
 achieving good performance, i.e. good predictive power, is to ensure that training data contains as few anomalies as
 possible. The difficulty associated with ensuring this can vary depending on the kind of data considering, but in our
-case, where we consider physiological data, we deem it considerably difficult. We attempt to minimize the risk of
+case, where we consider physiological data, is is not trivial. We attempt to minimize the risk of
 training on data containing anomalies by considering only data from the first two tasks, containing no seeded
 problems. However, we cannot be certain that this data never contains any anomalies, as identifying anomalies is what we
 are attempting in the first place. This is to say, that our ability to identify anomalies is at most as good as the data
-we train on.
+we train on. In order to ensure a better set of training data, it would be better to create a larger set of tasks, and verify those tasks and the software they are conducted in as being usability error free. 
+The robustness of such a set of tasks would be better if such initial evaluation had been done.
 
 A recurring concern, also present during the first paper and our 9th semester project, is that of finding the
 \textit{correct} parameters and features for the classification algorithm. In an attempt to mitigate these concerns, we
@@ -229,7 +230,10 @@ suggested in related work are disparate, i.e. varying time-spans and extracted f
 been able to find conclusive indications as to which features should be used. We have attempted to uncover differences
 in features by considering two different sets of features - one considering short-term reactions and another considering
 long-term reactions, governed by the time-spans considered. We present the findings under a discussion in the paper. We
-want to make it clear, that finding optimal features and classification parameters, is not trivial.
+want to make it clear, that finding optimal features and classification parameters, is not trivial. 
+It is also debateable how robost the model is given we search for the optimal solutions. 
+We have the \textit{best} model for a specific set of features, for a specific set of data. 
+We cannot take this model and use it on another person. 
 
 %remember to mention:
     %that training data has to be clean
