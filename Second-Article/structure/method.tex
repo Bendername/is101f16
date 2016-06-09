@@ -136,42 +136,63 @@ usability problem.
 
 % UP -> frustatrion -> a / v -> features brugt i papers -> øst og vest -> kigger på features tidligere -> reaction
 % kommer instant -> vi bruger derfor de gamle features
-While frustration can be measured, no golden-standard has been proposed for doing so.  In this study, features which has
-been used for classifying frustration will be used.  However, due to the lack of uniform agreement on the duration for
-physiological responses in terms of ``frustration'', we choose to rely on the biological limitations of
-responses as if there upon stimuli, is an instant reaction.
+Investigating related work for relevant features for capturing frustation, many disparate methods are proposed. However,
+we choose to be inspired by the following discoveries.
 
-During our previous work~\cite{9th_semester_project}, we encountered many disparate suggestions to which features to
-consider for each of the sensors we use. This is the case both when considering several emotions simultaneously,
-e.g. frustration, happiness, sadness, or when attempting to capture only a single emotion. We find that uncovering
-features that yield the best results, to be a study in its own right.
+Poel et al.~\cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
 
-Our previous work showed promising results using descriptive statistics, e.g. mean, median, standard deviation. As with
-our previous work, we attempt to capture affective state changes at stimuli onset and then considering the
-\textit{least} amount of time thereafter. This is to increase the chances that the affective state we capture,
-corresponds to the time $t$ we consider. As an example, Zhai et
-al.~\cite{gsr_len_lat3} suggests that reactions in GSR can be seen 2-4 seconds after stimuli, and remain observable 3-4
+Trogo et al.~\cite{brainwave_signals_frustration} studied the affective state of students. More specifically they looked at boredom, confusion, engagement and frustration. 
+A simple application with Berg's Card Sorting Task\cite{bergs_card_sorting} was used as stimuli.
+They used the following features on a raw EEG signal: mean, standard deviation, mean of absolute first and second differences and standardized mean of absolute first and second differences.
+
+Harper et al.~\cite{web20_frustration} investigated the frustration induced from the dynamic content of Web 2.0 websites. 
+They used GSR to measure frustration levels and found them from peaks in smoothed GSR graphs.
+
+Dang et al.~\cite{stress_robot} used a game to induce stress and had a robot react to the stress levels and try to support the test participant. 
+They used heart rate information in form of heart beats per minute to deduce the stress level.
+
+In Edge et al.~\cite{bipolar_frustration} bipolar test participants were studied where anger is a fundamental emotion in the disorder. 
+They investigated frustration and irritation as a subset of anger with heart rate variability.
+
+Kosunen et al.~\cite{boredom_negative_mood_features} also used a heart rate sensor.
+They found statistic significant features for frustration with intervals of 500-1200ms, to be interbeat-interval(IBI) mean and IBI low frequency/high frequency band power, but also had IBI standard deviation.
+
+Dimberg et al. \cite{face_onset} found unconscious facial reactions happens in the interval 500-1000 ms.
+Scherer used ``Facial Action Coding System'' to define and measure facial expressions during an enacted emotion, of which anger and irritation was investigated on an arousal/valence scale~\cite{scherer_kinect}.
+
+
+\subsubsection{Limitations of current research}
+While frustration can be measured, no golden-standard method has been proposed for doing so.  As an example, Zhai et
+al.~\cite{gsr_len_lat3} suggests that reactions in GSR can be seen 2-4 seconds after stimuli, and remain observable 3-5
 seconds thereafter. This is to say, that in order to capture reactions in GSR, we have to consider \textit{at least}
-data within those boundaries. However, we would like to mention that work such as Ghaderi et
-al.~\cite{machine_learning_100s_gsr} proposes durations as long as 100-300 seconds. Likewise,
-Niemic~\cite{studies_of_emotion} suggests durations of up to 15 seconds for EEG. While such durations could indeed
-capture the occurrence of some stimuli, it would prove difficult in our situation as such durations could cover more
-than just one event.
+data within those boundaries. However, Ghaderi et al.~\cite{machine_learning_100s_gsr} proposes durations as long as
+100-300 seconds. Likewise, Niemic~\cite{studies_of_emotion} suggests durations of up to 15 seconds for EEG. While such
+durations could indeed capture the occurrence of some stimuli, it would prove difficult in our situation as such
+durations would likely cover more than just one event. This suggests emotional responses such as frustration, in terms
+of researches, can have very different lifetimes depending on the target of research and use case.
+
+Our previous work\cite{first_paper} showed promising results using descriptive statistics, e.g. mean, median and standard deviation. 
+As with our previous work, we attempt to capture affective state changes at stimuli exposure. 
+As with our first study, the usability problems we deliberately seeded into the test program are of significant severity, and we do not consider problems of cosmetic nature.
+Further as the seeded problems can appear within rather short time spans of each other, shorter assumptions of emotions fits the granularity of this study's use case. 
+We are inclined to believe the assumption, that a stimuli will have an immediate emotional reaction and a corresponding physiological reaction.
+As such, we choose to use the same features as our previous work, with the shortest time durations that literature supports in terms of reaction to measurable physiological changes. 
 
 \subsubsection{Features, latency and duration}
-Based on our previous work~\cite{9th_semester_project, first_paper}, with the intent of capturing short-term fleeting affective changes, we define the following
-latencies and time-spans to consider for each individual sensor.
-We consider affective state changes in GSR to manifest themselves 2-4 seconds after the experience occurred which
-induced the stimuli, and is noticeable within a time-frame of 3-4 seconds thereafter. EEG is considerably different,
-manifesting after 350 milliseconds, lasting 760 milliseconds. Reactions to stimuli can be seen manifesting in heart-rates
-after 4 seconds, and lasts for 3 seconds. Lastly face changes has a delay of 500ms and lasts for 500ms. As mentioned,
-the above is based on our previous work, which in turn is based on related research within HCI, psychology and
-physiology of the human body.
+Based on our previous work~\cite{9th_semester_project, first_paper}, with the intent of capturing short-term fleeting
+affective changes, we define the following latencies and time-spans to consider for each individual sensor.  We consider
+affective state changes in GSR to manifest themselves 2 seconds after the experience occurred which induced the stimuli,
+and is noticeable within a time-frame of 5 seconds thereafter, see Table \ref{[TABLE] features gsr}. EEG is considerably
+different, manifesting after 350 milliseconds, lasting 710 milliseconds, see Table \ref{[TABLE] features eeg}. Reactions
+to stimuli can be seen manifesting in heart-rates after 4 seconds, and lasts for 3 seconds, see Table\ref{[TABLE]
+  features hr}.  Lastly face changes has a delay of 500 milliseconds and lasts for 500 milliseconds, see Table
+\ref{[TABLE] features face}.
 
-Based on the above, we consider \textit{windows}, i.e. samples of continuous measurements within those boundaries, for
-each sensor, for a particular moment in time. We do so for moments within what we expect to be \textit{normal} state and
-likewise for \textit{unknown} moments. If those \textit{unknown} moments deviate from \textit{normal}, we expect that to
-indicate that the test participant is \textit{frustrated}, and thus is experiencing a usability problem.
+Similar time-frames are also suggested by \cite{eeg_electrodes_0}, which states that reactions lasts for 5
+seconds. However, it also suggested that data within 10-15 seconds should be considered - a factor of 2.5.  As stated,
+the duration of a response is up for discussion, but in order to consider the fact that emotions potentially spread of a
+longer duration of time, we also consider windows which are 2.5 times larger, for each sensor.  This means that for GSR
+the window considered would be 10 seconds instead of 5, and similar applies for all sensors.
 
 \begin{table}[H]
     \centering
@@ -236,31 +257,3 @@ indicate that the test participant is \textit{frustrated}, and thus is experienc
     \caption{Timespans are in milliseconds, after some time $t$.}
     \label{[TABLE] features face}
 \end{table}
-
-%\subsection{EEG features}
-%Poel et al.~\cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
-%Trogo et al.~\cite{brainwave_signals_frustration} studied the affective state of students. More specifically they looked at boredom, confusion, engagement and frustration. 
-%A simple application with Berg's Card Sorting Task\cite{bergs_card_sorting} was used as stimuli.
-%They used the following features on a raw EEG signal: mean, standard deviation, mean of absolute first and second differences and standardized mean of absolute first and second differences.
-%
-%\subsection{GSR features}
-%Harper et al.~\cite{web20_frustration} investigated the frustration induced from the dynamic content of Web 2.0 websites. 
-%They used GSR to measure frustration levels and found them from peaks in smoothed GSR graphs.
-%
-%\subsection{Heart Rate features}
-%Dang et al.~\cite{stress_robot} used a game to induce stress and had a robot react to the stress levels and try to support the test participant. 
-%They used heart rate information in form of heart beats per minute to deduce the stress level.
-%In Edge et al.~\cite{bipolar_frustration} bipolar test participants were studied where anger is a fundamental emotion in the disorder. 
-%They investigated frustration and irritation as a subset of anger with heart rate variability.
-%Kosunen et al.~\cite{boredom_negative_mood_features} also used a heart rate sensor.
-%They found stasticly significant features for frustration with intervals of 500-1200ms, to be interbeat-interval(IBI) mean and IBI low frequency/high frequency band power, but also had IBI standard deviation.
-%
-%
-%\subsection{Facial features}
-%With our hardware, the Kinect, data was captured as Face Shape Animations(FSA)\cite{faceshapes}.
-%FSA data tracks a subset of the Action Units (AU) in the Facial Action Coding System~\cite{facs_kinect_muscles} (FACS) for both the left and right side of the face.
-%Dimberg et al. \cite{face_onset} found unconscious facial reactions happens in the interval 500-1000 ms.
-%Scherer used ``Facial Action Coding System'' to define and measure facial expressions during an enacted emotion, of which anger and irritation was investigated on an arousal/valence scale.\cite{scherer_kinect}
-%We largely base our features on their features, from the ones they have found to have a statistically significant correlation with arousal and valence, while also being measureable with the kinects animation units.
-%Since Scherer used AU without differentiating between the left and right sides of the face, we use the average of the feature values from the left and right side of the face.
-
