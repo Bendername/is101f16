@@ -181,6 +181,7 @@ usability problems. Subsequent \textit{unknown} data was predicted upon to ident
 \subsection{Methodical Reflection:}
 % mention that we changed from having a hypothesis
 %    why did we do this -> more exploratory, cannot 'cook' down to just one number, too many uncertainties
+\textit{Test and experiment}\\
 The experiment setup was controlled to the best of our abilities and conducted inside a usability lab. A changing
 variable we deliberately constructed in the system, was to randomize the order in which tasks are presented to the user,
 i.e. the order differs between test participants.
@@ -188,7 +189,20 @@ This obviously leave us with the same concerns as in paper 1, that context has n
 into consideration. As with the first paper, this was simply dismissed as a limitation and scope of this paper.
 
 The experiment it self has also proved to be a problem even though it was thoroughly thought through. 
-Our test was quite long, and the premisis of it working was that we could interleve different participants. 
+It consisted of four phases, we would use the first and last phase, and the second and third was for the other group. The phases were:
+
+\begin{itemize}
+\item 1. Usability test
+\item 2. Waiting period (0min, 30min, 60min)
+\item 3. Cued recall
+\item 4. Cued recall debrief
+\end{itemize}
+
+The first phase is involves putting on sensors and doing the actual usability test. The second phase was having them wait for a period or time. 
+The third phase involved reapplying the sensors and then having them watch a screen recording of them performing the usability test.
+The fourth and last phase was a cued recall debrief session, where points of interests selected from visual inspection of GSR graphs was investigated with the participant and a researcher.
+
+Our test was quite long, and the premisis of it being doable with the amount of participants we wanted, was that we could interleve different participants. 
 When one participant was taking the usability test, another participant would be waiting for 30-60 minutes before comming back for cued recall. 
 Unfortunately it turned out that it was impossible to hold the time plan. Partly because the test sometimes took longer than the wait time needed, and partly because the setup time varied a from person to person. Sometimes it would take 30 seconds to put on the EEG, sometimes it would take 10-20 minutes. This was unacceptable for the other group because their entire validity of the experiment was based around the wait time being exactly what it was meant to be.
 This in turn meant we could only do 4-5 people a day, instead of 8 people a day. 
@@ -208,6 +222,7 @@ tasks that required test participants to use the keyboard, usually draws their a
 feedback signifying that an error has occurred. An implication that follows from this, is that it becomes harder to
 determine exactly \textit{when} a test participant experiences a particular seeded problem.
 
+\textit{Frustration models}\\
 One of the biggest complications during this study is the lack of uniform agreement on how emotional responses, in particular frustration, developes on a physiological level. While there has been quite a few studies sorrounding estimating frustration from physiological data, the way they do it, and how they ``label'' frustration is very different.
 The biggest difference lies in the assumption of the duration of the emotion. 
 Some researchers, like us, believe the assumption that emotions are short lived and instantanious in nature. 
@@ -225,6 +240,7 @@ While the reaction is labelled the same, the way it is experienced is very diffe
 
 Due to the complexity of how to measure the data, and the resulting complex results of an explorative model also forced us to multiple times consider our hypothesis. Because the concept of frustration as physiological data has multiple layers of complexity, it is hard to boil it down to one number, or one result. Having it being a final number would simply be to simplistic a result compared to the model. This ruled out many of the initial hypothesis' revolving around significancy of the result of our classifiers. In the end we found the most fitting thing to do was not having a hypothesis, simply because the study is explorative of nature, and the result is insights of how researchers can deal with the complex nature of classifying frustration in a running program.
 
+\textit{Novelty detection}\\
 The method used in this paper is \textit{novelty detection} using a one-class SVM. The primary requirements for
 achieving good performance, i.e. good predictive power, is to ensure that training data contains as few anomalies as
 possible. The difficulty associated with ensuring this can vary depending on the kind of data considering, but in our
