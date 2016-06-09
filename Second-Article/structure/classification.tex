@@ -9,14 +9,15 @@ There are many different method when working with novelty detection\cite{novelty
 The different methods are divided into five subgroups probabilistic, distance based, domain based, reconstruction based, and information theoretic.
 Manevitz et al.~\cite{oneClassSVM} showed that an One-class SVM achieved on average better results than neural networks, naive Bayes, nearest neighbor and prototype over a series of dataset.
 Thus to predict whether or not a usability problem is present a one-class SVM is used.
+The goal of the classification will be to explorer the one-class SVM's behaviour when detecting usability, given its parameters.
 
 \subsection{One-class SVM}
 The one-class SVM is domain based an algorithm used for novelty detection, meaning it creates a boundary given its training data, and the unknown data is then labelled as a normality or anomaly regarding to its to position relative to the boundary.
-Since the one-class SVM is very sensitive\cite{oneClassSVM} its parameter setting a a exhaustive grid search on the hyperparameters on the $Nu = \{0.01,0.06,..,0.41, 0.46\}$ and $Gamma = \{2^{-14},..2^2\}$ is performed, together with the Sigmoid and RBF kernel, to find the optimal parameters.
+Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter setting a grid search on the hyperparameters $Gamma = \{2^{-14},..,2^2\}$ is performed, together with the Sigmoid and RBF kernel, to find the optimal parameters where the Nu parameter is held at 0.05.
 We use LibSVMSharp\cite{libsvmsharp}, a wrapper for LibSVM\cite{libsvm}, which is a library that have implemented a one-class SVM, since LIBSVM it is a widely used library for a SVM implementation.
 
 \subsection{Prediction \& Scoring}
-We create a one-class SVM for each of the sensors, each of the SVM's trains on the data from the first two tasks, which is design to contain no usability errors e.g. no anomalies. The model created can then be used to predict on remainder of the data.
+We create a one-class SVM for each of the sensors where each of the SVM's trains on the data from the first two tasks, which is design to contain no usability errors e.g. no anomalies. The model created can then be used to predict on remainder of the data.
 A prediction from a one-class SVM is a binary 1 for a normality and -1 for an anomaly for the given a data point.
 Which results in a collection of data points labelled with a 1 for normality or -1 for anomaly.
 
@@ -27,12 +28,18 @@ To evaluate if an event is correctly found by the machine the two types of event
 The events which contain instant feedback is classified as a hit the points of interest covers the time of which the event happens.
 For the events which does not contain instant feedback, as mentioned before, an area for when the usability errors start to when the errors stops again is marked, if the point of interest hits inside the area the event will be marked as hit, both of these examples is illustrated in Figure x.x. \todo{Make Figure}
 
-To find the best parameters for our exhaustive grid search a scoring function is needed 
+Two scoring functions are used to optimize the gamma value in the line search. The first function is defined as: 
+\[CovScore = \frac{2 \times EventsHitRate \times FalseCoverRate}{EventsHitRate + FalseCoverRate}\]
+Where \textit{EventHitRate}(EHR) describes how many of the existing events has been hit by an anomaly e.g. $EHR = \frac{DifferentEventsHit}{TotalNumberOfEvents}$, and \textit{FalseCoverRate}(FCR) is the rate of which the area outside events that has been covered e.g $FCR = \frac{NonEventAreaCovered}{TotalNonEventArea}$. 
+%Beskriv maxima og minimum
+The second function is defined as: 
+\[HitScore = \frac{2 \times EventsHitRate \times Presicion}{EventsHitRate + Precision}\]
+Where \textit{Precision} is the rate of which the anomalies found by the SVM hits an event e.g. $precision = \frac{hits}{hits+misses}$. 
+%Beskriv maxima og minimum
 
-Where $F_{1}$-score is usually defined as: \[F_1 = 2 * \frac{precision \times recall}{precision + recall}\] Where we have chosen to define our scoring function as: \[F_1 = 2 * \frac{precision \times EventsHitRate}{precision + EventsHitRate}\] \todo{Maybe rename precision}This is done to reward hitting as many different events as possible and not just the same event multiple times.
+Since the Nu parameter indirectly dictates how much of the training data that should be inside the boundary an examination of what the Nu parameter impact is on the classification will be done.\todo{Kan ikke lide den her sætning men har skrevet den anywho}
+This will be done using a line search, locking all the parameters except the $Nu = \{0.01, 0.02,.., 1\}$. 
 
-
-The fusion of the results from the different machines will done by a simple voting approach, where a machine must declare whether it has found an anomaly to the given point in time. If an certain amount of sensors agrees the given point will be flagged as an anomaly. 
 
 
 
