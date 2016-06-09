@@ -200,16 +200,22 @@ tasks that required test participants to use the keyboard, usually draws their a
 feedback signifying that an error has occurred. An implication that follows from this, is that it becomes harder to
 determine exactly \textit{when} a test participant experiences a particular seeded problem.
 
-One of the biggest methodical complications of this paper is the fact that no formalized methods exists for evaluation
-user experience problems, in contrast to usability problems. We defined our own user experience problem as being a
-usability problem detectable from affective state, but with no information regarding severity with regards to the common
-metrics like task completion time and effort required. Further there is, to the best of our knowledge, no conclusive
-literature concerning finding or defining how to find user experience problems using physiological data. We made an
-attempt at defining it from previous literature concerning frustration and the abstract idea of a usability problem
-leading to frustration, but as said, this is not a conclusive formalized method. Creating this would require significant
-research with that area of interest being the specific purpose of the research. Further looking at the general opinions
-between researchers, a definitive conclusion seems to be some ways out as simply agreeing on what an affective state
-truly consists of is very opinionated.\todo{Hele det her skal nok skrives om / smides ud.}
+One of the biggest complications during this study is the lack of uniform agreement on how emotional responses, in particular frustration, developes on a physiological level. While there has been quite a few studies sorrounding estimating frustration from physiological data, the way they do it, and how they ``label'' frustration is very different.
+The biggest difference lies in the assumption of the duration of the emotion. 
+Some researchers, like us, believe the assumption that emotions are short lived and instantanious in nature. 
+Others believe they are long, which can be anything from 10-20 seconds to over 100 seconds or more. 
+While researchers generally tend to get good results, it has to do with the use case of the study. 
+Do you look for a general increase in average amplitude of a GSR signal or do you look for actual spikes in amplitude? 
+How you define this has a fundemental impact on the results you get. 
+In our case it was difficult to select a model which satisfied all our constraints, especially because the experiment was designed prior the investigation of frustration as a physiological response. 
+On one hand, we have a system which has ``events'', stimuli designed to be frustrating, within a task. These events can be exposed to the user in quick succession, depending on how fast the user provokes the event, e.g. clicking delete and nothing happens and doing it imediately again. 
+A model which caters to the assumption that frustration lasts a long time, will conflict with the actual collected data, because it can overlap multiple events. Then it has to be considered if an outlier is caused by both events combined or an individual event. 
+
+Further there is no uniform theory upon how frustrating events develop over time as there are multiple exposures. It is generally acknowledge that a reaction stimuli, positive or negative, is strongest the first time it is experienced. Further if a person can anticipate a stimuli, the expectation of it may also reduce the reaction. But is this the case with frustrating events in a running system as well? It is not too far stretched to imagine a person having a software related problem, and the first time you'll be slightly annoyed, if the problem persists the irritation that you cannot fix it also increase. That case could argue for a frustration curve which is steadily going upwards, but not having spikes.
+On the other hand, if a person has written an entire document in word and it crashes, it will lead to a massive ``burst'' of frustration. 
+While the reaction is labelled the same, the way it is experienced is very different. One is slow and steady, the other is instantanious and violent.
+
+Due to the complexity of how to measure the data, and the resulting complex results of an explorative model also forced us to multiple times consider our hypothesis. Because the concept of frustration as physiological data has multiple layers of complexity, it is hard to boil it down to one number, or one result. Having it being a final number would simply be to simplistic a result compared to the model. This ruled out many of the initial hypothesis' revolving around significancy of the result of our classifiers. In the end we found the most fitting thing to do was not having a hypothesis, simply because the study is explorative of nature, and the result is insights of how researchers can deal with the complex nature of classifying frustration in a running program.
 
 The method used in this paper is \textit{novelty detection} using a one-class SVM. The primary requirements for
 achieving good performance, i.e. good predictive power, is to ensure that training data contains as few anomalies as
