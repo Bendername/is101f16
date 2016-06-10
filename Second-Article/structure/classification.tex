@@ -1,32 +1,37 @@
 \section{Classification}
-The use case of this article is to help third-party evaluators find usability problems in a usability test.
-In a usability test the usability problems will occur an as an unknown class for the classifier, meaning that the classifier has model for the class that would be a usability problem. 
-We therefore have to limit our choice of classifiers to the ones who can predict anomalies by only learning on the ´´´normal'' class.
-Additionally the usability test is expected to have many normalities and only a small portion of anomalies.
-This problem fits the scope of novelty detection\cite{noveltyDetection}.
+The use case of this article, is to help third-party evaluators find usability problems in a usability test.
+In a usability test, the goal is to find usability problems, in other words the usability problems are unknown prior discovery. This is relevant for a classifier, because different strategies exist for different types of data. In this case, we do not have ``usability-problem labelled'' data on which we can train the classifier to detect problems which are similar. Because of this, a classifier which can detect anomalies from a training set which does not contain anomalies is required.
+Additionally a usability test is generally considered to have mostly ``normal usage'' and only a portion of the entire system will contain usability problems. In other words, the majority of the physiological responses collected can be considered expected normal responses, and only the portions of the system where a usability problem is present will result in anomalies.
+This type of data fits the scope of novelty detection\cite{noveltyDetection}.
 
-There are many different method when working with novelty detection\cite{noveltyDetection}, and choosing the right one is not easy.
-The different methods are divided into five subgroups probabilistic, distance based, domain based, reconstruction based, and information theoretic.
-Manevitz et al.~\cite{oneClassSVM} showed that an One-class SVM achieved on average better results than neural networks, naive Bayes, nearest neighbor and prototype over a series of dataset.
-Thus to predict whether or not a usability problem is present a one-class SVM is used.
-The goal of the classification will be to explorer the one-class SVM's behaviour when detecting usability, given its parameters.
+There are many different methods which can be applied when working with novelty detection\cite{noveltyDetection}, and choosing the right one is not a trivial task.
+The different methods can be divided into five subgroups: probabilistic, distance based, domain based, reconstruction based, and information theoretic.
+Manevitz et al.~\cite{oneClassSVM} showed that a \textit{one-class} SVM achieved on average better results than other classification techniques as neural networks, naive bayes, nearest neighbor and prototype over a series of dataset.
+This paper use a one-class SVM as the classifier.
+The goal of the classification in this paper is to explore the one-class SVM's behaviour when used to detect usability problems.
 
 \subsection{One-class SVM}
-The one-class SVM is domain based an algorithm used for novelty detection, meaning it creates a boundary given its training data, and the unknown data is then labelled as a normality or anomaly regarding to its to position relative to the boundary.
-Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter setting a grid search on the hyperparameters $Gamma = \{2^{-14},..,2^2\}$ is performed, together with the Sigmoid and RBF kernel, to find the optimal parameters where the Nu parameter is held at 0.05.
-We use LibSVMSharp\cite{libsvmsharp}, a wrapper for LibSVM\cite{libsvm}, which is a library that have implemented a one-class SVM, since LIBSVM it is a widely used library for a SVM implementation.
+The one-class SVM is a domain based algorithm used for novelty detection, meaning it creates a boundry given its training data.
+Unknown data to be classified is then labelled as a normality or anomaly depending on its position relative to the boundry.
+Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter settings, a grid search on the hyperparameters $Gamma = \{2^{-14},..,2^2\}$ is performed together with the Sigmoid and RBF kernel, to find the optimal parameters where the Nu parameter is kept at 0.05.
+The library LibSVMSharp\cite{libsvmsharp} is used. It is a C\# wrapper for LibSVM\cite{libsvm} which is a widely used SVM library which also contains a one-class SVM implementation. The main reason LibSVMSharp is used over the native LibSVM is because it can be used in conjunction with the developed software used to collect and handle data, which is written in C\#.
 
 \subsection{Prediction \& Scoring}
-We create a one-class SVM for each of the sensors where each of the SVM's trains on the data from the first two tasks, which is design to contain no usability errors e.g. no anomalies. The model created can then be used to predict on remainder of the data.
-A prediction from a one-class SVM is a binary 1 for a normality and -1 for an anomaly for the given a data point.
-Which results in a collection of data points labelled with a 1 for normality or -1 for anomaly.
+We create a one-class SVM for each of the sensors, where each of the SVMs trains on the data from the first two tasks, which contain no usability errors e.g. no anomalies. The model created can then be used to predict on the remaining data which has been collected when usability errors were present.
+A one-class SVM will label a given data point with a binary answer. ``1'' for a normality, and ``-1'' for an anomaly.
+This results in a collection of data points labelled as either a normality or an anomaly.
 
-To decide whether an anomaly correctly hits an usability error some assumptions has to be made. Given our grouping of the task into instant error feedback and non instant error feedback, a split has to be made. The usability errors found in the instant error feedback tasks will be assigned to the specific time the error happened. Whereas for the non instant error feedback tasks will span from the first usability error related to that task to the last error related to that task has occurred, as illustrated in Figure x.x.
-\todo{Make figure of this}
-When an anomaly is found an area of 2.5 seconds to each side it is marked around is, to create a point of interest. The point of interest is created to satisfy the use case of a third-party evaluator having to look through the video, and thus the evaluator should have more than just a millisecond to see the problem.
+To decide whether an anomaly correctly corrosponds to a usability error, that is it has \textit{hit} a usability error, some assumptions has to be made. 
+Given tasks' events in the experiment is grouped into ``instant error feedback'' and ``non-instant error feedback'', two strategies has to be used. 
+For instant error feedback the usability error is said to have been experienced by the participant at the specific time the error happened. In other words, if the error happens at time $t$, then the participant is also exposed to the stimuli / frustrating event at time $t$.
+For non-instant error feedback the usability error is said to have been experienced during the timespan of the first event to the last event which are related to the task. This is illustrated in Figure X.X. \todo{Make figure of this}
+
+When an anomaly is found an area of 2.5 seconds prior and after the anomly is marked to create a point of interest. 
+A point of interest spans 5 seconds in order to create a relevant time-snippet for a third-party evaluator to look at, rather than having a 1 millisecond span of time.
+
 To evaluate if an event is correctly found by the machine the two types of events will be considered again.
-The events which contain instant feedback is classified as a hit the points of interest covers the time of which the event happens.
-For the events which does not contain instant feedback, as mentioned before, an area for when the usability errors start to when the errors stops again is marked, if the point of interest hits inside the area the event will be marked as hit, both of these examples is illustrated in Figure x.x. \todo{Make Figure}
+The events which contain instant feedback is classified as a hit, if the points of interest covers the time at which the event happens.
+For events which do not contain instant feedback the event will be hit, if the point of interest hits inside the area of the collection of events. Both of these examples is illustrated in Figure x.x. \todo{Make Figure}
 
 Two scoring functions are used to optimize the gamma value in the line search. The first function is defined as: 
 \[CovScore = \frac{2 \times EventsHitRate \times 1-FalseCoverRate}{EventsHitRate + FalseCoverRate}\]
@@ -40,5 +45,6 @@ Where \textit{Precision} is the rate of which the anomalies found by the SVM hit
 As with the first scoring function the second scoring function is a harmonic mean but with EHR and precision.
 Meaning the function rewards spreading of the answers while having a high true positive rate on its guesses.
 
-Since the Nu parameter indirectly dictates how much of the training data that should be inside the boundary an examination of what the Nu parameter impact is on the classification will be done.\todo{Kan ikke lide den her sætning men har skrevet den anywho}
-This will be done using a line search, locking all the parameters except the $Nu = \{0.01, 0.02,.., 1\}$. 
+
+Since the Nu parameter indirectly dictates how much of the training data that should be inside the boundry of the ``normal state'', an examination of the Nu parameter impact on the results is conducted.\todo{Kan ikke lide den her sætning men har skrevet den anywho}
+This is done using a line search, locking all the parameters except the $Nu = \{0.01, 0.02,.., 1\}$ and analyzing the difference in the result. 
