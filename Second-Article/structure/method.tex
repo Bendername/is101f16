@@ -98,7 +98,7 @@ The task wizard simply shows a task in plain text which the user should try to c
 Before starting the test all hardware was attached to the participant and verified in terms of connectivity. 
 The EEG was connected to the head according to the 10-20 system\cite{eeg_tech_10_20}, and the GSR and pulse sensor were attached to their non-dominant hand.
 After sensors have been properly attached, participants were asked to remain calm during a 3-minute \textit{resting period}. 
-This is to ensure physiological reactions such as elevated heart rate, e.g. from moving around or higher stress levels because of the unusual situation, are normalized around a relaxed baseline. 
+This is to ensure physiological reactions such as elevated heart rate, e.g. from moving around or higher stress levels because of the unusual situation, can to back to their normal state. 
 After the initial resting period, the participant can start using the program and begin solving the tasks. 
 
 \subsection{Usability problem detection}
@@ -107,7 +107,7 @@ frustration with sensors one way or another, usually in the form of ``frustratio
 degree of ``anger''. \todo{need cites/examples on this}
 In this study, all of these are considered ``frustration'' and we expect this affective state to be
 experienced by test participants whenever they are exposed to a usability problem. We expect such an affective change
-to deviate from the baseline data, and thereby be detectable by our classification algorithm.
+to deviate from the ``normal state'' data, and thereby be detectable by our classification tools.
 
 Frustration, and similar discrete emotions, can be mapped to and expressed via the dimensional model of \textit{valence}
 and \textit{arousal}. Frustration could be expressed as \textit{medium to high arousal} and \textit{negative
@@ -123,12 +123,16 @@ them to classified as such.  We consider a particular section within the experim
 i.e. containing no usability problems, during which we do not expect test participants to exhibit physiological states
 that are related to \textit{frustration} or similar negative affective states. We refer to this normal section as the
 \textit{baseline}. The baseline is established in the beginning of the test during the two first tasks, after the
-initial relaxation section, and before the third task begins. This is because the two first tasks are always chosen from
-a set of tasks containing no seeded usability problems. All physiological measurements collected within this section are
-treated as a \textit{baseline} data.  From the baseline, we extract various statistical measurements, in the form of
-feature vectors, from which \textit{unknown} data should deviate, in order to signify the existence of a potential
-usability problem.
-
+initial relaxation period, and before the third task begins, see Figure . This is because the two first tasks are always chosen from
+a set of tasks containing no seeded usability problems. All physiological measurements collected within this section are assumed to not contain any frustrating responses. From the baseline, we extract various statistical measurements, in the form of
+feature vectors. A feature vector is just a set of numbers such as standard deviation, mean, min and max to a specific data point. 
+The feature vectors are then used to train the classifier. The classifier can then compare new unseen data to the trained data, and determine if the new data is within the boundries of what can be called ``normal'' or if it is an anomaly.  
+\begin{figure}
+    \centering
+  \includegraphics[width=0.95\columnwidth]{graphics/rest_period_training_data.png}
+    \caption{The division of the test data parts. The first section is the relaxation period of 180 seconds. The second section is two normal tasks of which the test participants ``normal state'' / baseline is modelled. The last section is the rest of the test, and the section in which frustration is expected in the form of anomalies. }
+    \label{[FIGURE] TESTSETUP}
+\end{figure}
 \subsection{Feature selection}
 % mention related work for [gsr, face, eeg, hr] that looks at frustration or irritation
 
