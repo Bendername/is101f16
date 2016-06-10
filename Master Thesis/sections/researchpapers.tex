@@ -2,16 +2,12 @@
 \chapter{Research Papers}
 This chapter presents two research papers, both produced during our Master
 Thesis semester. The first paper is produced in collaboration with another
-workgroup, and the second produced entirely by us.
+master thesis group, and the second paper is produced entirely by us.
 
-The first paper is a continuation of our work during 9th semester which includes
-a significant literature review investigating the occurrence of research making
-use of physiological measurement, and in particular research relying on fusing
-several physiological measurements, in order to identify emotions and affective
-state. Our 9th semester project formulates a setup and in it we conduct a
-proof-of-concept experiment and arrive at promising results. The first paper
-scales the experimental setup substantially, in order to more convincingly
-confirm or reject its hypothesis.
+The first paper is a combined effort where a large study with a large scale test was conducted.
+The aim was to classify emotions from test participants affective state, using images as stimuli.
+Physiological data was collected through a self developed interface which allowed synchronization of all the data.
+The test participants also reported arousal and valence values for the stimuli, which the classifier is validated up against.
 
 The second paper builds upon the first, and aims to use its results in a more
 specific manner: to identify usability problems solely by physiological
@@ -55,42 +51,13 @@ evaluated by third-party experts, leaving room for subjective assessments. Using
 sensors could potentially mitigate subjectivity, and help elicit more objective
 truths about how test participants feel and react during experiments.
 
-The conclusion of the literature review is that while the use of sensors has increased in recent years,
-it is still not the predominant method, or even a particular popular method for
-eliciting emotions. Furthermore, the use of multiple sensor was even
-rarer. Although not always mentioned explicitly in the reviewed material, it was
-sometimes stated that further work was needed, additionally results between studies varied
-in accuracy. The reviewed material also proposed disparate methods, rarely
-agreeing on how sensor data should be processed, or how to fuse results in the case of
-multiple sensors.
-
-Our 9th semester project was motivated under the assumption that more promising
-results could be produced by using multiple sensors and fusing their results. It
-also proposed the use of consumer-grade hardware in order to make our findings
-more accessible for others to replicate. Common Machine Learning techniques and statistical methods for
-data-processing were proposed as well, again to make our findings easily
-reproducible and accessible. The project describes a setup for experiments onto
-which the above can be applied. The setup involves multiple sensors, measuring: GSR,
-EEG, heart-rate, and facial features. Emotions were artificially induced using
-images having positive, neutral and negative connotations, selected from the
-reputable IAPS collection. However, while promising results were found, a lack
-in test participants made then insubstantial, and further study was
-required in order to verify them.
-
-This paper is, as mentioned, based on the above preliminary research. The
-primary motivation for the work was to remedy shortcomings in our 9th semester
-project. In particular, with an increased number of test participants, our aim
-was to confirm that using multiple sensors yielded better results, compared to single individual sensors.
-Refining the setup and conducting it in a proper testing environment yielded a more
-controlled experiment. In particular, our test-software was significantly
-revised and more thoroughly tested for bugs, additional literature was consulted
-with regards to feature extraction for the ML technique and the experiment procedure was
-adjusted and formalized. Due to the experiment now being conducted in a
-usability lab, we took advantage of the additional video-recording capabilities,
-and recorded both participants' facial expressions, the computer screen while
-they interacted with the software, and the setup from behind-the-shoulders of
-the test participants. And with a substantial increase in participants, we
-produced similar but more convincing results compared to our previous work.
+The primary motivation for the first paper was to create a much more robust study than our 9th semester.
+This included a complete code rewrite of the interface which collected physiological data, such that it was more robust while running for a long duration. We had to handle things such as hardware not responding and comming back online, while still keeping the collected data synchronized.
+There was also a revision to the test setup. It was moved to a controlled setting of a usability lab, where it was possible to collect more data beside the physiological.
+The setup meant we collected video of the test participants legs, which enabled us to watch for movement related artifacts. We also collected video of the test participants face and the video of the monitor. 
+Further audio was collected. 
+The entire test was formalized such that it is easy replicable.
+New features was selected for the classifier which was rooted in litterature.
 
 In conclusion, it was confirmed that using multiple sensors, fusing their input
 using ML techniques, produces more accurate results compared to each individual
@@ -99,10 +66,6 @@ during the experiment correlated with the physiological measurements taken
 simultaneously, to be true.
 
 \subsection{Methodical Reflection:}
-In this section, we discuss the methods and practices we applied in this paper,
-which by extension also includes the preliminary work in our 9th semester
-project.
-
 An area within our study which require scrutiny and further investigation is
 that of context. Context is a broad term and involves many controllable and
 uncontrollable variables, for instance; the mood test participants are in
@@ -111,7 +74,6 @@ particular setup of the experiment, etc. We acknowledge that the above can
 affects how participants interact with the setup, and particularly how they
 react to the stimuli. If it had any significant impact on our results is
 unknown, and investigating it would require making a study specifically targeting this unexplored area of the current ongoing research within HCI.
-\todo{link this somehow to Scherer and his components}
 
 Self-Assessment Manikin, the method we used during experiments to get subjective
 ratings from participants on how they reacted to the stimuli, has been
@@ -124,13 +86,15 @@ between participants, and each participant might have difficulties mapping
 correctly to the scales if stimuli with increasingly extreme connotations are
 presented. However, taking the fallacies above into consideration, the SAM
 method is still highly regarded and widely used, as evident from our review of
-literature within the field of HCI.
-\todo{confirm the above with sources. I have read this somewhere, I just need to
-  find it again, (source is fusion4)}
+literature within the field of HCI.\cite{fusion4}
 
-The machine learning techniques we have used are generally basic ``off-the-shelf'' solutions to the problem area we are dealing with.
+The machine learning techniques we have used are generally ``off-the-shelf'' solutions to the problem area we are dealing with.
 Due to the scope of the study we are conducting, it is not feasible to dive into specific techniques which could be used.
-The results achieved could most likely be substantially improved by using better techniques, but finding the optimal setup for ML for each sensor would most likely be a study in its own right.
+The results achieved could most likely be substantially improved by using better techniques, but finding the optimal setup for ML for each sensor is beyond the scope of this paper.
+
+The results we arrive at find significantly better results on fusion with the technique stacking.
+The results are promising in terms of the field being rather young, and only in recent years computational power has increased enough to make machine learning techniques more accessable to the average researcher. It is possible to run even advanced and complex algorithms in fairly short time on normal computers, which before required super computers. 
+With advancements in both the techniques used and the hardware available, it could possibly be feesable to consistently measure affective changes in real time. 
 
 %Things to discuss:
 %\todo{below is just a list of things we could discuss in this section}
@@ -220,7 +184,9 @@ individual seeded problem was perceived by the test participant. Some problems w
 e.g. participants were paying attention when error feedback was given, while others problems were not. In particular,
 tasks that required test participants to use the keyboard, usually draws their attention to it, and away from any
 feedback signifying that an error has occurred. An implication that follows from this, is that it becomes harder to
-determine exactly \textit{when} a test participant experiences a particular seeded problem.\\
+determine exactly \textit{when} a test participant experiences a particular seeded problem.
+
+The experiment could also be altered with the use of different hardware. It is possible to collect GSR data from the chest area, and heart rate data from the ears. This would free the dominant hand from sensors which would make the test participant use the system like normal, rather than having one hand disabled during the test.\\
 
 \textit{Frustration models}\\
 One of the biggest complications during this study is the lack of uniform agreement on how emotional responses, in particular frustration, developes on a physiological level. While there has been quite a few studies sorrounding estimating frustration from physiological data, the way they do it, and how they ``label'' frustration is very different.
