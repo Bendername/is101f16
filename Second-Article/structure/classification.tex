@@ -1,7 +1,7 @@
 \section{Classification}
 The use case of this article, is to help third-party evaluators find usability problems in a usability test.
 In a usability test, the goal is to find usability problems, in other words the usability problems are unknown prior discovery. This is relevant for a classifier, because different strategies exist for different types of data. In this case, we do not have ``usability-problem labelled'' data on which we can train the classifier to detect problems which are similar. Because of this, a classifier which can detect anomalies from a training set which does not contain anomalies is required.
-Additionally a usability test is generally considered to have mostly ``normal usage'' and only a portion of the entire system will contain usability problems. In other words, the majority of the physiological responses collected can be considered expected normal responses, and only the portions of the system where a usability problem is present will result in anomalies.
+Additionally a usability test is generally considered to have mostly ``normal usage'' and only a portion of the entire system will contain usability problems. In other words, the majority of the physiological data collected can be considered expected normal responses, and only the portions of the system where a usability problem is present will result in anomalies.
 This type of data fits the scope of novelty detection\cite{noveltyDetection}.
 
 There are many different methods which can be applied when working with novelty detection\cite{noveltyDetection}, and choosing the right one is not a trivial task.
@@ -28,14 +28,14 @@ The library LibSVMSharp\cite{libsvmsharp} is used. It is a C\# wrapper for LibSV
 \subsection{Prediction \& Scoring}
 We create a one-class SVM for each of the sensors, where each of the SVMs trains on the data from the first two tasks, which contain no usability errors e.g. no anomalies. The model created can then be used to predict on the remaining data which has been collected when usability errors were present.
 A one-class SVM will label a given data point with a binary answer. ``1'' for a normality, and ``-1'' for an anomaly.
-This results in a collection of data points labelled as either a normality or an anomaly.
+This results in a collection of data points labeled as either a normality or an anomaly.
 
-To decide whether an anomaly correctly corrosponds to a usability error, that is it has \textit{hit} a usability error, some assumptions has to be made. 
+To decide whether an anomaly correctly corresponds to a usability error, that is it has \textit{hit} a usability error, some assumptions have to be made. 
 Given tasks' events in the experiment is grouped into ``instant error feedback'' and ``non-instant error feedback'', two strategies has to be used. 
 For instant error feedback the usability error is said to have been experienced by the participant at the specific time the error happened. In other words, if the error happens at time $t$, then the participant is also exposed to the stimuli / frustrating event at time $t$.
 For non-instant error feedback the usability error is said to have been experienced during the timespan of the first event to the last event which are related to the task. This is illustrated in Figure X.X. \todo{Make figure of this}
 
-When an anomaly is found an area of 2.5 seconds prior and after the anomly is marked to create a point of interest. 
+When an anomaly is found an area of 2.5 seconds prior and after the anomaly is marked to create a point of interest. 
 A point of interest spans 5 seconds in order to create a relevant time-snippet for a third-party evaluator to look at, rather than having a 1 millisecond span of time.
 
 To evaluate if an event is correctly found by the machine the two types of events will be considered again.
