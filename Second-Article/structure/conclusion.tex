@@ -5,43 +5,44 @@
 
 \section{Discussion}
 A fundemental limitation with the results of the paper includes the actual definition of frustration in terms of usability problems. 
-While there is a lot of litterature on this subject, almost no one has extensively explored the development of frustration on a physiological level over time. 
-There are multiple studies classifying frustration, the usecases they have are extremely different. 
-Some studies look at windows of 100 seconds or more, some at 5 seconds and others at 30 seconds.
-In this paper the most pessimistic option was selected; after a stimuli there is a physiological delay followed by a measureable reaction which last a short duration according to our features.
+While there is a lot of litterature on this subject, few explore the development of frustration on a physiological level over time. 
+Multiple studies attempts to classify frustration, however their usecases and context varies. 
+Some studies considers a duration of 100 seconds or more, while others considers durations between 5-30 seconds.
+In this paper the most pessimistic option was selected; after a stimuli there is a physiological delay followed by a measurable reaction which last a short duration according to our features.
 This, however, implies that frustration is not a continues reaction over time while using a system, but rather a reaction to a specific event with a timelimit for how long it ``lasts in the body''.
-This requires the consideration that a physiological reaction may in fact be different. 
-One such consideration the authors has made is that frustration may increase in amplitude over time from the beginning of a stimuli. 
-That is, at the start of a frustrating event a user may not produce physiological spikes large enough to detect with our current anomaly detection, but over time as the frustrating event persists the physiological reaction will increase up until a point where it is detectable. 
+However, such physiological reactions may in fact be unfolding differently - frustration could be increasing in amplitude over time from the beginning of a stimuli. 
+That is, at the start of a frustrating event a user may not produce physiological spikes large enough to be detectable with our current setup, but over time as the frustrating event persists the physiological reaction will increase up until a point where it is detectable. 
 This would lead to a situation where an anomaly may be detected X seconds from a stimuli, but in fact the negative affective state started some time before that.
-A more specific model for detecting such affective states may increase the actual performance of the algorithms.
-
-Additionally because of the assumption that a physiological reaction has a fixed time window it is present, we may have anomalies which are detected as false-positives when actually being true positives. 
-While we have explored this by increasing the time-frame for which we expect a reaction, it would be benficial to make a study which specifically tries to detail how these reactions unfold.
+A more specific model for how such affective states unfold and for how long will increase the performance of our, and similar setups, and
+a study into this is highly relevant.
 
 Further it is also assumed that any anomaly within our test is caused by the system, and not an uncontrolled variable from outside the system. 
-The reality, however, is that the brain and physiological responses it creates is highly volatile according to the stimuli it receives.
-This could be noise from outside the test laboratory, hunger, a stray thought of a family member passing away, or anything else completely. 
+The reality, however, is that the brain, and physiological responses it creates, is highly sensitive according to the stimuli it receives.
+This could be noise from outside the test laboratory, hunger, or a stray thought of a family member passing away. 
 The fact is that it is impossible to control these factors with our current setup, and further it has been out of scope of this study to try and take it into consideration.
 
-All in all this area is largely unexplored, and as such leaves a lot of assumptions to be made.
-This in turn creates a natural skeptisism of the validity of our results.
+We find the above largely unexplored, and as such leaves a lot of assumptions to be made.
+This in turn creates a natural skepticism of the validity of our results.
 While they may be valid within the assumptions and limitations of the experiment, they are not presented as a general model of detecting frustration. 
-They are, however, a step in the right direction in terms of studying the affective state of a user while using a real-world system and another consideration to be made when trying to tackle the complex task of mapping affective states to physiological data. 
+They are, however, a step in the right direction in terms of studying the affective state of a user while using a real-world system and another consideration to be made when trying to overcome the complex task of mapping affective states to physiological data. 
 A natural path to explore would be removing the complexity of having sensor fusion, and instead focus on improving the understanding of how specific sensors captured data relates to affective states more generally. 
-When such a generic model have been approximated, it would make more sense to explore the idea of using ML to detect affective state changes.
-This is, however, a huge task even just for one sensor, but we believe it to currently be one of the most lacking areas of research within this branch of HCI.
-
+If such a model is ever conceived, it would be interesting to explore the idea of using ML to detect affective state
+changes in greater detail.
 
 \subsection{Future work}
-One of the most promising areas to continue research within usability problem detection through physiological measured affective state, is the means to detect the affective state change. 
-We have chosen off-the-shelf standard and basic solutions to solve the problem, but doing research aimed at optimizing these techniques should be done. 
-There have been shown promising results using a 1-class SVM as detection method, as well as neural networks have been used.
-Further, the entire study has revolved around fusing multiple sensors, and while one method may work particularly well with a GSR, it may prove worse or even bad to use with an EEG. 
-A further exploration into the feature space could also be conducted. 
-Especially for the EEG better hardware could open up for some more interesting models like DASM12\cite{eeg_music_listening}. 
+One of the most promising areas to continue research within usability problem detection through physiological measured
+affective state, is the means to detect the affective state change. One could imagine the potential in also being able
+to detect if a user is having a \textit{pleasant} experience with a product.
+
+We have chosen off-the-shelf standard and basic solutions in our attempt to solve the problem, but research aimed at optimizing these techniques should be done. 
+In particular, ML techniques other than an 1-class SVM could be investigated, such as well as neural networks.
+
+Our study has revolved around fusing multiple sensors, and while one method may work particularly well with a GSR, it may prove worse or even bad to use with an EEG. 
+It could be interesting to investigate the results of various ML techniques across sensors.
+Additionally, a further exploration into the feature space could also be conducted. 
+Especially models such as DASM12\cite{eeg_music_listening} for the EEG, but would require better hardware.
 
 Further research also has to be done with regards to the emotional ``baggage'' people arrive with. 
-The personality type of a user change the way their physiological response is, such as the difference between introvert and extrovert GSR streams. 
+The personality type of a user change the way their physiological response is, such as the difference between introvert and extrovert GSR behavior. \todo{citation}
 As such, it would be natural to hypothesize that other emotional and contextual influences such as being hungry or having ``a bad day'' may influence the physiological patterns as well. 
 A thorough study to elaborate the considerations needed and consequences of such baggage would be beneficial to the field of study as a whole. 
