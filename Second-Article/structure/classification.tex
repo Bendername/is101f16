@@ -22,7 +22,7 @@ This can be seen on Figure \ref{[FIGURE] OneClass SVM}.
     \label{[FIGURE] OneClass SVM}
 \end{figure}
 
-Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter settings, a grid search on the hyperparameters $Gamma = \{2^{-14},..,2^2\}$ is performed together with the Sigmoid and RBF kernel, to find the optimal parameters where the Nu parameter is kept at 0.05.
+Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter settings, a grid search is performed on them. The $Gamma = \{2^{-14},..,2^2\}$ value is, together with the Sigmoid and RBF kernel values. This is done to find the optimal settings where ``Nu parameter'' is kept at 0.05.
 The library LibSVMSharp\cite{libsvmsharp} is used. It is a C\# wrapper for LibSVM\cite{libsvm} which is a widely used SVM library which also contains a one-class SVM implementation. The main reason LibSVMSharp is used over the native LibSVM is because it can be used in conjunction with the developed software used to collect and handle data, which is written in C\#.
 
 \subsection{Prediction \& Scoring}
