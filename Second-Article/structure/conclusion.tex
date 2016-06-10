@@ -7,7 +7,7 @@
 A fundemental limitation with the results of the paper includes the actual definition of frustration in terms of usability problems. 
 While there is a lot of litterature on this subject, few explore the development of frustration on a physiological level over time. 
 Multiple studies attempts to classify frustration, however their usecases and context varies. 
-Some studies considers a duration of 100 seconds or more, while others considers durations between 5-30 seconds.
+Some studies considers a duration of 100 seconds or more\cite{machine_learning_100s_gsr}, while others considers durations of 15 seconds\cite{brainwave_signals_frustration}.
 In this paper the most pessimistic option was selected; after a stimuli there is a physiological delay followed by a measurable reaction which last a short duration according to our features.
 This, however, implies that frustration is not a continues reaction over time while using a system, but rather a reaction to a specific event with a timelimit for how long it ``lasts in the body''.
 However, such physiological reactions may in fact be unfolding differently - frustration could be increasing in amplitude over time from the beginning of a stimuli. 
@@ -28,6 +28,12 @@ They are, however, a step in the right direction in terms of studying the affect
 A natural path to explore would be removing the complexity of having sensor fusion, and instead focus on improving the understanding of how specific sensors captured data relates to affective states more generally. 
 If such a model is ever conceived, it would be interesting to explore the idea of using ML to detect affective state
 changes in greater detail.
+
+The results of this paper does, however, propose some use if iterated further upon. 
+It is possible to select a setting for the classifier, which finds usability problems with a fairly low amount of noise. 
+This makes it possible to use when evaluating usability problems fast and with less effort than a traditional test. 
+Simply use the system and hardware while conducting a test, and find few but significant usability errors. 
+This could help filter away some errors early in the process, and focus on other problems when a larger more complete usability evaluation is conducted. 
 
 \subsection{Future work}
 One of the most promising areas to continue research within usability problem detection through physiological measured
