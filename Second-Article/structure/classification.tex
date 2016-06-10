@@ -12,7 +12,16 @@ The goal of the classification in this paper is to explore the one-class SVM's b
 
 \subsection{One-class SVM}
 The one-class SVM is a domain based algorithm used for novelty detection, meaning it creates a boundry given its training data.
-Unknown data to be classified is then labelled as a normality or anomaly depending on its position relative to the boundry.
+Unseen data to be classified is then labelled as a normality or anomaly depending on its position relative to the boundry.
+This can be seen on Figure \ref{[FIGURE] OneClass SVM}.
+
+\begin{figure}
+    \centering
+  \includegraphics[width=0.75\columnwidth]{graphics/oneclass-svm.png}
+    \caption{The circle ``Normal State'' is the area of which any data considered has to be inside, if it's ``normal''. The outlier will be labelled as an anomaly i.e. usability error for the user because it does not fit within the model/area of normalities. }
+    \label{[FIGURE] OneClass SVM}
+\end{figure}
+
 Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter settings, a grid search on the hyperparameters $Gamma = \{2^{-14},..,2^2\}$ is performed together with the Sigmoid and RBF kernel, to find the optimal parameters where the Nu parameter is kept at 0.05.
 The library LibSVMSharp\cite{libsvmsharp} is used. It is a C\# wrapper for LibSVM\cite{libsvm} which is a widely used SVM library which also contains a one-class SVM implementation. The main reason LibSVMSharp is used over the native LibSVM is because it can be used in conjunction with the developed software used to collect and handle data, which is written in C\#.
 
