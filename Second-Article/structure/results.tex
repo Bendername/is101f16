@@ -7,23 +7,20 @@ little less than 2/3 of the data on which we attempt to predict UPs is \textit{n
 that if a classifier were to distribute random guesses based on our data, about 63\% of them would fall within normal
 data, and 37\% within data that contains UPs, slightly shifting the difficulty to our disadvantage.
 \todo{lav std dev over det her!}
-% hvordan her vi udregnet det?
-%Random ratio - 37,52 
 Graph x.x.x and. x shows the scatter plot of EHR and FCR for the different sensors. 
 Graph x.x.x and. x shows the scatter plot of precision and FCR for the different sensors. Where the average for the different Nu-values is the bordered circles.
 
 \input{structure/sensors_graphs}
 
 \textbf{Sensors likeness and differences}\\
-As seen in Figure x,x,x and x, the Kinect and EEG machines shows precision above random guessing at low Nu-values and,
+As seen in Figure x,x,x and x, the Kinect shows precision above random guessing at low Nu-values and,
 as expected, closes in on the random guessing (37,52\%), as we increase the Nu-value. However, as seen in Table
 \ref{TABLE] avg_stats_sensors}, the GSR only slightly excite the random ratio at some of the values. Meaning that
 to have a reasonable precision with few false positives, a lower Nu-value would be desirable.
-These findings indicate that the results from the Kinect and EEG sensors are presumably not related to random guessing, but can give a moderately qualified answer to where usability problems can be found, and the GSR show some of the same tendencies.
+These findings indicate that the results from the Kinect are presumably not related to random guessing, but can give a moderately qualified answer to where usability problems can be found, and the GSR show some of the same tendencies.
 While the HR values does not excite the threshold for random guessing, it still shows encouraging results in regards of hitting as many different events as possible while keeping a low FCR, as seen in Figure~\ref{fig:hr_event_ehr}.
 
 \input{structure/avg_stats}
-\input{structure/avg_voting}
 \input{structure/voting_graphs}
 
 Looking at Figure~\ref{fig:gsr_event_ehr}, \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr},
