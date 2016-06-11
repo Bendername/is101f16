@@ -1,0 +1,37 @@
+\newcommand{\fuckinggraph}[7]{
+    \begin{figure}[h!]
+    \begin{minipage}[t]{0.5\textwidth}
+        \includegraphics[width=\linewidth,keepaspectratio=true]{graphics/graphs/#1/#2}
+        \caption{#3}
+        \label{#4}
+    \end{minipage}
+    \hspace*{\fill} % it's important not to leave blank lines before and after this command
+    \begin{minipage}[t]{0.5\textwidth}
+        \includegraphics[width=\linewidth,keepaspectratio=true]{graphics/graphs/#1/#5}
+        \caption{#6}
+        \label{#7}
+    \end{minipage}
+    \end{figure}
+}
+
+\newcommand{\fuckinggraphevenidontwanttorepeatmyself}[6]{ %short sensor caption1 label1 captio2 label1]
+  \fuckinggraph{#1}
+  {False_cover_rate_(FCR)-Events_hit_rate_(EHR)-CovNu-#2.pdf}{#3}{#4}
+  {False_cover_rate_(FCR)-Precision-CovNu-#2.pdf}{#5}{#6}
+}
+
+\fuckinggraphevenidontwanttorepeatmyself{short}{GSR}
+{GSR showing events hit percent and unwanted area covered}{lab:gsr_event_ehr}
+{GSR showing precision and unwanted area covered}         {lab:gsr_pres_ehr}
+
+\fuckinggraphevenidontwanttorepeatmyself{short}{EEG}
+{EEG showing events hit percent and unwanted area covered}{lab:eeg_event_ehr}
+{EEG showing precision and unwanted area covered}         {lab:eeg_pres_ehr}
+
+\fuckinggraphevenidontwanttorepeatmyself{short}{HR}
+{Heart rate showing events hit percent and unwanted area covered}{lab:hr_event_ehr}
+{Heart rate showing precision and unwanted area covered}         {lab:hr_pres_ehr}
+
+\fuckinggraphevenidontwanttorepeatmyself{short}{FACE}
+{Kinect showing events hit percent and unwanted area covered}{lab:face_event_ehr}
+{Kinect showing precision and unwanted area covered}         {lab:face_pres_ehr}
