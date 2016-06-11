@@ -3,24 +3,31 @@ Sensor fusion is a very large area in the MI context, and can essentially be red
 We choose decision fusion to use the results found from the individual sensors.
 The simplest technique from the decision fusion domain is voting, which is a naive technique where each sensor votes whether or not an anomaly is present, and if a certain amount of sensors agrees a point of interest is created. This technique also does not require any training to happen beforehand, which suits the premise of this study.
 
-\subsubsection{Choice of parameters for individual sensor}\todo{better headline}
-Two approaches will be tried. The first approach is to select the Nu parameter for each sensor which fits the case of having the largest precision in regard to achieving the low FCR. The idea is that individually each sensor have not achieved high EHR while having a high precision, as shown in Figure x\todo{udfyld når figurer er inde}, but the accumulated answers from the sensors will achieve a higher EHR while remaining the same precision as the individual sensors.
-The second approach is based on the fact that Figure x.x.x..x show that it is possible, to a reasonable degree, to choose a Nu parameter which has a large EHR while having a relatively FCR. The main idea for this, opposite the previous idea, is that if the amount of sensors which has to agree to create a point of interest is set high, some of the false positives should be removed and ideally would the EHR stay high.
+\subsection{Choice of Nu-value for individual sensor}
+Two approaches will be tried. The first approach is to select the Nu parameter for each sensor which fits the case of having the largest precision in regard to achieving the low FCR. The idea is that individually each sensor have not achieved a high EHR while having a high precision, as shown in Table \ref{[TABLE] avg_stats_sensors}, but the accumulated answers from the sensors might achieve a higher EHR while remaining the same precision as the individual sensors.
+The second approach is based on the fact that Figure x.x.x..x show that it is possible, to a reasonable degree, to choose a Nu parameter which has a large EHR while having a relatively low FCR. The main idea for this, opposite the previous idea, is that if the threshold for the amount of sensors which has to agree to create a point of interest is high, some of the false positives should be removed and ideally would the EHR stay high.
+The selection of the Nu values is done by hand-picking \textbf{First approach} will have the following Nu value based on xx.x.x..x graph:
+\begin{itemize}
+\item GSR: 0.09
+\item EEG: 0.01
+\item HR: 0.05
+\item Kinect: 0.01
+\end{itemize}
+\textbf{Second approach} will have the following Nu value based on xx.x.x..x graph:
+\begin{itemize}
+\item GSR: 0.45
+\item EEG: 0.30
+\item HR: 0.35
+\item Kinect: 0.35
+\end{itemize}
 
-\textbf{First approach} will have the following Nu value based on xx.x.x..x graph
-\begin{itemize}
-\item GSR:
-\item EEG:
-\item HR:
-\item Kinect:
-\end{itemize}
-\textbf{Second approach} will have the following Nu value based on xx.x.x..x graph
-\begin{itemize}
-\item GSR:
-\item EEG:
-\item HR:
-\item Kinect:
-\end{itemize}
+\subsection{Voting Results}
+The voting were done for the two approach, together with a different thresholds for how many machines should agree to create a point of interest.
+The thresholds were 1, 2, 3, and four. Where 1 is the union answer from all the sensor machines, and 4 being where the machines all would have to agree to a given time $t$ before creating a point of interest, as illustrated in Figure x.x.\todo{Make Figure of this}
+
+
+
+
 
 
 
