@@ -1,5 +1,10 @@
 %!TEX root = ..\Main.tex
 \section{Results}\todo{TJEK OM DETTE ER TILFÆLDET FOR ALT DET DER ER SKREVET}
+The data is calculated for 35 of the test participants, because 4 was removed due to faulty data on one or more of the sensors.	
+A total of x. events were encountered and the average length of a test were x.
+%Random ratio - 37,52
+Graph x.x.x and. x shows the scatter plot of EHR and FCR for the different sensors. 
+Graph x.x.x and. x shows the scatter plot of precision and FCR for the different sensors. Where the average for the different Nu-values is the bordered circles.
 
 \begin{figure}[h!]
   \begin{minipage}[t]{0.5\textwidth}
@@ -15,18 +20,14 @@
   \end{minipage}
 \end{figure}
 
-\textit{Sensors likeness and differences}\\
-In general all the sensor showed the same tendencies....
-As seen in Figure x,x,x and x, sensor (x-x) all show that the precision seem steady across the different Nu values with exception of the ones close to 1 seem to decay in their precision. Meaning if you want a classifier that has a reasonable precision but with false positives, a lower Nu value would be applicable.
-However looking at Figure x.x.x, and x it can be seen that choosing a higher Nu value for your classifier can yield interesting propositions if the classifier should cover as many problems as possible, however too high a Nu value would cause FCR to be come very high.
-%pick some graphs to show where they're very similar
-%Something with precision and events hit
-%differences
-%pick some instances where they are very different!
+\textbf{Sensors likeness and differences}\\
+The result from face\todo{Ved ikke om vi bruger face konsistent igennem hele rapporten}, HR, and GSR machines show in general many similar trait.
+As seen in Figure x,x,x and x, the Face, HR, and EE machines all shows precision above random guessing at low nu values, and as expected closes in on the random guessing (37,52\%), as higher as the Nu value gets. Meaning if you want a classifier that has a reasonable precision but with false positives, a lower Nu value would be applicable. However the GSR only slightly excite the random ratio at the Nu-value 0.09 and above.
+These finding indicates that sensors is not only random guesses but can give a moderately qualified answer to where usability problems can be found.
 
+Looking at graphs x.x.x., and x it can be seen that choosing a higher Nu value for your classifier can yield interesting propositions if the classifier should cover as many problems as possible while minimizing the area wrongly covered.
+In other words if one aim is to hit all the events a high Nu value must be chosen, and it comes with the trade-off of place more anomalies outside the events. 
+While the GSR and the HR both have a smooth curve through the averages of which indicates a stable classifier, the EEG and Face seem to be more unstable in its relation between EHR and FCR. However Face seems to regain some of its stability with higher Nu values.
 
-\textit{Scoring Function likeness and difference}
-Looking at the graphs from the two different scoring functions we find that they in general shows the same tendencies, however in x-x these differences can be seen. 
-%pick some graphs to show where they're very similar
-%differences
-%pick some instances where they are very different!
+All the graph reveals that on average no golden Nu-value when trying to detect usability problems is present, but they also show the sensors shows sign of being able to detect when a test participant encounters a usability problems.
+
