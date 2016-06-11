@@ -1,18 +1,34 @@
 %!TEX root = ..\Main.tex
 \section{Results}
-The data is calculated for 35 of the test participants, because 4 was removed due to faulty data on one or more of the sensors.	
-A total of x. events were encountered and the average length of a test were x.\todo{Write some stuff about random guessing}
+The data is calculated for 35 of the test participants, as 4 were removed due to faulty data on one or more sensors.	
+A total of x. events were encountered and the average length of a test was x.
+The ratio between area designated to containing UPs, and areas that do not contain UPs, in on average 0.37, i.e. a
+little less than 2/3 of the data on which we attempt to predict UPs is \textit{normal} data. The implication of this is
+that if a classifier were to distribute random guesses based on our data, about 63\% of them would fall within normal
+data, and 37\% within data that contains UPs, slightly shifting the difficulty to our disadvantage.
+\todo{lav std dev over det her!}
+% hvordan her vi udregnet det?
 %Random ratio - 37,52 
 Graph x.x.x and. x shows the scatter plot of EHR and FCR for the different sensors. 
 Graph x.x.x and. x shows the scatter plot of precision and FCR for the different sensors. Where the average for the different Nu-values is the bordered circles.
 
-\textbf{Sensors likeness and differences}\\
-As seen in Figure x,x,x and x, the Kinect and EE machines shows precision above random guessing at low nu values and, as expected, closes in on the random guessing (37,52\%), as higher as the Nu value gets. However, as seen in Table \ref{TABLE] avg_stats_sensors}, the GSR only slightly excite the random ratio at some of the values. Meaning for  that have a reasonable precision with low amount false positives, a lower Nu value would be applicable.
-These finding indicates that the Kinect and EEG sensors is not only random guesses but can give a moderately qualified answer to where usability problems can be found, and the GSR show some of the same tendencies.
-While the HR values does not excite the threshold for random guessing, it still shows encouraging results in regards of hitting as many different events as possible while keep a low FCR, as seen in Figure x.x.
+\input{structure/sensors_graphs}
 
-Looking at graphs x.x.x., and x it can be seen that choosing a higher Nu value for your classifier can yield interesting propositions if the classifier should cover as many problems as possible while minimizing the area wrongly covered.
-In other words if one aim is to hit all the events a high Nu value must be chosen, and it comes with the trade-off of place more anomalies outside the events. 
-While the GSR and the HR both have a smooth curve through the averages of which indicates a stable classifier, and Kinect seem to be more unstable in its relation between EHR and FCR. However Kinect seems to regain some of its stability with higher Nu values. As shown in \ref{TABLE] avg_stats_sensors} and seen in Figure x, the EEG deviate from the other by already at low Nu-values doing a very aggressive prediction and predicting x amount more in average than the X sensor.
+\textbf{Sensors likeness and differences}\\
+As seen in Figure x,x,x and x, the Kinect and EEG machines shows precision above random guessing at low Nu-values and,
+as expected, closes in on the random guessing (37,52\%), as we increase the Nu-value. However, as seen in Table
+\ref{TABLE] avg_stats_sensors}, the GSR only slightly excite the random ratio at some of the values. Meaning that
+to have a reasonable precision with few false positives, a lower Nu-value would be desirable.
+These findings indicate that the results from the Kinect and EEG sensors are presumably not related to random guessing, but can give a moderately qualified answer to where usability problems can be found, and the GSR show some of the same tendencies.
+While the HR values does not excite the threshold for random guessing, it still shows encouraging results in regards of hitting as many different events as possible while keeping a low FCR, as seen in Figure~\ref{fig:hr_event_ehr}.
+
+\input{structure/avg_stats}
+\input{structure/avg_voting}
+
+Looking at Figure~\ref{fig:gsr_event_ehr}, \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr},
+as well as Table~\ref{[TABLE] avg_stats_sensors}, it can be seen that choosing a higher Nu-value for your classifier can yield interesting propositions if the classifier should cover as many problems as possible while minimizing the area wrongly covered.
+In other words, if one's aim is to hit all events, a high Nu-value must be chosen, and it comes with the trade-off of
+more anomalies being placed outside events. 
+While the GSR and the HR both have a smooth curve through the averages of which indicates a stable classifier, the Kinect seems to be more unstable in its relation between EHR and FCR. However, Kinect seems to regain some of its stability with higher Nu-values. As shown in~\ref{TABLE] avg_stats_sensors} and seen in Figure x, the EEG deviate from the other by already at low Nu-values doing a very aggressive prediction and predicting x amount more in average than the X sensor.
 
 All the graph reveals that on across all the test participants no golden Nu-value when trying to detect usability problems is present, but they also show the sensors shows sign of being able to detect when a test participant encounters a usability problems.
