@@ -24,11 +24,12 @@ While the HR values does not excite the threshold for random guessing, it still 
 
 \input{structure/avg_stats}
 \input{structure/avg_voting}
+\input{structure/voting_graphs}
 
 Looking at Figure~\ref{fig:gsr_event_ehr}, \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr},
 as well as Table~\ref{[TABLE] avg_stats_sensors}, it can be seen that choosing a higher Nu-value for your classifier can yield interesting propositions if the classifier should cover as many problems as possible while minimizing the area wrongly covered.
 In other words, if one's aim is to hit all events, a high Nu-value must be chosen, and it comes with the trade-off of
 more anomalies being placed outside events. 
-While the GSR and the HR both have a smooth curve through the averages of which indicates a stable classifier, the Kinect seems to be more unstable in its relation between EHR and FCR. However, Kinect seems to regain some of its stability with higher Nu-values. As shown in~\ref{TABLE] avg_stats_sensors} and seen in Figure x, the EEG deviate from the other by already at low Nu-values doing a very aggressive prediction and predicting x amount more in average than the X sensor.
+While the GSR and the HR both have a smooth curve through the averages of which indicates a stable classifier, the Kinect seems to be more unstable in its relation between EHR and FCR. However, Kinect seems to regain some of its stability with higher Nu-values. As shown in~\ref{TABLE] avg_stats_sensors} and seen in Figure x, the EEG deviate from the others by already at low Nu-values doing a very aggressive prediction and predicting x amount more in average than the X sensor.
 
-All the graph reveals that on across all the test participants no golden Nu-value when trying to detect usability problems is present, but they also show the sensors shows sign of being able to detect when a test participant encounters a usability problems.
+All the graph reveals that across all the test participants, no golden Nu-value, when trying to detect usability problems, is present, but they also show that sensors show signs of being able to detect when a test participant encounters a usability problems.

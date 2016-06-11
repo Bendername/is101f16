@@ -1,0 +1,47 @@
+\newcommand{\votinggraphs}[6]{
+    \begin{figure}[h!]
+    \begin{minipage}[t]{0.5\textwidth}
+        \includegraphics[width=\linewidth,keepaspectratio=true]{graphics/graphs/voting/#1}
+        \caption{#2}
+        \label{#3}
+    \end{minipage}
+    \hspace*{\fill} % it's important not to leave blank lines before and after this command
+    \begin{minipage}[t]{0.5\textwidth}
+        \includegraphics[width=\linewidth,keepaspectratio=true]{graphics/graphs/voting/#4}
+        \caption{#5}
+        \label{#6}
+    \end{minipage}
+    \end{figure}
+}
+
+\newcommand{\easyvotinggraphs}[5]{ %y_axis caption1 label1 caption2 label2
+  \votinggraphs
+  {voting-False_cover_rate_(FCR)-#1-Aggressive.pdf}{#2}{#3}
+  {voting-False_cover_rate_(FCR)-#1-Conservative.pdf}{#4}{#5}
+}
+
+
+\easyvotinggraphs{Events_hit_rate_(EHR)}
+{Showing voting based on an aggressive scoring function}{fig:voting_aggresive_ehr}
+{Showing voting based on a conservative scoring function}{fig:voting_conservative_ehr}
+
+
+\easyvotinggraphs{Precision}
+{Showing voting based on an aggressive scoring function}{fig:voting_aggressive_pres}
+{Showing voting based on a conservative scoring funtion}{fig:voting_conservative_pres}
+
+%\fuckinggraphevenidontwanttorepeatmyself{short}{GSR}
+%{GSR showing events hit percent and unwanted area covered}{fig:gsr_event_ehr}
+%{GSR showing precision and unwanted area covered}         {lab:gsr_pres_ehr}
+%
+%\fuckinggraphevenidontwanttorepeatmyself{short}{EEG}
+%{EEG showing events hit percent and unwanted area covered}{fig:eeg_event_ehr}
+%{EEG showing precision and unwanted area covered}         {lab:eeg_pres_ehr}
+%
+%\fuckinggraphevenidontwanttorepeatmyself{short}{HR}
+%{Heart rate showing events hit percent and unwanted area covered}{fig:hr_event_ehr}
+%{Heart rate showing precision and unwanted area covered}         {fig:hr_pres_ehr}
+%
+%\fuckinggraphevenidontwanttorepeatmyself{short}{FACE}
+%{Kinect showing events hit percent and unwanted area covered}{fig:face_event_ehr}
+%{Kinect showing precision and unwanted area covered}         {lab:face_pres_ehr}
