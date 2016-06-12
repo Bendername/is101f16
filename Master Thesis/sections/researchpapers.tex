@@ -41,30 +41,20 @@ Real-time Measurement of User Experience
 %\item Present results
 %\end{itemize}
 
-The paper is based on our 9th semester project, which consists primarily of an
-elaborate literature review within the field of HCI. The purpose was to
-investigate the use of sensors within UX research and experiments. In
-particular, to investigate their use in eliciting emotions or affective state in
-UX test participants. The argument for using sensors in such cases, is that
-eliciting how test participants feel during an experiment is often left to be
-evaluated by third-party experts, leaving room for subjective assessments. Using
-sensors could potentially mitigate subjectivity, and help elicit more objective
-truths about how test participants feel and react during experiments.
-
-The primary motivation for the first paper was to create a much more robust study than our 9th semester.
+%The paper is based on our 9th semester project, which consists primarily of an elaborate literature review within the field of HCI. The purpose was to investigate the use of sensors within UX research and experiments. In particular, to investigate their use in eliciting emotions or affective state in UX test participants. The argument for using sensors in such cases, is that eliciting how test participants feel during an experiment is often left to be evaluated by third-party experts, leaving room for subjective assessments. Using sensors could potentially mitigate subjectivity, and help elicit more objective about how test participants feel and react during experiments.
+\todo{Der står noget med 9. semester projekt i tex filen med synes ikke at det er nødvendigt}
+%The primary motivation for the first paper was to create a much more robust study than our 9th semester.
+This paper was created in complete collaboration the is101f16.
+The primary motivation for this paper was to 
 This included a complete code rewrite of the interface which collected physiological data, such that it was more robust while running for a long duration. We had to handle things such as hardware not responding and comming back online, while still keeping the collected data synchronized.
 There was also a revision to the test setup. It was moved to a controlled setting of a usability lab, where it was possible to collect more data beside the physiological.
 The setup meant we collected video of the test participants legs, which enabled us to watch for movement related artifacts. We also collected video of the test participants face and the video of the monitor. 
 Further audio was collected. 
 The entire test was formalized such that it is easy replicable.
-New features was selected for the classifier which was rooted in litterature.
+New features was selected for the classifier which was rooted in literature.
 
-In conclusion, it was confirmed that using multiple sensors, fusing their input
-using ML techniques, produces more accurate results compared to each individual
-sensor. Furthermore, we found the assumption that self-reported SAM ratings
-during the experiment correlated with the physiological measurements taken
-simultaneously, to be true.
-
+In conclusion, we partly \textbf{H1} by finding that individual sensor and sensor fusion can achieve significantly ($p < 0.001)$ higher accuracy than best case guessing at all the grouping, except for the EEG which did not achieve significance in Arousal 3, Valence 2 High and Valence 3, and only had $p < 0.01$ in Arousal 2 High and Valence 2 Low.
+Furthermore we partly \textbf{H2} we showed that using the fusion method stacking we could achieve significantly better accuracy than than using a single sensor as prediction tool, with the exception of the Kinect on the groupings Arousal 3, Valence 2 High, and Valence 3.\todo{Go over this numbers again}
 \subsection{Methodical Reflection:}
 An area within our study which require scrutiny and further investigation is
 that of context. Context is a broad term and involves many controllable and
@@ -93,8 +83,8 @@ Due to the scope of the study we are conducting, it is not feasible to dive into
 The results achieved could most likely be substantially improved by using better techniques, but finding the optimal setup for ML for each sensor is beyond the scope of this paper.
 
 The results we arrive at find significantly better results on fusion with the technique stacking.
-The results are promising in terms of the field being rather young, and only in recent years computational power has increased enough to make machine learning techniques more accessable to the average researcher. It is possible to run even advanced and complex algorithms in fairly short time on normal computers, which before required super computers. 
-With advancements in both the techniques used and the hardware available, it could possibly be feesable to consistently measure affective changes in real time. 
+The results are promising in terms of the field being rather young, and only in recent years computational power has increased enough to make machine learning techniques more accessible to the average researcher. It is possible to run even advanced and complex algorithms in fairly short time on normal computers, which before required super computers. 
+With advancements in both the techniques used and the hardware available, it could possibly be feasible to consistently measure affective changes in real time. 
 
 %Things to discuss:
 %\todo{below is just a list of things we could discuss in this section}
@@ -107,6 +97,12 @@ With advancements in both the techniques used and the hardware available, it cou
 %  (perhaps liapis)
 %\item
 %\end{itemize}
+
+\section{Motivational link between paper 1 and 2}
+Shown that sensors can to some degree predict a users effective state, however it seem to drop at higher resolution e.g. Arousal 3 and Valence 3 only achieved 0.660\% and 671\% on average, and would probably drop lower as the resolution gets higher. Meaning a 9 point SAM would probably not have a very high accuracy and also would require a lot of training data to even being able to predict.
+However since we have shown that we are able to some degree\todo{av, ved ikke om der en bedre formulering} predict the affective state of a person in low resolution, a natural step would be to use the technique in a context which did not require a high resolution. 
+A interesting prospect for this would be the detection of usability errors, because in a very naive and discrete assumption a test participants only varies between two states a normal state, and a frustration state.
+The second paper will therefore focus on the detection of usability problems using physiology data collected from various sensors.
 
 \section{Research paper 2}
 \paragraph{Title:}
