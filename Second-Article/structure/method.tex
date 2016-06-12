@@ -110,9 +110,8 @@ to deviate from the ``normal state'' data, and thereby be detectable by our clas
 Frustration, and similar discrete emotions, can be mapped to and expressed via the dimensional model of \textit{valence}
 and \textit{arousal}. Frustration could be expressed as \textit{medium to high arousal} and \textit{negative
   valence}. This is to say, that it is our goal to detect anomalies expressing such values of arousal and
-valence. However, we argue that it is reasonable to simplify this problem, by expecting test participants to only
-express \textit{content} or \textit{negative valence}, during the test. In other words, we argue that test participants
-experience only neutral stimuli, or stimuli inducing frustration and thereby negative valence. By this assumption, we
+valence. We argue that it is reasonable to simplify this problem, by expecting test participants to only
+express \textit{content} or \textit{negative valence}, during the test because of the seeded problems. In other words, we argue that test participants experience only neutral stimuli, or stimuli inducing frustration and thereby negative valence. By this assumption, we
 aim to capture moments of elevated arousal, from which we infer it to be negative valence and thus frustration.
 Such moments of frustration could indicate a usability problem.
 
@@ -124,7 +123,7 @@ that are related to \textit{frustration} or similar negative affective states. W
 initial relaxation period, and before the third task begins, see Figure \ref{[FIGURE] Data Sections}. This is because the two first tasks are always chosen from
 a set of tasks containing no seeded usability problems. All physiological measurements collected within this section are assumed to not contain any frustrating responses. From the baseline, we extract various statistical measurements, in the form of
 feature vectors. A feature vector is just a set of numbers such as standard deviation, mean, min and max to a specific data point. 
-The feature vectors are then used to train the classifier. The classifier can then compare new unseen data to the trained data, and determine if the new data is within the boundries of what can be called ``normal'' or if it is an anomaly.  
+The feature vectors are used to train the classifier. The classifier can then compare new unseen data to the trained data, and determine if the new data is within the boundries of what can be called ``normal'' or if it is an anomaly.  
 \begin{figure}
     \centering
   \includegraphics[width=0.95\columnwidth]{graphics/rest_period_training_data.png}
@@ -136,7 +135,7 @@ The feature vectors are then used to train the classifier. The classifier can th
 
 % UP -> frustatrion -> a / v -> features brugt i papers -> øst og vest -> kigger på features tidligere -> reaction
 % kommer instant -> vi bruger derfor de gamle features
-Investigating related work for relevant features for capturing frustation, many disparate methods are proposed. However,
+Investigating related work for relevant features for capturing frustation, many disparate methods are proposed, however,
 we choose to be inspired by the following discoveries.
 
 Poel et al.~\cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
