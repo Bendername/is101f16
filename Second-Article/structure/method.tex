@@ -176,24 +176,7 @@ As mentioned, the usability problems we deliberately seeded into the test progra
 Further as the seeded problems can appear within rather short time spans of each other, shorter assumptions of emotions fits the granularity of this study's use case. 
 We are inclined to believe the assumption, that a stimuli will have an immediate emotional reaction and a corresponding physiological reaction.
 As such, we choose to use the same features as our previous work, with the shortest time durations that literature supports in terms of a reaction to measurable physiological changes. 
-
-\subsubsection{Features, latency and duration}
-Based on our previous work~\cite{9th_semester_project, first_paper}, with the intent of capturing short-term fleeting
-affective changes, we define the following latencies and time-spans to consider for each individual sensor.  We consider
-affective state changes in GSR to manifest themselves 2 seconds after the experience occurred which induced the stimuli,
-and is noticeable within a time-frame of 5 seconds thereafter, see Table \ref{[TABLE] features gsr}. EEG is considerably
-different, manifesting after 350 milliseconds, lasting 710 milliseconds, see Table \ref{[TABLE] features eeg}. Reactions
-to stimuli can be seen manifesting in heart-rates after 4 seconds, and lasts for 3 seconds, see Table\ref{[TABLE]
-  features hr}.  Lastly face changes has a delay of 500 milliseconds and lasts for 500 milliseconds, see Table
-\ref{[TABLE] features face}.
-
-Similar time-frames are also suggested by \cite{eeg_electrodes_0}, which states that reactions lasts for 5
-seconds. However, it also suggested that data within 10-15 seconds should be considered - a factor of 2.5.  As stated,
-the duration of a response is up for discussion, but in order to consider the fact that emotions potentially spread of a
-longer duration of time, we also consider windows which are 2.5 times larger, for each sensor.  This means that for GSR
-the window considered would be 10 seconds instead of 5, and similar applies for all sensors.
-
-\begin{table}[H]
+\begin{table}
     \centering
 
     {\large \textbf{EEG Features}}\vspace{2pt}
@@ -256,3 +239,20 @@ the window considered would be 10 seconds instead of 5, and similar applies for 
     \caption{Timespans are in milliseconds, after some time $t$.}
     \label{[TABLE] features face}
 \end{table}
+
+\subsubsection{Features, latency and duration}
+Based on our previous work~\cite{9th_semester_project, first_paper}, with the intent of capturing short-term fleeting
+affective changes, we define the following latencies and time-spans to consider for each individual sensor.  We consider
+affective state changes in GSR to manifest themselves 2 seconds after the experience occurred which induced the stimuli,
+and is noticeable within a time-frame of 5 seconds thereafter, see Table \ref{[TABLE] features gsr}. EEG is considerably
+different, manifesting after 350 milliseconds, lasting 710 milliseconds, see Table \ref{[TABLE] features eeg}. Reactions
+to stimuli can be seen manifesting in heart-rates after 4 seconds, and lasts for 3 seconds, see Table\ref{[TABLE]
+  features hr}.  Lastly face changes has a delay of 500 milliseconds and lasts for 500 milliseconds, see Table
+\ref{[TABLE] features face}.
+
+Similar time-frames are also suggested by \cite{eeg_electrodes_0}, which states that reactions lasts for 5
+seconds. However, it also suggested that data within 10-15 seconds should be considered - a factor of 2.5.  As stated,
+the duration of a response is up for discussion, but in order to consider the fact that emotions potentially spread of a
+longer duration of time, we also consider windows which are 2.5 times larger, for each sensor.  This means that for GSR
+the window considered would be 10 seconds instead of 5, and similar applies for all sensors.
+
