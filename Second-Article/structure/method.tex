@@ -1,8 +1,9 @@
 %!TEX root = ..\Main.tex
 \section{Method}\label{sec:method}
 In this section, we explain the methods and practices we apply in order to answer our research question. In particular, an
-experiment was conducted and its setup will be explained, along with applied ML and statistical techniques used to
+experiment was conducted and its setup will be explained, along with applied ML techniques used to
 analyse physiological data collected during experiments.
+\todo{should we write that we use a one-class svm here?}
 
 \subsection{Experiment}
 Our experiment is a traditional usability test setup: a software application is tested by a test participant, solving pre-defined tasks. 
@@ -10,7 +11,6 @@ However, unlike a traditional usability test setup, we attach physiological sens
 The test participant then is then exposed to a software application that - intentionally but unknown to the test participant - has usability problems of critical or catastrophic severity seeded into it. 
 Furthermore, no test conductor was present in the room while the test was ongoing.
 The experiment was conducted inside a usability lab, located at Aalborg University~\cite{usability_lab_cassiopeia}.
-
 
 \subsection{Problem-seeded test application}
 In order to control the kind of seeded problems, and at which moments they should be present for the user, we developed a software
