@@ -15,7 +15,7 @@ The one-class SVM is a domain based algorithm used for novelty detection, meanin
 Unseen data to be classified is then labelled as a normality or anomaly depending on its position relative to the boundry.
 This can be seen on Figure \ref{[FIGURE] OneClass SVM}\todo{Make a nicer one}.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
   \includegraphics[width=0.75\columnwidth]{graphics/oneclass-svm.png}
     \caption{The circle ``Normal State'' is the area of which any data considered has to be inside, if it's ``normal''. The outlier will be labelled as an anomaly i.e. usability error for the user because it does not fit within the model/area of normalities. }
@@ -37,7 +37,7 @@ For non-instant error feedback the usability error is said to have been experien
 \begin{figure}
     \centering
   \includegraphics[width=0.75\columnwidth]{graphics/non-instant.png}
-    \caption{Each vertical blue line is an individual event, e.g. ``Caret Moved''. The combination of these make up the ``non-instant usability error''. }
+    \caption{Each vertical blue line is an individual event, e.g. ``Caret Moved''. The combination of these make up the ``non-instant usability error''. The red line is an ``instant usability error'', which consists only of the event it self.}
     \label{[FIGURE] non-instant illustration}
 \end{figure}
 When an anomaly is found, an area of 2.5 seconds prior and after the anomaly is marked to create a point of interest. 
