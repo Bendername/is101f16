@@ -16,11 +16,12 @@ with a ration of $0.57$.
 
 \input{structure/sensors_graphs}
 
-\todo{someone, we need some meta-text before we present the sensor graphs}
-
-Figures~\ref{fig:gsr_event_ehr,fig:eeg_event_ehr, fig:hr_event_ehr}, and \ref{fig:face_event_ehr} shows the scatter plot
-of EHR and FCR for the different sensors. Nu values range from low/green to high/red, ranging from $0.05$ to $1.00$.
-Nu-values with thick border is the average of each Nu-value accross all test participants.
+Having performed a grid search to find optimal settings for our one-class SVM classification, we performed the mentioned
+Nu-value line search. Figures~\ref{fig:gsr_event_ehr,fig:eeg_event_ehr, fig:hr_event_ehr}, and \ref{fig:face_event_ehr}
+shows the result of this as scatter plots of EHR and FCR for each sensor. Nu values range from low/green to high/red,
+ranging from $0.01$ to $1.00$ in $0.01$ intervals, yielding 100 different settings and results for each test
+participant. All test participants are represented in each graph, and Nu-values with a thick border is the average of
+each Nu-value accross all test participants.
 
 \textbf{Sensors likeness and differences}\\
 
@@ -36,10 +37,15 @@ While the HR values does not excite the threshold for random guessing, it still 
 \input{structure/avg_voting}
 \input{structure/voting_graphs}
 
-Looking at Figure~\ref{fig:gsr_event_ehr}, \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr},
+Looking at Figures~\ref{fig:gsr_event_ehr}, \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr},
 as well as Table~\ref{[TABLE]_avg_stats_sensors}, it can be seen that choosing a higher Nu-value for your classifier can yield interesting propositions if the classifier should cover as many problems as possible while minimizing the area wrongly covered.
 In other words if one's aim is to hit all events, a high Nu-value must be chosen, but comes with the trade-off of placing more anomalies outside events. 
 While the GSR and the HR both have a smooth curve through the averages of which indicates a stable classifier, but the Kinect seem to be more unstable in its relation between EHR and FCR. However Kinect seems to regain some of its stability with higher Nu values. As shown in \ref{[TABLE]_avg_stats_sensors} and seen in Figure x\todo{THIS NEEDS REF}, the EEG deviate from the other by already at low Nu-values doing a very aggressive prediction and predicting x amount more in average than the X sensor.
 
-All the graph reveals that on across all the test participants no golden Nu-value when trying to detect usability problems is present, but they also show the sensors shows sign of being able to detect when a test participant encounters a usability problems. Even though the precision is very close to guessing  
-Figure x.x.x.x.\todo{THIS NEEDS REF} and Table x.x.x\todo{THIS NEEDS REF} still shows that even though the precision is low it still manages to have a good EHR given the FCR.
+All the graph reveals that across all the test participants no golden Nu-value presents itself. A ``conservative''
+setting could be chosen, to ensure that little false area is covered, while still detecting some usability problems. On
+the other hand, a higher and more ``aggressive'' value could be chosen in attempt to detect as many problems as
+possible, with the trade-off of alse receiving many false-positives. Detecting usability problems \textit{is} possible,
+however some sensors approach, on average, a precision very close to guessing.  Figures~\ref{fig:gsr_event_ehr},
+\ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr} and Table~\ref{[TABLE]_avg_stats_sensors}
+still suggest that even though precision is low, it still manages to have a good EHR given the FCR.

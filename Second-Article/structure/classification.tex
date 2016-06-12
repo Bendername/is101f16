@@ -30,7 +30,7 @@ We create a one-class SVM for each of the sensors, where each of the SVMs trains
 A one-class SVM will label a given data point with a binary answer. ``1'' for a normality, and ``-1'' for an anomaly.
 This results in a collection of data points labeled as either a normality or an anomaly.
 
-To decide whether an anomaly correctly corresponds to a usability error e.g. that it \textit{hit}s a usability error, some assumptions have to be made. 
+To decide whether an anomaly correctly corresponds to a usability error e.g. that it \textit{hits} a usability error, some assumptions have to be made. 
 We group tasks 1, 3, 6 and 7, based on the assumption that they induce a reaction at known moments. The reasoning behind this, is that all three tasks present obtrusive visual feedback at the time of the error. Further in case of task 3, there is also audio
 feedback. Task 3 displays an exception error message whenever the user attempts to open a draft, task 6 turns the
 current window
@@ -62,10 +62,11 @@ For events which do not contain instant feedback the event will be hit, if the p
 
 Given the one-class SVM's sensitivity, a scoring function is used to optimize the gamma value in the grid search. It is defined as: 
 \[CovScore = \frac{2 \times EventsHitRate \times 1-FalseCoverRate}{EventsHitRate + FalseCoverRate}\]
-Where \textit{EventHitRate}(EHR) describes how many of the existing events has been hit by an anomaly e.g. $EHR = \frac{DifferentEventsHit}{TotalNumberOfEvents}$, and \textit{FalseCoverRate}(FCR) is the rate of which the area outside events that has been covered e.g $FCR = \frac{NonEventAreaCovered}{TotalNonEventArea}$. 
-The scoring function is the harmonic mean of EHR and FCR which is a kind of averaging of the two rates.
+Where \textit{EventHitRate}(EHR) describes how many of the existing events have been hit by an anomaly e.g. $EHR = \frac{DifferentEventsHit}{TotalNumberOfEvents}$, and \textit{FalseCoverRate}(FCR) is the rate of which the area outside events that has been covered e.g $FCR = \frac{NonEventAreaCovered}{TotalNonEventArea}$. 
+The scoring function is the harmonic mean of EHR and FCR which is a kind of averaging of the two rates.\todo{Det er lidt
+``frækt'' at sige at ``det er sådan ca. det samme som det her'' - det bliver læseren ikke klogere af}
 Machines which have a low EHR and/or high FCR would make the function approach zero, while having a high EHR and low FCR will make the function approach 1, which is the ideal result.
 Meaning this function rewards hitting as many different events higher than hitting the same multiple times, while also considering the rate of FCR.
 
 Since the Nu parameter indirectly dictates how much of the training data that should be inside the boundry of the ``normal state'', an examination of the Nu parameter impact on the results is conducted.
-This is done using a line search, locking all the parameters except the $Nu = \{0.01, 0.02,.., 1\}$ and analyzing the difference in the result. 
+This is done using a line search, keeping all the parameters constant, except the $Nu = \{0.01, 0.02,.., 1\}$, and analyzing the difference in the result. 
