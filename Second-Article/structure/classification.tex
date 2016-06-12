@@ -2,11 +2,11 @@
 The use case of this article, is to help third-party evaluators find usability problems in a usability test.
 In a usability test, the goal is to find usability problems, in other words the usability problems are unknown prior discovery. This is relevant for a classifier, because different strategies exist for different types of data. In this case, we do not have ``usability-problem labelled'' data on which we can train the classifier to detect problems which are similar. Because of this, a classifier which can detect anomalies from a training set which does not contain anomalies is required.
 Additionally a usability tests in general consists of normal usage and only a portion of the entire system will contain usability problems. In other words, the majority of the physiological data collected can be considered expected normal responses, and only the portions of the system where a usability problem is present will result in anomalies.
-This type of data fits the scope of novelty detection\cite{noveltyDetection}.
+The field of novelty detection\cite{noveltyDetection} is well suited for this particular kind of data.
 
 There are many different methods which can be applied when working with novelty detection\cite{noveltyDetection}, and choosing the right one is not a trivial task.
 The different methods can be divided into five subgroups: probabilistic, distance based, domain based, reconstruction based, and information theoretic.
-Manevitz et al.~\cite{oneClassSVM} showed that a \textit{one-class} SVM achieved on average better results than other classification techniques as neural networks, naive bayes, nearest neighbor and prototype over a series of dataset.
+Manevitz et al.~\cite{oneClassSVM} showed that a \textit{one-class} SVM achieved on average better results than other classification techniques as neural networks, naive bayes, nearest neighbor and prototype over a series of datasets.
 This paper use a one-class SVM as the classifier.
 The goal of the classification in this paper is to explore the one-class SVM's behaviour when used to detect usability problems.
 
@@ -22,8 +22,8 @@ This can be seen on Figure \ref{[FIGURE] OneClass SVM}\todo{Make a nicer one}.
     \label{[FIGURE] OneClass SVM}
 \end{figure}
 
-Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter settings, a grid search is performed on them. The $Gamma = \{2^{-14},..,2^2\}$ value is, together with the Sigmoid and RBF kernel values. This is done to find the optimal settings where ``Nu parameter'' is kept at 0.05.\todo{Skriv at vi lavet et parameter search og smid det her i sammenfatningen}
-The library LibSVMSharp\cite{libsvmsharp} is used. It is a C\# wrapper for LibSVM\cite{libsvm} which is a widely used SVM library which also contains a one-class SVM implementation. The main reason LibSVMSharp is used over the native LibSVM is because it can be used in conjunction with the developed software used to collect and handle data, which is written in C.
+Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter settings, a grid search is performed on the parameter $Gamma$ and the kernel.
+The library LibSVMSharp\cite{libsvmsharp} is used. It is a C\# wrapper for LibSVM\cite{libsvm} which is a widely used SVM library which also contains a one-class SVM implementation. The main reason LibSVMSharp is used over the native LibSVM is because it can be used in conjunction with the developed software used to collect and handle data, which is written in C\#.
 
 \subsection{Prediction \& Scoring}
 We create a one-class SVM for each of the sensors, where each of the SVMs trains on the data from the first two tasks, which contain no usability errors e.g. no anomalies. The model created can then be used to predict on the remaining data which has been collected when usability errors were present.

@@ -87,23 +87,22 @@ The tests were conducted from the 13th of April, 2016, to the 30th of April 2016
 
 \subsection{Procedure}
 The test was performed in collaboration with another master's degree group (is102f16) from Aalborg University.
-\textit{The usability test} follows a traditional laboratory test as closely as possible with some deviations, and conducted one participant at a time. 
-One of the deviations was the absence of a test conductor. This was done to avoid talking between the test participant and the conductor, which could cause noise in the collected data. 
-This was done to minimize talking and questioning, which would create considerable noise on some of the sensors that were equipped on the test participant.
+\textit{The usability test} follows a traditional laboratory test as closely as possible with some deviations, and was conducted one participant at a time. 
+One of the deviations was the absence of a test conductor. This was done to avoid chatter between the test participant and the conductor, which would create considerable noise on some of the sensors that were equipped on the test participant.
 Before starting the usability test, the test participants were informed that they were to take a standard usability test while wearing sensors.
-They were also asked to sign a consent form and complete a questionnaire asking for general information.  
+They were also asked to sign a consent form and complete a questionnaire asking for general information such as age, sex etc.  
 The participants were instructed in how to use the test program, which included how to see the current task, and how to indicate whether or not they could complete the given task, which was reported through the task wizard. 
-The task wizard simply shows a task in plain text which the user should try to complete. The participant could choose to continue to the next task at any given moment by pressing either a green button for a successful completion, or a red button to signify they were unable to complete the task. 
-Before starting the test all hardware was attached to the participant and verified in terms of connectivity. 
+The task wizard shows a task in plain text, which the user should try to complete. The participant could choose to continue to the next task at any given moment by pressing either a green button for a successful completion, or a red button to signify they were unable to complete the task. 
+Before starting the test, all hardware was attached to the participant and verified in terms of connectivity. 
 The EEG was connected to the head according to the 10-20 system\cite{eeg_tech_10_20}, and the GSR and pulse sensor were attached to their non-dominant hand.
-After sensors have been properly attached, participants were asked to remain calm during a 3-minute \textit{resting period}. 
+After the sensors had been properly attached, participants were asked to remain calm during a 3-minute \textit{resting period}. 
 This is to ensure physiological reactions such as elevated heart rate, e.g. from moving around or higher stress levels because of the unusual situation, can to back to their normal state. 
-After the initial resting period, the participant can start using the program and begin solving the tasks. 
+After the initial resting period, the participant started using the program and began solving the tasks. 
 
 \subsection{Usability problem detection}
 While frustration has not been mapped thoroughly to physiological responses, some studies have explored measuring
 frustration with sensors one way or another, usually in the form of ``frustration'', ``irritation'', ``stress'' or a
-degree of ``anger''. \todo{need cites/examples on this}
+degree of ``anger''\cite{affective_pacman}, \cite{brainwave_signals_frustration}, \cite{web20_frustration}, \cite{bipolar_frustration}.
 In this study, all of these are considered ``frustration'' and we expect this affective state to be
 experienced by test participants whenever they are exposed to a usability problem. We expect such an affective change
 to deviate from the ``normal state'' data, and thereby be detectable by our classification tools.
@@ -111,9 +110,8 @@ to deviate from the ``normal state'' data, and thereby be detectable by our clas
 Frustration, and similar discrete emotions, can be mapped to and expressed via the dimensional model of \textit{valence}
 and \textit{arousal}. Frustration could be expressed as \textit{medium to high arousal} and \textit{negative
   valence}. This is to say, that it is our goal to detect anomalies expressing such values of arousal and
-valence. However, we argue that it is reasonable to simplify this problem, by expecting test participants to only
-express \textit{content} or \textit{negative valence}, during the test. In other words, we argue that test participants
-experience only neutral stimuli, or stimuli inducing frustration and thereby negative valence. By this assumption, we
+valence. We argue that it is reasonable to simplify this problem, by expecting test participants to only
+express \textit{content} or \textit{negative valence}, during the test because of the seeded problems. In other words, we argue that test participants experience only neutral stimuli, or stimuli inducing frustration and thereby negative valence. By this assumption, we
 aim to capture moments of elevated arousal, from which we infer it to be negative valence and thus frustration.
 Such moments of frustration could indicate a usability problem.
 
@@ -125,7 +123,7 @@ that are related to \textit{frustration} or similar negative affective states. W
 initial relaxation period, and before the third task begins, see Figure \ref{[FIGURE] Data Sections}. This is because the two first tasks are always chosen from
 a set of tasks containing no seeded usability problems. All physiological measurements collected within this section are assumed to not contain any frustrating responses. From the baseline, we extract various statistical measurements, in the form of
 feature vectors. A feature vector is just a set of numbers such as standard deviation, mean, min and max to a specific data point. 
-The feature vectors are then used to train the classifier. The classifier can then compare new unseen data to the trained data, and determine if the new data is within the boundries of what can be called ``normal'' or if it is an anomaly.  
+The feature vectors are used to train the classifier. The classifier can then compare new unseen data to the trained data, and determine if the new data is within the boundries of what can be called ``normal'' or if it is an anomaly.  
 \begin{figure}
     \centering
   \includegraphics[width=0.95\columnwidth]{graphics/rest_period_training_data.png}
@@ -137,7 +135,7 @@ The feature vectors are then used to train the classifier. The classifier can th
 
 % UP -> frustatrion -> a / v -> features brugt i papers -> øst og vest -> kigger på features tidligere -> reaction
 % kommer instant -> vi bruger derfor de gamle features
-Investigating related work for relevant features for capturing frustation, many disparate methods are proposed. However,
+Investigating related work for relevant features for capturing frustation, many disparate methods are proposed, however,
 we choose to be inspired by the following discoveries.
 
 Poel et al.~\cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
@@ -174,10 +172,10 @@ of researches, can have very different lifetimes depending on the target of rese
 
 Our previous work\cite{first_paper} showed promising results using descriptive statistics, e.g. mean, median and standard deviation. 
 As with our previous work, we attempt to capture affective state changes at stimuli exposure. 
-As with our first study, the usability problems we deliberately seeded into the test program are of significant severity, and we do not consider problems of cosmetic nature.
+As mentioned, the usability problems we deliberately seeded into the test program are of significant severity, and we do not consider problems of cosmetic nature.
 Further as the seeded problems can appear within rather short time spans of each other, shorter assumptions of emotions fits the granularity of this study's use case. 
 We are inclined to believe the assumption, that a stimuli will have an immediate emotional reaction and a corresponding physiological reaction.
-As such, we choose to use the same features as our previous work, with the shortest time durations that literature supports in terms of reaction to measurable physiological changes. 
+As such, we choose to use the same features as our previous work, with the shortest time durations that literature supports in terms of a reaction to measurable physiological changes. 
 
 \subsubsection{Features, latency and duration}
 Based on our previous work~\cite{9th_semester_project, first_paper}, with the intent of capturing short-term fleeting
