@@ -18,19 +18,19 @@ not formalise the capturing of affective state in particular and is inherently a
 subjective evaluation. 
 
 A user's affective state could reveal valuable information about a product, and in particular where usability problems might occur. 
-According to Lang et al.~\cite{BRADLEY199449}, three categories exists for capturing a user's affective state: affective self-report, physiological reactivity and
-observable behaviour. 
+According to Lang et al.~\cite{BRADLEY199449}, three categories exists for capturing a user's affective state: \textit{affective
+self-report, observable behaviour and physiological reactivity.}
 \textit{Self-report} covers methods such as \textit{Self-Assessment Manikin}(SAM). SAM consists or two Likert-scales,
 allowing users to reporting \textit{valence} and \textit{arousal}. Sometimes a third scale for reporting
 \textit{dominance} is also used.
 Strategies such as \textit{think aloud} fall within the \textit{observable behaviour} category.
-%The last category require methods that measure the human physiology, i.e. physiological sensors.
 Methods within \textit{self-report} and \textit{observable behaviour} are encumbered by several shortcomings.
 Observable behavior, because third party evaluators are giving subjective opinions based off their own estimations and
-analysis, and SAM because of effects like the peak-end memory bias \cite{cockburn_peakend}.
+analysis, and self-report because of effects like the peak-end memory bias \cite{cockburn_peakend}.
 The peak-end memory bias is the concept that the most dominant experience, good or bad, and the last experience will be
 remembered, possibly leaving out important information.
-The last category involved methods that measure human physiology, and are regarded as highly objective.
+The last category involves methods that measure human physiology, and are regarded as highly objective.
+\todo{can we say this, or do we need a source?}
 This presents the question: could physiological reactions possibly tell something about the affective state of a person,
 and thereby where usability problems are located?
 Physiological measuring has shown at several occasions that it can, to some degree, be used to predict a persons
@@ -38,21 +38,21 @@ affective state, and thus has interesting propositions to offer to the tradition
 
 An example of a study that uses this idea was made by Bruun et al.~\cite{LH-paper}, who made a usability case-study
 based on a website, coupled with physiological data.
-A number of usability problems were found in a prior empirical study, from which they created three tasks for the participants to complete.
-They recorded physiological data using \textit{galvanic skin response} (GSR) which measures sweat \cite{gsr_calibration}, and an eye-tracker detecting the gaze of the participant.
+A number of usability problems were found in a prior empirical study based on the same website, from which they created three tasks for the participants to complete.
+They recorded physiological data using \textit{galvanic skin response} (GSR) which measures sweat~\cite{gsr_calibration}, and an eye-tracker detecting the gaze of the participant.
 They formalized a method and a formula for associating the physiological data with the discrete negative affect state \textit{frustration}.
 As mentioned in multiple studies, e.g.~\cite{LH-paper,frustration_with_computers}, frustration is well-studied
 and manifests whenever expectations or rewards are not met in a timely manner, or when a goal is compromised in one way or another.
 These traits match the signature of a usability problem.
-Bruun et al. also had cued-recall debrief sessions, where participants reviewed video clips found from GSR peaks, and filled out SAM scales relating to the clip. 
+Bruun et al. also conducted cued-recall debrief sessions, where participants reviewed video clips found from GSR peaks, and filled out SAM scales relating to the clip. 
 They found a correlation between peaks in GSR and SAM-ratings, however were unable to confirm a relationship between the
 \textit{severity} of a usability problem and the level of frustration experienced.
 
 We are inspired and motivated to further investigate the area of using physiological data within usability testing. We
 believe our contributing could be valuable alongside the existing research, such as Brunn et al.~\cite{LH-paper}, that
-attempts to close the gap between users and usability evaluators but minimizing subjectivity. Furthermore, we want to
+attempts to close the gap between users and usability evaluators by minimizing subjectivit. Furthermore, we want to
 investigate if using multiple sensors could lead to further improvements.
-If successful, it could become an important tool for third party evaluators, by finding \textit{points of interest} based on physiological data. 
+If successful, it could become an important tool for usability evaluators, by finding \textit{points of interest} based on physiological data. 
 We aim to use consumer grade sensors in order to make our setup more accessible, should other researchers find the interest to reproduce
 it. We couple physiological data from various sensors with established Machine Learning(ML) techniques as the method for
 detecting points of interest, potentially locating usability problems.
