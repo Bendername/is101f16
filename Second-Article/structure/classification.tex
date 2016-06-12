@@ -34,18 +34,18 @@ To decide whether an anomaly correctly corresponds to a usability error e.g. tha
 Given tasks' events in the experiment is grouped into ``instant error feedback'' and ``non-instant error feedback'', two strategies has to be used. 
 For instant error feedback the usability error is said to have been experienced by the participant at the specific time the error happened. In other words, if the error happens at time $t$, then the participant is also exposed to the event at time $t$.
 For non-instant error feedback the usability error is said to have been experienced during the timespan of the first event to the last event which are related to the task. This is illustrated in Figure X.X. \todo{Make figure of this}
-When an anomaly is found an area of 2.5 seconds prior and after the anomaly is marked to create a point of interest. 
+When an anomaly is found, an area of 2.5 seconds prior and after the anomaly is marked to create a point of interest. 
 A point of interest spans 5 seconds in order to create a relevant time-snippet for a third-party evaluator to look at, rather than having a 1 millisecond span of time.
-To evaluate if an event is correctly found by the machine the two types of events will be considered again.
+To evaluate if an event is correctly found by the machine the two types of events are considered again.
 The events which contain instant feedback is classified as a hit, if the points of interest covers the time at which the event happens.
 For events which do not contain instant feedback the event will be hit, if the point of interest hits inside the area of the collection of events. Both of these examples is illustrated in Figure x.x. \todo{Make Figure}
 
-Given the one-class SVM's sensitivity given its parameters a scoring functions are used to optimize the gamma value in the line search, which is defined as: 
+Given the one-class SVM's sensitivity, a scoring function is used to optimize the gamma value in the grid search. It is defined as: 
 \[CovScore = \frac{2 \times EventsHitRate \times 1-FalseCoverRate}{EventsHitRate + FalseCoverRate}\]
 Where \textit{EventHitRate}(EHR) describes how many of the existing events has been hit by an anomaly e.g. $EHR = \frac{DifferentEventsHit}{TotalNumberOfEvents}$, and \textit{FalseCoverRate}(FCR) is the rate of which the area outside events that has been covered e.g $FCR = \frac{NonEventAreaCovered}{TotalNonEventArea}$. 
 The scoring function is the harmonic mean of EHR and FCR which is a kind of averaging of the two rates.
-A low score from this function will the machines which have a low EHR and/or high FCR would make the numerator approach zero, while having a high EHR and low FCR will make the function approach 1 which is the ideal result.
-Meaning this function rewards hit as many different events higher than hitting the same multiple times, while also considering the rate of FCR.
+Machines which have a low EHR and/or high FCR would make the function approach zero, while having a high EHR and low FCR will make the function approach 1, which is the ideal result.
+Meaning this function rewards hitting as many different events higher than hitting the same multiple times, while also considering the rate of FCR.
 
-Since the Nu parameter indirectly dictates how much of the training data that should be inside the boundry of the ``normal state'', an examination of the Nu parameter impact on the results is conducted.\todo{Kan ikke lide den her sætning men har skrevet den anywho, lav evt et billede omkring det i stedet}
+Since the Nu parameter indirectly dictates how much of the training data that should be inside the boundry of the ``normal state'', an examination of the Nu parameter impact on the results is conducted.
 This is done using a line search, locking all the parameters except the $Nu = \{0.01, 0.02,.., 1\}$ and analyzing the difference in the result. 
