@@ -1,9 +1,14 @@
 %!TEX root = ..\Main.tex
 \section{Conclusion}
-Write something intelligent here please.\todo{notice this text pls}
+We found that the average cases of our classification did not yield amazing results.
+In general Nu parameters of 0.01 and 0.05 gave the best results, where the EHR on the GSR was 4.5\% and 14.5\% to 2.1\% and 7.2\% FCR respectively. Similar results were present for HR, but Kinect and EEG performed worse. 
+Voting did not prove great either, with the best being conservative 2 voting which had 23.2\% EHR to 12.7\% FCR. 
 
 \section{Discussion}
-A fundemental limitation with the results of the paper includes the actual definition of frustration in terms of usability problems. 
+One of the most interesting things of our results, are that there are indications that our results suffer from bad worst-case tests. As the results are very different, it propose the idea that there exists different types of groups of people who react differently. If the best 5 test cases are looked at, we instead have much more promising results. The best five have ...\todo{write something in regards to the graphs we make}
+The worst five, however, perform in the complete opposite way with a massive amount of noise \todo{write something about the worst graphs}.
+Because the tasks were not time framed, the data can be differently stretched, but with the same amount of events. Looking at the available training data, the five best used an average of 2.8 minutes versus 4.1 minutes for the five worst. This suggest that there is no difference in the predictive power against the training set between the worst and the best. However, looking at the total test duration, minus the training tasks, the five best results used on average 19 minutes versus the five worsts 13.8 minutes. This difference in time could mean that it is important to allow enough unintrusive experiences to occur between usability errors, such that the physiological responses return to normal. In our test case, the events may actually happen to fast after each other, which could potentially mean some of the false-positives or noise we get, are in fact true positives but just outside our assumption of the emotional time-frame.
+
 While there is a lot of litterature on this subject, few explore the development of frustration on a physiological level over time. 
 Multiple studies attempts to classify frustration, however their usecases and context varies. 
 Some studies considers a duration of 100 seconds or more\cite{machine_learning_100s_gsr}, while others considers durations of 15 seconds\cite{brainwave_signals_frustration}.
