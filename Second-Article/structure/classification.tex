@@ -2,11 +2,11 @@
 The use case of this article, is to help third-party evaluators find usability problems in a usability test.
 In a usability test, the goal is to find usability problems, in other words the usability problems are unknown prior discovery. This is relevant for a classifier, because different strategies exist for different types of data. In this case, we do not have ``usability-problem labelled'' data on which we can train the classifier to detect problems which are similar. Because of this, a classifier which can detect anomalies from a training set which does not contain anomalies is required.
 Additionally a usability tests in general consists of normal usage and only a portion of the entire system will contain usability problems. In other words, the majority of the physiological data collected can be considered expected normal responses, and only the portions of the system where a usability problem is present will result in anomalies.
-This type of data fits the scope of novelty detection\cite{noveltyDetection}.
+The field of novelty detection\cite{noveltyDetection} is well suited for this particular kind of data.
 
 There are many different methods which can be applied when working with novelty detection\cite{noveltyDetection}, and choosing the right one is not a trivial task.
 The different methods can be divided into five subgroups: probabilistic, distance based, domain based, reconstruction based, and information theoretic.
-Manevitz et al.~\cite{oneClassSVM} showed that a \textit{one-class} SVM achieved on average better results than other classification techniques as neural networks, naive bayes, nearest neighbor and prototype over a series of dataset.
+Manevitz et al.~\cite{oneClassSVM} showed that a \textit{one-class} SVM achieved on average better results than other classification techniques as neural networks, naive bayes, nearest neighbor and prototype over a series of datasets.
 This paper use a one-class SVM as the classifier.
 The goal of the classification in this paper is to explore the one-class SVM's behaviour when used to detect usability problems.
 
