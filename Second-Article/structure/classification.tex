@@ -22,8 +22,8 @@ This can be seen on Figure \ref{[FIGURE] OneClass SVM}\todo{Make a nicer one}.
     \label{[FIGURE] OneClass SVM}
 \end{figure}
 
-Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter settings, a grid search is performed on them. The $Gamma = \{2^{-14},..,2^2\}$ value is, together with the Sigmoid and RBF kernel values. This is done to find the optimal settings where ``Nu parameter'' is kept at 0.05.\todo{Skriv at vi lavet et parameter search og smid det her i sammenfatningen}
-The library LibSVMSharp\cite{libsvmsharp} is used. It is a C\# wrapper for LibSVM\cite{libsvm} which is a widely used SVM library which also contains a one-class SVM implementation. The main reason LibSVMSharp is used over the native LibSVM is because it can be used in conjunction with the developed software used to collect and handle data, which is written in C.
+Since the one-class SVM is sensitive\cite{oneClassSVM} to its parameter settings, a grid search is performed on the parameter $Gamma$ and the kernel.
+The library LibSVMSharp\cite{libsvmsharp} is used. It is a C\# wrapper for LibSVM\cite{libsvm} which is a widely used SVM library which also contains a one-class SVM implementation. The main reason LibSVMSharp is used over the native LibSVM is because it can be used in conjunction with the developed software used to collect and handle data, which is written in C\#.
 
 \subsection{Prediction \& Scoring}
 We create a one-class SVM for each of the sensors, where each of the SVMs trains on the data from the first two tasks, which contain no usability errors e.g. no anomalies. The model created can then be used to predict on the remaining data which has been collected when usability errors were present.
