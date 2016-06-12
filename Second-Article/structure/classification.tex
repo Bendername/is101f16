@@ -31,6 +31,20 @@ A one-class SVM will label a given data point with a binary answer. ``1'' for a 
 This results in a collection of data points labeled as either a normality or an anomaly.
 
 To decide whether an anomaly correctly corresponds to a usability error e.g. that it \textit{hit}s a usability error, some assumptions have to be made. 
+We group tasks 1, 3, 6 and 7, based on the assumption that they induce a reaction at known moments. The reasoning behind this, is that all three tasks present obtrusive visual feedback at the time of the error. Further in case of task 3, there is also audio
+feedback. Task 3 displays an exception error message whenever the user attempts to open a draft, task 6 turns the
+current window
+black, task 7 displays a ``not responding'' window whenever the user attempts to write an email and task 1 displays an
+error message after 2 seconds. Tasks 3 and 7 in particular are considered ``full stops'', and it is not possible for the
+user in any way to successfully complete them. It is possible to complete tasks 1 and 6, but requires the user to
+re-attempt 3 times before success. We group them equally as \textit{instant} error feedback.
+
+Tasks 2, 4 and 5 we group as \textit{not instant}. All three tasks requires the user to notice that an error occurred, or
+that the action was not successfully performed. During task 2, the user has to notice that the contact was not added,
+task 4 is first noticed when the user realizes that incorrect characters appear on-screen and task 5 again requires the
+user to notice that the caret has moved. While task 4 and 5 could induce an instant reaction, we cannot know for
+certain that this is the case, as they might be looking at the keyboard while the error occurs and first discover it, when they look up to verify what they have written.
+
 Given tasks' events in the experiment is grouped into ``instant error feedback'' and ``non-instant error feedback'', two strategies has to be used. 
 For instant error feedback the usability error is said to have been experienced by the participant at the specific time the error happened. In other words, if the error happens at time $t$, then the participant is also exposed to the event at time $t$.
 For non-instant error feedback the usability error is said to have been experienced during the timespan of the first event to the last event which are related to the task. This is illustrated in Figure \ref{[FIGURE] non-instant illustration}.
