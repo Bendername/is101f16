@@ -6,14 +6,14 @@ The simplest technique from the decision fusion domain is voting, which is a nai
 \subsection{Choice of Nu-value for individual sensor}
 Two approaches will be tried. The first approach is the \textit{aggressive approach}, which is to select the Nu parameter for each sensor which fits the case of having the largest precision in regard to achieving the low FCR. The idea is that individually each sensor have not achieved a high EHR while having a high precision, as shown in Table \ref{[TABLE] avg_stats_sensors}, but the accumulated answers from the sensors might achieve a higher EHR while remaining the same precision as the individual sensors.
 The second approach is the \textit{conservative approach}, that is based on that Figure x.x.x..x show that it is possible, to a reasonable degree, to choose a Nu parameter which has a large EHR while having a relatively low FCR. The main idea for this, opposite the previous idea, is that if the threshold for the amount of sensors which has to agree to create a point of interest is high, some of the false positives should be removed and ideally would the EHR stay high.
-The selection of the Nu values is done by hand-picking \textbf{First approach} will have the following Nu value based on xx.x.x..x graph:
+The selection of the Nu values is done by hand-picking with the best fit to approach, the \textbf{aggressive approach} will have the following Nu value based on xx.x.x..x graph:
 \begin{itemize}
 \item GSR: 0.09
 \item EEG: 0.01
 \item HR: 0.05
 \item Kinect: 0.01
 \end{itemize}
-\textbf{Second approach} will have the following Nu value based on xx.x.x..x graph:
+The \textbf{conservative approach} will have the following Nu value based on xx.x.x..x graph:
 \begin{itemize}
 \item GSR: 0.45
 \item EEG: 0.30
@@ -23,13 +23,12 @@ The selection of the Nu values is done by hand-picking \textbf{First approach} w
 
 \subsection{Voting Results}
 The voting were done for the two approach, together with a different thresholds for how many machines should agree to create a point of interest.
-The thresholds were 1, 2, 3, and four. Where 1 is the union answer from all the sensor machines, and 4 being where the machines all would have to agree to a given time $t$ before creating a point of interest, as illustrated in Figure x.x.\todo{Make Figure of this}
+The thresholds were 1, 2, 3, and 4. Where 1 is the union answer from all the sensor machines, 2 being if atleast two sensors agrees, 3 being if atleast three sensors agrees, and 4 being the intersection of all the machines to a given time $t$ before creating a point of interest, as illustrated in Figure x.x.\todo{Make Figure of this}
 
-The aggressive approach with threshold 1 showed 98.8\% EHR, however it also got a 91.9\% FCR.  
+The aggressive approach results for threshold 2 and 3 yielded reasonable results, where 2 achieved 92.2\% EHR while having 78.7\% FCR data wrongly and 3 had 72.1\% EHR and 58.0\% FCR. The result on threshold 2 are better than EEG which only achieved approximately 85\% EHR in the 80\% FCR range, and it also performed better than the Kinect and EEG for threshold 3, however it did not show any improvements from the GSR and HR results.\todo{Find ud af hvor tabellerne og Figures skal reffes}
 \input{structure/avg_voting}
+The conservative approach showed good tendencies at threshold 2 with 23.2\% EHR and 12.7\% FCR, which is better than the EEG and Kinect in the conservative aspect, however it does not seem to gain any significant advantages compared to the HR and GSR.
+As expected the results from threshold 3 and 4 showed little to no points of interest, and threshold 1 showed a bad EHR to FCR ratio. 
 
-
-
-
-
+Both approaches showed an improvements compared to EEG and Kinect it did however not give any decidedly better result than the HR and GSR. \todo{Måske skal der diskuteres hvorvidt voting er det værd.}
 
