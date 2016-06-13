@@ -152,7 +152,7 @@ in order give pointers to what we believe the applications for this could be, ba
 \subsection{Methodical Reflection:}
 % mention that we changed from having a hypothesis
 %    why did we do this -> more exploratory, cannot 'cook' down to just one number, too many uncertainties
-\paragraph{Test and experiment}
+\subsubsection{Test and experiment}
 The experiment setup was controlled to the best of our abilities and conducted inside a usability lab. A changing
 variable we deliberately constructed in the system, was to randomize the order in which tasks are presented to the user,
 i.e. the order differs between test participants.
@@ -187,19 +187,21 @@ Further we also collected cued recall debrief data in the form of SAM questionna
 Specific to this test, the program developed is also a factor to consider when looking at the results.  We attempted to
 make a program with no usability errors, but as research has shown since the dawn of HCI, this is nearly impossible.  We
 experienced problems with the computer used for the test, where the program would have unexpected latency and unresponsiveness when using the keyboard and mouse. This was not intentional, and hence not a seeded usability problem.
-The user might however, still perceive the unresponsiveness of the program as a usability problem. 
-This was the case in at least one test.  
-Further we found small areas of the program that could be considered cosmetic usability problems, however, as the paper does not actively try
-to estimate severity this was left out in the evaluation. Other concerns became evident when considering how each
+The user might however, still perceive the unresponsiveness of the program as a usability problem, which was the case in
+at least one test, discovered during cued recall debrief sessions.
+Further we found small areas of the program that could be considered cosmetic usability problems, however, as we did not try
+and estimate severity, this was left out in the evaluation. Other concerns became evident when considering how each
 individual seeded problem was perceived by the test participant. Some problems were perceived immediately,
 e.g. participants were paying attention when error feedback was given, while others problems were not. In particular,
 tasks that required test participants to use the keyboard, usually draws their attention to it, and away from any
 feedback signifying that an error has occurred. An implication that follows from this, is that it becomes harder to
 determine exactly \textit{when} a test participant experiences a particular seeded problem.
 
-The experiment could also be altered with the use of different hardware. It is possible to collect GSR data from the chest area, and heart rate data from the ears. This would free the dominant hand from sensors which would make the test participant use the system like normal, rather than having one hand disabled during the test.\\
+The experiment could also considered different hardware sensors.
+It is possible to collect GSR data from the chest area, and heart rate data from the ears.
+This would free the dominant hand from sensors which would make the test participant use the system unencumbered, rather than having one hand disabled during the test.
 
-\textit{Frustration models}\\
+\subsubsection{Frustration models}
 One of the biggest complications during this study is the lack of uniform agreement on how emotional responses, in particular frustration, develops on a physiological level. While there has been quite a few studies surrounding estimating frustration from physiological data, the way they do it, and how they ``label'' frustration is very different.
 The biggest difference lies in the assumption of the duration of the emotion. 
 Some researchers, like us, believe the assumption that emotions are short lived and instantaneous in nature. 
@@ -207,20 +209,25 @@ Others believe they are long, which can be anything from 10-20 seconds to over 1
 While researchers generally tend to get good results, it has to do with the use case of the study. 
 Do you look for a general increase in average amplitude of a GSR signal or do you look for actual spikes in amplitude? 
 How you define this has a fundamental impact on the results you get. 
-In our case it was difficult to select a model which satisfied all our constraints, especially because the experiment was designed prior the investigation of frustration as a physiological response. 
-On one hand, we have a system which has ``events'', stimuli designed to be frustrating, within a task. These events can be exposed to the user in quick succession, depending on how fast the user provokes the event, e.g. clicking delete and nothing happens and doing it immediately again. 
-A model which caters to the assumption that frustration lasts a long time, will conflict with the actual collected data, because it can overlap multiple events. Then it has to be considered if an outlier is caused by both events combined or an individual event. 
+In our case, it was difficult to select a model which satisfied all our constraints, especially because the experiment was designed prior the investigation of frustration as a physiological response. 
+On one hand, we had a system which has ``events'', stimuli designed to be frustrating, within a task. These events can be exposed to the user in quick succession, depending on how fast the user provokes the event, e.g. clicking delete and nothing happens and doing it immediately again. 
+A model which caters to the assumption that frustration lasts a long time, will conflict with the collected data, because it can overlap multiple events. Then it has to be considered if an outlier is caused by both events combined or an individual event. 
 
-Further there is no uniform theory upon how frustrating events develop over time as there are multiple exposures. It is generally acknowledge that a reaction stimuli, positive or negative, is strongest the first time it is experienced. Further if a person can anticipate a stimuli, the expectation of it may also reduce the reaction. But is this the case with frustrating events in a running system as well? It is not too far stretched to imagine a person having a software related problem, and the first time you'll be slightly annoyed, if the problem persists the irritation that you cannot fix it also increase. That case could argue for a frustration curve which is steadily going upwards, but not having spikes.
-On the other hand, if a person has written an entire document in word and it crashes, it will lead to a massive ``burst'' of frustration. 
-While the reaction is labelled the same, the way it is experienced is very different. One is slow and steady, the other is instantaneous and violent.
+Further there is no uniform theory on how frustrating events develop over time as there are multiple exposures. It is
+generally acknowledged that a reaction stimuli, positive or negative, is strongest the first time it is experienced.
+Further if a person can anticipate a stimuli, the expectation of it may also reduce the reaction. But is this the case with frustrating events in a running system as well? It is not too far stretched to imagine a person having a software related problem, and the first time you'll be slightly annoyed, if the problem persists the irritation that you cannot fix it also increase. That case could argue for a frustration curve which is steadily going upwards, but not having spikes.
+On the other hand, if a person has written an entire document in a word processor and it crashes, it could lead to a massive ``spike'' of frustration. 
+While the reaction is labeled the same, the way it is experienced is very different. One is slow and steady, the other is instantaneous and violent.
 
-Due to the complexity of how to measure the data, and the resulting complex results of an explorative model also forced us to multiple times consider our hypothesis. Because the concept of frustration as physiological data has multiple layers of complexity, it is hard to boil it down to one number, or one result. Having it being a final number would simply be to simplistic a result compared to the model. This ruled out many of the initial hypothesis' revolving around significance of the result of our classifiers. In the end we found the most fitting thing to do was not having a hypothesis, simply because the study is explorative of nature, and the result is insights of how researchers can deal with the complex nature of classifying frustration in a running program.\\
+Due to the complexity of how to measure the data, and the resulting complex results of an explorative model also forced
+us to multiple times consider our hypothesis. Because the concept of frustration as physiological data has multiple
+layers of complexity, it is hard to reduce it to one number, or one result. Having it being a single number would simply
+be to simplistic, compared to the model. This ruled out many of the initial hypothesis revolving around significance of the result of our classifiers. In the end we found the most fitting thing to do was not having a hypothesis, simply because the study is explorative in nature, and the result is insights of how researchers can deal with the complex nature of classifying frustration in a running program.
 
-\textit{Novelty detection}\\
+\subsubsection{Novelty detection}
 The method used in this paper is \textit{novelty detection} using a one-class SVM. The primary requirements for
 achieving good performance, i.e. good predictive power, is to ensure that training data contains as few anomalies as
-possible. The difficulty associated with ensuring this can vary depending on the kind of data considering, but in our
+possible. The difficulty associated with ensuring this can vary depending on the kind of data considered, but in our
 case, where we consider physiological data, is is not trivial. We attempt to minimize the risk of
 training on data containing anomalies by considering only data from the first two tasks, containing no seeded
 problems. However, we cannot be certain that this data never contains any anomalies, as identifying anomalies is what we
@@ -235,23 +242,7 @@ and dependent on chosen features. This means, that although we can search for op
 a new search has to be performed if a new set of features are considered. This is to say, that validating if a set of
 features yields good results, e.g. many true-positives and few false-positives, is considerably time consuming. Features
 suggested in related work are disparate, i.e. varying time-spans and extracted from various statistics, and we have not
-been able to find conclusive indications as to which features should be used. We have attempted to uncover differences
-in features by considering two different sets of features - one considering short-term reactions and another considering
-long-term reactions, governed by the time-spans considered. We present the findings under a discussion in the paper. We
-want to make it clear, that finding optimal features and classification parameters, is not trivial. 
+been able to find conclusive indications as to which features should be used. 
 It is also debatable how robust the model is given we search for the optimal solutions. 
 We have the \textit{best} model for a specific set of features, for a specific set of data. 
-We cannot take this model and use it on another person. 
-
-% write some shit about how we could have designed the test better
-
-
-%remember to mention:
-    %that training data has to be clean
-    %specifying windows to specify as usability problems occurring
-    %weighting individual sensors (what is a hit?)
-    %scoring
-    %features and time
-    %svm params, grid search relies on the features selected
-    %disparate opinions on time to consider for gsr
-
+It is not guaranteed that we construct a general model, that can be used across different persons. 
