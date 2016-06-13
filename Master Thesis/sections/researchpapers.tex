@@ -2,11 +2,11 @@
 \chapter{Research Papers}
 This chapter presents two research papers, both produced during our Master
 Thesis semester. The first paper and experiment for the first is produced in collaboration with another
-master thesis group, namely is102f16, whereas the second paper is produced entirely by us and the experiment is produced in collaboration with is102f16.
+master thesis group (is102f16), whereas the second paper is produced entirely by us, and the experiment is produced in collaboration with is102f16.
 
 The first paper is a combined effort where a large study with a large scale test was conducted.
-The aim was to classify the affective state from test participants, using images as stimuli.
-Physiological data was collected through a self developed program which allowed synchronization of all the data.
+The aim was to classify the affective state from test participants, using images as stimuli and multiple sensors.
+Physiological data was collected through custom software written by us, allowing synchronization of data from all sensors.
 The test participants also reported arousal and valence values for the stimuli, which was used to is test the validity of the classifier.
 
 The second paper builds upon the first, and aims to use its results in a more
@@ -16,7 +16,7 @@ induce a negative affective state, often discretized as \textit{frustration},
 our aim was to identify such states and thereby usability problems.
 
 Below is a short summary of each paper along with its research questions.
-Followed by that, is a methodical reflection, wherein we scrutinize and discuss
+Followed by that, is a methodical reflection, wherein we discuss
 our findings and methods. Each paper can be found in its full length in the
 Appendix.
 
@@ -46,41 +46,44 @@ Real-time Measurement of User Experience
 This paper was created in complete collaboration the group is102f16, both paper and experiment.
 The primary motivation for this paper was to investigate to what degree user experience can be detected using physiological sensors.
 It further describes the role which short-lived emotions takes in user experience and its part in HCI.
-The paper then elaborates Scherer's\cite{definition_emotions} models for emotions and Ekman's basic emotions\cite{basic_emotion_origin}, to concretize what the different evaluation techniques, such as Self-Assessment Manikin~(SAM) and Positive And Negative Affect Schedule~(PANAS)\cite{PANAS}, actually measures. Which leads to a division of the methods which we define as:
+The paper elaborates Scherer's\cite{definition_emotions} models for emotions and Ekman's basic emotions\cite{basic_emotion_origin}, to concretize what the different evaluation techniques, such as Self-Assessment Manikin~(SAM) and Positive And Negative Affect Schedule~(PANAS)\cite{PANAS}, actually measures. It leads to a division of the methods which we define as:
 \begin{itemize}
 \item \textit{Dimensional Techniques} focuses on the subjective feeling component often described with valence and arousal.
 \item \textit{Discrete Techniques} focuses on an emotion as a whole such as disgust, fear, sadness, joy etc.
 \end{itemize}
-To test our hypotheses an experiment was conducted. In the experiment 49 test participants were using a simple program while physiological data was recorded from a kinect, EEG, GSR, and HR-sensor. The simple program showed pictures from International Affective Picture System~(IAPS)\cite{iaps} and then asked to give a SAM rating of how they feel.
+To test our hypotheses, an experiment was conducted. In the experiment, 49 test participants were using a simple program
+while physiological data was recorded from a Kinect, EEG, GSR, and HR-sensor. The simple program showed pictures from
+International Affective Picture System~(IAPS)\cite{iaps} and asks the user to give a SAM rating of how they feel.
 The physiological data was transformed into features based on various studies found in the literature. 
-These features and the SAM rating is used in a Support Vector Machine~(SVM) both for single sensors but also together with the decision fusion techniques: voting and stacking.\\\\
-In conclusion, we partly proved \textbf{H1} by finding that individual sensor and sensor fusion can achieve significantly higher accuracy than best case guessing at all the grouping, except for voting which did not achieve significance in Valence 3.
-Furthermore we partly \textbf{H2} we showed that using the fusion method stacking we could achieve significantly better accuracy than than using a single sensor with the exception of HR, Face, and GSR on Arousal 3, and Face on Valence 2 High.
+These features, and the SAM rating, are used in a Support Vector Machine~(SVM) both for single sensors, and together with the decision fusion techniques: voting and stacking.\\\\
+In conclusion, we partly proved \textbf{H1} by finding that individual sensor and sensor fusion can achieve significantly higher accuracy than best-case guessing at all the grouping, except for voting which did not achieve significance in Valence 3.
+Furthermore we partly proved \textbf{H2} by showing that using the fusion method stacking we could achieve significantly better accuracy than than using a single sensor with the exception of HR, Face, and GSR on Arousal 3, and Face on Valence 2 High.
 
 \subsection{Methodical Reflection:}
-An area within our study which require scrutiny and further investigation is
+An area within our study which require further investigation is
 that of context. Context is a broad term and involves many controllable and
 uncontrollable variables, for instance; the mood\cite{definition_emotions} of a test participants are in
 before and under the experiment, the lighting and temperature in the room, the
 particular setup of the experiment, etc. 
-We acknowledge that the above can affects how participants interact with the setup, and particularly how they
+We acknowledge that the above can affect how participants interact with the setup, and particularly how they
 react to the stimuli. 
-The impact on our results is unknown, however it is a limitation of this study which we are aware of, but given the scope of this paper 1 the implications of its impact was no considered further.\\\\
+The impact of context on our results is unknown, however it is a limitation of this study which we are aware of, but given the scope of this paper 1 the implications of its impact was no considered further.\\\\
+
 Self-Assessment Manikin, the method we used during experiments to get subjective
 ratings from participants on how they experienced the stimuli, has been
 challenged in other studies\todo{find cite here}, and our use of it could therefore be challenged as
 well. For one, the method is highly subjective: test participants can lie,
 misunderstand the method, or simply have widely different frames of
 reference. It is particularly the two latter cases that has been
-scrutinized. Being \textit{moderately calm} might be answered differently from
+scrutinized. Being \textit{moderately calm} might be answered differently 
 between participants, and each participant might have difficulties mapping
 correctly to the scales if stimuli with increasingly extreme connotations are
 presented.
 In extension to this we did not consider the type of people we recruited, this is important because Foglia et. al~\cite{extrovsintro} states that GSR signals have different traits for persons who are extrovert than for people who are introvert. This might also be the case with the other sensors.
 \\\\
-The SVM we have used is a ``off-the-shelf'' solution to the problem area we are dealing with, and there might be perform better.
+The classification algorithm we used is an ``off-the-shelf'' SVM, but other solutions might yield better results.
 But due to the scope of the study we are conducting, it is not the intention to find the optimal techniques which could be used.
-The results achieved could most likely be improved by using better techniques, but finding the optimal technique with the optimal parameter for each sensor is beyond the scope of this paper.
+The results achieved could most likely be improved by using better techniques, but finding the optimal technique with the optimal parameters for each sensor is beyond the scope of this paper.
 
 %Things to discuss:
 %\todo{below is just a list of things we could discuss in this section}
