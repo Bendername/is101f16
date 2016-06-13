@@ -2,18 +2,7 @@
 \section{Results}
 The mean length of each test, excluding the two first tasks used for training, were $11.8$ minutes, with a standard
 deviation of $4.4$ minutes - the longest being $28.3$ minutes and the shortest $5.8$ minutes.
-
-Our system produces on average $17$ events from test participants, within which our setup is expected to predict
-usability problems, and standard deviation of $4$. One participant produced the most with $26$ and the least produced
-was $11$,
-
-The ratio between area designated to containing UPs, referred to as events, and areas that do not contain UPs, in on
-average $0.39$, i.e. a little more than 60\% of the data on which we attempt to predict UPs is \textit{normal} data. The
-implication of this is that if a classifier were to distribute random guesses based on our data, about 60\% of them
-would fall within normal data, and 40\% within data that contains UPs, slightly shifting the difficulty to our
-disadvantage. The standard deviation in this ratio is $0.06$, and in only one case, is the area containing UPs larger
-with a ration of $0.58$. The smallest example showed $0.25$, i.e. 25\%, of the test consisting of events containing
-usability problems.
+Our system produces on average of $17.0$ (SD $4.0$) events for each usability test.
 
 \input{structure/sensors_graphs}
 
@@ -39,20 +28,17 @@ possible, with the trade-off of alse receiving many false-positives. Figures~\re
 shows that the HR, Kinect and GSR manages to have a reasonable across EHR given the FCR the different Nu values, which shows a robustness to the result.
 
 \paragraph{Investigating the best results}
-We find it interesting to consider the best performing test participants to see if there difference to be found between them and the rest of the test set. 
-If such differences are found, it would be valuable information for future studies because a preliminary screening could help select the people who would fit the research the best.
-Figure~\ref{fig:best_five_gsr}. and Tabel~\ref{tab:best_five_avg_stats} shows average statistics for both the five best, and
-the best performing across all test participants on the GSR sensor. 
-The best are calculated from the sum of EHR for all of the Nu-values to a given test participant.
+We find it interesting to consider the best performing test participants to see if there difference to be found between them and the rest. 
+If such differences are found this would be a valuable informations for future studies, because a preliminary screening could help select the people who would be give the best persons for such research.
+Figure~\ref{fig:best_five_gsr}. Tabel~\ref{tab:best_five_avg_stats} shows average statistics for both the five best, and
+the best performing across all test participants on the GSR sensor. The best are calculated from summed EHR for all of the Nu-value to a given test participant.
 \input{structure/best_five_graphs}
 \input{structure/best_five_stats}
-A noticeable difference for the five best scoring test subjects is their average from the introvert/extrovert Big5 group, which is on average 25.4, SD 2.2.
-The total average is 29.49 which is higher than the average for the best five, however the standard deviation is 7.96 which is a quite high fluctuation. 
-This is an interesting result because as mentioned in \cite{extrovsintro}, the introvert has shown more ``peaky traces'' when measuring GSR data.
-However, since it is only the five best nothing conclusive can be said. 
-It could be an interesting topic for further investigation.\\\\
-Figure~\ref{[Fig] best result} depicts a test with the points of interest created by the GSR from the best test participant, according to EHR.
-Even though the test participant achieved an EHR at 92.3\%  while only having a FCR at 37.7\%. However looking at Figure~\ref{[Fig] best result} the points of interest seems more arbitrary than definitive detection of usability problems.
+A noticeable difference for the five best scoring test subjects is their average from the introvert/extrovert which is on average 25,4, SD 2,2.
+Where the total average is 29.49 which is lower, however the standard deviation is 7.96 which is quite high fluctuation. This is an interesting result because as mentioned in \cite{extrovsintro}, the introvert has shown more ´´peaky traces'' when measuring GSR data.
+But since it is only the five best nothing conclusive can be said, it however could be interesting an interesting topic for further investigation.\\\\
+Figure~\ref{[Fig] best result} shows depicts a test with the points of interest created by the GSR from the best test participant, according to EHR.
+Even though the test participant achieved a EHR at 92.3\%  while only having a FCR at 37.7\%. However looking at Figure~\ref{[Fig] best result} the points of interest seems more arbitrary than definitive detecting.
     \begin{figure}[H]
     \begin{minipage}[t]{0.5\textwidth}
         \includegraphics[width=\linewidth,keepaspectratio=true]{graphics/graphs/events/johnny-nu050-29-short-sensors.pdf}
