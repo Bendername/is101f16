@@ -1,19 +1,16 @@
 %!TEX root = ..\Main.tex
 \section{Conclusion \& Discussion}
-Resul for the other sensors in this regard, with EEG performing the worst. Choosing higher Nu-values quickly give rise to higher rates of false-positives, and
-simultaneously higher event-hit rate. From this, we conclude that whether our results are good or not, depends on how they
-are applied. We imagine a use-case where few usability problem are identified to a reasonable certainty, with a low Nu-value, used as
-a preliminary usability test, before more elaborate usability testing is performed.
+HR, Kinect, EEG and GSR were all tested individually across different Nu values, results showed that EEG performed the worst but the GSR and HR showed encouraging results. It was also establish that choosing a higher Nu-values grants a higher EHR and FCR, and from Figure~\ref{fig:gsr_event_ehr}, \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr} it can be seen that a good ratio of EHR and FCR are kept showing good robustness of the machines.
+We imagine a use-case where few usability problem are identified to a reasonable certainty, with a low Nu-value, used as
+a preliminary usability test, before more elaborate usability testing is performed. It can also be used to choose a higher Nu-value to give a higher EHR but this comes with the trade-off of getting more FCR.
 
-However, seeing aggregated and average results revealed surprising results for some test participants and sensors. From
-Figures~\ref{fig:gsr_event_ehr},\ref{fig:hr_event_ehr}, and \ref{fig:face_event_ehr}, it is apparent that
-some test participants perform significantly better than the average. This lead to an investigation into how results
+From  Figures~\ref{fig:gsr_event_ehr},\ref{fig:hr_event_ehr}, and \ref{fig:face_event_ehr}, it is apparent that
+some test participants perform better than the average. This lead to an investigation into how results
 would look for only those. Choosing the five best performing test participants across all four sensors yielded results
 seen in Figure~\ref{fig:best_five_gsr}. From Figure~\ref{fig:best_five_gsr}, we see significantly better average results
 and individual results, compared to averages over all test participants. Compared with averages over all participants,
-we see a large differences. While it may not be apparently surprising, we still think this raises interesting questions,
-such as: are there circumstances that are equal among all five best-performing test participant? While we propose this
-to be investigated in future work, we have some hypothesis of our own.
+we see a large differences. While it may not be apparently surprising, we still found it a interesting point of focus.
+By looking at the best five test participants on the GSR, we found that they in average had a lower value on the introvert/extrovert category in Big5.
 
 Because the tasks were not time framed, the data can be differently stretched, but with the same amount of
 events. Looking at the available training data, the five best used an average of 2.8 minutes versus 4.1 minutes for the
@@ -59,22 +56,16 @@ A natural path to explore would be removing the complexity of having sensor fusi
 If such a model is ever conceived, it would be interesting to explore the idea of using ML to detect affective state
 changes in greater detail.
 
-The results of this paper does, however, propose some use if iterated further upon. 
-It is possible to select a setting for the classifier, which finds usability problems with a fairly low amount of noise. 
-This makes it possible to use when evaluating usability problems fast and with less effort than a traditional test. 
-Simply use the system and hardware while conducting a test, and find few but significant usability errors. 
+The results of this paper does, however, propose some use of the result found in this paper.
+It is possible to select a setting for the classifier, which detect a few amount usability problems with a fairly low amount of noise, which can be used to evaluating usability problems fast and with less effort than a traditional test. With the trade-off of only finding a few of the problems.
+It would be interesting to examine if this still hold true in a large test with only a few usability problems.
 This could help filter away some errors early in the process, and focus on other problems when a larger more complete usability evaluation is conducted. 
-This could be an additional tool for evaluators to add to the usability evaluation toolbox. 
-This would most likely never remove the human aspect from evaluating the human experience of a system, but it would be a tool to look into the inner workings of a person, and help avoid some of the limitations related to usability evaluation.
-In turn, this could reduce the time required to do usability tests and/or increase the effectiveness of an evaluation. 
+The method in general would most likely never remove the human aspect from detecting usability problem in a system, but it would be a tool to look into the inner workings of a person, and help avoid some of the limitations related to usability evaluation.
 
 \subsection{Future work}
 One of the most promising areas to continue research within usability problem detection through physiological measured
 affective state, is the means to detect the affective state change. One could imagine the potential in also being able
 to detect if a user is having a \textit{pleasant} experience with a product.
-
-We have chosen off-the-shelf standard and basic solutions in our attempt to solve the problem, but research aimed at optimizing these techniques should be done. 
-In particular, ML techniques other than an 1-class SVM could be investigated, such as well as neural networks.
 
 Our study has revolved around fusing multiple sensors, and while one method may work particularly well with a GSR, it may prove worse or even bad to use with an EEG. 
 It could be interesting to investigate the results of various ML techniques across sensors.
@@ -87,6 +78,6 @@ As such, it would be natural to hypothesize that other emotional and contextual 
 A thorough study to elaborate the considerations needed and consequences of such baggage would be beneficial to the field of study as a whole. 
 
 Considering the five best performing test participants, we hypothesis that some similar circumstance may be present. We
-find it interesting to investigate, as it could reveal important information into how to gather physiological data such
+find it interesting to investigate even further, as it could reveal important information into how to gather physiological data such
 that it yields better results. We propose future work that investigates length of relaxation period, size of training
 data among other things.
