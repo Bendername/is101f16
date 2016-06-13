@@ -8,9 +8,9 @@ The simplest technique from the decision fusion domain is voting, which is a nai
 \subsection{Choice of Nu-value for individual sensor}
 Two approaches will be tried. The first approach is the \textit{aggressive approach}, which is to select the Nu
 parameter for each sensor which fits the case of having the largest precision in regard to achieving the low FCR.
-The idea is that individually, each sensor has not achieved a high EHR while having a high precision, as shown in Table
+The idea is that individually, each sensor has not achieved a high EHR while having a low FCR, as shown in Table
 \ref{[TABLE]_avg_stats_sensors}, but the accumulated answers from the sensors might achieve a higher EHR while remaining
-at the same precision as the individual sensors.
+at the same FCR as the individual sensors.
 
 The second approach is the \textit{conservative approach}, that based on
 Figures~\ref{fig:gsr_event_ehr},\ref{fig:eeg_event_ehr},\ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr}, it is
@@ -65,6 +65,6 @@ Results are better than the EEG and Kinect in the conservative aspect, however i
 As expected, the results from threshold 3 and 4 revealed little to no points of interest, and threshold 1 showed a bad EHR to FCR ratio. 
 The results from the conservative approach can also be seen in Table~\ref{[TABLE] avg_stats_voting}.
 
-Both approaches showed improvements compared to EEG and Kinect, but it did not give any decidedly results compared
+Both approaches showed improvements compared to EEG and Kinect, but it did not give any decidedly results for good or worse compared
 to HR and GSR.
 
