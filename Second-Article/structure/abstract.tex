@@ -2,18 +2,18 @@
 
 \begin{abstract}
 
-
 \textbf{Objectives:}
-Usability testing has always focused on performance metics such as task completion time and effort required. 
-Further it requires third-party expert evaluations to estimate problems, and label their severity.
-This paper attempts to take an approach were usability problems are evaluated from a users affective state, using physiological sensors and machine learning.
+Traditional usability testing focuses on performance metics such as task completion time and effort required. 
+Further it requires third-party expert subjective evaluations to estimate problems, and label their severity.
+This paper attempts to take an approach were usability problems are detected from a users affective state, using physiological sensors and machine learning.
 \textbf{Methods:}
-A self developed email client was used with seeded problems. 35 test participants (18 male, 17 female) had to solve 11 tasks, of which 7 had usability problems with different severity.
-Novelty detection was used to find affective state outliers where a one-class SVM was used as classfier.
+A self developed email client, and usability problems were deliberately seeded into it. 35 test participants (18 male,
+17 female) had to solve 11 tasks, of which 7 had usability problems of varying severity.
+Novelty detection was used to find affective state outliers, using a one-class SVM as classfier.
 \textbf{Results:}
-Average case classification result did not perform great, because of heavy noise from very bad results. 
-However, promising results was shown when looking at the best five who showed very different behaviour compared to the five worst.
+Average case classification result did not yield results much better than random guessing, due high variance in results. 
+However, promising results were found when considering the five best, and circumstances as to why this is, is discussed.
 \textbf{Conclusion:}
 We explored the idea that it was possible to find usability problems from a test participants affective state. 
-It was possible, but the more aggresive the classifier was tuned, the more noise was included in the prediction result set. 
+It was possible, but the more aggresive the classifier was tuned, the more noise, i.e. false-positives, was included in the prediction result set. 
 \end{abstract}
