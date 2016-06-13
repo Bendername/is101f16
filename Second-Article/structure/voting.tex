@@ -1,19 +1,30 @@
 \section{Sensor fusion}
-Sensor fusion is a very large area in the MI context, and can essentially be reduced to decision fusion and feature fusion~\cite{fusion_techniques}.
+Sensor fusion is a substantial field of area within MI, but can essentially be reduced to decision fusion and feature fusion~\cite{fusion_techniques}.
+Feature fusing revolves around combing a set of features in some way or another.
+Decision fusion revolves around fusing outcomes from classifiers.
 We choose decision fusion to use the results found from the individual sensors.
-The simplest technique from the decision fusion domain is voting, which is a naive technique where each sensor vote whether or not an anomaly is present, and if a certain amount of sensors agrees, a point of interest is created. This technique also does not require any training to happen beforehand, which suits the premise of this study.
+The simplest technique from the decision fusion domain is voting, which is a technique where each sensor votes whether or not an anomaly is present.
+If a researcher-set amount of sensors agrees, a point of interest is created. 
+This technique also does not require any training prior voting, which suits the premise of this study.
 
 \subsection{Choice of Nu-value for individual sensor}
-Two approaches will be tried. The first approach is the \textit{aggressive approach}, which is to select the Nu
-parameter for each sensor which fits the case of having the largest precision in regard to achieving the low FCR.
+Two approaches are explored in this study.
+The first approach is defined as the \textit{aggressive approach}.
+The aggressive approach is defined by selecting a Nu parameter value with the goal of having a high amount of EHR, while achieving the lowest FCR possible.
+Where a large amount EHR means a lot of events are correctly classified, while a large amount of FCR can be considered a large amount of noise.
 The idea is that individually, each sensor has not achieved a high EHR while having a high precision, as shown in Table
 \ref{[TABLE]_avg_stats_sensors}, but the accumulated answers from the sensors might achieve a higher EHR while remaining
-at the same precision as the individual sensors.
+at the same precision as the individual sensors. 
+Thereby gaining higher classification rates by using fusion.
 
-The second approach is the \textit{conservative approach}, that based on
-Figures~\ref{fig:gsr_event_ehr},\ref{fig:eeg_event_ehr},\ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr}, it is
-possible to a reasonable degree, to choose a Nu parameter which has a large EHR while having a relatively low FCR. The
-main idea for this, contrary to the \textit{aggressive approach}, is that if the threshold for the amount of sensors which has to agree to create a point of interest is high, some of the false positives should be removed and ideally would the EHR stay high.
+The second approach is defined as the \textit{conservative approach}.
+The approach is devised from analyzing the data seen in Figures~\ref{fig:gsr_event_ehr},\ref{fig:eeg_event_ehr},\ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr}.
+We argue it is possible to a reasonable degree, to select a Nu parameter which has a large EHR while having a relatively low FCR. 
+The reasoning for this is, contrary to the \textit{aggressive approach}, that the classifiers will be less likely to say a data point is an anomaly. 
+Essentially the boundary for the normal data is increased, such that more data will be within the area considered normal.
+The effect of this is fewer data points will lay outside the range considered normal, and as such will be a more extreme anomaly.
+In other words, when an anomaly is found, the confidence that it really is an anomaly is higher.
+
 The selection of Nu values is done by hand-picking, such that they best fit each approach, based on Figures~\ref{fig:gsr_event_ehr},\ref{fig:eeg_event_ehr},\ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr}.
 The Nu value for each sensor can be seen in Table~\ref{tab:nu_voting_settings}, for both the conservative and aggressive approach.
 
@@ -40,26 +51,28 @@ The Nu value for each sensor can be seen in Table~\ref{tab:nu_voting_settings}, 
 
 
 \subsection{Voting Results}
-The voting was done for the two approach, together with a different thresholds for how many machines should agree to create a point of interest.
-The thresholds were 1, 2, 3, and 4. Where 1 is the union answer from all the sensor machines, 2 being if at least two sensors agrees, 3 being if at least three sensors agrees, and 4 being the intersection of all the machines to a given time $t$, before creating a point of interest, as illustrated in Figure x.x.\todo{Make Figure of this}
+Voting was done for both approaches, together with different thresholds in terms of how many machines needed to agree, in order to create a point of interest.
+The thresholds were 1, 2, 3, and 4. 
+1 can be considered the union of all machines - or the combination of all answers.
+2 and 3 requires at least two or three machines to agree that there is an anomaly at a given data point, before it is accepted as an anomaly.
+4 can be considered the intersection of all machines, that is - all machines have to agree that there is a point of interest at a data point, in order for it to be accepted.
+This is illustrated in Figure x.x.\todo{Make Figure of this}
 
 \input{structure/voting_graphs}
 \input{structure/avg_voting}
 
 As seen in Figure~\ref{fig:voting_aggresive_ehr}, the results from the aggressive approach for threshold 2 and 3 yielded reasonable results.
-Voting 2 achieved 92.2\% EHR while having 79\% FCR data wrongly and 3 had 74.9\% EHR and 60.5\% FCR.
+Voting 2 achieved 92.2\% EHR while having 79\% FCR, and 3 had 74.9\% EHR and 60.5\% FCR.
 The result on threshold 2 are better than EEG which only achieved approximately 85\% EHR in the 80\% FCR range, and it
 also performed better than the Kinect and EEG for threshold 3, however it did not show any improvements from the GSR and
 HR results.
 An average of the results can also be seen in Table~\ref{[TABLE] avg_stats_voting}
 
 The conservative approach showed good tendencies at threshold 2 with 21.8\% EHR and 12.3\% FCR, as seen in Figure~\ref{fig:voting_conservative_ehr}.
-Results are better than the EEG and Kinect in the conservative aspect, however it does not seem to gain any significant advantages compared to the HR and GSR.
+Results are better than the EEG and Kinect, however it does not seem to gain any significant advantages compared to the HR and GSR.
 As expected, the results from threshold 3 and 4 revealed little to no points of interest, and threshold 1 showed a bad EHR to FCR ratio. 
 The results from the conservative approach can also be seen in Table~\ref{[TABLE] avg_stats_voting}.
 
 Both approaches showed improvements compared to EEG and Kinect, but it did not give any decidedly better result compared
-to HR and GSR.
-
-\todo{Måske skal der diskuteres hvorvidt voting er det værd.}
+to HR and GSR, suggesting voting may not be the way to go for our current setup.
 
