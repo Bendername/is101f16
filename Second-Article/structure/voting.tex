@@ -1,5 +1,7 @@
 \section{Sensor fusion}
-Sensor fusion is a very large area in the MI context, and can essentially be reduced to decision fusion and feature fusion~\cite{fusion_techniques}.
+Sensor fusion is a substantial field of area within MI, but can essentially be reduced to decision fusion and feature fusion~\cite{fusion_techniques}.
+Feature fusing revolves around combing a set of features in some way or another.
+Decision fusion revolves around fusing outcomes from classifiers.
 We choose decision fusion to use the results found from the individual sensors.
 The simplest technique from the decision fusion domain is voting, which is a naive technique where each sensor vote whether or not an anomaly is present, and if a certain amount of sensors agrees, a point of interest is created. This technique also does not require any training to happen beforehand, which suits the premise of this study.
 
