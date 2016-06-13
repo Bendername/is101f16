@@ -242,23 +242,7 @@ and dependent on chosen features. This means, that although we can search for op
 a new search has to be performed if a new set of features are considered. This is to say, that validating if a set of
 features yields good results, e.g. many true-positives and few false-positives, is considerably time consuming. Features
 suggested in related work are disparate, i.e. varying time-spans and extracted from various statistics, and we have not
-been able to find conclusive indications as to which features should be used. We have attempted to uncover differences
-in features by considering two different sets of features - one considering short-term reactions and another considering
-long-term reactions, governed by the time-spans considered. We present the findings under a discussion in the paper. We
-want to make it clear, that finding optimal features and classification parameters, is not trivial. 
+been able to find conclusive indications as to which features should be used. 
 It is also debatable how robust the model is given we search for the optimal solutions. 
 We have the \textit{best} model for a specific set of features, for a specific set of data. 
-We cannot take this model and use it on another person. 
-
-% write some shit about how we could have designed the test better
-
-
-%remember to mention:
-    %that training data has to be clean
-    %specifying windows to specify as usability problems occurring
-    %weighting individual sensors (what is a hit?)
-    %scoring
-    %features and time
-    %svm params, grid search relies on the features selected
-    %disparate opinions on time to consider for gsr
-
+It is not guaranteed that we construct a general model, that can be used across different persons. 
