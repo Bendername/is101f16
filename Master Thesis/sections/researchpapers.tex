@@ -54,40 +54,34 @@ The paper then elaborates Scherer's\cite{definition_emotions} models for emotion
 \end{itemize}
 To test our hypotheses an experiment was conducted. In the experiment 49 test participants were using a simple program while physiological data was recorded from a kinect, EEG, GSR, and HR-sensor. The simple program showed pictures from International Affective Picture System~(IAPS)\cite{iaps} and then asked to give a SAM rating of how they feel.
 The physiological data was transformed into features based on various studies found in the literature. 
-These features and the SAM rating is used in a Support Vector Machine~(SVM) both for single sensors but also together with the decision fusion techniques: voting and stacking.\\
+These features and the SAM rating is used in a Support Vector Machine~(SVM) both for single sensors but also together with the decision fusion techniques: voting and stacking.\\\\
 In conclusion, we partly proved \textbf{H1} by finding that individual sensor and sensor fusion can achieve significantly higher accuracy than best case guessing at all the grouping, except for voting which did not achieve significance in Valence 3.
 Furthermore we partly \textbf{H2} we showed that using the fusion method stacking we could achieve significantly better accuracy than than using a single sensor with the exception of HR, Face, and GSR on Arousal 3, and Face on Valence 2 High.
 
 \subsection{Methodical Reflection:}
 An area within our study which require scrutiny and further investigation is
 that of context. Context is a broad term and involves many controllable and
-uncontrollable variables, for instance; the mood test participants are in
+uncontrollable variables, for instance; the mood\cite{definition_emotions} of a test participants are in
 before and under the experiment, the lighting and temperature in the room, the
-particular setup of the experiment, etc. We acknowledge that the above can
-affects how participants interact with the setup, and particularly how they
-react to the stimuli. If it had any significant impact on our results is
-unknown, and investigating it would require making a study specifically targeting this unexplored area of the current ongoing research within HCI.
-
+particular setup of the experiment, etc. 
+We acknowledge that the above can affects how participants interact with the setup, and particularly how they
+react to the stimuli. 
+The impact on our results is unknown, however it is a limitation of this study which we are aware of, but given the scope of this paper 1 the implications of its impact was no considered further.\\\\
 Self-Assessment Manikin, the method we used during experiments to get subjective
-ratings from participants on how they reacted to the stimuli, has been
-challenged in other studies, and our use of it could therefore be challenged as
+ratings from participants on how they experienced the stimuli, has been
+challenged in other studies\todo{find cite here}, and our use of it could therefore be challenged as
 well. For one, the method is highly subjective: test participants can lie,
 misunderstand the method, or simply have widely different frames of
 reference. It is particularly the two latter cases that has been
 scrutinized. Being \textit{moderately calm} might be answered differently from
 between participants, and each participant might have difficulties mapping
 correctly to the scales if stimuli with increasingly extreme connotations are
-presented. However, taking the fallacies above into consideration, the SAM
-method is still highly regarded and widely used, as evident from our review of
-literature within the field of HCI.\cite{fusion4}
-
-The machine learning techniques we have used are generally ``off-the-shelf'' solutions to the problem area we are dealing with.
-Due to the scope of the study we are conducting, it is not feasible to dive into specific techniques which could be used.
-The results achieved could most likely be substantially improved by using better techniques, but finding the optimal setup for ML for each sensor is beyond the scope of this paper.
-
-The results we arrive at find significantly better results on fusion with the technique stacking.
-The results are promising in terms of the field being rather young, and only in recent years computational power has increased enough to make machine learning techniques more accessible to the average researcher. It is possible to run even advanced and complex algorithms in fairly short time on normal computers, which before required super computers. 
-With advancements in both the techniques used and the hardware available, it could possibly be feasible to consistently measure affective changes in real time. 
+presented.
+In extension to this we did not consider the type of people we recruited, this is important because Foglia et. al~\cite{extrovsintro} states that GSR signals have different traits for persons who are extrovert than for people who are introvert. This might also be the case with the other sensors.
+\\\\
+The SVM we have used is a ``off-the-shelf'' solution to the problem area we are dealing with, and there might be perform better.
+But due to the scope of the study we are conducting, it is not the intention to find the optimal techniques which could be used.
+The results achieved could most likely be improved by using better techniques, but finding the optimal technique with the optimal parameter for each sensor is beyond the scope of this paper.
 
 %Things to discuss:
 %\todo{below is just a list of things we could discuss in this section}
