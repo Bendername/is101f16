@@ -28,13 +28,13 @@ normal. In our test case, the events may actually happen too fast after each oth
 the false-positives or noise we get, are in fact true positives but just outside our assumption of the emotional
 time-frame.
 
-While there is a lot of litterature on this subject, few explore the development of frustration on a physiological level
-over time.  Multiple studies attempts to classify frustration, however their usecases and context varies.  Some studies
+While there is a lot of literature on this subject, few explore the development of frustration on a physiological level
+over time.  Multiple studies attempts to classify frustration, however their use cases and context varies.  Some studies
 considers a duration of 100 seconds or more\cite{machine_learning_100s_gsr}, while others considers durations of 15
 seconds\cite{brainwave_signals_frustration}.  In this paper the most pessimistic option was selected; after a stimuli
 there is a physiological delay followed by a measurable reaction which last a short duration.  This, however, implies
 that frustration is not a continues reaction over time while using a system, but rather a reaction to a specific event
-with a timelimit for how long it ``lasts in the body''.  However, such physiological reactions may in fact be unfolding
+with a time limit for how long it ``lasts in the body''.  However, such physiological reactions may in fact be unfolding
 differently - frustration could be increasing in amplitude over time from the beginning of a stimuli.  That is, at the
 start of a frustrating event a user may not produce physiological spikes large enough to be detectable with our current
 setup, but over time as the frustrating event persists the physiological reaction will increase up until a point where
@@ -49,7 +49,10 @@ Naturally this can create noise, because a test participant might be shocked by 
 It could also be argued that the entire setup with sensors, and the type of test is not entirely compatible. 
 In order to do a usability test, a user has to interact with a system of some kind. 
 This almost always requires actions from the user, which in turn cause activity in the brain/muscles. 
-This activity is unwanted in terms of the data collected from sensors, because it usually implies noise compared to the affective state changes which are wished to be collected. In order to truly make this setup compatible, it would require some filters which could remove this noise effectively.
+This activity is unwanted in terms of the data collected from sensors, because it usually implies noise compared to the affective state changes which are wished to be collected. 
+In order to truly make this setup compatible, it would require some filters which could remove this noise effectively.
+The question is, if it is ever truly going to be controllable, and in turn if it will ever be feasible enough to measure the affective state in the resolution that physiological data provide.
+The more resolution, the more of the unwanted data is going to be present and have to be dealt with.
 
 We find the above largely unexplored, and as such leaves a lot of assumptions to be made.
 This in turn creates a natural skepticism of the validity of our results.
@@ -87,6 +90,6 @@ As such, it would be natural to hypothesize that other emotional and contextual 
 A thorough study to elaborate the considerations needed and consequences of such baggage would be beneficial to the field of study as a whole. 
 
 Considering the five best performing test participants, we hypothesis that some similar circumstance may be present. We
-find it interresting to investigate, as it could reveal important information into how to gather physiological data such
+find it interesting to investigate, as it could reveal important information into how to gather physiological data such
 that it yields better results. We propose future work that investigates length of relaxation period, size of training
 data among other things.
