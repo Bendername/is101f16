@@ -4,12 +4,12 @@ We found that on average, our classification did not yield results much better t
 parameters between 0.01 and 0.05 gave the best results, if few false-positives are desirable, resulting in at most
 $7.8\%$ false coverage, but identifying $15.9\%$ UPs for GSR. Results deteriorate for the other sensors in this regard,
 with EEG performing the worst. Choosing higher Nu-values quickly give rise to higher rates of false-positives, and
-simultaneously higher event-hit rate. From this, we conclude that whether our results are good or not, depends on they
+simultaneously higher event-hit rate. From this, we conclude that whether our results are good or not, depends on how they
 are applied. We imagine a use-case where few UPs are identified to a reasonable certainty, with a low Nu-value, used as
 a preliminary usability test, before more elaborate usability testing is performed.
 
 However, seeing aggregated and average results revealed surprising results for some test participants and sensors. From
-Figures~\ref{fig:gsr_event_ehr,fig:eeg_event_ehr, fig:hr_event_ehr}, and \ref{fig:face_event_ehr}, it is apparent that
+Figures~\ref{fig:gsr_event_ehr},\ref{fig:hr_event_ehr}, and \ref{fig:face_event_ehr}, it is apparent that
 some test participants perform significantly better than the average. This lead to an investigation into how results
 would look for only those. Choosing the five best performing test participants across all four sensors yielded results
 seen in Figure~\ref{fig:best_five_gsr}. From Figure~\ref{fig:best_five_gsr}, we see significantly better average results
