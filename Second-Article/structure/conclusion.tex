@@ -1,32 +1,58 @@
 %!TEX root = ..\Main.tex
-\section{Conclusion}
-We found that the average cases of our classification did not yield amazing results.
-In general Nu parameters of 0.01 and 0.05 gave the best results, where the EHR on the GSR was 4.5\% and 14.5\% to 2.1\% and 7.2\% FCR respectively. Similar results were present for HR, but Kinect and EEG performed worse. 
-Voting did not prove great either, with the best being conservative 2 voting which had 23.2\% EHR to 12.7\% FCR. 
+\section{Conclusion \& Discussion}
+We found that on average, our classification did not yield results much better than random guessing. In general, Nu
+parameters between 0.01 and 0.05 gave the best results, if few false-positives are desirable, resulting in at most
+$7.8\%$ false coverage, but identifying $15.9\%$ UPs for GSR. Results deteriorate for the other sensors in this regard,
+with EEG performing the worst. Choosing higher Nu-values quickly give rise to higher rates of false-positives, and
+simultaneously higher event-hit rate. From this, we conclude that whether our results are good or not, depends on they
+are applied. We imagine a use-case where few UPs are identified to a reasonable certainty, with a low Nu-value, used as
+a preliminary usability test, before more elaborate usability testing is performed.
 
-\section{Discussion}
-One of the most interesting things of our results, are that there are indications that our results suffer from bad worst-case tests. As the results are very different, it propose the idea that there exists different types of groups of people who react differently. If the best 5 test cases are looked at, we instead have much more promising results. The best five have ...\todo{write something in regards to the graphs we make}
-The worst five, however, perform in the complete opposite way with a massive amount of noise \todo{write something about the worst graphs}.
-Because the tasks were not time framed, the data can be differently stretched, but with the same amount of events. Looking at the available training data, the five best used an average of 2.8 minutes versus 4.1 minutes for the five worst. This suggest that there is no difference in the predictive power against the training set between the worst and the best. However, looking at the total test duration, minus the training tasks, the five best results used on average 19 minutes versus the five worsts 13.8 minutes. This difference in time could mean that it is important to allow enough unintrusive experiences to occur between usability errors, such that the physiological responses return to normal. In our test case, the events may actually happen to fast after each other, which could potentially mean some of the false-positives or noise we get, are in fact true positives but just outside our assumption of the emotional time-frame.
+However, seeing aggregated and average results revealed surprising results for some test participants and sensors. From
+Figures~\ref{fig:gsr_event_ehr,fig:eeg_event_ehr, fig:hr_event_ehr}, and \ref{fig:face_event_ehr}, it is apparent that
+some test participants perform significantly better than the average. This lead to an investigation into how results
+would look for only those. Choosing the five best performing test participants across all four sensors yielded results
+seen in Figure~\ref{fig:best_five_gsr}. From Figure~\ref{fig:best_five_gsr}, we see significantly better average results
+and individual results, compared to averages over all test participants. Compared with averages over all participants,
+we see a large differences. While it may not be apparently surprising, we still think this raises interesting questions,
+such as: are there circumstances that are equal among all five best-performing test participant? While we propose this
+to be investigated in future work, we have some hypothesis of our own.
 
-While there is a lot of litterature on this subject, few explore the development of frustration on a physiological level over time. 
-Multiple studies attempts to classify frustration, however their usecases and context varies. 
-Some studies considers a duration of 100 seconds or more\cite{machine_learning_100s_gsr}, while others considers durations of 15 seconds\cite{brainwave_signals_frustration}.
-In this paper the most pessimistic option was selected; after a stimuli there is a physiological delay followed by a measurable reaction which last a short duration.
-This, however, implies that frustration is not a continues reaction over time while using a system, but rather a reaction to a specific event with a timelimit for how long it ``lasts in the body''.
-However, such physiological reactions may in fact be unfolding differently - frustration could be increasing in amplitude over time from the beginning of a stimuli. 
-That is, at the start of a frustrating event a user may not produce physiological spikes large enough to be detectable with our current setup, but over time as the frustrating event persists the physiological reaction will increase up until a point where it is detectable. 
-This would lead to a situation where an anomaly may be detected X seconds from a stimuli, but in fact the negative affective state started some time before that.
-A more specific model for how such affective states unfold and for how long will increase the performance of our, and similar setups, and
-a study into this is highly relevant.
+Because the tasks were not time framed, the data can be differently stretched, but with the same amount of
+events. Looking at the available training data, the five best used an average of 2.8 minutes versus 4.1 minutes for the
+five worst. This suggest that there is no difference in the predictive power against the training set between the worst
+and the best. However, looking at the total test duration, minus the training tasks, the five best results used on
+average 19 minutes versus the five worsts 13.8 minutes. This difference in time could mean that it is important to allow
+enough unobtrusive experiences to occur between usability errors, such that the physiological responses return to
+normal. In our test case, the events may actually happen too fast after each other, which could potentially mean some of
+the false-positives or noise we get, are in fact true positives but just outside our assumption of the emotional
+time-frame.
+
+While there is a lot of literature on this subject, few explore the development of frustration on a physiological level
+over time.  Multiple studies attempts to classify frustration, however their use cases and context varies.  Some studies
+considers a duration of 100 seconds or more\cite{machine_learning_100s_gsr}, while others considers durations of 15
+seconds\cite{brainwave_signals_frustration}.  In this paper the most pessimistic option was selected; after a stimuli
+there is a physiological delay followed by a measurable reaction which last a short duration.  This, however, implies
+that frustration is not a continues reaction over time while using a system, but rather a reaction to a specific event
+with a time limit for how long it ``lasts in the body''.  However, such physiological reactions may in fact be unfolding
+differently - frustration could be increasing in amplitude over time from the beginning of a stimuli.  That is, at the
+start of a frustrating event a user may not produce physiological spikes large enough to be detectable with our current
+setup, but over time as the frustrating event persists the physiological reaction will increase up until a point where
+it is detectable.  This would lead to a situation where an anomaly may be detected X seconds from a stimuli, but in fact
+the negative affective state started some time before that.  A more specific model for how such affective states unfold
+and for how long will increase the performance of our, and similar setups, and a study into this is highly relevant.
 
 Further it is also assumed that any anomaly within our test is caused by the system, and not an uncontrolled variable from outside the system. 
-The reality, however, is that the brain, and physiological responses it creates, is highly sensitive according to the stimuli it receives.
-This could be noise from outside the test laboratory, hunger, or a stray thought of a family member passing away. 
-It could also be argued that the entire setup with sensors and the type of test is not entirely compatible. 
+The reality is, however, that there is many areas which we cannot control in the experiment.
+This could be noise from outside the test laboratory, hunger, or a stray thought of a family member passing away.
+Naturally this can create noise, because a test participant might be shocked by the noise, or be in a more negative mood if hungry, which in turn potentially could impact how the test participant perceive the program. 
+It could also be argued that the entire setup with sensors, and the type of test is not entirely compatible. 
 In order to do a usability test, a user has to interact with a system of some kind. 
 This almost always requires actions from the user, which in turn cause activity in the brain/muscles. 
-This activity is unwanted in terms of the data collected from sensors, because it usually implies noise compared to the affective state changes which are wished to be collected. In order to truly make this setup compatible, it would require some filters which could remove this noise effectively.
+This activity is unwanted in terms of the data collected from sensors, because it usually implies noise compared to the affective state changes which are wished to be collected. 
+In order to truly make this setup compatible, it would require some filters which could remove this noise effectively.
+The question is, if it is ever truly going to be controllable, and in turn if it will ever be feasible enough to measure the affective state in the resolution that physiological data provide.
+The more resolution, the more of the unwanted data is going to be present and have to be dealt with.
 
 We find the above largely unexplored, and as such leaves a lot of assumptions to be made.
 This in turn creates a natural skepticism of the validity of our results.
@@ -62,3 +88,8 @@ Further research also has to be done with regards to the emotional ``baggage'' p
 The personality type of a user change the way their physiological response is, such as the difference between introvert and extrovert GSR behavior~\cite{Foglia20081814}.
 As such, it would be natural to hypothesize that other emotional and contextual influences such as being hungry or having ``a bad day'' may influence the physiological patterns as well. 
 A thorough study to elaborate the considerations needed and consequences of such baggage would be beneficial to the field of study as a whole. 
+
+Considering the five best performing test participants, we hypothesis that some similar circumstance may be present. We
+find it interesting to investigate, as it could reveal important information into how to gather physiological data such
+that it yields better results. We propose future work that investigates length of relaxation period, size of training
+data among other things.

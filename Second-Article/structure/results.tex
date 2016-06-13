@@ -7,7 +7,7 @@ Our system produces on average $14.1$ events from test participants, within whic
 usability problems, and standard deviation of $3.2$. One participant produced the most with $22$ and the least produced
 was $9$,
 
-The ratio between area designated to containing UPs, refered to as events, and areas that do not contain UPs, in on
+The ratio between area designated to containing UPs, referred to as events, and areas that do not contain UPs, in on
 average $0.37$, i.e. a little less than 2/3 of the data on which we attempt to predict UPs is \textit{normal} data. The
 implication of this is that if a classifier were to distribute random guesses based on our data, about 63\% of them
 would fall within normal data, and 37\% within data that contains UPs, slightly shifting the difficulty to our
@@ -21,12 +21,10 @@ Nu-value line search. Figures~\ref{fig:gsr_event_ehr,fig:eeg_event_ehr, fig:hr_e
 shows the result of this as scatter plots of EHR and FCR for each sensor. Nu values range from low/green to high/red,
 ranging from $0.01$ to $1.00$ in $0.01$ intervals, yielding 100 different settings and results for each test
 participant. All test participants are represented in each graph, and Nu-values with a thick border is the average of
-each Nu-value accross all test participants.
+each Nu-value across all test participants.
 
-\textbf{Sensors likeness and differences}\\
-
+\paragraph{Sensors likeness and differences}
 \input{structure/avg_stats}
-
 As seen in Figure~\ref{fig:face_event_ehr} and Table~\ref{[TABLE]_avg_stats_sensors}, the Kinect shows precision above random guessing at low Nu-values and,
 as expected, closes in on the random guessing (37,52\%), as we increase the Nu-value. However, as seen in Table
 \ref{[TABLE]_avg_stats_sensors}, the GSR only slightly excite the random ratio at some of the values. Meaning that
@@ -46,3 +44,18 @@ possible, with the trade-off of alse receiving many false-positives. Detecting u
 however some sensors approach, on average, a precision very close to guessing.  Figures~\ref{fig:gsr_event_ehr},
 \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr} and Table~\ref{[TABLE]_avg_stats_sensors}
 still suggest that even though precision is low, it still manages to have a good EHR given the FCR.
+
+\paragraph{Investigating extremes}
+Examining Figures~\ref{fig:gsr_event_ehr}, \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr},
+we see a substatial density of datapoints above average. We find it interresting to consider the best performing test
+participants. Doing so, enables us to discuss how our setup might perform under better circumstances.
+
+\input{structure/best_five_graphs}
+\input{structure/best_five_stats}
+
+We decided to choose the five best performing test participants, and plot their results as seen in
+Figure~\ref{fig:best_five_gsr}. Tabel~\ref{tab:best_five_avg_stats} shows average statistics for both the five best, and
+the best performing across all test participants.
+
+From Figure~\ref{fig:best_five_gsr} we see that physiological data for some test participants generate better results
+than others. We do not believe this to be a coincidence, however futher work has to be conducted in order to confirm this.
