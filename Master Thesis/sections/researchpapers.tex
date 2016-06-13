@@ -26,7 +26,7 @@ Real-time Measurement of User Experience
 \paragraph{Hypothesis:}
 \begin{itemize}
     \item \textbf{H1:} There is a statistically significant
-      correlation between subjective SAM ratings and physiological
+      correlation between subjective Self-Assessment Manikin (SAM) ratings and physiological
       measurements from consumer-grade sensors.
     \item \textbf{H2:} Statistically, fusion of consumer-grade sensors
       has a significantly higher prediction rate than each sensor
@@ -44,16 +44,19 @@ Real-time Measurement of User Experience
 %The paper is based on our 9th semester project, which consists primarily of an elaborate literature review within the field of HCI. The purpose was to investigate the use of sensors within UX research and experiments. In particular, to investigate their use in eliciting emotions or affective state in UX test participants. The argument for using sensors in such cases, is that eliciting how test participants feel during an experiment is often left to be evaluated by third-party experts, leaving room for subjective assessments. Using sensors could potentially mitigate subjectivity, and help elicit more objective about how test participants feel and react during experiments.
 \todo{Der står noget med 9. semester projekt i tex filen med synes ikke at det er nødvendigt}
 %The primary motivation for the first paper was to create a much more robust study than our 9th semester.
-This paper was created in complete collaboration the is101f16.
-The primary motivation for this paper was to investigate to what degree user experience can be detected using physiological sensors.\todo{Anders start her i morgen :)}
-There was also a revision to the test setup. It was moved to a controlled setting of a usability lab, where it was possible to collect more data beside the physiological.
-The setup meant we collected video of the test participants legs, which enabled us to watch for movement related artifacts. We also collected video of the test participants face and the video of the monitor. 
-Further audio was collected. 
-The entire test was formalized such that it is easy replicable.
-New features was selected for the classifier which was rooted in literature.
-
-In conclusion, we partly \textbf{H1} by finding that individual sensor and sensor fusion can achieve significantly ($p < 0.001)$ higher accuracy than best case guessing at all the grouping, except for the EEG which did not achieve significance in Arousal 3, Valence 2 High and Valence 3, and only had $p < 0.01$ in Arousal 2 High and Valence 2 Low.
-Furthermore we partly \textbf{H2} we showed that using the fusion method stacking we could achieve significantly better accuracy than than using a single sensor as prediction tool, with the exception of the Kinect on the groupings Arousal 3, Valence 2 High, and Valence 3.\todo{Go over this numbers again}
+This paper was created in complete collaboration the is101f16, both paper and experiment.
+The primary motivation for this paper was to investigate to what degree user experience can be detected using physiological sensors.
+It further describes the role which short-lived emotions takes in user experience and its part in HCI.
+The paper then elaborates Scherer's\todo{cite} models for emotions and Ekman's basic emotions\todo{cite}, to concretize what the different evaluation techniques, such as Self-Assessment Manikin~(SAM) and Positive And Negative Affect Schedule~(PANAS), actually measures. Which leads to a division of the methods:
+\begin{itemize}
+\item \textit{Dimensional Techniques} focuses on the subjective feeling component often described with valence and arousal.
+\item \textit{Discrete Techniques} focuses on an emotion as a whole such as disgust, fear, sadness, joy etc.
+\end{itemize}
+To test our hypotheses an experiment was conducted. In the experiment 49 test participants were using a simple program while physiological data was recorded from a kinect, EEG, GSR, and HR-sensor. The simple program showed pictures from International Affective Picture System~(IAPS)\todo{cite} and then asked to give a SAM rating of how they feel.
+The physiological data was transformed into features based on various studies found in the literature. 
+These features and the SAM rating is used in a Support Vector Machine~(SVM) both for single sensors but also together with the decision fusion techniques: voting and stacking.\\
+In conclusion, we partly proved \textbf{H1} by finding that individual sensor and sensor fusion can achieve significantly higher accuracy than best case guessing at all the grouping, except for voting which did not achieve significance in Valence 3.
+Furthermore we partly \textbf{H2} we showed that using the fusion method stacking we could achieve significantly better accuracy than than using a single sensor with the exception of HR, Face, and GSR on Arousal 3, and Face on Valence 2 High.
 
 \subsection{Methodical Reflection:}
 An area within our study which require scrutiny and further investigation is
@@ -100,7 +103,7 @@ With advancements in both the techniques used and the hardware available, it cou
 
 \section{Motivational link between paper 1 and 2}
 Paper 1 showed that sensors can to some degree predict a users affective state, however, it seem to drop at higher resolution. 
-Arousal 3 and Valence 3 only achieved 0.660\% and 0.671\% on average, and would probably drop lower as the resolution gets higher. 
+Arousal 3 and Valence 3 only achieved 66.0\% and 67.1\% on average, and would probably drop lower as the resolution gets higher. 
 This would probably result in a 9 point SAM not having a very high accuracy, while also requiring a significant amount of training data to even be able to predict.
 However, since we have shown that we are able to, to some degree, predict the affective state of a person in low resolution, a natural step would be to use the technique in a context which did not require a high resolution. 
 A interesting prospect for this would be the detection of usability errors.
