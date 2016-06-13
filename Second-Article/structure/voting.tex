@@ -6,14 +6,14 @@ The simplest technique from the decision fusion domain is voting, which is a nai
 \subsection{Choice of Nu-value for individual sensor}
 Two approaches will be tried. The first approach is the \textit{aggressive approach}, which is to select the Nu parameter for each sensor which fits the case of having the largest precision in regard to achieving the low FCR. The idea is that individually each sensor have not achieved a high EHR while having a high precision, as shown in Table \ref{[TABLE] avg_stats_sensors}, but the accumulated answers from the sensors might achieve a higher EHR while remaining the same precision as the individual sensors.
 The second approach is the \textit{conservative approach}, that is based on that Figure x.x.x..x show that it is possible, to a reasonable degree, to choose a Nu parameter which has a large EHR while having a relatively low FCR. The main idea for this, opposite the previous idea, is that if the threshold for the amount of sensors which has to agree to create a point of interest is high, some of the false positives should be removed and ideally would the EHR stay high.
-The selection of the Nu values is done by hand-picking with the best fit to approach, the \textbf{aggressive approach} will have the following Nu value based on xx.x.x..x graph:
+The selection of the Nu values is done by hand-picking with the best fit to approach, the \textit{aggressive approach} will have the following Nu value based on xx.x.x..x graph:
 \begin{itemize}
 \item GSR: 0.09
 \item EEG: 0.01
 \item HR: 0.05
 \item Kinect: 0.01
 \end{itemize}
-The \textbf{conservative approach} will have the following Nu value based on xx.x.x..x graph:
+The \textit{conservative approach} will have the following Nu value based on xx.x.x..x graph:
 \begin{itemize}
 \item GSR: 0.45
 \item EEG: 0.30
