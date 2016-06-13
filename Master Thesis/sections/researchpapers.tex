@@ -110,21 +110,25 @@ The second paper will focus on detecting usability problems using physiology dat
 \paragraph{Title:}
 Usability Problem Detection from Affective State using Consumer Graded Sensors
 \paragraph{Summary:}
-The aim for the second paper, was to apply techniques and knowledge gained from the previous work in a more practical
-setting. The idea was to apply it within usability testing, in an attempt to mitigate some of the subjectivity bias
-associated with performing such tests, by predicting usability problems based on physiological data. Related work was
+
+
+ Related work was
 reviewed to find common affective states associated with experiencing usability problems and computer tasks most likely
 to induces such state. Frustration was found mentioned often, and working with email-related tasks to be inducing
-frustration the most. Based on this, a ``mock'' email client was developed, and a framework to deliberately seed
-usability problems into it. The client was kept as simple as possible, in order to avoid unintentionally introducing
-usability problems.\todo{Indsæt billede af klienten her}
+frustration the most.
+
+
 
 A usability test of the ``mock'' email client was performed. However unlike traditional usability testing, no usability
 expert was present during testing, and feedback was entirely dependent on physiological data captured via sensors during
 testing.  A total of 11 tasks were formulated, 7 of which had seeded usability problems.  The physiological data
 was collected from GSR, EEG, heart rate and kinect.  
 
+ Based on this, a ``mock'' email client was developed, and a framework to deliberately seed
+usability problems into it. The client was kept as simple as possible, in order to avoid unintentionally introducing
+usability problems.\todo{Indsæt billede af klienten her}
 
+ 
 novelty detection approach.
 In order to predict usability problems, a one-class SVM was trained on \textit{neutral} data, presumably containing no
 usability problems. Subsequent \textit{unknown} data was predicted upon to identify possible usability problems.
@@ -132,11 +136,14 @@ usability problems. Subsequent \textit{unknown} data was predicted upon to ident
 Many interesting 
 
 \subsection{Change of direction}
-Initially the article had a hypothesis
-\paragraph{Hypothesis:}
+The aim for the second paper, was to apply knowledge gained from the previous work in a more practical setting. 
+Initially the article had a hypothesis defined as:
 \begin{itemize}
     \item \textbf{H1:} There is a statistically significant improvement using sensor fusion to detect usability problems compared to using individual sensors.
 \end{itemize}
+However it was discarded due to the fact that the article would be more interesting as an explorative study, due to the lack of other similar studies, with focus on analysing the different finding and result more than a study focusing on getting a specific end result.
+The main goal for the article became instead to examine the outcome we got from using sensors, machine learning and sensor fusion to detect usability problems.
+In order give pointers of what we believe the applications for this, based on our findings.
 
 \subsection{Methodical Reflection:}
 % mention that we changed from having a hypothesis
