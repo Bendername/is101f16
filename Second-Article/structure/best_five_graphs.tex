@@ -1,0 +1,16 @@
+\newcommand{\graphtheshit}[3]{
+    \begin{figure}[h!]
+    \begin{minipage}[t]{0.5\textwidth}
+        \includegraphics[width=\linewidth,keepaspectratio=true]{graphics/graphs/best-worst/#1}
+        \caption{#2}
+        \label{#3}
+    \end{minipage}
+    \end{figure}
+}
+
+\newcommand{\somethingsomething}{
+  \graphtheshit{best-False_cover_rate_(FCR)-Events_hit_rate_(EHR)-CovNu-GSR.pdf}
+  {some caption}{some label}
+}
+
+\somethingsomething
