@@ -1,6 +1,5 @@
 %!TEX root = ..\Main.tex
-\chapter{Answer to research question}
-In this chapter the answers for both papers research questions will be presented.
+\chapter{Answer to hypotheses and research question}
 \section{Paper 1}
 In this paper it was explored that it is possible to gather physiological data through sensors, and further use this data to predict subjective SAM ratings with individual sensors as well as using fusion techniques. 
 Participants were subjected to stimuli in the form of IAPS pictures, presented in a self developed application. 
@@ -15,21 +14,14 @@ In paper one there was the following hypotheses:
 higher prediction rate than each sensor individually.
 \end{itemize}
 
-Results of the classification showed that naively guessing a class was significantly worse in all cases beside voting on the valance3 group. 
-This confirms the hypothesis H1. The result can be seen in Table 7 in paper 1.
-
+\textbf{H1} was partly confirmed prediction using sensor and sensor fusion was significantly better than best case guessing in all cases beside voting on the valence 3 grouping. 
 The second hypothesis propose that using machine learning fusion techniques for multiple sensors are better than using a single sensor. 
-Results show that the technique ``voting'' is not substantially better than single sensors and other methods, however the technique ``stacking'' performs significantly better than most methods. 
+Results show that the technique ``voting'' is not substantially better than single sensors and other methods, however the technique ``stacking'' performs significantly better than most methods. This confirms the second hypothesis.
 
-This confirms the second hypothesis. The results can be seen in Table 8 and 9 in the paper 1.
+Even though the results showed that using sensors it better than random guessing, the appliance of using this over traditional methods seem to unreliable or even unfeasible at even a 3-point SAM rating.
+However since we showed some ability to predict the the affective state of a person at a low resolution, applying this technique to areas which does not require the same resolution as user experience could be interesting.
 
 \section{Paper 2}
-In paper 2 the idea that it was possible to find usability problems from a users affective state was explored. 
-A ML technique called novelty detection was used, while making use of a one-class SVM to predict outliers.
-A self developed simulation of an email client was used as the framework for the test, in which the test participants would experience seeded usability problems.
-The collected data included GSR, EEG, heart rate and facial data from a kinect. 
-Sensor fusion was done in the form of voting.
-
 The paper had the following research questions:\\
 
 \textit{Is it possible to detect usability problems from physiological data gathered during testing?}\\
@@ -37,18 +29,11 @@ The paper had the following research questions:\\
 \textit{Could a combination of physiological data gathered from multiple sensors possibly increase the reliability of such detections?}\\
 
 The results showed that it is possible to detect usability to some degree. 
-Some of the best results included the GSR which could detect 14.5\% of the usability problem related events, while only having an additional 7.2\% noise. 
-The Kinect had similar results with an event hit rate of 21.7\% and a noise level of 10\%. 
-True for all results is that as the thresholds for when an outlier is considered an outlier is decreased, then it is possible to hit more events, but at the cost of considerable additional noise.
+The HR, GSR and Kinect showed reasonable result when measuring how many correctly detect usability problems in regards to much data which was falsely detected. However the EEG seemed to act more unreliable and less accurate than the other sensors.
 
 Voting was done both conservatively and aggressively.
-The conservative approach arguably had the best results when two sensors or more had to agree on an outlier, with 23.2\% event hit rate, with 12.7\% noise.
-The aggressive approach had considerable more noise, but had the best results of all sensors and fusion at 3 votes required.
-It had 72.1\% event hit rate, but with 58\% noise.
+The conservative approach showed robust results at voting 1 and 2. Whereas the aggressive approach had considerable more noise making it useless at voting 1 but showed reasonable results at voting 2 and 3.
 
-More interestingly was the differences when looking at the best five test participants versus the worst test participants. 
-They both had similar amounts of training data to predict against, but the best five used significantly more time on the test in total.
-The best five used 19 minutes, whereas the worst used 13 minutes 48 seconds. 
-This may allow for the test participants to relax more after each frustrating event, which in terms yield less noise. 
-The best five were also investigated in terms of the extra/intraversion, which showed they on average were lower than the entire data sets average. 
-This could suggest there are better results with people who are more towards introversion compared to people who are not.  
+These results yield no conclusive results it does, however, it propose to some interesting uses for the method.
+This includes assisting third-party evaluators in finding usability problems. This is due to the fact that a classifier with a low Nu value can predict points of interest with reasonable rate and low noise.
+This could potentially enable the evaluators to find some of the usability problems without too much video analysis.
