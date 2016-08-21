@@ -23,7 +23,7 @@ application, i.e it does not send any emails but simulates during so.
 
 The application was built upon a self developed framework which facilitated seeding usability problems and creating a set of tasks for the user to complete. 
 The application is kept simple with few features to decrease the risk of introducing unintentionally usability problems, while still having the basic functionalities of a normal email application.  
-The usability problems associated with a specific task were only active when a the given task was active, i.e. the participant would not encounter the problem if the corrosponding task was not active.
+The usability problems associated with a specific task were only active when a the given task was active, i.e. the participant would not encounter the problem if the corresponding task was not active.
 The program has a total of 11 tasks of which 7 contained a seeded usability problem. 
 All tasks were randomized for each test participant except the first two which contained no seeded problems, with the
 intention of using them as training data for novelty detection. 
@@ -62,6 +62,9 @@ All devices are low-cost consumer grade hardware as compared to high end medical
 A total of 39 people participated in the test, but 4 were removed due to malfunctions in the hardware resulting in too much loss of data. 
 The remaining 35 participants were 18 males, aged 20-29 SD 2.39, 17 females aged 19-26 SD 2.20.
 The participants were students recruited from various educations; Informations Technology(11), Computer Science(6), Occupational Therapist(1), Informatics(6), Sociology(2), Economics(1), Software Engineering(1), IT Design(2), Medicine(1), German(1), Pedagogue(1), and High School(2).
+All participants filled out a Big-Five\cite{big5} which revealed no bias in terms of personality.     
+The distribution in intro-/extroversion is the only one relevant to us, because it has an impact on how some physiological responses manifests it self like GSR\cite{extrovsintro}, the spread was AVG 29.49, SD 7.96. 
+Some individuals were very far away from the average.
 The tests were conducted from the 13th of April, 2016, to the 30th of April 2016. 
 
 \subsection{Procedure}
@@ -102,11 +105,11 @@ that are related to \textit{frustration} or similar negative affective states. W
 initial relaxation period, and before the third task begins, see Figure \ref{[FIGURE] Data Sections}. This is because the two first tasks are always chosen from
 a set of tasks containing no seeded usability problems. All physiological measurements collected within this section are assumed to not contain any frustrating responses. From the baseline, we extract various statistical measurements, in the form of
 feature vectors. A feature vector is just a set of numbers such as standard deviation, mean, min and max to a specific data point. 
-The feature vectors are used to train the classifier. The classifier can then compare new unseen data to the trained data, and determine if the new data is within the boundries of what can be called ``normal'' or if it is an anomaly.  
+The feature vectors are used to train the classifier. The classifier can then compare new unseen data to the trained data, and determine if the new data is within the boundaries of what can be called ``normal'' or if it is an anomaly.  
 \begin{figure}
     \centering
   \includegraphics[width=0.95\columnwidth]{graphics/rest_period_training_data.png}
-    \caption{The division of the test data parts. The first section is the relaxation period of 180 seconds. The second section is two normal tasks of which the test participants ``normal state'' / baseline is modelled. The last section is the rest of the test, and the section in which frustration is expected in the form of anomalies. }
+    \caption{The division of the test data parts. The first section is the relaxation period of 180 seconds. The second section is two normal tasks of which the test participants ``normal state'' / baseline is modeled. The last section is the rest of the test, and the section in which frustration is expected in the form of anomalies. }
     \label{[FIGURE] Data Sections}
 \end{figure}
 \subsection{Feature selection}
@@ -114,10 +117,10 @@ The feature vectors are used to train the classifier. The classifier can then co
 
 % UP -> frustatrion -> a / v -> features brugt i papers -> øst og vest -> kigger på features tidligere -> reaction
 % kommer instant -> vi bruger derfor de gamle features
-Investigating related work for relevant features for capturing frustation, many disparate methods are proposed, however,
+Investigating related work for relevant features for capturing frustration, many disparate methods are proposed, however,
 we choose to be inspired by the following discoveries.
 
-Poel et al.~\cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analysing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
+Poel et al.~\cite{affective_pacman} created ``Affective Pacman'' which induced frustration into the player while allowing synchronous recording of EEG data. After applying a short-term fourier transform and analyzing band-power, they found a significant difference in power, between the normal condition and frustrated conditions in the delta and theta bands.
 
 Trogo et al.~\cite{brainwave_signals_frustration} studied the affective state of students. More specifically they looked at boredom, confusion, engagement and frustration. 
 A simple application with Berg's Card Sorting Task\cite{bergs_card_sorting} was used as stimuli.
@@ -149,7 +152,7 @@ durations could indeed capture the occurrence of some stimuli, it would prove di
 durations would likely cover more than just one event. This suggests emotional responses such as frustration, in terms
 of researches, can have very different lifetimes depending on the target of research and use case.
 
-Our previous work\cite{first_paper} showed promising results using descriptive statistics, e.g. mean, median and standard deviation. 
+Our previous work\cite{first_article} showed promising results using descriptive statistics, e.g. mean, median and standard deviation. 
 As with our previous work, we attempt to capture affective state changes at stimuli exposure. 
 As mentioned, the usability problems we deliberately seeded into the test program are of significant severity, and we do not consider problems of cosmetic nature.
 Further as the seeded problems can appear within rather short time spans of each other, shorter assumptions of emotions fits the granularity of this study's use case. 
@@ -220,7 +223,7 @@ As such, we choose to use the same features as our previous work, with the short
 \end{table}
 
 \subsubsection{Features, latency and duration}
-Based on our previous work~\cite{9th_semester_project, first_paper}, with the intent of capturing short-term fleeting
+Based on our previous work~\cite{9th_semester_project}, with the intent of capturing short-term fleeting
 affective changes, we define the following latencies and time-spans to consider for each individual sensor.  We consider
 affective state changes in GSR to manifest themselves 2 seconds after the experience occurred which induced the stimuli,
 and is noticeable within a time-frame of 5 seconds thereafter, see Table \ref{[TABLE] features gsr}. EEG is considerably

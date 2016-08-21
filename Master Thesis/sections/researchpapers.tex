@@ -2,11 +2,11 @@
 \chapter{Research Papers}
 This chapter presents two research papers, both produced during our Master
 Thesis semester. The first paper and experiment for the first is produced in collaboration with another
-master thesis group, namely is102f16, whereas the second paper is produced entirely by us and the experiment is produced in collaboration with is102f16.
+master thesis group (is102f16), whereas the second paper is produced entirely by us, and the experiment is produced in collaboration with is102f16.
 
 The first paper is a combined effort where a large study with a large scale test was conducted.
-The aim was to classify the affective state from test participants, using images as stimuli.
-Physiological data was collected through a self developed program which allowed synchronization of all the data.
+The aim was to classify the affective state from test participants, using images as stimuli and multiple sensors.
+Physiological data was collected through custom software written by us, allowing synchronization of data from all sensors.
 The test participants also reported arousal and valence values for the stimuli, which was used to is test the validity of the classifier.
 
 The second paper builds upon the first, and aims to use its results in a more
@@ -16,7 +16,7 @@ induce a negative affective state, often discretized as \textit{frustration},
 our aim was to identify such states and thereby usability problems.
 
 Below is a short summary of each paper along with its research questions.
-Followed by that, is a methodical reflection, wherein we scrutinize and discuss
+Followed by that, is a methodical reflection, wherein we discuss
 our findings and methods. Each paper can be found in its full length in the
 Appendix.
 
@@ -26,7 +26,7 @@ Real-time Measurement of User Experience
 \paragraph{Hypothesis:}
 \begin{itemize}
     \item \textbf{H1:} There is a statistically significant
-      correlation between subjective SAM ratings and physiological
+      correlation between subjective Self-Assessment Manikin (SAM) ratings and physiological
       measurements from consumer-grade sensors.
     \item \textbf{H2:} Statistically, fusion of consumer-grade sensors
       has a significantly higher prediction rate than each sensor
@@ -42,49 +42,46 @@ Real-time Measurement of User Experience
 %\end{itemize}
 
 %The paper is based on our 9th semester project, which consists primarily of an elaborate literature review within the field of HCI. The purpose was to investigate the use of sensors within UX research and experiments. In particular, to investigate their use in eliciting emotions or affective state in UX test participants. The argument for using sensors in such cases, is that eliciting how test participants feel during an experiment is often left to be evaluated by third-party experts, leaving room for subjective assessments. Using sensors could potentially mitigate subjectivity, and help elicit more objective about how test participants feel and react during experiments.
-\todo{Der står noget med 9. semester projekt i tex filen med synes ikke at det er nødvendigt}
 %The primary motivation for the first paper was to create a much more robust study than our 9th semester.
-This paper was created in complete collaboration the is101f16.
-The primary motivation for this paper was to investigate to what degree user experience can be detected using physiological sensors.\todo{Anders start her i morgen :)}
-There was also a revision to the test setup. It was moved to a controlled setting of a usability lab, where it was possible to collect more data beside the physiological.
-The setup meant we collected video of the test participants legs, which enabled us to watch for movement related artifacts. We also collected video of the test participants face and the video of the monitor. 
-Further audio was collected. 
-The entire test was formalized such that it is easy replicable.
-New features was selected for the classifier which was rooted in literature.
-
-In conclusion, we partly \textbf{H1} by finding that individual sensor and sensor fusion can achieve significantly ($p < 0.001)$ higher accuracy than best case guessing at all the grouping, except for the EEG which did not achieve significance in Arousal 3, Valence 2 High and Valence 3, and only had $p < 0.01$ in Arousal 2 High and Valence 2 Low.
-Furthermore we partly \textbf{H2} we showed that using the fusion method stacking we could achieve significantly better accuracy than than using a single sensor as prediction tool, with the exception of the Kinect on the groupings Arousal 3, Valence 2 High, and Valence 3.\todo{Go over this numbers again}
+This paper was created in complete collaboration the group is102f16, both paper and experiment.
+The primary motivation for this paper was to investigate to what degree user experience can be detected using physiological sensors.
+It further describes the role which short-lived emotions takes in user experience and its part in HCI.
+The paper elaborates Scherer's\cite{definition_emotions} models for emotions and Ekman's basic emotions\cite{basic_emotion_origin}, to concretize what the different evaluation techniques, such as Self-Assessment Manikin~(SAM) and Positive And Negative Affect Schedule~(PANAS)\cite{PANAS}, actually measures. It leads to a division of the methods which we define as:
+\begin{itemize}
+\item \textit{Dimensional Techniques} focuses on the subjective feeling component often described with valence and arousal.
+\item \textit{Discrete Techniques} focuses on an emotion as a whole such as disgust, fear, sadness, joy etc.
+\end{itemize}
+To test our hypotheses, an experiment was conducted. In the experiment, 49 test participants were using a simple program
+while physiological data was recorded from a Kinect, EEG, GSR, and HR-sensor. The simple program showed pictures from
+International Affective Picture System~(IAPS)\cite{iaps} and asks the user to give a SAM rating of how they feel.
+The physiological data was transformed into features based on various studies found in the literature. 
+These features, and the SAM rating, are used in a Support Vector Machine~(SVM) both for single sensors, and together with the decision fusion techniques: voting and stacking.\\\\
+In conclusion, we partly proved \textbf{H1} by finding that individual sensor and sensor fusion can achieve significantly higher accuracy than best-case guessing at all the grouping, except for voting which did not achieve significance in Valence 3.
+Furthermore we partly proved \textbf{H2} by showing that using the fusion method stacking we could achieve significantly better accuracy than than using a single sensor with the exception of HR, Face, and GSR on Arousal 3, and Face on Valence 2 High.
 
 \subsection{Methodical Reflection:}
-An area within our study which require scrutiny and further investigation is
+An area within our study which require further investigation is
 that of context. Context is a broad term and involves many controllable and
-uncontrollable variables, for instance; the mood test participants are in
+uncontrollable variables, for instance; the mood\cite{definition_emotions} of a test participants are in
 before and under the experiment, the lighting and temperature in the room, the
-particular setup of the experiment, etc. We acknowledge that the above can
-affects how participants interact with the setup, and particularly how they
-react to the stimuli. If it had any significant impact on our results is
-unknown, and investigating it would require making a study specifically targeting this unexplored area of the current ongoing research within HCI.
+particular setup of the experiment, etc. 
+We acknowledge that the above can affect how participants interact with the setup, and particularly how they
+react to the stimuli. 
+The impact of context on our results is unknown, however it is a limitation of this study which we are aware of, but given the scope of this paper 1 the implications of its impact was no considered further.\\\\
 
-Self-Assessment Manikin, the method we used during experiments to get subjective
-ratings from participants on how they reacted to the stimuli, has been
-challenged in other studies, and our use of it could therefore be challenged as
-well. For one, the method is highly subjective: test participants can lie,
+Self-Assessment Manikin, the method we used during experiments to get 
+ratings from participants on how they experienced the stimuli, can give unreliable results. For one, the method is highly subjective: test participants can lie,
 misunderstand the method, or simply have widely different frames of
 reference. It is particularly the two latter cases that has been
-scrutinized. Being \textit{moderately calm} might be answered differently from
+scrutinized. Being \textit{moderately calm} might be answered differently 
 between participants, and each participant might have difficulties mapping
 correctly to the scales if stimuli with increasingly extreme connotations are
-presented. However, taking the fallacies above into consideration, the SAM
-method is still highly regarded and widely used, as evident from our review of
-literature within the field of HCI.\cite{fusion4}
-
-The machine learning techniques we have used are generally ``off-the-shelf'' solutions to the problem area we are dealing with.
-Due to the scope of the study we are conducting, it is not feasible to dive into specific techniques which could be used.
-The results achieved could most likely be substantially improved by using better techniques, but finding the optimal setup for ML for each sensor is beyond the scope of this paper.
-
-The results we arrive at find significantly better results on fusion with the technique stacking.
-The results are promising in terms of the field being rather young, and only in recent years computational power has increased enough to make machine learning techniques more accessible to the average researcher. It is possible to run even advanced and complex algorithms in fairly short time on normal computers, which before required super computers. 
-With advancements in both the techniques used and the hardware available, it could possibly be feasible to consistently measure affective changes in real time. 
+presented.
+In extension to this we did not consider the type of people we recruited, this is important because Foglia et. al~\cite{extrovsintro} states that GSR signals have different traits for persons who are extrovert than for people who are introvert. This might also be the case with the other sensors.
+\\\\
+The classification algorithm we used is an ``off-the-shelf'' SVM, but other solutions might yield better results.
+But due to the scope of the study we are conducting, it is not the intention to find the optimal techniques which could be used.
+The results achieved could most likely be improved by using better techniques, but finding the optimal technique with the optimal parameters for each sensor is beyond the scope of this paper.
 
 %Things to discuss:
 %\todo{below is just a list of things we could discuss in this section}
@@ -98,62 +95,69 @@ With advancements in both the techniques used and the hardware available, it cou
 %\item
 %\end{itemize}
 
-\section{Motivational link between paper 1 and 2}
+\section{Motivational considerations between paper 1 and 2}
 Paper 1 showed that sensors can to some degree predict a users affective state, however, it seem to drop at higher resolution. 
-Arousal 3 and Valence 3 only achieved 0.660\% and 0.671\% on average, and would probably drop lower as the resolution gets higher. 
-This would probably result in a 9 point SAM not having a very high accuracy, while also requiring a significant amount of training data to even be able to predict.
+Arousal 3 and Valence 3 only achieved 66.0\% and 67.1\% on average, and would probably drop lower as the resolution gets higher. 
+This would probably result in a 9-point SAM not having a very high accuracy, while also requiring a significant amount of training data to be able to predict reliably.
 However, since we have shown that we are able to, to some degree, predict the affective state of a person in low resolution, a natural step would be to use the technique in a context which did not require a high resolution. 
-A interesting prospect for this would be the detection of usability errors.
-In a naive and discrete assumption it can be argued that test participants only varies between two states, a normal state, and a frustration state.
-Additionally this study is more oriented on actual practical use rather than scientific proof of concept. 
+An interesting prospect for this would be the detection of usability errors.
+In a naive and discrete assumption, it can be argued that test participants only varies between two states, a normal state, and a frustration state.
+Additionally, this study is more oriented on actual practical use rather than scientific proof of concept. 
 This can benefit the community as a whole and help companies conducting usability evaluations to perform these with higher efficiency and/or accuracy.
 The second paper will focus on detecting usability problems using physiology data collected from consumer graded sensors.
 
 \section{Research paper 2}
 \paragraph{Title:}
-Real-time Detection of User Experience Problems
-\paragraph{Hypothesis:}
+Usability Problem Detection from Affective State using Consumer Graded Sensors
+\paragraph{Summary:}
+The primary motivation for paper 2 came from the findings of paper 1. 
+We found it was possible, to some degree, to assess the affective state of a person.
+The idea was to take this framework, and build upon it by applying it in a more real-life scenario with more natural stimuli.
+Our second paper explores this idea by attempting to find usability problems from the affective state changes in users
+while they interact with a software system.
+
+In paper, 1 it was found that increasing the resolution in terms of affective states would be harder, which meant usability problems would be a beneficial area to look at because it surrounds negative experiences.
+Related work was reviewed to find common affective states which were involved with usability problems.
+Affective states included ``stress'', ``anger'', ``irritation'' and ``frustration''.
+We opted for all these to be a degree of ``frustration''.
+Related work revealed that email-related tasks were particularly good at inducing frustration for users\cite{frustration_with_computers}.
+This was the basis for the program which was developed as the framework for exposing users to stimuli. 
+We created an email client simulation which had seeded usability problems, which became active only when their associated task was active.
+There was a total of 11 tasks, of which 7 contained usability errors.
+This email client was developed in collaboration with is102f16 because we shared the experiment for both of our individual research.
+During the test, synchronized physiological data was collected in the form of EEG, GSR, HR and Facial data.
+A total of 39 people completed the test, of which 4 were excluded due to faulty sensor data.
+
+Novelty detection was used to find usability problems which were defined as outliers from the ``normal physiological behaviour'' of the user. 
+A one-class SVM was trained on two initial tasks, which contained no seeded usability problems, and as such was presumed without usability problems.
+One sensor fusion technique was used in the form of voting. 
+
+The result of the paper is largely analytic and explorative in nature.
+These results are discussed, and especially insights into why they turned out the way they did, is reflected upon.
+Averages over the entire data set is presented, but it was also explored how the best candidates and worst candidates performed, and the differences between them.
+This gives interesting insights into which directions to take new research with in this field.
+
+\subsection{Change of direction}
+The aim for the second paper, was to apply knowledge gained from the previous work in a more practical setting. 
+Initially the article had a hypothesis defined as:
 \begin{itemize}
     \item \textbf{H1:} There is a statistically significant improvement using sensor fusion to detect usability problems compared to using individual sensors.
 \end{itemize}
-\paragraph{Summary:}
-The paper is based on the findings from our first paper. While the first paper focused on verifying the hypothesis that
-it is possible to predict affective states from physiological data, the test setup was also focused around this
-hypothesis.  Instantaneous stimuli was selected, and for each of the stimuli groups \textit{negative}, \textit{neutral}
-and \textit{positive} only the most extreme pictures were used.  This was very case-specific, and unlikely to be
-experienced in more general cases, or real-word scenarios.
-
-The aim for the second paper, was to apply techniques and knowledge gained from the previous work in a more practical
-setting. The idea was to apply it within usability testing, in an attempt to mitigate some of the subjectivity bias
-associated with performing such tests, by predicting usability problems based on physiological data. Related work was
-reviewed to find common affective states associated with experiencing usability problems and computer tasks most likely
-to induces such state. Frustration was found mentioned often, and working with email-related tasks to be inducing
-frustration the most. Based on this, a ``mock'' email client was developed, and a framework to deliberately seed
-usability problems into it. The client was kept as simple as possible, in order to avoid unintentionally introducing
-usability problems.
-
-A usability test of the ``mock'' email client was performed. However unlike traditional usability testing, no usability
-expert was present during testing, and feedback was entirely dependent on physiological data captured via sensors during
-testing.  A total of 11 tasks were formulated, 7 of which had seeded usability problems.  The same physiological data
-was collected as in the first paper, meaning GSR, EEG, heart rate and facial features.  The techniques used for finding
-usability problems changed from a prediction oriented approach to a novelty detection approach.
-
-In order to predict usability problems, a one-class SVM was trained on \textit{neutral} data, presumably containing no
-usability problems. Subsequent \textit{unknown} data was predicted upon to identify possible usability problems.
-
-\todo{Når vi har mere resultat og metode, så skriv det ind her}
+However it was discarded due to the fact that the article would be more interesting as an explorative study, due to the lack of other similar studies, with focus on analyzing the different findings and results more than a study focusing on getting a specific end-results.
+The main goal for the article instead became to examine the outcome we got from using sensors, machine learning and sensor fusion to detect usability problems,
+in order give pointers to what we believe the applications for this could be, based on our findings.
 
 \subsection{Methodical Reflection:}
 % mention that we changed from having a hypothesis
 %    why did we do this -> more exploratory, cannot 'cook' down to just one number, too many uncertainties
-\textit{Test and experiment}\\
+\subsubsection{Test and experiment}
 The experiment setup was controlled to the best of our abilities and conducted inside a usability lab. A changing
 variable we deliberately constructed in the system, was to randomize the order in which tasks are presented to the user,
 i.e. the order differs between test participants.
 This obviously leave us with the same concerns as in paper 1, that context has not thoroughly been investigated and taken
 into consideration. As with the first paper, this was simply dismissed as a limitation and scope of this paper.
 
-The experiment it self has also proved to be a problem even though it was thoroughly thought through. 
+The experiment itself has also proved to be a problem even though it was thoroughly thought through.
 It consisted of four phases, we would use the first and last phase, and the second and third was for the other group. The phases were:
 
 \begin{itemize}
@@ -163,13 +167,17 @@ It consisted of four phases, we would use the first and last phase, and the seco
 \item 4. Cued recall debrief
 \end{itemize}
 
-The first phase is involves putting on sensors and doing the actual usability test. The second phase was having them wait for a period or time. 
-The third phase involved reapplying the sensors and then having them watch a screen recording of them performing the usability test.
-The fourth and last phase was a cued recall debrief session, where points of interests selected from visual inspection of GSR graphs was investigated with the participant and a researcher.
+The first phase involves attaching sensors to the test participant and performing the usability test. The second phase
+had test participants waiting for a period or time. 
+The third phase involved re-attaching sensors and having them watch a screen recording of them performing the usability test.
+The fourth and last phase was a cued recall debrief session, where points of interests selected from visual inspection of GSR graphs were investigated with the participant and a researcher.
 
-Our test was quite long, and the premisis of it being doable with the amount of participants we wanted, was that we could interleve different participants. 
-When one participant was taking the usability test, another participant would be waiting for 30-60 minutes before comming back for cued recall. 
-Unfortunately it turned out that it was impossible to hold the time plan. Partly because the test sometimes took longer than the wait time needed, and partly because the setup time varied a from person to person. Sometimes it would take 30 seconds to put on the EEG, sometimes it would take 10-20 minutes. This was unacceptable for the other group because their entire validity of the experiment was based around the wait time being exactly what it was meant to be.
+Our test was quite long, and the premises of it being doable with the amount of participants we wanted, was that we could interleave different participants. 
+When one participant was taking the usability test, another participant would be waiting for 30-60 minutes before coming back for cued recall. 
+Unfortunately, it turned out to be quite difficult to manage such a time plan. Partly because the test sometimes took
+longer than the wait time needed, and partly because the setup time varied a from person to person. Sometimes it would
+take 30 seconds to attach the EEG, sometimes it would take 10-20 minutes. This was unacceptable for the other group,
+because their validity of the experiment was based around the wait time having to be exact.
 This in turn meant we could only do 4-5 people a day, instead of 8 people a day. 
 This along with the fact that sometimes people simply did not show up, meant that the testing period took significantly longer than anticipated. 
 Further we also collected cued recall debrief data in the form of SAM questionnaires, however, it turned out those were not needed because the way they were collected did not fit the purposes we could use them for. We collected SAM for points of interest in a GSR graph, but what we really needed was to collect SAM data for each event/usability error or task, such that we could have validated our programs implemented errors actually also was perceived as usability errors. 
@@ -177,40 +185,47 @@ Further we also collected cued recall debrief data in the form of SAM questionna
 Specific to this test, the program developed is also a factor to consider when looking at the results.  We attempted to
 make a program with no usability errors, but as research has shown since the dawn of HCI, this is nearly impossible.  We
 experienced problems with the computer used for the test, where the program would have unexpected latency and unresponsiveness when using the keyboard and mouse. This was not intentional, and hence not a seeded usability problem.
-The user might however, still perceive the unresponsiveness of the program as a usability problem. 
-This was the case in at least one test.  
-Further we found small areas of the program that could be considered cosmetic usability problems, however, as the paper does not actively try
-to estimate severity this was left out in the evaluation. Other concerns became evident when considering how each
+The user might however, still perceive the unresponsiveness of the program as a usability problem, which was the case in
+at least one test, discovered during cued recall debrief sessions.
+Further we found small areas of the program that could be considered cosmetic usability problems, however, as we did not try
+and estimate severity, this was left out in the evaluation. Other concerns became evident when considering how each
 individual seeded problem was perceived by the test participant. Some problems were perceived immediately,
 e.g. participants were paying attention when error feedback was given, while others problems were not. In particular,
 tasks that required test participants to use the keyboard, usually draws their attention to it, and away from any
 feedback signifying that an error has occurred. An implication that follows from this, is that it becomes harder to
 determine exactly \textit{when} a test participant experiences a particular seeded problem.
 
-The experiment could also be altered with the use of different hardware. It is possible to collect GSR data from the chest area, and heart rate data from the ears. This would free the dominant hand from sensors which would make the test participant use the system like normal, rather than having one hand disabled during the test.\\
+The experiment could also considered different hardware sensors.
+It is possible to collect GSR data from the chest area, and heart rate data from the ears.
+This would free the dominant hand from sensors which would make the test participant use the system unencumbered, rather than having one hand disabled during the test.
 
-\textit{Frustration models}\\
-One of the biggest complications during this study is the lack of uniform agreement on how emotional responses, in particular frustration, developes on a physiological level. While there has been quite a few studies sorrounding estimating frustration from physiological data, the way they do it, and how they ``label'' frustration is very different.
+\subsubsection{Frustration models}
+One of the biggest complications during this study is the lack of uniform agreement on how emotional responses, in particular frustration, develops on a physiological level. While there has been quite a few studies surrounding estimating frustration from physiological data, the way they do it, and how they ``label'' frustration is very different.
 The biggest difference lies in the assumption of the duration of the emotion. 
-Some researchers, like us, believe the assumption that emotions are short lived and instantanious in nature. 
+Some researchers, like us, believe the assumption that emotions are short lived and instantaneous in nature. 
 Others believe they are long, which can be anything from 10-20 seconds to over 100 seconds or more. 
 While researchers generally tend to get good results, it has to do with the use case of the study. 
 Do you look for a general increase in average amplitude of a GSR signal or do you look for actual spikes in amplitude? 
-How you define this has a fundemental impact on the results you get. 
-In our case it was difficult to select a model which satisfied all our constraints, especially because the experiment was designed prior the investigation of frustration as a physiological response. 
-On one hand, we have a system which has ``events'', stimuli designed to be frustrating, within a task. These events can be exposed to the user in quick succession, depending on how fast the user provokes the event, e.g. clicking delete and nothing happens and doing it imediately again. 
-A model which caters to the assumption that frustration lasts a long time, will conflict with the actual collected data, because it can overlap multiple events. Then it has to be considered if an outlier is caused by both events combined or an individual event. 
+How you define this has a fundamental impact on the results you get. 
+In our case, it was difficult to select a model which satisfied all our constraints, especially because the experiment was designed prior the investigation of frustration as a physiological response. 
+On one hand, we had a system which has ``events'', stimuli designed to be frustrating, within a task. These events can be exposed to the user in quick succession, depending on how fast the user provokes the event, e.g. clicking delete and nothing happens and doing it immediately again. 
+A model which caters to the assumption that frustration lasts a long time, will conflict with the collected data, because it can overlap multiple events. Then it has to be considered if an outlier is caused by both events combined or an individual event. 
 
-Further there is no uniform theory upon how frustrating events develop over time as there are multiple exposures. It is generally acknowledge that a reaction stimuli, positive or negative, is strongest the first time it is experienced. Further if a person can anticipate a stimuli, the expectation of it may also reduce the reaction. But is this the case with frustrating events in a running system as well? It is not too far stretched to imagine a person having a software related problem, and the first time you'll be slightly annoyed, if the problem persists the irritation that you cannot fix it also increase. That case could argue for a frustration curve which is steadily going upwards, but not having spikes.
-On the other hand, if a person has written an entire document in word and it crashes, it will lead to a massive ``burst'' of frustration. 
-While the reaction is labelled the same, the way it is experienced is very different. One is slow and steady, the other is instantanious and violent.
+Further there is no uniform theory on how frustrating events develop over time as there are multiple exposures. It is
+generally acknowledged that a reaction stimuli, positive or negative, is strongest the first time it is experienced.
+Further if a person can anticipate a stimuli, the expectation of it may also reduce the reaction. But is this the case with frustrating events in a running system as well? It is not too far stretched to imagine a person having a software related problem, and the first time you'll be slightly annoyed, if the problem persists the irritation that you cannot fix it also increase. That case could argue for a frustration curve which is steadily going upwards, but not having spikes.
+On the other hand, if a person has written an entire document in a word processor and it crashes, it could lead to a massive ``spike'' of frustration. 
+While the reaction is labeled the same, the way it is experienced is very different. One is slow and steady, the other is instantaneous and violent.
 
-Due to the complexity of how to measure the data, and the resulting complex results of an explorative model also forced us to multiple times consider our hypothesis. Because the concept of frustration as physiological data has multiple layers of complexity, it is hard to boil it down to one number, or one result. Having it being a final number would simply be to simplistic a result compared to the model. This ruled out many of the initial hypothesis' revolving around significancy of the result of our classifiers. In the end we found the most fitting thing to do was not having a hypothesis, simply because the study is explorative of nature, and the result is insights of how researchers can deal with the complex nature of classifying frustration in a running program.\\
+Due to the complexity of how to measure the data, and the resulting complex results of an explorative model also forced
+us to multiple times consider our hypothesis. Because the concept of frustration as physiological data has multiple
+layers of complexity, it is hard to reduce it to one number, or one result. Having it being a single number would simply
+be to simplistic, compared to the model. This ruled out many of the initial hypothesis revolving around significance of the result of our classifiers. In the end we found the most fitting thing to do was not having a hypothesis, simply because the study is explorative in nature, and the result is insights of how researchers can deal with the complex nature of classifying frustration in a running program.
 
-\textit{Novelty detection}\\
+\subsubsection{Novelty detection}
 The method used in this paper is \textit{novelty detection} using a one-class SVM. The primary requirements for
 achieving good performance, i.e. good predictive power, is to ensure that training data contains as few anomalies as
-possible. The difficulty associated with ensuring this can vary depending on the kind of data considering, but in our
+possible. The difficulty associated with ensuring this can vary depending on the kind of data considered, but in our
 case, where we consider physiological data, is is not trivial. We attempt to minimize the risk of
 training on data containing anomalies by considering only data from the first two tasks, containing no seeded
 problems. However, we cannot be certain that this data never contains any anomalies, as identifying anomalies is what we
@@ -225,23 +240,7 @@ and dependent on chosen features. This means, that although we can search for op
 a new search has to be performed if a new set of features are considered. This is to say, that validating if a set of
 features yields good results, e.g. many true-positives and few false-positives, is considerably time consuming. Features
 suggested in related work are disparate, i.e. varying time-spans and extracted from various statistics, and we have not
-been able to find conclusive indications as to which features should be used. We have attempted to uncover differences
-in features by considering two different sets of features - one considering short-term reactions and another considering
-long-term reactions, governed by the time-spans considered. We present the findings under a discussion in the paper. We
-want to make it clear, that finding optimal features and classification parameters, is not trivial. 
-It is also debateable how robost the model is given we search for the optimal solutions. 
+been able to find conclusive indications as to which features should be used. 
+It is also debatable how robust the model is given we search for the optimal solutions. 
 We have the \textit{best} model for a specific set of features, for a specific set of data. 
-We cannot take this model and use it on another person. 
-
-% write some shit about how we could have designed the test better
-
-
-%remember to mention:
-    %that training data has to be clean
-    %specifying windows to specify as usability problems occurring
-    %weighting individual sensors (what is a hit?)
-    %scoring
-    %features and time
-    %svm params, grid search relies on the features selected
-    %disparate opinions on time to consider for gsr
-
+It is not guaranteed that we construct a general model, that can be used across different persons. 

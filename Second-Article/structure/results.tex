@@ -2,47 +2,47 @@
 \section{Results}
 The mean length of each test, excluding the two first tasks used for training, were $11.8$ minutes, with a standard
 deviation of $4.4$ minutes - the longest being $28.3$ minutes and the shortest $5.8$ minutes.
-
-Our system produces on average $14.1$ events from test participants, within which our setup is expected to predict
-usability problems, and standard deviation of $3.2$. One participant produced the most with $22$ and the least produced
-was $9$,
-
-The ratio between area designated to containing UPs, refered to as events, and areas that do not contain UPs, in on
-average $0.37$, i.e. a little less than 2/3 of the data on which we attempt to predict UPs is \textit{normal} data. The
-implication of this is that if a classifier were to distribute random guesses based on our data, about 63\% of them
-would fall within normal data, and 37\% within data that contains UPs, slightly shifting the difficulty to our
-disadvantage. The standard deviation in this ratio is $0.06$, and in only one case, is the area containing UPs larger
-with a ration of $0.57$.
+Our system produces on average of $17.0$ (SD $4.0$) events for each usability test.
 
 \input{structure/sensors_graphs}
 
 Having performed a grid search to find optimal settings for our one-class SVM classification, we performed the mentioned
-Nu-value line search. Figures~\ref{fig:gsr_event_ehr,fig:eeg_event_ehr, fig:hr_event_ehr}, and \ref{fig:face_event_ehr}
+Nu-value line search. Figures~\ref{fig:gsr_event_ehr},\ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr}
 shows the result of this as scatter plots of EHR and FCR for each sensor. Nu values range from low/green to high/red,
 ranging from $0.01$ to $1.00$ in $0.01$ intervals, yielding 100 different settings and results for each test
 participant. All test participants are represented in each graph, and Nu-values with a thick border is the average of
-each Nu-value accross all test participants.
+each Nu-value across all test participants.
 
-\textbf{Sensors likeness and differences}\\
-
-\input{structure/avg_stats}
-
-As seen in Figure~\ref{fig:face_event_ehr} and Table~\ref{[TABLE]_avg_stats_sensors}, the Kinect shows precision above random guessing at low Nu-values and,
-as expected, closes in on the random guessing (37,52\%), as we increase the Nu-value. However, as seen in Table
-\ref{[TABLE]_avg_stats_sensors}, the GSR only slightly excite the random ratio at some of the values. Meaning that
-to have a reasonable precision with few false positives, a lower Nu-value would be desirable.
-These findings indicate that the results from the Kinect are presumably not related to random guessing, but can give a moderately qualified answer to where usability problems can be found, and the GSR show some of the same tendencies.
-While the HR values does not excite the threshold for random guessing, it still shows encouraging results in regards of hitting as many different events as possible while keeping a low FCR, as seen in Figure~\ref{fig:hr_event_ehr}.
-
+\paragraph{Sensors likeness and differences}
 Looking at Figures~\ref{fig:gsr_event_ehr}, \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr},
 as well as Table~\ref{[TABLE]_avg_stats_sensors}, it can be seen that choosing a higher Nu-value for your classifier can yield interesting propositions if the classifier should cover as many problems as possible while minimizing the area wrongly covered.
+\input{structure/avg_stats}
 In other words if one's aim is to hit all events, a high Nu-value must be chosen, but comes with the trade-off of placing more anomalies outside events. 
-While the GSR and the HR both have a smooth curve through the averages of which indicates a stable classifier, but the Kinect seem to be more unstable in its relation between EHR and FCR. However Kinect seems to regain some of its stability with higher Nu values. As shown in \ref{[TABLE]_avg_stats_sensors} and seen in Figure x\todo{THIS NEEDS REF}, the EEG deviate from the other by already at low Nu-values doing a very aggressive prediction and predicting x amount more in average than the X sensor.
+While the GSR and the HR both have a smooth curve through the averages of which indicates a stable classifier, but the Kinect seem to be more unstable in its relation between EHR and FCR. However Kinect seems to regain some of its stability with higher Nu values. As shown in \ref{[TABLE]_avg_stats_sensors} and seen in Figure~\ref{fig:eeg_event_ehr}, the EEG deviate from the other sensor by already at low Nu-values doing a very aggressive prediction approach and creating useless predictions at Nu-values above 0.5.
 
-All the graph reveals that across all the test participants no golden Nu-value presents itself. A ``conservative''
+All the graph reveals that across all the test participants no golden Nu-value presents itself. A conservative
 setting could be chosen, to ensure that little false area is covered, while still detecting some usability problems. On
 the other hand, a higher and more ``aggressive'' value could be chosen in attempt to detect as many problems as
-possible, with the trade-off of alse receiving many false-positives. Detecting usability problems \textit{is} possible,
-however some sensors approach, on average, a precision very close to guessing.  Figures~\ref{fig:gsr_event_ehr},
+possible, with the trade-off of alse receiving many false-positives. Figures~\ref{fig:gsr_event_ehr},
 \ref{fig:eeg_event_ehr}, \ref{fig:hr_event_ehr} and \ref{fig:face_event_ehr} and Table~\ref{[TABLE]_avg_stats_sensors}
-still suggest that even though precision is low, it still manages to have a good EHR given the FCR.
+shows that the HR, Kinect and GSR manages to have a reasonable across EHR given the FCR the different Nu values, which shows a robustness to the result.
+
+\paragraph{Investigating the best results}
+We find it interesting to consider the best performing test participants to see if there difference to be found between them and the rest. 
+If such differences are found this would be a valuable informations for future studies, because a preliminary screening could help select the people who would be give the best persons for such research.
+Figure~\ref{fig:best_five_gsr}. Tabel~\ref{tab:best_five_avg_stats} shows average statistics for both the five best, and
+the best performing across all test participants on the GSR sensor. The best are calculated from summed EHR for all of the Nu-value to a given test participant.
+\input{structure/best_five_graphs}
+\input{structure/best_five_stats}
+A noticeable difference for the five best scoring test subjects is their average from the introvert/extrovert which is on average 25,4, SD 2,2.
+Where the total average is 29.49 which is lower, however the standard deviation is 7.96 which is quite high fluctuation. This is an interesting result because as mentioned in \cite{extrovsintro}, the introvert has shown more ´´peaky traces'' when measuring GSR data.
+But since it is only the five best nothing conclusive can be said, it however could be interesting an interesting topic for further investigation.\\\\
+Figure~\ref{[Fig] best result} shows depicts a test with the points of interest created by the GSR from the best test participant, according to EHR.
+Even though the test participant achieved a EHR at 92.3\%  while only having a FCR at 37.7\%. However looking at Figure~\ref{[Fig] best result} the points of interest seems more arbitrary than definitive detecting.
+    \begin{figure}[H]
+    \begin{minipage}[t]{0.5\textwidth}
+        \includegraphics[width=\linewidth,keepaspectratio=true]{graphics/graphs/events/johnny-nu050-29-short-sensors.pdf}
+        \caption{Figure showing the detected points of interest(blue) by the GSR from the best test participant at Nu value 0.5. The green area represent the two first task and the grey line and areas represent the events.}
+        \label{[Fig] best result}
+    \end{minipage}
+    \end{figure}
